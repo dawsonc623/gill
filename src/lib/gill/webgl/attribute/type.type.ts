@@ -6,6 +6,8 @@ interface GillAttributeType
 
   getDataSize(): number;
 
+  getDataStride(): GLsizei;
+
   getDataType(): number;
 
   toTypedArray(

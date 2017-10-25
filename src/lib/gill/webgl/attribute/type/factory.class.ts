@@ -9,14 +9,16 @@ class StandardGillAttributeTypeFactory implements GillAttributeTypeFactory
     dataType          : number,
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
-    dataIsNormalized  : GLboolean
+    dataIsNormalized  : GLboolean,
+    dataStride        : GLsizei
   ): GillAttributeType
   {
     return  new StandardGillAttributeType(
               dataType,
               typedArrayFactory,
               dataSize,
-              dataIsNormalized
+              dataIsNormalized,
+              dataStride
             );
   }
 }

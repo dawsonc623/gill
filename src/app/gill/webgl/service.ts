@@ -30,7 +30,8 @@ webglService.setAttributeType(
   5126,   // gl.FLOAT
   float32ArrayFactory,
   2,
-  true    // Whether or not the data is normalized
+  true,   // Whether or not the data is normalized
+  0       // The span between the start of each attribute value
 );
 
 webglService.setAttributeType(
@@ -38,7 +39,8 @@ webglService.setAttributeType(
   5126,   // gl.FLOAT
   float32ArrayFactory,
   3,
-  true    // Whether or not the data is normalized
+  true,   // Whether or not the data is normalized
+  0       // The span between the start of each attribute value
 );
 
 //TODO Move this to map instantiation

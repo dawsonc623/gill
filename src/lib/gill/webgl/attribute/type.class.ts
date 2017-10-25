@@ -8,7 +8,8 @@ class StandardGillAttributeType implements GillAttributeType
     private dataType          : number, //TODO Constrain to WebGL type constant values?
     private typedArrayFactory : GillTypedArrayFactory,
     private dataSize          : number,
-    private dataIsNormalized  : GLboolean
+    private dataIsNormalized  : GLboolean,
+    private dataStride        : GLsizei
   ) {
 
   }
@@ -21,6 +22,11 @@ class StandardGillAttributeType implements GillAttributeType
   getDataSize(): number
   {
     return  this.dataSize;
+  }
+
+  getDataStride(): GLsizei
+  {
+    return  this.dataStride;
   }
 
   getDataType(): number

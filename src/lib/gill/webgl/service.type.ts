@@ -34,7 +34,8 @@ interface GillWebglService
     dataType          : number, //TODO Constrain to WebGL type constants
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
-    dataIsNormalized  : GLboolean
+    dataIsNormalized  : GLboolean,
+    dataStride        : GLsizei
   ): void;
 
   setUniformType(
