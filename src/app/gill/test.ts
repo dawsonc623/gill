@@ -1,7 +1,7 @@
 import gillAttributeValueMapFactory   from "app/gill/model/attribute-value-map/factory";
-import gillBufferService              from "app/gill/buffer/service";
 import gillChangedAttributeMapFactory from "app/gill/model/changed-attribute-map/factory";
 import gillIndexCollectionFactory     from "app/gill/model/index-collection/factory";
+import gillModelBufferService         from "app/gill/model-buffer-service";
 import gillModelFactory               from "app/gill/model/factory";
 import gillNumberFactory              from "app/gill/model/number/factory";
 import gillProgramService             from "app/gill/program/service";
@@ -13,9 +13,9 @@ import gillVertexCollectionFactory    from "app/gill/model/vertex/collection/fac
 import gillVertexFactory              from "app/gill/model/vertex/factory";
 
 (<any>window).gillAttributeValueMapFactory    = gillAttributeValueMapFactory;
-(<any>window).gillBufferService               = gillBufferService;
 (<any>window).gillChangedAttributeMapFactory  = gillChangedAttributeMapFactory;
 (<any>window).gillIndexCollectionFactory      = gillIndexCollectionFactory;
+(<any>window).gillModelBufferService          = gillModelBufferService;
 (<any>window).gillModelFactory                = gillModelFactory;
 (<any>window).gillNumberFactory               = gillNumberFactory;
 (<any>window).gillProgramService              = gillProgramService;

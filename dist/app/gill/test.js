@@ -4,10 +4,6 @@ var _factory = require("app/gill/model/attribute-value-map/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-var _service = require("app/gill/buffer/service");
-
-var _service2 = _interopRequireDefault(_service);
-
 var _factory3 = require("app/gill/model/changed-attribute-map/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
@@ -15,6 +11,10 @@ var _factory4 = _interopRequireDefault(_factory3);
 var _factory5 = require("app/gill/model/index-collection/factory");
 
 var _factory6 = _interopRequireDefault(_factory5);
+
+var _modelBufferService = require("app/gill/model-buffer-service");
+
+var _modelBufferService2 = _interopRequireDefault(_modelBufferService);
 
 var _factory7 = require("app/gill/model/factory");
 
@@ -24,9 +24,9 @@ var _factory9 = require("app/gill/model/number/factory");
 
 var _factory10 = _interopRequireDefault(_factory9);
 
-var _service3 = require("app/gill/program/service");
+var _service = require("app/gill/program/service");
 
-var _service4 = _interopRequireDefault(_service3);
+var _service2 = _interopRequireDefault(_service);
 
 var _factory11 = require("app/gill/program/source/factory");
 
@@ -55,12 +55,12 @@ var _factory22 = _interopRequireDefault(_factory21);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.gillAttributeValueMapFactory = _factory2.default;
-window.gillBufferService = _service2.default;
 window.gillChangedAttributeMapFactory = _factory4.default;
 window.gillIndexCollectionFactory = _factory6.default;
+window.gillModelBufferService = _modelBufferService2.default;
 window.gillModelFactory = _factory8.default;
 window.gillNumberFactory = _factory10.default;
-window.gillProgramService = _service4.default;
+window.gillProgramService = _service2.default;
 window.gillProgramSourceFactory = _factory12.default;
 window.gillUniformValueMapFactory = _factory14.default;
 window.gillVector2Factory = _factory16.default;
