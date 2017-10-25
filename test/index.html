@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gill Testing Ground</title>
+</head>
+<body>
+  <canvas
+    height  = "400"
+    id      = "my_canvas"
+    style   = "background-color: black;"
+    width   = "800"
+  ></canvas>
+
+  <script src="/gill.js"></script>
+
+  <script>
+    class GillBufferService
+    {
+      constructor(
+        gillAttributeBufferMapFactory,
+        gillBufferCache,
+        gillBufferFactory
+      ) {
+        this.gillAttributeBufferMapFactory  = gillAttributeBufferMapFactory;
+        this.gillBufferCache                = gillBufferCache;
+        this.gillBufferFactory              = gillBufferFactory;
+      }
+
+      getModelBuffer(
+        gillModel,
+        webglRenderingContext
+      )
+      {
+        const gillBufferExists  = this.gillBufferCache.hasBuffer(
+                                    gillModel,
+                                    webglRenderingContext
+                                  );
+
+        let gillBuffer;
+
+        if (gillBufferExists)
+        {
+          gillBuffer  = this.gillBufferCache.getBuffer(
+                          gillModel,
+                          webglRenderingContext
+                        );
+        }
+        else
+        {
+          gillBuffer  = this.gillBufferFactory.construct(
+                          this.gillAttributeBufferMapFactory.construct(),
+                          webglRenderingContext.createBuffer()
+                        );
+
+          this.gillBufferCache.cacheBuffer(
+            gillModel,
+            gillBuffer,
+            webglRenderingContext
+          );
+        }
+
+        return gillBuffer;
+      }
+    }
+
+    class GillModelBufferService
+    {
+      constructor(
+        gillBufferService
+      ) {
+        this.gillBufferService  = gillBufferService;
+      }
+
+      getModelAttributeBuffer(
+        gillModel,
+        attributeName,
+        webglRenderingContext
+      )
+      {
+        const gillBuffer  = this.gillBufferService.getModelBuffer(
+                              gillModel,
+                              webglRenderingContext
+                            );
+
+        const hasAttributeBuffer  = gillBuffer.hasAttributeBuffer(
+                                      attributeName
+                                    );
+
+        let attributeBuffer;
+
+        if (hasAttributeBuffer)
+        {
+          attributeBuffer = gillBuffer.getAttributeBuffer(
+                              attributeName
+                            );
+        }
+        else
+        {
+          attributeBuffer = webglRenderingContext.createBuffer();
+
+          gillBuffer.setAttributeBuffer(
+            attributeName,
+            attributeBuffer
+          );
+        }
+
+        return  attributeBuffer;
+      }
+
+      getModelIndexBuffer(
+        gillModel,
+        webglRenderingContext
+      )
+      {
+        const gillBuffer  = this.gillBufferService.getModelBuffer(
+                              gillModel,
+                              webglRenderingContext
+                            );
+
+        return gillBuffer.getIndexBuffer();
+      }
+    }
+
+    //TODO Consider some form of driver that encapsulates the hard-coded constants and such in here. Then, have a
+    //     gill.useWebglDriver() method that takes a new driver and returns the old one (for easy cycling).
+    class GillRenderer
+    {
+      constructor(
+        gillBufferService,
+        gillProgram
+      ) {
+        this.gillBufferService      = gillBufferService;
+        this.gillProgram            = gillProgram;
+        this.webglProgram           = gillProgram.getWebglProgram();
+        this.webglRenderingContext  = gillProgram.getWebglRenderingContext();
+      }
+
+      drawModel(
+        model
+      ) {
+        this.webglRenderingContext.useProgram(
+          this.webglProgram
+        );
+
+        // Bind attributes
+
+        this.gillProgram.forEachAttribute((attribute) => {
+          const attributeName = attribute.getName(),
+                attributeType = attribute.getType();
+
+          this.webglRenderingContext.bindBuffer(
+            this.webglRenderingContext.ARRAY_BUFFER,
+            this.gillBufferService.getModelAttributeBuffer(
+              model,
+              attributeName,
+              this.webglRenderingContext
+            )
+          );
+
+          const needsBuffered = model.getBufferAttribute(
+                                  attributeName
+                                );
+
+          if (needsBuffered)
+          {
+            console.log(`buffering ${attributeName}`);
+
+            this.webglRenderingContext.bufferData(
+              this.webglRenderingContext.ARRAY_BUFFER,
+              attribute.toTypedArray(
+                model.getAttributeData(
+                  attributeName
+                )
+              ),
+              this.webglRenderingContext.STATIC_DRAW
+            );
+
+            model.setBufferAttribute(
+              attributeName,
+              false
+            );
+          }
+
+          this.webglRenderingContext.vertexAttribPointer(
+            attribute.getLocation(),
+            attributeType.getDataSize(),
+            attributeType.getDataType(),
+            false,
+            0,
+            0
+          );
+        });
+
+        this.webglRenderingContext.bindBuffer(
+          this.webglRenderingContext.ARRAY_BUFFER,
+          null
+        );
+
+        // Bind uniforms
+
+        this.gillProgram.forEachUniform((uniform) => {
+          const uniformType  = uniform.getType();
+
+          const size  = uniformType.getDataSize(),
+                type  = uniformType.getDataType();
+
+          const uniformFunction = `uniform${size}${type}v`;
+
+          this.webglRenderingContext[uniformFunction](
+            uniform.getLocation(),
+            model.getUniformData(
+              uniform.getName()
+            )
+          );
+        });
+
+        //TODO Always draw with elements?
+
+        const modelIndices  = model.getIndexData();
+
+        this.webglRenderingContext.bindBuffer(
+          this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
+          this.gillBufferService.getModelIndexBuffer(
+            model,
+            this.webglRenderingContext
+          )
+        );
+
+        if (
+          model.getBufferIndices()
+        ) {
+          console.log(`buffering indices`);
+
+          this.webglRenderingContext.bufferData(
+            this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
+            Uint16Array.from(
+              modelIndices
+            ),
+            this.webglRenderingContext.STATIC_DRAW
+          );
+
+          model.setBufferIndices(
+            false
+          );
+        }
+
+        // Draw Elements
+
+        this.webglRenderingContext.drawElements(
+          this.webglRenderingContext.TRIANGLES,
+          modelIndices.length,
+          this.webglRenderingContext.UNSIGNED_SHORT,
+          0
+        );
+
+        this.webglRenderingContext.bindBuffer(
+          this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
+          null
+        );
+
+        this.webglRenderingContext.useProgram(
+          null
+        );
+      }
+    }
+
+    class GillRendererFactory
+    {
+      construct(
+        gillBufferService,
+        gillProgram
+      ) {
+        return  new GillRenderer(
+                  gillBufferService,
+                  gillProgram
+                );
+      }
+    }
+
+    class GillRendererService
+    {
+      constructor(
+        gillProgramService,
+        gillRendererFactory
+      ) {
+        this.gillProgramService   = gillProgramService;
+        this.gillRendererFactory  = gillRendererFactory;
+      }
+
+      getRenderer(
+        webglRenderingContext,
+        gillBufferService,
+        gillProgramSource
+      ) {
+        let gillProgram   = this.gillProgramService.getProgram(
+                              webglRenderingContext,
+                              gillProgramSource
+                            );
+
+        return  this.gillRendererFactory.construct(
+                  gillBufferService,
+                  gillProgram
+                );
+      }
+    }
+
+    class GillProgramCollectionMap
+    {
+      constructor()
+      {
+        this.programs = new Map();
+      }
+
+      addProgram(
+        canvas,
+        program
+      ) {
+        let programs;
+
+        if (this.programs.has(canvas))
+        {
+          programs  = this.programs.get(
+                        canvas
+                      );
+        }
+        else
+        {
+          programs  = [];
+
+          this.programs.set(
+            canvas,
+            programs
+          );
+        }
+
+        programs.push(
+          program
+        );
+      }
+
+      hasPrograms(
+        canvas
+      ) {
+        return  this.programs.has(
+                  canvas
+                );
+      }
+
+      getPrograms(
+        canvas
+      ) {
+        return  this.programs.get(
+                  canvas
+                );
+      }
+    }
+
+    class GillService
+    {
+      constructor(
+        gillAttributeValueMapFactory,
+        gillBufferService,
+        gillChangedAttributeMapFactory,
+        gillIndexCollectionFactory,
+        gillModelFactory,
+        gillNumberFactory,
+        gillProgramSourceFactory,
+        gillRendererService,
+        gillUniformValueMapFactory,
+        gillVector2Factory,
+        gillVector3Factory,
+        gillVertexFactory,
+        gillVertexCollectionFactory
+      ) {
+        this.gillAttributeValueMapFactory   = gillAttributeValueMapFactory;
+        this.gillChangedAttributeMapFactory = gillChangedAttributeMapFactory;
+        this.gillIndexCollectionFactory     = gillIndexCollectionFactory;
+        this.gillModelFactory               = gillModelFactory;
+        this.gillNumberFactory              = gillNumberFactory;
+        this.gillBufferService              = gillBufferService;
+        this.gillProgramSourceFactory       = gillProgramSourceFactory;
+        this.gillRendererService            = gillRendererService;
+        this.gillUniformValueMapFactory     = gillUniformValueMapFactory;
+        this.gillVector2Factory             = gillVector2Factory;
+        this.gillVector3Factory             = gillVector3Factory;
+        this.gillVertexFactory              = gillVertexFactory;
+        this.gillVertexCollectionFactory    = gillVertexCollectionFactory;
+      }
+
+      clearCanvas(
+        canvas
+      )
+      {
+        const webglRenderingContext = canvas.getContext(
+                                        "webgl"
+                                      ) ||
+                                      canvas.getContext(
+                                        "webgl-experimental"
+                                      );
+
+        // Clear the color as well as the depth buffer.
+        webglRenderingContext.clear(
+          webglRenderingContext.COLOR_BUFFER_BIT |
+          webglRenderingContext.DEPTH_BUFFER_BIT
+        );
+      }
+
+      createModel()
+      {
+        return  this.gillModelFactory.construct(
+                  this.gillChangedAttributeMapFactory.construct(),
+                  this.gillIndexCollectionFactory.construct(),
+                  this.gillUniformValueMapFactory.construct(),
+                  this.gillVertexCollectionFactory.construct()
+                );
+      }
+
+      createNumber(
+        value
+      )
+      {
+        return  this.gillNumberFactory.construct(
+                  value
+                );
+      }
+
+      createVector2(
+        v1,
+        v2
+      )
+      {
+        return  this.gillVector2Factory.construct(
+                  v1,
+                  v2
+                );
+      }
+
+      createVector3(
+        v1,
+        v2,
+        v3
+      )
+      {
+        return  this.gillVector3Factory.construct(
+                  v1,
+                  v2,
+                  v3
+                );
+      }
+
+      createVertex()
+      {
+        return  this.gillVertexFactory.construct(
+                  this.gillAttributeValueMapFactory.construct()
+                );
+      }
+
+      getGillProgram(
+        vertexShaderShader,
+        fragmentShaderShader
+      )
+      {
+        //TODO Cache this
+        return  this.gillProgramSourceFactory.construct(
+                  vertexShaderShader,
+                  fragmentShaderShader
+                );
+      }
+
+      drawModel(
+        model,
+        canvas,
+        gillProgramSource
+      )
+      {
+        const webglRenderingContext = canvas.getContext(
+                                        "webgl"
+                                      ) ||
+                                      canvas.getContext(
+                                        "webgl-experimental"
+                                      );
+
+        const gillRenderer  = this.gillRendererService.getRenderer(
+                                webglRenderingContext,
+                                this.gillBufferService,
+                                gillProgramSource
+                              );
+
+        gillRenderer.drawModel(
+          model
+        );
+      }
+    }
+
+    const gill  = new GillService(
+                    gillAttributeValueMapFactory,
+                    new GillModelBufferService(
+                      new GillBufferService(
+                        gillAttributeBufferMapFactory,
+                        gillBufferCache,
+                        gillBufferFactory
+                      )
+                    ),
+                    gillChangedAttributeMapFactory,
+                    gillIndexCollectionFactory,
+                    gillModelFactory,
+                    gillNumberFactory,
+                    gillProgramSourceFactory,
+                    new GillRendererService(
+                      gillProgramService,
+                      new GillRendererFactory()
+                    ),
+                    gillUniformValueMapFactory,
+                    gillVector2Factory,
+                    gillVector3Factory,
+                    gillVertexFactory,
+                    gillVertexCollectionFactory
+                  );
+
+    //==========================================
+    //    ~~~~  ~~~~  USING GILL  ~~~~  ~~~~
+    //==========================================
+
+    // Create Rendering Program
+
+    const fragmentShaderSource = `
+      varying highp   vec3  vColor;
+
+      uniform mediump float uOpacity;
+
+      void main(void)
+      {
+        gl_FragColor = vec4(vColor, uOpacity);
+      }
+    `;
+
+    const vertexShaderSource = `
+      attribute vec2 aPosition;
+      attribute vec3 aColor;
+
+      uniform float uLayer;
+
+      varying vec3  vColor;
+
+      void main(void)
+      {
+        gl_Position = vec4(aPosition, uLayer, 1.0);
+        vColor = aColor;
+      }
+    `;
+
+    let gillProgram = gill.getGillProgram(
+      vertexShaderSource,
+      fragmentShaderSource
+    );
+
+    // Create a square
+
+    let square    = gill.createModel(),
+        sVertex1  = gill.createVertex(),
+        sVertex2  = gill.createVertex(),
+        sVertex3  = gill.createVertex(),
+        sVertex4  = gill.createVertex();
+
+    // WebGL uniforms are applied to all vertices rendered per draw. Therefore, they are set at the model-level.
+    // WebGL attributes are applied per vertex per draw. Therefore, they are set at the vertex-level.
+
+    square.setUniform(
+            "uLayer",
+            gill.createNumber(
+              0.5
+            )
+          )
+          .setUniform(
+            "uOpacity",
+            gill.createNumber(
+              1.0
+            )
+          );
+
+    // Upper-left vertex
+
+    sVertex1.setAttribute(
+              "aPosition",
+              gill.createVector2(
+                -0.5,
+                 0.5
+              )
+            ).setAttribute(
+              "aColor",
+              gill.createVector3(
+                1.0,
+                0.0,
+                0.0
+              )
+            );
+
+    // Upper-right vertex
+
+    sVertex2.setAttribute(
+              "aPosition",
+              gill.createVector2(
+                0.5,
+                0.5
+              )
+            ).setAttribute(
+              "aColor",
+              gill.createVector3(
+                1.0,
+                0.0,
+                1.0
+              )
+            );
+
+    // Lower-right vertex
+
+    sVertex3.setAttribute(
+              "aPosition",
+              gill.createVector2(
+                 0.5,
+                -0.5
+              )
+            ).setAttribute(
+              "aColor",
+              gill.createVector3(
+                0.0,
+                0.0,
+                1.0
+              )
+            );
+
+    // Lower-left vertex
+
+    sVertex4.setAttribute(
+              "aPosition",
+              gill.createVector2(
+                -0.5,
+                -0.5
+              )
+            ).setAttribute(
+              "aColor",
+              gill.createVector3(
+                1.0,
+                0.0,
+                1.0
+              )
+            );
+
+    // Triangle One (upper left)
+
+    square.addVertex(
+            sVertex1
+          )
+          .addVertex(
+            sVertex2
+          )
+          .addVertex(
+            sVertex4
+          );
+
+    // Triangle Two (lower right)
+
+    square.addVertex(
+            sVertex4
+          )
+          .addVertex(
+            sVertex2
+          )
+          .addVertex(
+            sVertex3
+          );
+
+    // Get the canvas
+    const canvas = document.getElementById("my_canvas");
+
+    // Draw it
+
+    console.log("Draw square");
+
+    gill.clearCanvas(
+      canvas
+    );
+
+    gill.drawModel(
+      square,
+      canvas,
+      gillProgram
+    );
+
+    setTimeout(
+      function()
+      {
+        console.log("Draw square again");
+
+        gill.clearCanvas(
+          canvas
+        );
+
+        gill.drawModel(
+          square,
+          canvas,
+          gillProgram
+        );
+
+        setTimeout(
+          function()
+          {
+            // Make it not a square
+
+            const sVertex5  = gill.createVertex();
+
+            sVertex5.setAttribute(
+                      "aPosition",
+                      gill.createVector2(
+                        0.0,
+                        -0.75
+                      )
+                    ).setAttribute(
+                      "aColor",
+                      gill.createVector3(
+                        0.5,
+                        0.0,
+                        1.0
+                      )
+                    );
+
+            square.addVertex(
+                    sVertex4
+                  )
+                  .addVertex(
+                    sVertex3
+                  )
+                  .addVertex(
+                    sVertex5
+                  );
+
+
+            console.log("Draw not square");
+
+            gill.clearCanvas(
+              canvas
+            );
+
+            gill.drawModel(
+              square,
+              canvas,
+              gillProgram
+            );
+
+            setTimeout(
+              function()
+              {
+
+                console.log("Draw not square again");
+
+                gill.clearCanvas(
+                  canvas
+                );
+
+                gill.drawModel(
+                  square,
+                  canvas,
+                  gillProgram
+                );
+              },
+              1000
+            );
+          },
+          1000
+        );
+      },
+      1000
+    );
+  </script>
+</body>
+</html>
