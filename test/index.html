@@ -17,55 +17,6 @@
   <script src="/gill.js"></script>
 
   <script>
-    class GillBufferService
-    {
-      constructor(
-        gillAttributeBufferMapFactory,
-        gillBufferCache,
-        gillBufferFactory
-      ) {
-        this.gillAttributeBufferMapFactory  = gillAttributeBufferMapFactory;
-        this.gillBufferCache                = gillBufferCache;
-        this.gillBufferFactory              = gillBufferFactory;
-      }
-
-      getModelBuffer(
-        gillModel,
-        webglRenderingContext
-      )
-      {
-        const gillBufferExists  = this.gillBufferCache.hasBuffer(
-                                    gillModel,
-                                    webglRenderingContext
-                                  );
-
-        let gillBuffer;
-
-        if (gillBufferExists)
-        {
-          gillBuffer  = this.gillBufferCache.getBuffer(
-                          gillModel,
-                          webglRenderingContext
-                        );
-        }
-        else
-        {
-          gillBuffer  = this.gillBufferFactory.construct(
-                          this.gillAttributeBufferMapFactory.construct(),
-                          webglRenderingContext.createBuffer()
-                        );
-
-          this.gillBufferCache.cacheBuffer(
-            gillModel,
-            gillBuffer,
-            webglRenderingContext
-          );
-        }
-
-        return gillBuffer;
-      }
-    }
-
     class GillModelBufferService
     {
       constructor(
@@ -498,11 +449,7 @@
     const gill  = new GillService(
                     gillAttributeValueMapFactory,
                     new GillModelBufferService(
-                      new GillBufferService(
-                        gillAttributeBufferMapFactory,
-                        gillBufferCache,
-                        gillBufferFactory
-                      )
+                      gillBufferService
                     ),
                     gillChangedAttributeMapFactory,
                     gillIndexCollectionFactory,

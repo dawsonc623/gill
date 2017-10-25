@@ -1,9 +1,5 @@
-import gillAttributeBufferMapFactory  from "app/gill/attribute-buffer-map/factory";
 import gillAttributeValueMapFactory   from "app/gill/model/attribute-value-map/factory";
-import gillBufferFactory              from "app/gill/buffer/factory";
-import gillBufferCache                from "app/gill/buffer-cache";
-import gillContextModelsMapFactory    from "app/gill/context-models-map/factory";
-import gillModelBufferMapFactory      from "app/gill/model-buffer-map/factory";
+import gillBufferService              from "app/gill/buffer/service";
 import gillChangedAttributeMapFactory from "app/gill/model/changed-attribute-map/factory";
 import gillIndexCollectionFactory     from "app/gill/model/index-collection/factory";
 import gillModelFactory               from "app/gill/model/factory";
@@ -16,12 +12,8 @@ import gillVector3Factory             from "app/gill/model/vector3/factory";
 import gillVertexCollectionFactory    from "app/gill/model/vertex/collection/factory";
 import gillVertexFactory              from "app/gill/model/vertex/factory";
 
-(<any>window).gillAttributeBufferMapFactory   = gillAttributeBufferMapFactory;
 (<any>window).gillAttributeValueMapFactory    = gillAttributeValueMapFactory;
-(<any>window).gillBufferFactory               = gillBufferFactory;
-(<any>window).gillBufferCache                 = gillBufferCache;
-(<any>window).gillContextModelsMapFactory     = gillContextModelsMapFactory;
-(<any>window).gillModelBufferMapFactory       = gillModelBufferMapFactory;
+(<any>window).gillBufferService               = gillBufferService;
 (<any>window).gillChangedAttributeMapFactory  = gillChangedAttributeMapFactory;
 (<any>window).gillIndexCollectionFactory      = gillIndexCollectionFactory;
 (<any>window).gillModelFactory                = gillModelFactory;
