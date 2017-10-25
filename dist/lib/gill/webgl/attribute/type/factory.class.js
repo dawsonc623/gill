@@ -21,8 +21,8 @@ var StandardGillAttributeTypeFactory = function () {
 
     _createClass(StandardGillAttributeTypeFactory, [{
         key: "construct",
-        value: function construct(attributeType, typedArrayFactory, dataSize) {
-            return new _type2.default(attributeType, typedArrayFactory, dataSize);
+        value: function construct(dataType, typedArrayFactory, dataSize, dataIsNormalized) {
+            return new _type2.default(dataType, typedArrayFactory, dataSize, dataIsNormalized);
         }
     }]);
 

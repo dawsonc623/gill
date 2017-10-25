@@ -7,9 +7,15 @@ class StandardGillAttributeType implements GillAttributeType
   constructor(
     private dataType          : number, //TODO Constrain to WebGL type constant values?
     private typedArrayFactory : GillTypedArrayFactory,
-    private dataSize          : number
+    private dataSize          : number,
+    private dataIsNormalized  : GLboolean
   ) {
 
+  }
+
+  getDataIsNormalized(): GLboolean
+  {
+    return  this.dataIsNormalized;
   }
 
   getDataSize(): number

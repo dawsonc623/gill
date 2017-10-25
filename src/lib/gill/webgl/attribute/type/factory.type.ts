@@ -6,7 +6,8 @@ interface GillAttributeTypeFactory
   construct(
     dataType          : number,
     typedArrayFactory : GillTypedArrayFactory,
-    dataSize          : number
+    dataSize          : number,
+    dataIsNormalized  : GLboolean
   ): GillAttributeType;
 }
 

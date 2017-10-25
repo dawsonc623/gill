@@ -2,6 +2,8 @@ import TypedArray from "lib/gill/webgl/typed-array.type";
 
 interface GillAttributeType
 {
+  getDataIsNormalized(): GLboolean;
+
   getDataSize(): number;
 
   getDataType(): number;

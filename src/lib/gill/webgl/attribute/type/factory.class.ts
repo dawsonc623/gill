@@ -6,15 +6,17 @@ import StandardGillAttributeType  from "lib/gill/webgl/attribute/type.class";
 class StandardGillAttributeTypeFactory implements GillAttributeTypeFactory
 {
   construct(
-    attributeType     : number,
+    dataType          : number,
     typedArrayFactory : GillTypedArrayFactory,
-    dataSize          : number
+    dataSize          : number,
+    dataIsNormalized  : GLboolean
   ): GillAttributeType
   {
     return  new StandardGillAttributeType(
-              attributeType,
+              dataType,
               typedArrayFactory,
-              dataSize
+              dataSize,
+              dataIsNormalized
             );
   }
 }

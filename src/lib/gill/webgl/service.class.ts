@@ -141,7 +141,8 @@ class StandardGillWebglService implements GillWebglService
     webglType         : number, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
     dataType          : number, //TODO Constrain to WebGL type constants
     typedArrayFactory : GillTypedArrayFactory,
-    dataSize          : number
+    dataSize          : number,
+    dataIsNormalized  : GLboolean
   ): void
   {
     // TODO Should this blindly overwrite like this?
@@ -150,7 +151,8 @@ class StandardGillWebglService implements GillWebglService
       this.webglAttributeTypeFactory.construct(
         dataType,
         typedArrayFactory,
-        dataSize
+        dataSize,
+        dataIsNormalized
       )
     );
   }

@@ -56,9 +56,11 @@ var webglService = _factory12.default.construct(_factory10.default, _factory4.de
 webglService.setAttributeType(35664, // gl.FLOAT_VEC2
 5126, // gl.FLOAT
 // gl.FLOAT
-_factory2.default, 2);
+_factory2.default, 2, true // Whether or not the data is normalized
+);
 webglService.setAttributeType(35665, // gl.FLOAT_VEC3
-5126, _factory2.default, 3);
+5126, _factory2.default, 3, true // Whether or not the data is normalized
+);
 //TODO Move this to map instantiation
 // Set up uniform types
 webglService.setUniformType(5126, // gl.FLOAT

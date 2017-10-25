@@ -26,17 +26,19 @@ const webglService  = webglServiceFactory.construct(
 // Set up attribute types
 
 webglService.setAttributeType(
-  35664, // gl.FLOAT_VEC2
-  5126,  // gl.FLOAT
+  35664,  // gl.FLOAT_VEC2
+  5126,   // gl.FLOAT
   float32ArrayFactory,
-  2
+  2,
+  true    // Whether or not the data is normalized
 );
 
 webglService.setAttributeType(
-  35665, // gl.FLOAT_VEC3
-  5126,  // gl.FLOAT
+  35665,  // gl.FLOAT_VEC3
+  5126,   // gl.FLOAT
   float32ArrayFactory,
-  3
+  3,
+  true    // Whether or not the data is normalized
 );
 
 //TODO Move this to map instantiation

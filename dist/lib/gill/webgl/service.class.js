@@ -71,9 +71,9 @@ var StandardGillWebglService = function () {
         key: "setAttributeType",
         value: function setAttributeType(webglType, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
         dataType, //TODO Constrain to WebGL type constants
-        typedArrayFactory, dataSize) {
+        typedArrayFactory, dataSize, dataIsNormalized) {
             // TODO Should this blindly overwrite like this?
-            this.webglAttributeTypeMap.setAttributeType(webglType, this.webglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize));
+            this.webglAttributeTypeMap.setAttributeType(webglType, this.webglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized));
         }
     }, {
         key: "setUniformType",
