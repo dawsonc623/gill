@@ -9,12 +9,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillAttribute = function () {
-    function StandardGillAttribute(name, type, location) {
+    function StandardGillAttribute(name, type, location, usage) {
         _classCallCheck(this, StandardGillAttribute);
 
         this.name = name;
         this.type = type;
         this.location = location;
+        this.usage = usage;
     }
 
     _createClass(StandardGillAttribute, [{
@@ -31,6 +32,11 @@ var StandardGillAttribute = function () {
         key: "getType",
         value: function getType() {
             return this.type;
+        }
+    }, {
+        key: "getUsage",
+        value: function getUsage() {
+            return this.usage;
         }
     }, {
         key: "toTypedArray",

@@ -7,7 +7,8 @@ class StandardGillAttribute implements GillAttribute
   constructor(
     private name      : string,
     private type      : GillAttributeType,
-    private location  : number
+    private location  : number,
+    private usage     : GLenum
   ) {
 
   }
@@ -25,6 +26,11 @@ class StandardGillAttribute implements GillAttribute
   getType(): GillAttributeType
   {
     return  this.type;
+  }
+
+  getUsage(): GLenum
+  {
+    return  this.usage;
   }
 
   toTypedArray(

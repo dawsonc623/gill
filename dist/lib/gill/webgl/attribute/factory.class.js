@@ -21,8 +21,8 @@ var StandardGillAttributeFactory = function () {
 
     _createClass(StandardGillAttributeFactory, [{
         key: "construct",
-        value: function construct(name, type, location) {
-            return new _attribute2.default(name, type, location);
+        value: function construct(name, type, location, usage) {
+            return new _attribute2.default(name, type, location, usage);
         }
     }]);
 

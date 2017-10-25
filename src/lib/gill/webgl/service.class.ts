@@ -79,7 +79,8 @@ class StandardGillWebglService implements GillWebglService
               this.webglAttributeTypeMap.getAttributeType(
                 attributeInfo.type
               ),
-              attributeLocation
+              attributeLocation,
+              webglRenderingContext.STATIC_DRAW //TODO investigate a way to not hardcode this
             );
   }
 

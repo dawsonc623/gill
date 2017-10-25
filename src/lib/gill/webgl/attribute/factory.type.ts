@@ -6,7 +6,8 @@ interface GillAttributeFactory
   construct(
     name      : string,
     type      : GillAttributeType,
-    location  : number
+    location  : number,
+    usage     : GLenum //TODO Constrain values
   ): GillAttribute;
 }
 

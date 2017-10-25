@@ -8,13 +8,15 @@ class StandardGillAttributeFactory implements GillAttributeFactory
   construct(
     name      : string,
     type      : GillAttributeType,
-    location  : number
+    location  : number,
+    usage     : GLenum
   ): GillAttribute
   {
     return  new StandardGillAttribute(
               name,
               type,
-              location
+              location,
+              usage
             );
   }
 }

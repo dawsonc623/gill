@@ -45,7 +45,8 @@ var StandardGillWebglService = function () {
             var attributeLocation = webglRenderingContext.getAttribLocation(webglProgram, attributeInfo.name);
             webglRenderingContext.enableVertexAttribArray(attributeLocation);
             //TODO This may need to account for webglActiveInfo.size, but I have not found a use for that yet
-            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation);
+            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW //TODO investigate a way to not hardcode this
+            );
         }
     }, {
         key: "getUniform",

@@ -2770,12 +2770,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillAttribute = function () {
-    function StandardGillAttribute(name, type, location) {
+    function StandardGillAttribute(name, type, location, usage) {
         _classCallCheck(this, StandardGillAttribute);
 
         this.name = name;
         this.type = type;
         this.location = location;
+        this.usage = usage;
     }
 
     _createClass(StandardGillAttribute, [{
@@ -2792,6 +2793,11 @@ var StandardGillAttribute = function () {
         key: "getType",
         value: function getType() {
             return this.type;
+        }
+    }, {
+        key: "getUsage",
+        value: function getUsage() {
+            return this.usage;
         }
     }, {
         key: "toTypedArray",
@@ -2897,8 +2903,8 @@ var StandardGillAttributeFactory = function () {
 
     _createClass(StandardGillAttributeFactory, [{
         key: "construct",
-        value: function construct(name, type, location) {
-            return new _attribute2.default(name, type, location);
+        value: function construct(name, type, location, usage) {
+            return new _attribute2.default(name, type, location, usage);
         }
     }]);
 
@@ -3141,7 +3147,8 @@ var StandardGillWebglService = function () {
             var attributeLocation = webglRenderingContext.getAttribLocation(webglProgram, attributeInfo.name);
             webglRenderingContext.enableVertexAttribArray(attributeLocation);
             //TODO This may need to account for webglActiveInfo.size, but I have not found a use for that yet
-            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation);
+            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW //TODO investigate a way to not hardcode this
+            );
         }
     }, {
         key: "getUniform",

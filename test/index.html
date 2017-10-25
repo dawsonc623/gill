@@ -17,66 +17,6 @@
   <script src="/gill.js"></script>
 
   <script>
-    // class GillModelBufferService
-    // {
-    //   constructor(
-    //     gillBufferService
-    //   ) {
-    //     this.gillBufferService  = gillBufferService;
-    //   }
-
-    //   getModelAttributeBuffer(
-    //     gillModel,
-    //     attributeName,
-    //     webglRenderingContext
-    //   )
-    //   {
-    //     const gillBuffer  = this.gillBufferService.getModelBuffer(
-    //                           gillModel,
-    //                           webglRenderingContext
-    //                         );
-
-    //     const hasAttributeBuffer  = gillBuffer.hasAttributeBuffer(
-    //                                   attributeName
-    //                                 );
-
-    //     let attributeBuffer;
-
-    //     if (hasAttributeBuffer)
-    //     {
-    //       attributeBuffer = gillBuffer.getAttributeBuffer(
-    //                           attributeName
-    //                         );
-    //     }
-    //     else
-    //     {
-    //       attributeBuffer = webglRenderingContext.createBuffer();
-
-    //       gillBuffer.setAttributeBuffer(
-    //         attributeName,
-    //         attributeBuffer
-    //       );
-    //     }
-
-    //     return  attributeBuffer;
-    //   }
-
-    //   getModelIndexBuffer(
-    //     gillModel,
-    //     webglRenderingContext
-    //   )
-    //   {
-    //     const gillBuffer  = this.gillBufferService.getModelBuffer(
-    //                           gillModel,
-    //                           webglRenderingContext
-    //                         );
-
-    //     return gillBuffer.getIndexBuffer();
-    //   }
-    // }
-
-    //TODO Consider some form of driver that encapsulates the hard-coded constants and such in here. Then, have a
-    //     gill.useWebglDriver() method that takes a new driver and returns the old one (for easy cycling).
     class GillRenderer
     {
       constructor(
@@ -126,7 +66,7 @@
                   attributeName
                 )
               ),
-              this.webglRenderingContext.STATIC_DRAW
+              attribute.getUsage()
             );
 
             model.setBufferAttribute(
