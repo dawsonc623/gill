@@ -29,9 +29,9 @@ var StandardGillAttributeType = function () {
             return this.dataType;
         }
     }, {
-        key: "getTypedArrayFactory",
-        value: function getTypedArrayFactory() {
-            return this.typedArrayFactory;
+        key: "toTypedArray",
+        value: function toTypedArray(webglVariableData) {
+            return this.typedArrayFactory.construct(webglVariableData);
         }
     }]);
 

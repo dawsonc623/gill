@@ -1,4 +1,4 @@
-import GillTypedArrayFactory  from "lib/gill/webgl/typed-array/factory.type";
+import TypedArray from "lib/gill/webgl/typed-array.type";
 
 interface GillAttributeType
 {
@@ -6,7 +6,9 @@ interface GillAttributeType
 
   getDataType(): number;
 
-  getTypedArrayFactory(): GillTypedArrayFactory;
+  toTypedArray(
+    webglVariableData : Array<number>
+  ): TypedArray;
 }
 
 export default GillAttributeType;

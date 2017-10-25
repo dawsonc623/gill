@@ -1,5 +1,6 @@
 import GillAttributeType      from "lib/gill/webgl/attribute/type.type";
 import GillTypedArrayFactory  from "lib/gill/webgl/typed-array/factory.type";
+import TypedArray             from "lib/gill/webgl/typed-array.type";
 
 class StandardGillAttributeType implements GillAttributeType
 {
@@ -21,9 +22,13 @@ class StandardGillAttributeType implements GillAttributeType
     return  this.dataType;
   }
 
-  getTypedArrayFactory(): GillTypedArrayFactory
+  toTypedArray(
+    webglVariableData : Array<number>
+  ): TypedArray
   {
-    return  this.typedArrayFactory;
+    return  this.typedArrayFactory.construct(
+              webglVariableData
+            );
   }
 }
 

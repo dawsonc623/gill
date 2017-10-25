@@ -10,10 +10,6 @@ interface GillAttribute
   getType(): GillAttributeType;
 
   getUsage(): GLenum;
-
-  toTypedArray(
-    webglVariableData : Array<number>
-  ): TypedArray;
 }
 
 export default GillAttribute;

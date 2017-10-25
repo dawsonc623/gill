@@ -32,15 +32,6 @@ class StandardGillAttribute implements GillAttribute
   {
     return  this.usage;
   }
-
-  toTypedArray(
-    webglVariableData : Array<number>
-  ): TypedArray
-  {
-    return  this.type.getTypedArrayFactory().construct(
-              webglVariableData
-            );
-  }
 }
 
 export default StandardGillAttribute;

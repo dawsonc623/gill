@@ -38,11 +38,6 @@ var StandardGillAttribute = function () {
         value: function getUsage() {
             return this.usage;
         }
-    }, {
-        key: "toTypedArray",
-        value: function toTypedArray(webglVariableData) {
-            return this.type.getTypedArrayFactory().construct(webglVariableData);
-        }
     }]);
 
     return StandardGillAttribute;

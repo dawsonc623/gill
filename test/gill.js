@@ -2799,11 +2799,6 @@ var StandardGillAttribute = function () {
         value: function getUsage() {
             return this.usage;
         }
-    }, {
-        key: "toTypedArray",
-        value: function toTypedArray(webglVariableData) {
-            return this.type.getTypedArrayFactory().construct(webglVariableData);
-        }
     }]);
 
     return StandardGillAttribute;
@@ -2944,9 +2939,9 @@ var StandardGillAttributeType = function () {
             return this.dataType;
         }
     }, {
-        key: "getTypedArrayFactory",
-        value: function getTypedArrayFactory() {
-            return this.typedArrayFactory;
+        key: "toTypedArray",
+        value: function toTypedArray(webglVariableData) {
+            return this.typedArrayFactory.construct(webglVariableData);
         }
     }]);
 
