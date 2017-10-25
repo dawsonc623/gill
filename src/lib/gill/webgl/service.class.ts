@@ -143,7 +143,8 @@ class StandardGillWebglService implements GillWebglService
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
     dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei
+    dataStride        : GLsizei,
+    dataOffset        : GLintptr
   ): void
   {
     // TODO Should this blindly overwrite like this?
@@ -154,7 +155,8 @@ class StandardGillWebglService implements GillWebglService
         typedArrayFactory,
         dataSize,
         dataIsNormalized,
-        dataStride
+        dataStride,
+        dataOffset
       )
     );
   }

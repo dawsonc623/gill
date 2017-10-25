@@ -8,7 +8,8 @@ interface GillAttributeTypeFactory
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
     dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei
+    dataStride        : GLsizei,
+    dataOffset        : GLintptr
   ): GillAttributeType;
 }
 

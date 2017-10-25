@@ -31,7 +31,8 @@ webglService.setAttributeType(
   float32ArrayFactory,
   2,
   true,   // Whether or not the data is normalized
-  0       // The span between the start of each attribute value
+  0,      // The span between the start of each attribute value
+  0       // The starting index for the first attribute value
 );
 
 webglService.setAttributeType(
@@ -40,7 +41,8 @@ webglService.setAttributeType(
   float32ArrayFactory,
   3,
   true,   // Whether or not the data is normalized
-  0       // The span between the start of each attribute value
+  0,      // The span between the start of each attribute value
+  0       // The starting index for the first attribute value
 );
 
 //TODO Move this to map instantiation

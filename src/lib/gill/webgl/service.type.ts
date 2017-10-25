@@ -35,7 +35,8 @@ interface GillWebglService
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
     dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei
+    dataStride        : GLsizei,
+    dataOffset        : GLintptr
   ): void;
 
   setUniformType(

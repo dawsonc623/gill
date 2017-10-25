@@ -686,11 +686,13 @@ webglService.setAttributeType(35664, // gl.FLOAT_VEC2
 5126, // gl.FLOAT
 // gl.FLOAT
 _factory2.default, 2, true, // Whether or not the data is normalized
-0 // The span between the start of each attribute value
+0, // The span between the start of each attribute value
+0 // The starting index for the first attribute value
 );
 webglService.setAttributeType(35665, // gl.FLOAT_VEC3
 5126, _factory2.default, 3, true, // Whether or not the data is normalized
-0 // The span between the start of each attribute value
+0, // The span between the start of each attribute value
+0 // The starting index for the first attribute value
 );
 //TODO Move this to map instantiation
 // Set up uniform types
@@ -2924,7 +2926,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var StandardGillAttributeType = function () {
     function StandardGillAttributeType(dataType, //TODO Constrain to WebGL type constant values?
-    typedArrayFactory, dataSize, dataIsNormalized, dataStride) {
+    typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
         _classCallCheck(this, StandardGillAttributeType);
 
         this.dataType = dataType;
@@ -2932,12 +2934,18 @@ var StandardGillAttributeType = function () {
         this.dataSize = dataSize;
         this.dataIsNormalized = dataIsNormalized;
         this.dataStride = dataStride;
+        this.dataOffset = dataOffset;
     }
 
     _createClass(StandardGillAttributeType, [{
         key: "getDataIsNormalized",
         value: function getDataIsNormalized() {
             return this.dataIsNormalized;
+        }
+    }, {
+        key: "getDataOffset",
+        value: function getDataOffset() {
+            return this.dataOffset;
         }
     }, {
         key: "getDataSize",
@@ -2989,8 +2997,8 @@ var StandardGillAttributeTypeFactory = function () {
 
     _createClass(StandardGillAttributeTypeFactory, [{
         key: "construct",
-        value: function construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride) {
-            return new _type2.default(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride);
+        value: function construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
+            return new _type2.default(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
         }
     }]);
 
@@ -3184,9 +3192,9 @@ var StandardGillWebglService = function () {
         key: "setAttributeType",
         value: function setAttributeType(webglType, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
         dataType, //TODO Constrain to WebGL type constants
-        typedArrayFactory, dataSize, dataIsNormalized, dataStride) {
+        typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
             // TODO Should this blindly overwrite like this?
-            this.webglAttributeTypeMap.setAttributeType(webglType, this.webglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride));
+            this.webglAttributeTypeMap.setAttributeType(webglType, this.webglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset));
         }
     }, {
         key: "setUniformType",

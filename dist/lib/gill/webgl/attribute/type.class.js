@@ -10,7 +10,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var StandardGillAttributeType = function () {
     function StandardGillAttributeType(dataType, //TODO Constrain to WebGL type constant values?
-    typedArrayFactory, dataSize, dataIsNormalized, dataStride) {
+    typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
         _classCallCheck(this, StandardGillAttributeType);
 
         this.dataType = dataType;
@@ -18,12 +18,18 @@ var StandardGillAttributeType = function () {
         this.dataSize = dataSize;
         this.dataIsNormalized = dataIsNormalized;
         this.dataStride = dataStride;
+        this.dataOffset = dataOffset;
     }
 
     _createClass(StandardGillAttributeType, [{
         key: "getDataIsNormalized",
         value: function getDataIsNormalized() {
             return this.dataIsNormalized;
+        }
+    }, {
+        key: "getDataOffset",
+        value: function getDataOffset() {
+            return this.dataOffset;
         }
     }, {
         key: "getDataSize",
