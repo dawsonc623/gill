@@ -51,7 +51,6 @@ var _map4 = _interopRequireDefault(_map3);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var webglService = _factory12.default.construct(_factory10.default, _factory4.default, _factory6.default, _factory8.default, _map2.default, _factory14.default, _factory16.default, _factory18.default, _map4.default);
-//TODO Move this to map instantiation
 // Set up attribute types
 webglService.setAttributeType(35664, // gl.FLOAT_VEC2
 5126, // gl.FLOAT
@@ -65,7 +64,6 @@ webglService.setAttributeType(35665, // gl.FLOAT_VEC3
 0, // The span between the start of each attribute value
 0 // The starting index for the first attribute value
 );
-//TODO Move this to map instantiation
 // Set up uniform types
 webglService.setUniformType(5126, // gl.FLOAT
 "f", // uniformXfv

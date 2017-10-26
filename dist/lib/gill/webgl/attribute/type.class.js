@@ -9,8 +9,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillAttributeType = function () {
-    function StandardGillAttributeType(dataType, //TODO Constrain to WebGL type constant values?
-    typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
+    function StandardGillAttributeType(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
         _classCallCheck(this, StandardGillAttributeType);
 
         this.dataType = dataType;

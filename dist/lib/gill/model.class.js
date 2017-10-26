@@ -27,10 +27,6 @@ var StandardGillModel = function () {
             this.vertices.addVertex(vertex);
             this.indices.addIndex(this.indices.indexCount());
             this.indicesChanged = true;
-            //TODO Derive changed attributes from changed vertices as well? How to handle vertex updates. Could make vertices
-            //     immutable (somehow) and have a "replaceVertex" method. I do not like that, though. Another option is to
-            //     create an AttributeService to interact with attributes on a model. It would handle triggering "needs changed"
-            //     sort of communication as attributes are updated.
             this.changedAttributes.eachChanged(function (attributeName, attributeChanged) {
                 _this.changedAttributes.setChanged(attributeName, true);
             });
@@ -39,7 +35,6 @@ var StandardGillModel = function () {
     }, {
         key: "getAttributeData",
         value: function getAttributeData(attributeName) {
-            //TODO Error handling
             var attributeData = new Array();
             this.vertices.eachVertex(function (vertex) {
                 vertex.getAttribute(attributeName).addToAttributeData(attributeData);
@@ -69,7 +64,6 @@ var StandardGillModel = function () {
     }, {
         key: "getUniformData",
         value: function getUniformData(uniformName) {
-            //TODO Error handling
             return this.uniformValues.getValue(uniformName).toUniformData();
         }
     }, {

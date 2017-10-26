@@ -32,25 +32,29 @@ var _factory11 = require("app/gill/program/source/factory");
 
 var _factory12 = _interopRequireDefault(_factory11);
 
-var _factory13 = require("app/gill/model/uniform-value-map/factory");
+var _factory13 = require("app/gill/renderer/factory");
 
 var _factory14 = _interopRequireDefault(_factory13);
 
-var _factory15 = require("app/gill/model/vector2/factory");
+var _factory15 = require("app/gill/model/uniform-value-map/factory");
 
 var _factory16 = _interopRequireDefault(_factory15);
 
-var _factory17 = require("app/gill/model/vector3/factory");
+var _factory17 = require("app/gill/model/vector2/factory");
 
 var _factory18 = _interopRequireDefault(_factory17);
 
-var _factory19 = require("app/gill/model/vertex/collection/factory");
+var _factory19 = require("app/gill/model/vector3/factory");
 
 var _factory20 = _interopRequireDefault(_factory19);
 
-var _factory21 = require("app/gill/model/vertex/factory");
+var _factory21 = require("app/gill/model/vertex/collection/factory");
 
 var _factory22 = _interopRequireDefault(_factory21);
+
+var _factory23 = require("app/gill/model/vertex/factory");
+
+var _factory24 = _interopRequireDefault(_factory23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62,8 +66,9 @@ window.gillModelFactory = _factory8.default;
 window.gillNumberFactory = _factory10.default;
 window.gillProgramService = _service2.default;
 window.gillProgramSourceFactory = _factory12.default;
-window.gillUniformValueMapFactory = _factory14.default;
-window.gillVector2Factory = _factory16.default;
-window.gillVector3Factory = _factory18.default;
-window.gillVertexCollectionFactory = _factory20.default;
-window.gillVertexFactory = _factory22.default;
+window.gillRendererFactory = _factory14.default;
+window.gillUniformValueMapFactory = _factory16.default;
+window.gillVector2Factory = _factory18.default;
+window.gillVector3Factory = _factory20.default;
+window.gillVertexCollectionFactory = _factory22.default;
+window.gillVertexFactory = _factory24.default;

@@ -36,7 +36,6 @@ var StandardGillWebglService = function () {
     }, {
         key: "getAttribute",
         value: function getAttribute(webglRenderingContext, webglProgram, attributeIndex) {
-            //TODO Cache?
             var attributeInfo = webglRenderingContext.getActiveAttrib(webglProgram, attributeIndex);
             var attributeTypeExists = this.webglAttributeTypeMap.hasAttributeType(attributeInfo.type);
             if (!attributeTypeExists) {
@@ -44,43 +43,32 @@ var StandardGillWebglService = function () {
             }
             var attributeLocation = webglRenderingContext.getAttribLocation(webglProgram, attributeInfo.name);
             webglRenderingContext.enableVertexAttribArray(attributeLocation);
-            //TODO This may need to account for webglActiveInfo.size, but I have not found a use for that yet
-            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW //TODO investigate a way to not hardcode this
-            );
+            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW);
         }
     }, {
         key: "getUniform",
         value: function getUniform(webglRenderingContext, webglProgram, uniformIndex) {
-            //TODO Cache?
             var uniformInfo = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
             var uniformTypeExists = this.webglUniformTypeMap.hasUniformType(uniformInfo.type);
             if (!uniformTypeExists) {
                 throw new Error("Unknown WebGL variable type '" + uniformInfo.type + "' ('" + uniformInfo.name + "')");
             }
             var uniformLocation = webglRenderingContext.getUniformLocation(webglProgram, uniformInfo.name);
-            //TODO This may need to account for webglActiveInfo.size, but I have not found a use for that yet
             return this.webglUniformFactory.construct(uniformInfo.name, this.webglUniformTypeMap.getUniformType(uniformInfo.type), uniformLocation);
         }
     }, {
         key: "getWebglProgram",
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            //TODO Program cache
             return this.webglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
     }, {
         key: "setAttributeType",
-        value: function setAttributeType(webglType, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-        dataType, //TODO Constrain to WebGL type constants
-        typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            // TODO Should this blindly overwrite like this?
+        value: function setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
             this.webglAttributeTypeMap.setAttributeType(webglType, this.webglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset));
         }
     }, {
         key: "setUniformType",
-        value: function setUniformType(webglType, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-        dataType, //TODO Constrain to uniform strings? (e.g. "i" | "f")
-        dataSize) {
-            // TODO Should this blindly overwrite like this?
+        value: function setUniformType(webglType, dataType, dataSize) {
             this.webglUniformTypeMap.setUniformType(webglType, this.webglUniformTypeFactory.construct(dataType, dataSize));
         }
     }]);

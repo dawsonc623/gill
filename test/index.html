@@ -17,158 +17,6 @@
   <script src="/gill.js"></script>
 
   <script>
-    class GillRenderer
-    {
-      constructor(
-        gillBufferService,
-        gillProgram
-      ) {
-        this.gillBufferService      = gillBufferService;
-        this.gillProgram            = gillProgram;
-        this.webglProgram           = gillProgram.getWebglProgram();
-        this.webglRenderingContext  = gillProgram.getWebglRenderingContext();
-      }
-
-      drawModel(
-        model
-      ) {
-        this.webglRenderingContext.useProgram(
-          this.webglProgram
-        );
-
-        // Bind attributes
-
-        this.gillProgram.forEachAttribute((attribute) => {
-          const attributeName = attribute.getName(),
-                attributeType = attribute.getType();
-
-          this.webglRenderingContext.bindBuffer(
-            this.webglRenderingContext.ARRAY_BUFFER,
-            this.gillBufferService.getModelAttributeBuffer(
-              model,
-              attributeName,
-              this.webglRenderingContext
-            )
-          );
-
-          const needsBuffered = model.getBufferAttribute(
-                                  attributeName
-                                );
-
-          if (needsBuffered)
-          {
-            console.log(`buffering ${attributeName}`);
-
-            this.webglRenderingContext.bufferData(
-              this.webglRenderingContext.ARRAY_BUFFER,
-              attributeType.toTypedArray(
-                model.getAttributeData(
-                  attributeName
-                )
-              ),
-              attribute.getUsage()
-            );
-
-            model.setBufferAttribute(
-              attributeName,
-              false
-            );
-          }
-
-          this.webglRenderingContext.vertexAttribPointer(
-            attribute.getLocation(),
-            attributeType.getDataSize(),
-            attributeType.getDataType(),
-            attributeType.getDataIsNormalized(),
-            attributeType.getDataStride(),
-            attributeType.getDataOffset()
-          );
-        });
-
-        this.webglRenderingContext.bindBuffer(
-          this.webglRenderingContext.ARRAY_BUFFER,
-          null
-        );
-
-        // Bind uniforms
-
-        this.gillProgram.forEachUniform((uniform) => {
-          const uniformType  = uniform.getType();
-
-          const size  = uniformType.getDataSize(),
-                type  = uniformType.getDataType();
-
-          const uniformFunction = `uniform${size}${type}v`;
-
-          this.webglRenderingContext[uniformFunction](
-            uniform.getLocation(),
-            model.getUniformData(
-              uniform.getName()
-            )
-          );
-        });
-
-        const modelIndices  = model.getIndexData();
-
-        this.webglRenderingContext.bindBuffer(
-          this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
-          this.gillBufferService.getModelIndexBuffer(
-            model,
-            this.webglRenderingContext
-          )
-        );
-
-        if (
-          model.getBufferIndices()
-        ) {
-          console.log(`buffering indices`);
-
-          this.webglRenderingContext.bufferData(
-            this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
-            Uint16Array.from(
-              modelIndices
-            ),
-            this.webglRenderingContext.STATIC_DRAW
-          );
-
-          model.setBufferIndices(
-            false
-          );
-        }
-
-        // Draw Elements
-
-        this.webglRenderingContext.drawElements(
-          this.webglRenderingContext.TRIANGLES,
-          modelIndices.length,
-          this.webglRenderingContext.UNSIGNED_SHORT,
-          0
-        );
-
-        this.webglRenderingContext.bindBuffer(
-          this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
-          null
-        );
-
-        this.webglRenderingContext.useProgram(
-          null
-        );
-      }
-    }
-
-    class GillRendererFactory
-    {
-      construct(
-        gillBufferService,
-        gillProgram
-      ) {
-        return  new GillRenderer(
-                  gillBufferService,
-                  gillProgram
-                );
-      }
-    }
-
     class GillRendererService
     {
       constructor(
@@ -181,7 +29,7 @@
 
       getRenderer(
         webglRenderingContext,
-        gillBufferService,
+        gillModelBufferService,
         gillProgramSource
       ) {
         let gillProgram   = this.gillProgramService.getProgram(
@@ -190,59 +38,8 @@
                             );
 
         return  this.gillRendererFactory.construct(
-                  gillBufferService,
+                  gillModelBufferService,
                   gillProgram
-                );
-      }
-    }
-
-    class GillProgramCollectionMap
-    {
-      constructor()
-      {
-        this.programs = new Map();
-      }
-
-      addProgram(
-        canvas,
-        program
-      ) {
-        let programs;
-
-        if (this.programs.has(canvas))
-        {
-          programs  = this.programs.get(
-                        canvas
-                      );
-        }
-        else
-        {
-          programs  = [];
-
-          this.programs.set(
-            canvas,
-            programs
-          );
-        }
-
-        programs.push(
-          program
-        );
-      }
-
-      hasPrograms(
-        canvas
-      ) {
-        return  this.programs.has(
-                  canvas
-                );
-      }
-
-      getPrograms(
-        canvas
-      ) {
-        return  this.programs.get(
-                  canvas
                 );
       }
     }
@@ -251,9 +48,9 @@
     {
       constructor(
         gillAttributeValueMapFactory,
-        gillBufferService,
         gillChangedAttributeMapFactory,
         gillIndexCollectionFactory,
+        gillModelBufferService,
         gillModelFactory,
         gillNumberFactory,
         gillProgramSourceFactory,
@@ -267,9 +64,9 @@
         this.gillAttributeValueMapFactory   = gillAttributeValueMapFactory;
         this.gillChangedAttributeMapFactory = gillChangedAttributeMapFactory;
         this.gillIndexCollectionFactory     = gillIndexCollectionFactory;
+        this.gillModelBufferService         = gillModelBufferService;
         this.gillModelFactory               = gillModelFactory;
         this.gillNumberFactory              = gillNumberFactory;
-        this.gillBufferService              = gillBufferService;
         this.gillProgramSourceFactory       = gillProgramSourceFactory;
         this.gillRendererService            = gillRendererService;
         this.gillUniformValueMapFactory     = gillUniformValueMapFactory;
@@ -374,7 +171,7 @@
 
         const gillRenderer  = this.gillRendererService.getRenderer(
                                 webglRenderingContext,
-                                this.gillBufferService,
+                                this.gillModelBufferService,
                                 gillProgramSource
                               );
 
@@ -386,15 +183,15 @@
 
     const gill  = new GillService(
                     gillAttributeValueMapFactory,
-                    gillModelBufferService,
                     gillChangedAttributeMapFactory,
                     gillIndexCollectionFactory,
+                    gillModelBufferService,
                     gillModelFactory,
                     gillNumberFactory,
                     gillProgramSourceFactory,
                     new GillRendererService(
                       gillProgramService,
-                      new GillRendererFactory()
+                      gillRendererFactory
                     ),
                     gillUniformValueMapFactory,
                     gillVector2Factory,

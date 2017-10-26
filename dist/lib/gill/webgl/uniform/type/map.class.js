@@ -17,8 +17,7 @@ var StandardGillUniformTypeMap = function () {
 
     _createClass(StandardGillUniformTypeMap, [{
         key: "getUniformType",
-        value: function getUniformType(webglType //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-        ) {
+        value: function getUniformType(webglType) {
             return this.uniformType.get(webglType);
         }
     }, {

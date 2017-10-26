@@ -8,7 +8,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-//TODO Avoid files simply named "map"
 var StandardGillAttributeTypeMap = function () {
     function StandardGillAttributeTypeMap() {
         _classCallCheck(this, StandardGillAttributeTypeMap);
@@ -18,8 +17,7 @@ var StandardGillAttributeTypeMap = function () {
 
     _createClass(StandardGillAttributeTypeMap, [{
         key: "getAttributeType",
-        value: function getAttributeType(webglType //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-        ) {
+        value: function getAttributeType(webglType) {
             return this.attributeType.get(webglType);
         }
     }, {

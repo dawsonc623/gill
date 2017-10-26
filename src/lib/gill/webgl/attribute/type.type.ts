@@ -4,6 +4,8 @@ interface GillAttributeType
 {
   getDataIsNormalized(): GLboolean;
 
+  getDataOffset(): GLintptr;
+
   getDataSize(): number;
 
   getDataStride(): GLsizei;

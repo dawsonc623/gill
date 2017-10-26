@@ -56,7 +56,6 @@ var StandardGillIndexCollection = function () {
     }, {
         key: "toArray",
         value: function toArray() {
-            //TODO Should this be immutable?
             return this.indices;
         }
     }]);
