@@ -6,7 +6,6 @@ import GillWebglUniformCollection   from "lib/gill/webgl/uniform/collection.type
 
 interface GillWebglService
 {
-  //TODO Rename to "create*Collection"
   constructAttributeCollection(): GillWebglAttributeCollection;
 
   constructUniformCollection(): GillWebglUniformCollection;
@@ -30,8 +29,8 @@ interface GillWebglService
   ): WebGLProgram;
 
   setAttributeType(
-    webglType         : number, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-    dataType          : number, //TODO Constrain to WebGL type constants
+    webglType         : number,
+    dataType          : number,
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
     dataIsNormalized  : GLboolean,
@@ -40,8 +39,8 @@ interface GillWebglService
   ): void;
 
   setUniformType(
-    webglType : number, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-    dataType  : string, //TODO Constrain to uniform strings? (e.g. "i" | "f")
+    webglType : number,
+    dataType  : string,
     dataSize  : number
   ): void;
 }

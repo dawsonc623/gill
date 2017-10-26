@@ -42,7 +42,6 @@ class StandardGillProgramService implements GillProgramService
                                 gillProgramSource.getFragmentShaderSource()
                               );
 
-      //TODO Move to gillWebglService.getAttributes(program, context)
       const attributeCount  = webglRenderingContext.getProgramParameter(
                                 webglProgram,
                                 webglRenderingContext.ACTIVE_ATTRIBUTES
@@ -61,7 +60,6 @@ class StandardGillProgramService implements GillProgramService
         );
       }
 
-      //TODO Move to gillWebglService.getUniforms(program, context)
       const uniformCount  = webglRenderingContext.getProgramParameter(
                               webglProgram,
                               webglRenderingContext.ACTIVE_UNIFORMS

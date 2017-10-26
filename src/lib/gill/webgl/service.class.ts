@@ -46,7 +46,6 @@ class StandardGillWebglService implements GillWebglService
     attributeIndex        : number
   ): GillWebglAttribute
   {
-    //TODO Cache?
     const attributeInfo = webglRenderingContext.getActiveAttrib(
                             webglProgram,
                             attributeIndex
@@ -72,15 +71,13 @@ class StandardGillWebglService implements GillWebglService
       attributeLocation
     );
 
-    //TODO This may need to account for webglActiveInfo.size, but I have not found a use for that yet
-
     return  this.webglAttributeFactory.construct(
               attributeInfo.name,
               this.webglAttributeTypeMap.getAttributeType(
                 attributeInfo.type
               ),
               attributeLocation,
-              webglRenderingContext.STATIC_DRAW //TODO investigate a way to not hardcode this
+              webglRenderingContext.STATIC_DRAW
             );
   }
 
@@ -90,7 +87,6 @@ class StandardGillWebglService implements GillWebglService
     uniformIndex          : number
   ): GillWebglUniform
   {
-    //TODO Cache?
     const uniformInfo = webglRenderingContext.getActiveUniform(
                           webglProgram,
                           uniformIndex
@@ -112,8 +108,6 @@ class StandardGillWebglService implements GillWebglService
                               uniformInfo.name
                             );
 
-    //TODO This may need to account for webglActiveInfo.size, but I have not found a use for that yet
-
     return  this.webglUniformFactory.construct(
               uniformInfo.name,
               this.webglUniformTypeMap.getUniformType(
@@ -129,7 +123,6 @@ class StandardGillWebglService implements GillWebglService
     fragmentShaderSource  : string
   ): WebGLProgram
   {
-    //TODO Program cache
     return  this.webglProgramFactory.construct(
               webglRenderingContext,
               vertexShaderSource,
@@ -138,8 +131,8 @@ class StandardGillWebglService implements GillWebglService
   }
 
   setAttributeType(
-    webglType         : number, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-    dataType          : number, //TODO Constrain to WebGL type constants
+    webglType         : number,
+    dataType          : number,
     typedArrayFactory : GillTypedArrayFactory,
     dataSize          : number,
     dataIsNormalized  : GLboolean,
@@ -147,7 +140,6 @@ class StandardGillWebglService implements GillWebglService
     dataOffset        : GLintptr
   ): void
   {
-    // TODO Should this blindly overwrite like this?
     this.webglAttributeTypeMap.setAttributeType(
       webglType,
       this.webglAttributeTypeFactory.construct(
@@ -162,12 +154,11 @@ class StandardGillWebglService implements GillWebglService
   }
 
   setUniformType(
-    webglType : number, //TODO Constrain to WebGLActiveInfo.type values, whatever those are
-    dataType  : string, //TODO Constrain to uniform strings? (e.g. "i" | "f")
+    webglType : number,
+    dataType  : string,
     dataSize  : number
   ): void
   {
-    // TODO Should this blindly overwrite like this?
     this.webglUniformTypeMap.setUniformType(
       webglType,
       this.webglUniformTypeFactory.construct(

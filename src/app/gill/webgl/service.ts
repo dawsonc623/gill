@@ -22,7 +22,6 @@ const webglService  = webglServiceFactory.construct(
                         webglUniformTypeMap
                       );
 
-//TODO Move this to map instantiation
 // Set up attribute types
 
 webglService.setAttributeType(
@@ -45,7 +44,6 @@ webglService.setAttributeType(
   0       // The starting index for the first attribute value
 );
 
-//TODO Move this to map instantiation
 // Set up uniform types
 
 webglService.setUniformType(

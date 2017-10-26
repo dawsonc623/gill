@@ -1,7 +1,6 @@
 import GillAttributeType    from "lib/gill/webgl/attribute/type.type";
 import GillAttributeTypeMap from "lib/gill/webgl/attribute/type/map.type";
 
-//TODO Avoid files simply named "map"
 class StandardGillAttributeTypeMap implements GillAttributeTypeMap
 {
   private attributeType : Map<number, GillAttributeType>;
@@ -12,7 +11,7 @@ class StandardGillAttributeTypeMap implements GillAttributeTypeMap
   }
 
   getAttributeType(
-    webglType : number //TODO Constrain to WebGLActiveInfo.type values, whatever those are
+    webglType : number
   ): GillAttributeType
   {
     return  this.attributeType.get(

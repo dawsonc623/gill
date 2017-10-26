@@ -5,7 +5,7 @@ import TypedArray             from "lib/gill/webgl/typed-array.type";
 class StandardGillAttributeType implements GillAttributeType
 {
   constructor(
-    private dataType          : number, //TODO Constrain to WebGL type constant values?
+    private dataType          : number,
     private typedArrayFactory : GillTypedArrayFactory,
     private dataSize          : number,
     private dataIsNormalized  : GLboolean,

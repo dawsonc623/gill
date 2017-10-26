@@ -6,7 +6,6 @@ interface GillAttributeCollection
     attribute : GillAttribute
   ): void;
 
-  //TODO Name to just eachAttribute
   forEachAttribute(
     action  : (
       attribute : GillAttribute

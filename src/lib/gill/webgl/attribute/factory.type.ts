@@ -7,7 +7,7 @@ interface GillAttributeFactory
     name      : string,
     type      : GillAttributeType,
     location  : number,
-    usage     : GLenum //TODO Constrain values
+    usage     : GLenum
   ): GillAttribute;
 }
 

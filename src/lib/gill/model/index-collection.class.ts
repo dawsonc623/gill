@@ -41,7 +41,6 @@ class StandardGillIndexCollection implements GillIndexCollection
 
   toArray(): Array<number>
   {
-    //TODO Should this be immutable?
     return  this.indices;
   }
 }

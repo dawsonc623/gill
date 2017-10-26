@@ -33,10 +33,6 @@ class StandardGillModel implements GillModel
 
     this.indicesChanged = true;
 
-    //TODO Derive changed attributes from changed vertices as well? How to handle vertex updates. Could make vertices
-    //     immutable (somehow) and have a "replaceVertex" method. I do not like that, though. Another option is to
-    //     create an AttributeService to interact with attributes on a model. It would handle triggering "needs changed"
-    //     sort of communication as attributes are updated.
     this.changedAttributes.eachChanged(
       (
         attributeName     : string,
@@ -57,7 +53,6 @@ class StandardGillModel implements GillModel
     attributeName : string
   ): Array<number>
   {
-    //TODO Error handling
     let attributeData = new Array<number>();
 
     this.vertices.eachVertex(
@@ -111,7 +106,6 @@ class StandardGillModel implements GillModel
     uniformName : string
   ): Array<number>
   {
-    //TODO Error handling
     return  this.uniformValues.getValue(
               uniformName
             )

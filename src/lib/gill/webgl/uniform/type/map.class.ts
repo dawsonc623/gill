@@ -11,7 +11,7 @@ class StandardGillUniformTypeMap implements GillUniformTypeMap
   }
 
   getUniformType(
-    webglType : number //TODO Constrain to WebGLActiveInfo.type values, whatever those are
+    webglType : number
   ): GillUniformType
   {
     return  this.uniformType.get(
