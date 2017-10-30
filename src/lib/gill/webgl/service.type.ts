@@ -22,6 +22,10 @@ interface GillWebglService
     uniformIndex          : WebGLUniformLocation
   ): GillWebglUniform;
 
+  getWebglContext(
+    canvas  : HTMLCanvasElement
+  ): WebGLRenderingContext;
+
   getWebglProgram(
     webglRenderingContext : WebGLRenderingContext,
     vertexShaderSource    : string,

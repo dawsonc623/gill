@@ -57,6 +57,15 @@ var StandardGillWebglService = function () {
             return this.webglUniformFactory.construct(uniformInfo.name, this.webglUniformTypeMap.getUniformType(uniformInfo.type), uniformLocation);
         }
     }, {
+        key: "getWebglContext",
+        value: function getWebglContext(canvas) {
+            var webglRenderingContext = canvas.getContext("webgl");
+            if (webglRenderingContext === null) {
+                webglRenderingContext = canvas.getContext("experimental-webgl");
+            }
+            return webglRenderingContext;
+        }
+    }, {
         key: "getWebglProgram",
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
             return this.webglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);

@@ -32,7 +32,8 @@
         gillVector2Factory,
         gillVector3Factory,
         gillVertexFactory,
-        gillVertexCollectionFactory
+        gillVertexCollectionFactory,
+        gillWebglService
       ) {
         this.gillAttributeValueMapFactory   = gillAttributeValueMapFactory;
         this.gillChangedAttributeMapFactory = gillChangedAttributeMapFactory;
@@ -47,20 +48,17 @@
         this.gillVector3Factory             = gillVector3Factory;
         this.gillVertexFactory              = gillVertexFactory;
         this.gillVertexCollectionFactory    = gillVertexCollectionFactory;
+        this.gillWebglService               = gillWebglService;
       }
 
       clearCanvas(
         canvas
       )
       {
-        const webglRenderingContext = canvas.getContext(
-                                        "webgl"
-                                      ) ||
-                                      canvas.getContext(
-                                        "webgl-experimental"
+        const webglRenderingContext = this.gillWebglService.getWebglContext(
+                                        canvas
                                       );
 
-        // Clear the color as well as the depth buffer.
         webglRenderingContext.clear(
           webglRenderingContext.COLOR_BUFFER_BIT |
           webglRenderingContext.DEPTH_BUFFER_BIT
@@ -135,11 +133,8 @@
         gillProgramSource
       )
       {
-        const webglRenderingContext = canvas.getContext(
-                                        "webgl"
-                                      ) ||
-                                      canvas.getContext(
-                                        "webgl-experimental"
+        const webglRenderingContext = this.gillWebglService.getWebglContext(
+                                        canvas
                                       );
 
         const gillRenderer  = this.gillRendererService.getRenderer(
@@ -167,7 +162,8 @@
                     gillVector2Factory,
                     gillVector3Factory,
                     gillVertexFactory,
-                    gillVertexCollectionFactory
+                    gillVertexCollectionFactory,
+                    gillWebglService
                   );
 
     //==========================================

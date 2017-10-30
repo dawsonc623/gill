@@ -11,6 +11,7 @@ import gillVector2Factory             from "app/gill/model/vector2/factory";
 import gillVector3Factory             from "app/gill/model/vector3/factory";
 import gillVertexCollectionFactory    from "app/gill/model/vertex/collection/factory";
 import gillVertexFactory              from "app/gill/model/vertex/factory";
+import gillWebglService               from "app/gill/webgl/service";
 
 (<any>window).gillAttributeValueMapFactory    = gillAttributeValueMapFactory;
 (<any>window).gillChangedAttributeMapFactory  = gillChangedAttributeMapFactory;
@@ -25,3 +26,4 @@ import gillVertexFactory              from "app/gill/model/vertex/factory";
 (<any>window).gillVector3Factory              = gillVector3Factory;
 (<any>window).gillVertexCollectionFactory     = gillVertexCollectionFactory;
 (<any>window).gillVertexFactory               = gillVertexFactory;
+(<any>window).gillWebglService                = gillWebglService;

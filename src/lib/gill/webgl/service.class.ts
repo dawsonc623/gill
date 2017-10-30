@@ -117,6 +117,24 @@ class StandardGillWebglService implements GillWebglService
             );
   }
 
+  getWebglContext(
+    canvas  : HTMLCanvasElement
+  ): WebGLRenderingContext
+  {
+    let webglRenderingContext = canvas.getContext(
+                                  "webgl"
+                                );
+
+    if (webglRenderingContext === null)
+    {
+      webglRenderingContext = canvas.getContext(
+                                "experimental-webgl"
+                              );
+    }
+
+    return  webglRenderingContext;
+  }
+
   getWebglProgram(
     webglRenderingContext : WebGLRenderingContext,
     vertexShaderSource    : string,

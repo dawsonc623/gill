@@ -570,6 +570,10 @@ var _factory21 = require("app/gill/model/vertex/factory");
 
 var _factory22 = _interopRequireDefault(_factory21);
 
+var _service3 = require("app/gill/webgl/service");
+
+var _service4 = _interopRequireDefault(_service3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.gillAttributeValueMapFactory = _factory2.default;
@@ -585,7 +589,8 @@ window.gillVector2Factory = _factory16.default;
 window.gillVector3Factory = _factory18.default;
 window.gillVertexCollectionFactory = _factory20.default;
 window.gillVertexFactory = _factory22.default;
-},{"app/gill/model-buffer-service":9,"app/gill/model/attribute-value-map/factory":11,"app/gill/model/changed-attribute-map/factory":12,"app/gill/model/factory":13,"app/gill/model/index-collection/factory":14,"app/gill/model/number/factory":15,"app/gill/model/uniform-value-map/factory":16,"app/gill/model/vector2/factory":17,"app/gill/model/vector3/factory":18,"app/gill/model/vertex/collection/factory":19,"app/gill/model/vertex/factory":20,"app/gill/program/source/factory":28,"app/gill/renderer/service":30}],33:[function(require,module,exports){
+window.gillWebglService = _service4.default;
+},{"app/gill/model-buffer-service":9,"app/gill/model/attribute-value-map/factory":11,"app/gill/model/changed-attribute-map/factory":12,"app/gill/model/factory":13,"app/gill/model/index-collection/factory":14,"app/gill/model/number/factory":15,"app/gill/model/uniform-value-map/factory":16,"app/gill/model/vector2/factory":17,"app/gill/model/vector3/factory":18,"app/gill/model/vertex/collection/factory":19,"app/gill/model/vertex/factory":20,"app/gill/program/source/factory":28,"app/gill/renderer/service":30,"app/gill/webgl/service":39}],33:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3377,6 +3382,15 @@ var StandardGillWebglService = function () {
             }
             var uniformLocation = webglRenderingContext.getUniformLocation(webglProgram, uniformInfo.name);
             return this.webglUniformFactory.construct(uniformInfo.name, this.webglUniformTypeMap.getUniformType(uniformInfo.type), uniformLocation);
+        }
+    }, {
+        key: "getWebglContext",
+        value: function getWebglContext(canvas) {
+            var webglRenderingContext = canvas.getContext("webgl");
+            if (webglRenderingContext === null) {
+                webglRenderingContext = canvas.getContext("experimental-webgl");
+            }
+            return webglRenderingContext;
         }
     }, {
         key: "getWebglProgram",

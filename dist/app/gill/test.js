@@ -52,6 +52,10 @@ var _factory21 = require("app/gill/model/vertex/factory");
 
 var _factory22 = _interopRequireDefault(_factory21);
 
+var _service3 = require("app/gill/webgl/service");
+
+var _service4 = _interopRequireDefault(_service3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.gillAttributeValueMapFactory = _factory2.default;
@@ -67,3 +71,4 @@ window.gillVector2Factory = _factory16.default;
 window.gillVector3Factory = _factory18.default;
 window.gillVertexCollectionFactory = _factory20.default;
 window.gillVertexFactory = _factory22.default;
+window.gillWebglService = _service4.default;
