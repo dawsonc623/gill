@@ -17,33 +17,6 @@
   <script src="/gill.js"></script>
 
   <script>
-    class GillRendererService
-    {
-      constructor(
-        gillProgramService,
-        gillRendererFactory
-      ) {
-        this.gillProgramService   = gillProgramService;
-        this.gillRendererFactory  = gillRendererFactory;
-      }
-
-      getRenderer(
-        webglRenderingContext,
-        gillModelBufferService,
-        gillProgramSource
-      ) {
-        let gillProgram   = this.gillProgramService.getProgram(
-                              webglRenderingContext,
-                              gillProgramSource
-                            );
-
-        return  this.gillRendererFactory.construct(
-                  gillModelBufferService,
-                  gillProgram
-                );
-      }
-    }
-
     class GillService
     {
       constructor(
@@ -189,10 +162,7 @@
                     gillModelFactory,
                     gillNumberFactory,
                     gillProgramSourceFactory,
-                    new GillRendererService(
-                      gillProgramService,
-                      gillRendererFactory
-                    ),
+                    gillRendererService,
                     gillUniformValueMapFactory,
                     gillVector2Factory,
                     gillVector3Factory,
