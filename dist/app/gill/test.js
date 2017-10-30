@@ -1,74 +1,36 @@
 "use strict";
 
-var _factory = require("app/gill/model/attribute-value-map/factory");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _factory3 = require("app/gill/model/changed-attribute-map/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-var _factory5 = require("app/gill/model/index-collection/factory");
-
-var _factory6 = _interopRequireDefault(_factory5);
-
-var _modelBufferService = require("app/gill/model-buffer-service");
-
-var _modelBufferService2 = _interopRequireDefault(_modelBufferService);
-
-var _factory7 = require("app/gill/model/factory");
-
-var _factory8 = _interopRequireDefault(_factory7);
-
-var _factory9 = require("app/gill/model/number/factory");
-
-var _factory10 = _interopRequireDefault(_factory9);
-
-var _factory11 = require("app/gill/program/source/factory");
-
-var _factory12 = _interopRequireDefault(_factory11);
-
-var _service = require("app/gill/renderer/service");
+var _service = require("app/gill/service");
 
 var _service2 = _interopRequireDefault(_service);
 
-var _factory13 = require("app/gill/model/uniform-value-map/factory");
-
-var _factory14 = _interopRequireDefault(_factory13);
-
-var _factory15 = require("app/gill/model/vector2/factory");
-
-var _factory16 = _interopRequireDefault(_factory15);
-
-var _factory17 = require("app/gill/model/vector3/factory");
-
-var _factory18 = _interopRequireDefault(_factory17);
-
-var _factory19 = require("app/gill/model/vertex/collection/factory");
-
-var _factory20 = _interopRequireDefault(_factory19);
-
-var _factory21 = require("app/gill/model/vertex/factory");
-
-var _factory22 = _interopRequireDefault(_factory21);
-
-var _service3 = require("app/gill/webgl/service");
-
-var _service4 = _interopRequireDefault(_service3);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.gillAttributeValueMapFactory = _factory2.default;
-window.gillChangedAttributeMapFactory = _factory4.default;
-window.gillIndexCollectionFactory = _factory6.default;
-window.gillModelBufferService = _modelBufferService2.default;
-window.gillModelFactory = _factory8.default;
-window.gillNumberFactory = _factory10.default;
-window.gillProgramSourceFactory = _factory12.default;
-window.gillRendererService = _service2.default;
-window.gillUniformValueMapFactory = _factory14.default;
-window.gillVector2Factory = _factory16.default;
-window.gillVector3Factory = _factory18.default;
-window.gillVertexCollectionFactory = _factory20.default;
-window.gillVertexFactory = _factory22.default;
-window.gillWebglService = _service4.default;
+window.gill = _service2.default; // import gillAttributeValueMapFactory   from "app/gill/model/attribute-value-map/factory";
+// import gillChangedAttributeMapFactory from "app/gill/model/changed-attribute-map/factory";
+// import gillIndexCollectionFactory     from "app/gill/model/index-collection/factory";
+// import gillModelBufferService         from "app/gill/model-buffer-service";
+// import gillModelFactory               from "app/gill/model/factory";
+// import gillNumberFactory              from "app/gill/model/number/factory";
+// import gillProgramSourceFactory       from "app/gill/program/source/factory";
+// import gillRendererService            from "app/gill/renderer/service";
+// import gillUniformValueMapFactory     from "app/gill/model/uniform-value-map/factory";
+// import gillVector2Factory             from "app/gill/model/vector2/factory";
+// import gillVector3Factory             from "app/gill/model/vector3/factory";
+// import gillVertexCollectionFactory    from "app/gill/model/vertex/collection/factory";
+// import gillVertexFactory              from "app/gill/model/vertex/factory";
+// import gillWebglService               from "app/gill/webgl/service";
+// (<any>window).gillAttributeValueMapFactory    = gillAttributeValueMapFactory;
+// (<any>window).gillChangedAttributeMapFactory  = gillChangedAttributeMapFactory;
+// (<any>window).gillIndexCollectionFactory      = gillIndexCollectionFactory;
+// (<any>window).gillModelBufferService          = gillModelBufferService;
+// (<any>window).gillModelFactory                = gillModelFactory;
+// (<any>window).gillNumberFactory               = gillNumberFactory;
+// (<any>window).gillProgramSourceFactory        = gillProgramSourceFactory;
+// (<any>window).gillRendererService             = gillRendererService;
+// (<any>window).gillUniformValueMapFactory      = gillUniformValueMapFactory;
+// (<any>window).gillVector2Factory              = gillVector2Factory;
+// (<any>window).gillVector3Factory              = gillVector3Factory;
+// (<any>window).gillVertexCollectionFactory     = gillVertexCollectionFactory;
+// (<any>window).gillVertexFactory               = gillVertexFactory;
+// (<any>window).gillWebglService                = gillWebglService;

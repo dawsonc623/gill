@@ -17,155 +17,6 @@
   <script src="/gill.js"></script>
 
   <script>
-    class GillService
-    {
-      constructor(
-        gillAttributeValueMapFactory,
-        gillChangedAttributeMapFactory,
-        gillIndexCollectionFactory,
-        gillModelBufferService,
-        gillModelFactory,
-        gillNumberFactory,
-        gillProgramSourceFactory,
-        gillRendererService,
-        gillUniformValueMapFactory,
-        gillVector2Factory,
-        gillVector3Factory,
-        gillVertexFactory,
-        gillVertexCollectionFactory,
-        gillWebglService
-      ) {
-        this.gillAttributeValueMapFactory   = gillAttributeValueMapFactory;
-        this.gillChangedAttributeMapFactory = gillChangedAttributeMapFactory;
-        this.gillIndexCollectionFactory     = gillIndexCollectionFactory;
-        this.gillModelBufferService         = gillModelBufferService;
-        this.gillModelFactory               = gillModelFactory;
-        this.gillNumberFactory              = gillNumberFactory;
-        this.gillProgramSourceFactory       = gillProgramSourceFactory;
-        this.gillRendererService            = gillRendererService;
-        this.gillUniformValueMapFactory     = gillUniformValueMapFactory;
-        this.gillVector2Factory             = gillVector2Factory;
-        this.gillVector3Factory             = gillVector3Factory;
-        this.gillVertexFactory              = gillVertexFactory;
-        this.gillVertexCollectionFactory    = gillVertexCollectionFactory;
-        this.gillWebglService               = gillWebglService;
-      }
-
-      clearCanvas(
-        canvas
-      )
-      {
-        const webglRenderingContext = this.gillWebglService.getWebglContext(
-                                        canvas
-                                      );
-
-        webglRenderingContext.clear(
-          webglRenderingContext.COLOR_BUFFER_BIT |
-          webglRenderingContext.DEPTH_BUFFER_BIT
-        );
-      }
-
-      createModel()
-      {
-        return  this.gillModelFactory.construct(
-                  this.gillChangedAttributeMapFactory.construct(),
-                  this.gillIndexCollectionFactory.construct(),
-                  this.gillUniformValueMapFactory.construct(),
-                  this.gillVertexCollectionFactory.construct()
-                );
-      }
-
-      createNumber(
-        value
-      )
-      {
-        return  this.gillNumberFactory.construct(
-                  value
-                );
-      }
-
-      createVector2(
-        v1,
-        v2
-      )
-      {
-        return  this.gillVector2Factory.construct(
-                  v1,
-                  v2
-                );
-      }
-
-      createVector3(
-        v1,
-        v2,
-        v3
-      )
-      {
-        return  this.gillVector3Factory.construct(
-                  v1,
-                  v2,
-                  v3
-                );
-      }
-
-      createVertex()
-      {
-        return  this.gillVertexFactory.construct(
-                  this.gillAttributeValueMapFactory.construct()
-                );
-      }
-
-      getGillProgram(
-        vertexShaderShader,
-        fragmentShaderShader
-      )
-      {
-        //TODO Cache this
-        return  this.gillProgramSourceFactory.construct(
-                  vertexShaderShader,
-                  fragmentShaderShader
-                );
-      }
-
-      drawModel(
-        model,
-        canvas,
-        gillProgramSource
-      )
-      {
-        const webglRenderingContext = this.gillWebglService.getWebglContext(
-                                        canvas
-                                      );
-
-        const gillRenderer  = this.gillRendererService.getRenderer(
-                                webglRenderingContext,
-                                this.gillModelBufferService,
-                                gillProgramSource
-                              );
-
-        gillRenderer.drawModel(
-          model
-        );
-      }
-    }
-
-    const gill  = new GillService(
-                    gillAttributeValueMapFactory,
-                    gillChangedAttributeMapFactory,
-                    gillIndexCollectionFactory,
-                    gillModelBufferService,
-                    gillModelFactory,
-                    gillNumberFactory,
-                    gillProgramSourceFactory,
-                    gillRendererService,
-                    gillUniformValueMapFactory,
-                    gillVector2Factory,
-                    gillVector3Factory,
-                    gillVertexFactory,
-                    gillVertexCollectionFactory,
-                    gillWebglService
-                  );
-
     //==========================================
     //    ~~~~  ~~~~  USING GILL  ~~~~  ~~~~
     //==========================================
@@ -212,7 +63,6 @@
         sVertex4  = gill.createVertex();
 
     // WebGL uniforms are applied to all vertices rendered per draw. Therefore, they are set at the model-level.
-    // WebGL attributes are applied per vertex per draw. Therefore, they are set at the vertex-level.
 
     square.setUniform(
             "uLayer",
@@ -226,6 +76,8 @@
               1.0
             )
           );
+
+    // WebGL attributes are applied per vertex per draw. Therefore, they are set at the vertex-level.
 
     // Upper-left vertex
 
@@ -320,6 +172,7 @@
           );
 
     // Get the canvas
+
     const canvas = document.getElementById("my_canvas");
 
     // Draw it
