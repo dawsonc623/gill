@@ -30,7 +30,7 @@ gulp.task("www-test", [
   "default"
 ], function()
 {
-  return  browserify("./dist/app/gill/test.js", {
+  return  browserify("./dist/app/gill/browser.js", {
             "paths": [
               "dist"
             ]

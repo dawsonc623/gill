@@ -36,47 +36,20 @@ class StandardGillProgramService implements GillProgramService
     }
     else
     {
-      const webglProgram    = this.gillWebglService.getWebglProgram(
-                                webglRenderingContext,
-                                gillProgramSource.getVertexShaderSource(),
-                                gillProgramSource.getFragmentShaderSource()
-                              );
-
-      const attributeCount  = webglRenderingContext.getProgramParameter(
-                                webglProgram,
-                                webglRenderingContext.ACTIVE_ATTRIBUTES
-                              );
-
-      const attributes  = this.gillWebglService.constructAttributeCollection();
-
-      for (let index = 0; index < attributeCount; index += 1)
-      {
-        attributes.addAttribute(
-          this.gillWebglService.getAttribute(
-            webglRenderingContext,
-            webglProgram,
-            index
-          )
-        );
-      }
-
-      const uniformCount  = webglRenderingContext.getProgramParameter(
-                              webglProgram,
-                              webglRenderingContext.ACTIVE_UNIFORMS
+      const webglProgram  = this.gillWebglService.getWebglProgram(
+                              webglRenderingContext,
+                              gillProgramSource.getVertexShaderSource(),
+                              gillProgramSource.getFragmentShaderSource()
                             );
 
-      const uniforms  = this.gillWebglService.constructUniformCollection();
-
-      for (let index = 0; index < uniformCount; index += 1)
-      {
-        uniforms.addUniform(
-          this.gillWebglService.getUniform(
-            webglRenderingContext,
-            webglProgram,
-            index
-          )
-        );
-      }
+      const attributes  = this.gillWebglService.getAttributes(
+                            webglRenderingContext,
+                            webglProgram
+                          ),
+            uniforms    = this.gillWebglService.getUniforms(
+                            webglRenderingContext,
+                            webglProgram
+                          );
 
       program = this.gillProgramFactory.construct(
                   webglRenderingContext,

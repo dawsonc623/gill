@@ -9,52 +9,33 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglService = function () {
-    function StandardGillWebglService(webglProgramFactory, webglAttributeCollectionFactory, webglAttributeFactory, webglAttributeTypeFactory, webglAttributeTypeMap, webglUniformCollectionFactory, webglUniformFactory, webglUniformTypeFactory, webglUniformTypeMap) {
+    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglUniformCollectionFactory) {
         _classCallCheck(this, StandardGillWebglService);
 
-        this.webglProgramFactory = webglProgramFactory;
-        this.webglAttributeCollectionFactory = webglAttributeCollectionFactory;
-        this.webglAttributeFactory = webglAttributeFactory;
-        this.webglAttributeTypeFactory = webglAttributeTypeFactory;
-        this.webglAttributeTypeMap = webglAttributeTypeMap;
-        this.webglUniformCollectionFactory = webglUniformCollectionFactory;
-        this.webglUniformFactory = webglUniformFactory;
-        this.webglUniformTypeFactory = webglUniformTypeFactory;
-        this.webglUniformTypeMap = webglUniformTypeMap;
+        this.gillWebglAttributeCollectionFactory = gillWebglAttributeCollectionFactory;
+        this.gillWebglProgramService = gillWebglProgramService;
+        this.gillWebglUniformCollectionFactory = gillWebglUniformCollectionFactory;
     }
 
     _createClass(StandardGillWebglService, [{
-        key: "constructAttributeCollection",
-        value: function constructAttributeCollection() {
-            return this.webglAttributeCollectionFactory.construct();
-        }
-    }, {
-        key: "constructUniformCollection",
-        value: function constructUniformCollection() {
-            return this.webglUniformCollectionFactory.construct();
-        }
-    }, {
-        key: "getAttribute",
-        value: function getAttribute(webglRenderingContext, webglProgram, attributeIndex) {
-            var attributeInfo = webglRenderingContext.getActiveAttrib(webglProgram, attributeIndex);
-            var attributeTypeExists = this.webglAttributeTypeMap.hasAttributeType(attributeInfo.type);
-            if (!attributeTypeExists) {
-                throw new Error("Unknown WebGL variable type '" + attributeInfo.type + "' ('" + attributeInfo.name + "')");
+        key: "getAttributes",
+        value: function getAttributes(webglRenderingContext, webglProgram) {
+            var attributeCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_ATTRIBUTES);
+            var attributes = this.gillWebglAttributeCollectionFactory.construct();
+            for (var index = 0; index < attributeCount; index += 1) {
+                attributes.addAttribute(this.gillWebglProgramService.getAttribute(webglRenderingContext, webglProgram, index));
             }
-            var attributeLocation = webglRenderingContext.getAttribLocation(webglProgram, attributeInfo.name);
-            webglRenderingContext.enableVertexAttribArray(attributeLocation);
-            return this.webglAttributeFactory.construct(attributeInfo.name, this.webglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW);
+            return attributes;
         }
     }, {
-        key: "getUniform",
-        value: function getUniform(webglRenderingContext, webglProgram, uniformIndex) {
-            var uniformInfo = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
-            var uniformTypeExists = this.webglUniformTypeMap.hasUniformType(uniformInfo.type);
-            if (!uniformTypeExists) {
-                throw new Error("Unknown WebGL variable type '" + uniformInfo.type + "' ('" + uniformInfo.name + "')");
+        key: "getUniforms",
+        value: function getUniforms(webglRenderingContext, webglProgram) {
+            var uniformCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_UNIFORMS);
+            var uniforms = this.gillWebglUniformCollectionFactory.construct();
+            for (var index = 0; index < uniformCount; index += 1) {
+                uniforms.addUniform(this.gillWebglProgramService.getUniform(webglRenderingContext, webglProgram, index));
             }
-            var uniformLocation = webglRenderingContext.getUniformLocation(webglProgram, uniformInfo.name);
-            return this.webglUniformFactory.construct(uniformInfo.name, this.webglUniformTypeMap.getUniformType(uniformInfo.type), uniformLocation);
+            return uniforms;
         }
     }, {
         key: "getWebglContext",
@@ -68,17 +49,17 @@ var StandardGillWebglService = function () {
     }, {
         key: "getWebglProgram",
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.webglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
+            return this.gillWebglProgramService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
     }, {
         key: "setAttributeType",
         value: function setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            this.webglAttributeTypeMap.setAttributeType(webglType, this.webglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset));
+            this.gillWebglProgramService.setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
         }
     }, {
         key: "setUniformType",
         value: function setUniformType(webglType, dataType, dataSize) {
-            this.webglUniformTypeMap.setUniformType(webglType, this.webglUniformTypeFactory.construct(dataType, dataSize));
+            this.gillWebglProgramService.setUniformType(webglType, dataType, dataSize);
         }
     }]);
 

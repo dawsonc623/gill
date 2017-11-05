@@ -6,21 +6,15 @@ import GillWebglUniformCollection   from "lib/gill/webgl/uniform/collection.type
 
 interface GillWebglService
 {
-  constructAttributeCollection(): GillWebglAttributeCollection;
-
-  constructUniformCollection(): GillWebglUniformCollection;
-
-  getAttribute(
+  getAttributes(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-    attributeIndex        : number
-  ): GillWebglAttribute;
+  ): GillWebglAttributeCollection;
 
-  getUniform(
+  getUniforms(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-    uniformIndex          : WebGLUniformLocation
-  ): GillWebglUniform;
+  ): GillWebglUniformCollection;
 
   getWebglContext(
     canvas  : HTMLCanvasElement

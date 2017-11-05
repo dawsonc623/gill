@@ -26,16 +26,8 @@ var StandardGillProgramService = function () {
                 program = this.gillProgramCache.getProgram(webglRenderingContext, gillProgramSource);
             } else {
                 var webglProgram = this.gillWebglService.getWebglProgram(webglRenderingContext, gillProgramSource.getVertexShaderSource(), gillProgramSource.getFragmentShaderSource());
-                var attributeCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_ATTRIBUTES);
-                var attributes = this.gillWebglService.constructAttributeCollection();
-                for (var index = 0; index < attributeCount; index += 1) {
-                    attributes.addAttribute(this.gillWebglService.getAttribute(webglRenderingContext, webglProgram, index));
-                }
-                var uniformCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_UNIFORMS);
-                var uniforms = this.gillWebglService.constructUniformCollection();
-                for (var _index = 0; _index < uniformCount; _index += 1) {
-                    uniforms.addUniform(this.gillWebglService.getUniform(webglRenderingContext, webglProgram, _index));
-                }
+                var attributes = this.gillWebglService.getAttributes(webglRenderingContext, webglProgram),
+                    uniforms = this.gillWebglService.getUniforms(webglRenderingContext, webglProgram);
                 program = this.gillProgramFactory.construct(webglRenderingContext, webglProgram, attributes, uniforms);
                 this.gillProgramCache.cacheProgram(webglRenderingContext, gillProgramSource, program);
             }
