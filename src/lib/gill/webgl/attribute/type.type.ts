@@ -1,4 +1,4 @@
-import TypedArray from "lib/gill/webgl/typed-array.type";
+import TypedArray from "lib/gill/typed-array.type";
 
 interface GillWebglAttributeType
 {

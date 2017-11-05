@@ -3735,22 +3735,22 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Float32ArrayFactory = function () {
-    function Float32ArrayFactory() {
-        _classCallCheck(this, Float32ArrayFactory);
+var GillWebglFloat32ArrayFactory = function () {
+    function GillWebglFloat32ArrayFactory() {
+        _classCallCheck(this, GillWebglFloat32ArrayFactory);
     }
 
-    _createClass(Float32ArrayFactory, [{
+    _createClass(GillWebglFloat32ArrayFactory, [{
         key: "construct",
         value: function construct(arrayData) {
             return Float32Array.from(arrayData);
         }
     }]);
 
-    return Float32ArrayFactory;
+    return GillWebglFloat32ArrayFactory;
 }();
 
-exports.default = Float32ArrayFactory;
+exports.default = GillWebglFloat32ArrayFactory;
 },{}],119:[function(require,module,exports){
 "use strict";
 

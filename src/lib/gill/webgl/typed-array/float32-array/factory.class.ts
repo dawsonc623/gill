@@ -1,7 +1,7 @@
-import TypedArray         from "lib/gill/webgl/typed-array.type";
-import TypedArrayFactory  from "lib/gill/webgl/typed-array/factory.type";
+import TypedArray                 from "lib/gill/typed-array.type";
+import GillWebglTypedArrayFactory from "lib/gill/webgl/typed-array/factory.type";
 
-class Float32ArrayFactory implements TypedArrayFactory
+class GillWebglFloat32ArrayFactory implements GillWebglTypedArrayFactory
 {
   construct(
     arrayData:  Array<number>
@@ -13,4 +13,4 @@ class Float32ArrayFactory implements TypedArrayFactory
   }
 }
 
-export default Float32ArrayFactory;
+export default GillWebglFloat32ArrayFactory;

@@ -1,6 +1,6 @@
 import GillWebglAttributeType     from "lib/gill/webgl/attribute/type.type";
 import GillWebglTypedArrayFactory from "lib/gill/webgl/typed-array/factory.type";
-import TypedArray                 from "lib/gill/webgl/typed-array.type";
+import TypedArray                 from "lib/gill/typed-array.type";
 
 class StandardGillWebglAttributeType implements GillWebglAttributeType
 {
