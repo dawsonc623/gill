@@ -1,13 +1,13 @@
-import GillAttributeCollection          from "lib/gill/webgl/attribute/collection.type";
-import GillAttributeCollectionFactory   from "lib/gill/webgl/attribute/collection/factory.type";
-import StandardGillAttributeCollection  from "lib/gill/webgl/attribute/collection.class";
+import GillWebglAttributeCollection         from "lib/gill/webgl/attribute/collection.type";
+import GillWebglAttributeCollectionFactory  from "lib/gill/webgl/attribute/collection/factory.type";
+import StandardGillWebglAttributeCollection from "lib/gill/webgl/attribute/collection.class";
 
-class StandardGillAttributeCollectionFactory implements GillAttributeCollectionFactory
+class StandardGillWebglAttributeCollectionFactory implements GillWebglAttributeCollectionFactory
 {
-  construct(): GillAttributeCollection
+  construct(): GillWebglAttributeCollection
   {
-    return  new StandardGillAttributeCollection();
+    return  new StandardGillWebglAttributeCollection();
   }
 }
 
-export default StandardGillAttributeCollectionFactory;
+export default StandardGillWebglAttributeCollectionFactory;

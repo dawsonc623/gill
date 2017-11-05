@@ -8,19 +8,19 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillAttributeType = function () {
-    function StandardGillAttributeType(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-        _classCallCheck(this, StandardGillAttributeType);
+var StandardGillWebglAttributeType = function () {
+    function StandardGillWebglAttributeType(dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
+        _classCallCheck(this, StandardGillWebglAttributeType);
 
         this.dataType = dataType;
-        this.typedArrayFactory = typedArrayFactory;
+        this.gillWebglTypedArrayFactory = gillWebglTypedArrayFactory;
         this.dataSize = dataSize;
         this.dataIsNormalized = dataIsNormalized;
         this.dataStride = dataStride;
         this.dataOffset = dataOffset;
     }
 
-    _createClass(StandardGillAttributeType, [{
+    _createClass(StandardGillWebglAttributeType, [{
         key: "getDataIsNormalized",
         value: function getDataIsNormalized() {
             return this.dataIsNormalized;
@@ -48,11 +48,11 @@ var StandardGillAttributeType = function () {
     }, {
         key: "toTypedArray",
         value: function toTypedArray(webglVariableData) {
-            return this.typedArrayFactory.construct(webglVariableData);
+            return this.gillWebglTypedArrayFactory.construct(webglVariableData);
         }
     }]);
 
-    return StandardGillAttributeType;
+    return StandardGillWebglAttributeType;
 }();
 
-exports.default = StandardGillAttributeType;
+exports.default = StandardGillWebglAttributeType;

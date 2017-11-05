@@ -1,18 +1,18 @@
-import GillUniformType    from "lib/gill/webgl/uniform/type.type";
-import GillUniformTypeMap from "lib/gill/webgl/uniform/type/map.type";
+import GillWebglUniformType     from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniformTypeMap  from "lib/gill/webgl/uniform/type/map.type";
 
-class StandardGillUniformTypeMap implements GillUniformTypeMap
+class StandardGillWebglUniformTypeMap implements GillWebglUniformTypeMap
 {
-  private uniformType : Map<number, GillUniformType>;
+  private uniformType : Map<number, GillWebglUniformType>;
 
   constructor()
   {
-    this.uniformType  = new Map<number, GillUniformType>();
+    this.uniformType  = new Map<number, GillWebglUniformType>();
   }
 
   getUniformType(
     webglType : number
-  ): GillUniformType
+  ): GillWebglUniformType
   {
     return  this.uniformType.get(
               webglType
@@ -30,14 +30,14 @@ class StandardGillUniformTypeMap implements GillUniformTypeMap
 
   setUniformType(
     webglType             : number,
-    gillUniformType : GillUniformType
+    GillWebglUniformType : GillWebglUniformType
   ): void
   {
     this.uniformType.set(
       webglType,
-      gillUniformType
+      GillWebglUniformType
     );
   }
 }
 
-export default StandardGillUniformTypeMap;
+export default StandardGillWebglUniformTypeMap;

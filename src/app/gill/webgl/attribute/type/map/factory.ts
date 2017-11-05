@@ -1,5 +1,5 @@
-import GillAttributeTypeMapFactory from "lib/gill/webgl/attribute/type/map/factory.class";
+import GillWebglAttributeTypeMapFactory from "lib/gill/webgl/attribute/type/map/factory.class";
 
-const gillAttributeTypeMapFactory = new GillAttributeTypeMapFactory();
+const gillWebglAttributeTypeMapFactory  = new GillWebglAttributeTypeMapFactory();
 
-export default gillAttributeTypeMapFactory;
+export default gillWebglAttributeTypeMapFactory;

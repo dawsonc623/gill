@@ -1,8 +1,8 @@
-interface GillUniformType
+interface GillWebglUniformType
 {
   getDataSize(): number;
 
   getDataType(): string;
 }
 
-export default GillUniformType;
+export default GillWebglUniformType;

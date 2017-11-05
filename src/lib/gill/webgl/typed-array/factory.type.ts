@@ -1,10 +1,10 @@
 import TypedArray from "lib/gill/webgl/typed-array.type";
 
-interface GillTypedArrayFactory
+interface GillWebglTypedArrayFactory
 {
   construct(
     arrayData:  Array<number>
   ): TypedArray;
 }
 
-export default GillTypedArrayFactory;
+export default GillWebglTypedArrayFactory;

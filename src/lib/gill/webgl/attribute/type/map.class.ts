@@ -1,18 +1,18 @@
-import GillAttributeType    from "lib/gill/webgl/attribute/type.type";
-import GillAttributeTypeMap from "lib/gill/webgl/attribute/type/map.type";
+import GillWebglAttributeType     from "lib/gill/webgl/attribute/type.type";
+import GillWebglAttributeTypeMap  from "lib/gill/webgl/attribute/type/map.type";
 
-class StandardGillAttributeTypeMap implements GillAttributeTypeMap
+class StandardGillWebglAttributeTypeMap implements GillWebglAttributeTypeMap
 {
-  private attributeType : Map<number, GillAttributeType>;
+  private attributeType : Map<number, GillWebglAttributeType>;
 
   constructor()
   {
-    this.attributeType  = new Map<number, GillAttributeType>();
+    this.attributeType  = new Map<number, GillWebglAttributeType>();
   }
 
   getAttributeType(
     webglType : number
-  ): GillAttributeType
+  ): GillWebglAttributeType
   {
     return  this.attributeType.get(
       webglType
@@ -30,14 +30,14 @@ class StandardGillAttributeTypeMap implements GillAttributeTypeMap
 
   setAttributeType(
     webglType         : number,
-    gillAttributeType : GillAttributeType
+    GillWebglAttributeType : GillWebglAttributeType
   ): void
   {
     this.attributeType.set(
       webglType,
-      gillAttributeType
+      GillWebglAttributeType
     );
   }
 }
 
-export default StandardGillAttributeTypeMap;
+export default StandardGillWebglAttributeTypeMap;

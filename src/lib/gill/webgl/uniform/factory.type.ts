@@ -1,13 +1,13 @@
-import GillUniform      from "lib/gill/webgl/uniform.type";
-import GillUniformType  from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniform     from "lib/gill/webgl/uniform.type";
+import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
 
-interface GillUniformFactory
+interface GillWebglUniformFactory
 {
   construct(
     name      : string,
-    type      : GillUniformType,
+    type      : GillWebglUniformType,
     location  : WebGLUniformLocation
-  ): GillUniform;
+  ): GillWebglUniform;
 }
 
-export default GillUniformFactory;
+export default GillWebglUniformFactory;

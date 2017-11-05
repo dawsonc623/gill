@@ -1,5 +1,5 @@
-import GillUniformCollectionFactory from "lib/gill/webgl/uniform/collection/factory.class";
+import GillWebglUniformCollectionFactory  from "lib/gill/webgl/uniform/collection/factory.class";
 
-const gillUniformCollectionFactory  = new GillUniformCollectionFactory();
+const gillWebglUniformCollectionFactory = new GillWebglUniformCollectionFactory();
 
-export default gillUniformCollectionFactory;
+export default gillWebglUniformCollectionFactory;

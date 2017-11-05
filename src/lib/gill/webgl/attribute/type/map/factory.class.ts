@@ -1,13 +1,13 @@
-import GillAttributeTypeMap         from "lib/gill/webgl/attribute/type/map.type";
-import GillAttributeTypeMapFactory  from "lib/gill/webgl/attribute/type/map/factory.type";
-import StandardGillAttributeTypeMap from "lib/gill/webgl/attribute/type/map.class";
+import GillWebglAttributeTypeMap          from "lib/gill/webgl/attribute/type/map.type";
+import GillWebglAttributeTypeMapFactory   from "lib/gill/webgl/attribute/type/map/factory.type";
+import StandardGillWebglAttributeTypeMap  from "lib/gill/webgl/attribute/type/map.class";
 
-class StandardGillAttributeTypeMapFactory implements GillAttributeTypeMapFactory
+class StandardGillWebglAttributeTypeMapFactory implements GillWebglAttributeTypeMapFactory
 {
-  construct(): GillAttributeTypeMap
+  construct(): GillWebglAttributeTypeMap
   {
-    return  new StandardGillAttributeTypeMap();
+    return  new StandardGillWebglAttributeTypeMap();
   }
 }
 
-export default StandardGillAttributeTypeMapFactory;
+export default StandardGillWebglAttributeTypeMapFactory;

@@ -8,14 +8,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillUniformTypeMap = function () {
-    function StandardGillUniformTypeMap() {
-        _classCallCheck(this, StandardGillUniformTypeMap);
+var StandardGillWebglUniformTypeMap = function () {
+    function StandardGillWebglUniformTypeMap() {
+        _classCallCheck(this, StandardGillWebglUniformTypeMap);
 
         this.uniformType = new Map();
     }
 
-    _createClass(StandardGillUniformTypeMap, [{
+    _createClass(StandardGillWebglUniformTypeMap, [{
         key: "getUniformType",
         value: function getUniformType(webglType) {
             return this.uniformType.get(webglType);
@@ -27,12 +27,12 @@ var StandardGillUniformTypeMap = function () {
         }
     }, {
         key: "setUniformType",
-        value: function setUniformType(webglType, gillUniformType) {
-            this.uniformType.set(webglType, gillUniformType);
+        value: function setUniformType(webglType, GillWebglUniformType) {
+            this.uniformType.set(webglType, GillWebglUniformType);
         }
     }]);
 
-    return StandardGillUniformTypeMap;
+    return StandardGillWebglUniformTypeMap;
 }();
 
-exports.default = StandardGillUniformTypeMap;
+exports.default = StandardGillWebglUniformTypeMap;

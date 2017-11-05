@@ -8,14 +8,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillUniformCollection = function () {
-    function StandardGillUniformCollection() {
-        _classCallCheck(this, StandardGillUniformCollection);
+var StandardGillWebglUniformCollection = function () {
+    function StandardGillWebglUniformCollection() {
+        _classCallCheck(this, StandardGillWebglUniformCollection);
 
         this.uniforms = new Array();
     }
 
-    _createClass(StandardGillUniformCollection, [{
+    _createClass(StandardGillWebglUniformCollection, [{
         key: "addUniform",
         value: function addUniform(uniform) {
             this.uniforms.push(uniform);
@@ -29,7 +29,7 @@ var StandardGillUniformCollection = function () {
         }
     }]);
 
-    return StandardGillUniformCollection;
+    return StandardGillWebglUniformCollection;
 }();
 
-exports.default = StandardGillUniformCollection;
+exports.default = StandardGillWebglUniformCollection;

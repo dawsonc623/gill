@@ -1,6 +1,6 @@
-import GillUniformType  from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
 
-class StandardGillUniformType implements GillUniformType
+class StandardGillWebglUniformType implements GillWebglUniformType
 {
   constructor(
     private dataType  : string,
@@ -20,4 +20,4 @@ class StandardGillUniformType implements GillUniformType
   }
 }
 
-export default StandardGillUniformType;
+export default StandardGillWebglUniformType;

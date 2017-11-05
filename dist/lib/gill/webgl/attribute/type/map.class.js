@@ -8,14 +8,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillAttributeTypeMap = function () {
-    function StandardGillAttributeTypeMap() {
-        _classCallCheck(this, StandardGillAttributeTypeMap);
+var StandardGillWebglAttributeTypeMap = function () {
+    function StandardGillWebglAttributeTypeMap() {
+        _classCallCheck(this, StandardGillWebglAttributeTypeMap);
 
         this.attributeType = new Map();
     }
 
-    _createClass(StandardGillAttributeTypeMap, [{
+    _createClass(StandardGillWebglAttributeTypeMap, [{
         key: "getAttributeType",
         value: function getAttributeType(webglType) {
             return this.attributeType.get(webglType);
@@ -27,12 +27,12 @@ var StandardGillAttributeTypeMap = function () {
         }
     }, {
         key: "setAttributeType",
-        value: function setAttributeType(webglType, gillAttributeType) {
-            this.attributeType.set(webglType, gillAttributeType);
+        value: function setAttributeType(webglType, GillWebglAttributeType) {
+            this.attributeType.set(webglType, GillWebglAttributeType);
         }
     }]);
 
-    return StandardGillAttributeTypeMap;
+    return StandardGillWebglAttributeTypeMap;
 }();
 
-exports.default = StandardGillAttributeTypeMap;
+exports.default = StandardGillWebglAttributeTypeMap;

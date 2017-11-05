@@ -1,14 +1,14 @@
-import GillAttribute      from "lib/gill/webgl/attribute.type";
-import GillAttributeType  from "lib/gill/webgl/attribute/type.type";
+import GillWebglAttribute     from "lib/gill/webgl/attribute.type";
+import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
 
-interface GillAttributeFactory
+interface GillWebglAttributeFactory
 {
   construct(
     name      : string,
-    type      : GillAttributeType,
+    type      : GillWebglAttributeType,
     location  : number,
     usage     : GLenum
-  ): GillAttribute;
+  ): GillWebglAttribute;
 }
 
-export default GillAttributeFactory;
+export default GillWebglAttributeFactory;

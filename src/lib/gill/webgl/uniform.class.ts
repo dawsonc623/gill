@@ -1,11 +1,11 @@
-import GillUniform      from "lib/gill/webgl/uniform.type";
-import GillUniformType  from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniform     from "lib/gill/webgl/uniform.type";
+import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
 
-class StandardGillUniform implements GillUniform
+class StandardGillWebglUniform implements GillWebglUniform
 {
   constructor(
     private name      : string,
-    private type      : GillUniformType,
+    private type      : GillWebglUniformType,
     private location  : WebGLUniformLocation
   ) {
 
@@ -21,10 +21,10 @@ class StandardGillUniform implements GillUniform
     return  this.name;
   }
 
-  getType(): GillUniformType
+  getType(): GillWebglUniformType
   {
     return  this.type;
   }
 }
 
-export default StandardGillUniform;
+export default StandardGillWebglUniform;

@@ -1,16 +1,16 @@
-import GillAttribute  from "lib/gill/webgl/attribute.type";
+import GillWebglAttribute from "lib/gill/webgl/attribute.type";
 
-interface GillAttributeCollection
+interface GillWebglAttributeCollection
 {
   addAttribute(
-    attribute : GillAttribute
+    attribute : GillWebglAttribute
   ): void;
 
   forEachAttribute(
     action  : (
-      attribute : GillAttribute
+      attribute : GillWebglAttribute
     ) => void
   ): void;
 }
 
-export default GillAttributeCollection;
+export default GillWebglAttributeCollection;

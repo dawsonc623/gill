@@ -1,6 +1,6 @@
 import TypedArray from "lib/gill/webgl/typed-array.type";
 
-interface GillAttributeType
+interface GillWebglAttributeType
 {
   getDataIsNormalized(): GLboolean;
 
@@ -17,4 +17,4 @@ interface GillAttributeType
   ): TypedArray;
 }
 
-export default GillAttributeType;
+export default GillWebglAttributeType;

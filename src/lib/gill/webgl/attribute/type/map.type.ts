@@ -1,10 +1,10 @@
-import GillAttributeType  from "lib/gill/webgl/attribute/type.type";
+import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
 
-interface GillAttributeTypeMap
+interface GillWebglAttributeTypeMap
 {
   getAttributeType(
     webglType : number
-  ): GillAttributeType;
+  ): GillWebglAttributeType;
 
   hasAttributeType(
     webglType : number
@@ -12,8 +12,8 @@ interface GillAttributeTypeMap
 
   setAttributeType(
     webglType             : number,
-    gillAttributeType : GillAttributeType
+    GillWebglAttributeType : GillWebglAttributeType
   ): void;
 }
 
-export default GillAttributeTypeMap;
+export default GillWebglAttributeTypeMap;

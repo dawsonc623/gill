@@ -1,19 +1,19 @@
-import GillUniformType          from "lib/gill/webgl/uniform/type.type";
-import GillUniformTypeFactory   from "lib/gill/webgl/uniform/type/factory.type";
-import StandardGillUniformType  from "lib/gill/webgl/uniform/type.class";
+import GillWebglUniformType         from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniformTypeFactory  from "lib/gill/webgl/uniform/type/factory.type";
+import StandardGillWebglUniformType from "lib/gill/webgl/uniform/type.class";
 
-class StandardGillUniformTypeFactory implements GillUniformTypeFactory
+class StandardGillWebglUniformTypeFactory implements GillWebglUniformTypeFactory
 {
   construct(
     dataType  : string,
     dataSize  : number
-  ): GillUniformType
+  ): GillWebglUniformType
   {
-    return  new StandardGillUniformType(
+    return  new StandardGillWebglUniformType(
               dataType,
               dataSize
             );
   }
 }
 
-export default StandardGillUniformTypeFactory;
+export default StandardGillWebglUniformTypeFactory;

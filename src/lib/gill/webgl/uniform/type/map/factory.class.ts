@@ -1,13 +1,13 @@
-import GillUniformTypeMap         from "lib/gill/webgl/uniform/type/map.type";
-import GillUniformTypeMapFactory  from "lib/gill/webgl/uniform/type/map/factory.type";
-import StandardGillUniformTypeMap from "lib/gill/webgl/uniform/type/map.class";
+import GillWebglUniformTypeMap          from "lib/gill/webgl/uniform/type/map.type";
+import GillWebglUniformTypeMapFactory   from "lib/gill/webgl/uniform/type/map/factory.type";
+import StandardGillWebglUniformTypeMap  from "lib/gill/webgl/uniform/type/map.class";
 
-class StandardGillUniformTypeMapFactory implements GillUniformTypeMapFactory
+class StandardGillWebglUniformTypeMapFactory implements GillWebglUniformTypeMapFactory
 {
-  construct(): GillUniformTypeMap
+  construct(): GillWebglUniformTypeMap
   {
-    return  new StandardGillUniformTypeMap();
+    return  new StandardGillWebglUniformTypeMap();
   }
 }
 
-export default StandardGillUniformTypeMapFactory;
+export default StandardGillWebglUniformTypeMapFactory;

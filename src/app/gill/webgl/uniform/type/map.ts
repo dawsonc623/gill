@@ -1,5 +1,5 @@
-import gillUniformTypeMapFactory  from "app/gill/webgl/uniform/type/map/factory";
+import gillWebglUniformTypeMapFactory from "app/gill/webgl/uniform/type/map/factory";
 
-const gillUniformTypeMap  = gillUniformTypeMapFactory.construct();
+const gillWebglUniformTypeMap = gillWebglUniformTypeMapFactory.construct();
 
-export default gillUniformTypeMap;
+export default gillWebglUniformTypeMap;

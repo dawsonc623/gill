@@ -1,18 +1,18 @@
-import GillAttribute          from "lib/gill/webgl/attribute.type";
-import GillAttributeFactory   from "lib/gill/webgl/attribute/factory.type";
-import GillAttributeType      from "lib/gill/webgl/attribute/type.type";
-import StandardGillAttribute  from "lib/gill/webgl/attribute.class";
+import GillWebglAttribute         from "lib/gill/webgl/attribute.type";
+import GillWebglAttributeFactory  from "lib/gill/webgl/attribute/factory.type";
+import GillWebglAttributeType     from "lib/gill/webgl/attribute/type.type";
+import StandardGillWebglAttribute from "lib/gill/webgl/attribute.class";
 
-class StandardGillAttributeFactory implements GillAttributeFactory
+class StandardGillWebglAttributeFactory implements GillWebglAttributeFactory
 {
   construct(
     name      : string,
-    type      : GillAttributeType,
+    type      : GillWebglAttributeType,
     location  : number,
     usage     : GLenum
-  ): GillAttribute
+  ): GillWebglAttribute
   {
-    return  new StandardGillAttribute(
+    return  new StandardGillWebglAttribute(
               name,
               type,
               location,
@@ -21,4 +21,4 @@ class StandardGillAttributeFactory implements GillAttributeFactory
   }
 }
 
-export default StandardGillAttributeFactory;
+export default StandardGillWebglAttributeFactory;

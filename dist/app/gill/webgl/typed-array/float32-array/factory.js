@@ -10,5 +10,5 @@ var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillFloat32ArrayFactory = new _factory2.default();
-exports.default = gillFloat32ArrayFactory;
+var gillWebglFloat32ArrayFactory = new _factory2.default();
+exports.default = gillWebglFloat32ArrayFactory;

@@ -1,11 +1,11 @@
-import GillUniformType  from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
 
-interface GillUniformTypeFactory
+interface GillWebglUniformTypeFactory
 {
   construct(
     dataType  : string,
     dataSize  : number
-  ): GillUniformType;
+  ): GillWebglUniformType;
 }
 
-export default GillUniformTypeFactory;
+export default GillWebglUniformTypeFactory;

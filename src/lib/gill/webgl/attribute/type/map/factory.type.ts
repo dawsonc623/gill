@@ -1,8 +1,8 @@
-import GillAttributeTypeMap from "lib/gill/webgl/attribute/type/map.type";
+import GillWebglAttributeTypeMap  from "lib/gill/webgl/attribute/type/map.type";
 
-interface GillAttributeTypeMapFactory
+interface GillWebglAttributeTypeMapFactory
 {
-  construct(): GillAttributeTypeMap;
+  construct(): GillWebglAttributeTypeMap;
 }
 
-export default GillAttributeTypeMapFactory;
+export default GillWebglAttributeTypeMapFactory;

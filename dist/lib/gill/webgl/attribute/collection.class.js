@@ -8,14 +8,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillAttributeCollection = function () {
-    function StandardGillAttributeCollection() {
-        _classCallCheck(this, StandardGillAttributeCollection);
+var StandardGillWebglAttributeCollection = function () {
+    function StandardGillWebglAttributeCollection() {
+        _classCallCheck(this, StandardGillWebglAttributeCollection);
 
         this.attributes = new Array();
     }
 
-    _createClass(StandardGillAttributeCollection, [{
+    _createClass(StandardGillWebglAttributeCollection, [{
         key: "addAttribute",
         value: function addAttribute(attribute) {
             this.attributes.push(attribute);
@@ -29,7 +29,7 @@ var StandardGillAttributeCollection = function () {
         }
     }]);
 
-    return StandardGillAttributeCollection;
+    return StandardGillWebglAttributeCollection;
 }();
 
-exports.default = StandardGillAttributeCollection;
+exports.default = StandardGillWebglAttributeCollection;

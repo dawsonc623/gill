@@ -1,16 +1,16 @@
-import GillAttributeType      from "lib/gill/webgl/attribute/type.type";
-import GillTypedArrayFactory  from "lib/gill/webgl/typed-array/factory.type";
-import TypedArray             from "lib/gill/webgl/typed-array.type";
+import GillWebglAttributeType     from "lib/gill/webgl/attribute/type.type";
+import GillWebglTypedArrayFactory from "lib/gill/webgl/typed-array/factory.type";
+import TypedArray                 from "lib/gill/webgl/typed-array.type";
 
-class StandardGillAttributeType implements GillAttributeType
+class StandardGillWebglAttributeType implements GillWebglAttributeType
 {
   constructor(
-    private dataType          : number,
-    private typedArrayFactory : GillTypedArrayFactory,
-    private dataSize          : number,
-    private dataIsNormalized  : GLboolean,
-    private dataStride        : GLsizei,
-    private dataOffset        : GLintptr
+    private dataType                    : number,
+    private gillWebglTypedArrayFactory  : GillWebglTypedArrayFactory,
+    private dataSize                    : number,
+    private dataIsNormalized            : GLboolean,
+    private dataStride                  : GLsizei,
+    private dataOffset                  : GLintptr
   ) {
 
   }
@@ -44,10 +44,10 @@ class StandardGillAttributeType implements GillAttributeType
     webglVariableData : Array<number>
   ): TypedArray
   {
-    return  this.typedArrayFactory.construct(
+    return  this.gillWebglTypedArrayFactory.construct(
               webglVariableData
             );
   }
 }
 
-export default StandardGillAttributeType;
+export default StandardGillWebglAttributeType;

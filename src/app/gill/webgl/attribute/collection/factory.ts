@@ -1,5 +1,5 @@
-import GillAttributeCollectionFactory from "lib/gill/webgl/attribute/collection/factory.class";
+import GillWebglAttributeCollectionFactory  from "lib/gill/webgl/attribute/collection/factory.class";
 
-const gillAttributeCollectionFactory  = new GillAttributeCollectionFactory();
+const gillWebglAttributeCollectionFactory = new GillWebglAttributeCollectionFactory();
 
-export default gillAttributeCollectionFactory;
+export default gillWebglAttributeCollectionFactory;

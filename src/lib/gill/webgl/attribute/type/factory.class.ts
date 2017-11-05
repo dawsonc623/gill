@@ -1,22 +1,22 @@
-import GillAttributeType          from "lib/gill/webgl/attribute/type.type";
-import GillAttributeTypeFactory   from "lib/gill/webgl/attribute/type/factory.type";
-import GillTypedArrayFactory      from "lib/gill/webgl/typed-array/factory.type";
-import StandardGillAttributeType  from "lib/gill/webgl/attribute/type.class";
+import GillWebglAttributeType         from "lib/gill/webgl/attribute/type.type";
+import GillWebglAttributeTypeFactory  from "lib/gill/webgl/attribute/type/factory.type";
+import GillWebglTypedArrayFactory     from "lib/gill/webgl/typed-array/factory.type";
+import StandardGillWebglAttributeType from "lib/gill/webgl/attribute/type.class";
 
-class StandardGillAttributeTypeFactory implements GillAttributeTypeFactory
+class StandardGillWebglAttributeTypeFactory implements GillWebglAttributeTypeFactory
 {
   construct(
-    dataType          : number,
-    typedArrayFactory : GillTypedArrayFactory,
-    dataSize          : number,
-    dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei,
-    dataOffset        : GLintptr
-  ): GillAttributeType
+    dataType                    : number,
+    gillWebglTypedArrayFactory  : GillWebglTypedArrayFactory,
+    dataSize                    : number,
+    dataIsNormalized            : GLboolean,
+    dataStride                  : GLsizei,
+    dataOffset                  : GLintptr
+  ): GillWebglAttributeType
   {
-    return  new StandardGillAttributeType(
+    return  new StandardGillWebglAttributeType(
               dataType,
-              typedArrayFactory,
+              gillWebglTypedArrayFactory,
               dataSize,
               dataIsNormalized,
               dataStride,
@@ -25,4 +25,4 @@ class StandardGillAttributeTypeFactory implements GillAttributeTypeFactory
   }
 }
 
-export default StandardGillAttributeTypeFactory;
+export default StandardGillWebglAttributeTypeFactory;

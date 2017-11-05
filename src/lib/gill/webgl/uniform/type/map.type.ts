@@ -1,10 +1,10 @@
-import GillUniformType  from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
 
-interface GillUniformTypeMap
+interface GillWebglUniformTypeMap
 {
   getUniformType(
     webglType : number
-  ): GillUniformType;
+  ): GillWebglUniformType;
 
   hasUniformType(
     webglType : number
@@ -12,8 +12,8 @@ interface GillUniformTypeMap
 
   setUniformType(
     webglType       : number,
-    gillUniformType : GillUniformType
+    GillWebglUniformType : GillWebglUniformType
   ): void;
 }
 
-export default GillUniformTypeMap;
+export default GillWebglUniformTypeMap;

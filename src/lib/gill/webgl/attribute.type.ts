@@ -1,15 +1,14 @@
-import GillAttributeType  from "lib/gill/webgl/attribute/type.type";
-import TypedArray         from "lib/gill/webgl/typed-array.type";
+import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
 
-interface GillAttribute
+interface GillWebglAttribute
 {
   getLocation(): number;
 
   getName(): string;
 
-  getType(): GillAttributeType;
+  getType(): GillWebglAttributeType;
 
   getUsage(): GLenum;
 }
 
-export default GillAttribute;
+export default GillWebglAttribute;

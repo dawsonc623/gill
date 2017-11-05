@@ -1,17 +1,17 @@
-import GillUniform            from "lib/gill/webgl/uniform.type";
-import GillUniformCollection  from "lib/gill/webgl/uniform/collection.type";
+import GillWebglUniform           from "lib/gill/webgl/uniform.type";
+import GillWebglUniformCollection from "lib/gill/webgl/uniform/collection.type";
 
-class StandardGillUniformCollection implements GillUniformCollection
+class StandardGillWebglUniformCollection implements GillWebglUniformCollection
 {
-  private uniforms  : Array<GillUniform>;
+  private uniforms  : Array<GillWebglUniform>;
 
   constructor()
   {
-    this.uniforms = new Array<GillUniform>();
+    this.uniforms = new Array<GillWebglUniform>();
   }
 
   addUniform(
-    uniform : GillUniform
+    uniform : GillWebglUniform
   ): void
   {
     this.uniforms.push(
@@ -21,7 +21,7 @@ class StandardGillUniformCollection implements GillUniformCollection
 
   forEachUniform(
     action  : (
-      uniform : GillUniform
+      uniform : GillWebglUniform
     ) => void
   ): void
   {
@@ -35,4 +35,4 @@ class StandardGillUniformCollection implements GillUniformCollection
   }
 }
 
-export default StandardGillUniformCollection;
+export default StandardGillWebglUniformCollection;

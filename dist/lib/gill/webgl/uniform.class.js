@@ -8,16 +8,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillUniform = function () {
-    function StandardGillUniform(name, type, location) {
-        _classCallCheck(this, StandardGillUniform);
+var StandardGillWebglUniform = function () {
+    function StandardGillWebglUniform(name, type, location) {
+        _classCallCheck(this, StandardGillWebglUniform);
 
         this.name = name;
         this.type = type;
         this.location = location;
     }
 
-    _createClass(StandardGillUniform, [{
+    _createClass(StandardGillWebglUniform, [{
         key: "getLocation",
         value: function getLocation() {
             return this.location;
@@ -34,7 +34,7 @@ var StandardGillUniform = function () {
         }
     }]);
 
-    return StandardGillUniform;
+    return StandardGillWebglUniform;
 }();
 
-exports.default = StandardGillUniform;
+exports.default = StandardGillWebglUniform;

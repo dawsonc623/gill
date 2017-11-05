@@ -14,19 +14,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillAttributeTypeFactory = function () {
-    function StandardGillAttributeTypeFactory() {
-        _classCallCheck(this, StandardGillAttributeTypeFactory);
+var StandardGillWebglAttributeTypeFactory = function () {
+    function StandardGillWebglAttributeTypeFactory() {
+        _classCallCheck(this, StandardGillWebglAttributeTypeFactory);
     }
 
-    _createClass(StandardGillAttributeTypeFactory, [{
+    _createClass(StandardGillWebglAttributeTypeFactory, [{
         key: "construct",
-        value: function construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            return new _type2.default(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
+        value: function construct(dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
+            return new _type2.default(dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
         }
     }]);
 
-    return StandardGillAttributeTypeFactory;
+    return StandardGillWebglAttributeTypeFactory;
 }();
 
-exports.default = StandardGillAttributeTypeFactory;
+exports.default = StandardGillWebglAttributeTypeFactory;

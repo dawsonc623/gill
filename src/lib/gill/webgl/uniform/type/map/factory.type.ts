@@ -1,8 +1,8 @@
-import GillUniformTypeMap from "lib/gill/webgl/uniform/type/map.type";
+import GillWebglUniformTypeMap  from "lib/gill/webgl/uniform/type/map.type";
 
-interface GillUniformTypeMapFactory
+interface GillWebglUniformTypeMapFactory
 {
-  construct(): GillUniformTypeMap;
+  construct(): GillWebglUniformTypeMap;
 }
 
-export default GillUniformTypeMapFactory;
+export default GillWebglUniformTypeMapFactory;

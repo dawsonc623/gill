@@ -1,12 +1,12 @@
-import GillUniformType  from "lib/gill/webgl/uniform/type.type";
+import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
 
-interface GillUniform
+interface GillWebglUniform
 {
   getLocation(): WebGLUniformLocation;
 
   getName(): string;
 
-  getType(): GillUniformType;
+  getType(): GillWebglUniformType;
 }
 
-export default GillUniform;
+export default GillWebglUniform;

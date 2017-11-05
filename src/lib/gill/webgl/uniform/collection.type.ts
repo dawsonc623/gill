@@ -1,16 +1,16 @@
-import GillUniform  from "lib/gill/webgl/uniform.type";
+import GillWebglUniform from "lib/gill/webgl/uniform.type";
 
-interface GillUniformCollection
+interface GillWebglUniformCollection
 {
   addUniform(
-    uniform : GillUniform
+    uniform : GillWebglUniform
   ): void;
 
   forEachUniform(
     action  : (
-      uniform : GillUniform
+      uniform : GillWebglUniform
     ) => void
   ): void;
 }
 
-export default GillUniformCollection;
+export default GillWebglUniformCollection;

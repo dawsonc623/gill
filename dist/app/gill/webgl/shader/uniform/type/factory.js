@@ -10,5 +10,5 @@ var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillUniformTypeFactory = new _factory2.default();
-exports.default = gillUniformTypeFactory;
+var gillWebglUniformTypeFactory = new _factory2.default();
+exports.default = gillWebglUniformTypeFactory;

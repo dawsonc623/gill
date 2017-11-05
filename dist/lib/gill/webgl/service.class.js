@@ -53,8 +53,8 @@ var StandardGillWebglService = function () {
         }
     }, {
         key: "setAttributeType",
-        value: function setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            this.gillWebglProgramService.setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
+        value: function setAttributeType(webglType, dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
+            this.gillWebglProgramService.setAttributeType(webglType, dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
         }
     }, {
         key: "setUniformType",

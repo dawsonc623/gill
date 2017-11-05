@@ -1,8 +1,8 @@
-import GillUniformCollection  from "lib/gill/webgl/uniform/collection.type";
+import GillWebglUniformCollection from "lib/gill/webgl/uniform/collection.type";
 
-interface GillUniformCollectionFactory
+interface GillWebglUniformCollectionFactory
 {
-  construct(): GillUniformCollection;
+  construct(): GillWebglUniformCollection;
 }
 
-export default GillUniformCollectionFactory;
+export default GillWebglUniformCollectionFactory;

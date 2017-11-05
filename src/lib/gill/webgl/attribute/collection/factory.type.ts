@@ -1,8 +1,8 @@
-import GillAttributeCollection from "lib/gill/webgl/attribute/collection.type";
+import GillWebglAttributeCollection from "lib/gill/webgl/attribute/collection.type";
 
-interface GillAttributeCollectionFactory
+interface GillWebglAttributeCollectionFactory
 {
-  construct(): GillAttributeCollection;
+  construct(): GillWebglAttributeCollection;
 }
 
-export default GillAttributeCollectionFactory;
+export default GillWebglAttributeCollectionFactory;

@@ -14,19 +14,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillUniformTypeFactory = function () {
-    function StandardGillUniformTypeFactory() {
-        _classCallCheck(this, StandardGillUniformTypeFactory);
+var StandardGillWebglUniformTypeFactory = function () {
+    function StandardGillWebglUniformTypeFactory() {
+        _classCallCheck(this, StandardGillWebglUniformTypeFactory);
     }
 
-    _createClass(StandardGillUniformTypeFactory, [{
+    _createClass(StandardGillWebglUniformTypeFactory, [{
         key: "construct",
         value: function construct(dataType, dataSize) {
             return new _type2.default(dataType, dataSize);
         }
     }]);
 
-    return StandardGillUniformTypeFactory;
+    return StandardGillWebglUniformTypeFactory;
 }();
 
-exports.default = StandardGillUniformTypeFactory;
+exports.default = StandardGillWebglUniformTypeFactory;

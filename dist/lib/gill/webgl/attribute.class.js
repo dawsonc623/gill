@@ -8,9 +8,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillAttribute = function () {
-    function StandardGillAttribute(name, type, location, usage) {
-        _classCallCheck(this, StandardGillAttribute);
+var StandardGillWebglAttribute = function () {
+    function StandardGillWebglAttribute(name, type, location, usage) {
+        _classCallCheck(this, StandardGillWebglAttribute);
 
         this.name = name;
         this.type = type;
@@ -18,7 +18,7 @@ var StandardGillAttribute = function () {
         this.usage = usage;
     }
 
-    _createClass(StandardGillAttribute, [{
+    _createClass(StandardGillWebglAttribute, [{
         key: "getLocation",
         value: function getLocation() {
             return this.location;
@@ -40,7 +40,7 @@ var StandardGillAttribute = function () {
         }
     }]);
 
-    return StandardGillAttribute;
+    return StandardGillWebglAttribute;
 }();
 
-exports.default = StandardGillAttribute;
+exports.default = StandardGillWebglAttribute;

@@ -1,16 +1,16 @@
-import GillAttributeType      from "lib/gill/webgl/attribute/type.type";
-import GillTypedArrayFactory  from "lib/gill/webgl/typed-array/factory.type";
+import GillWebglAttributeType     from "lib/gill/webgl/attribute/type.type";
+import GillWebglTypedArrayFactory from "lib/gill/webgl/typed-array/factory.type";
 
-interface GillAttributeTypeFactory
+interface GillWebglAttributeTypeFactory
 {
   construct(
-    dataType          : number,
-    typedArrayFactory : GillTypedArrayFactory,
-    dataSize          : number,
-    dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei,
-    dataOffset        : GLintptr
-  ): GillAttributeType;
+    dataType                    : number,
+    gillWebglTypedArrayFactory  : GillWebglTypedArrayFactory,
+    dataSize                    : number,
+    dataIsNormalized            : GLboolean,
+    dataStride                  : GLsizei,
+    dataOffset                  : GLintptr
+  ): GillWebglAttributeType;
 }
 
-export default GillAttributeTypeFactory;
+export default GillWebglAttributeTypeFactory;

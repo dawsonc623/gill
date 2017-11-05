@@ -1,17 +1,17 @@
-import GillAttribute            from "lib/gill/webgl/attribute.type";
-import GillAttributeCollection  from "lib/gill/webgl/attribute/collection.type";
+import GillWebglAttribute           from "lib/gill/webgl/attribute.type";
+import GillWebglAttributeCollection from "lib/gill/webgl/attribute/collection.type";
 
-class StandardGillAttributeCollection implements GillAttributeCollection
+class StandardGillWebglAttributeCollection implements GillWebglAttributeCollection
 {
-  private attributes  : Array<GillAttribute>;
+  private attributes  : Array<GillWebglAttribute>;
 
   constructor()
   {
-    this.attributes = new Array<GillAttribute>();
+    this.attributes = new Array<GillWebglAttribute>();
   }
 
   addAttribute(
-    attribute : GillAttribute
+    attribute : GillWebglAttribute
   ): void
   {
     this.attributes.push(
@@ -21,7 +21,7 @@ class StandardGillAttributeCollection implements GillAttributeCollection
 
   forEachAttribute(
     action  : (
-      attribute : GillAttribute
+      attribute : GillWebglAttribute
     ) => void
   ): void
   {
@@ -35,4 +35,4 @@ class StandardGillAttributeCollection implements GillAttributeCollection
   }
 }
 
-export default StandardGillAttributeCollection;
+export default StandardGillWebglAttributeCollection;

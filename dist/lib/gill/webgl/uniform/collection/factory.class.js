@@ -14,19 +14,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillUniformCollectionFactory = function () {
-    function StandardGillUniformCollectionFactory() {
-        _classCallCheck(this, StandardGillUniformCollectionFactory);
+var StandardGillWebglUniformCollectionFactory = function () {
+    function StandardGillWebglUniformCollectionFactory() {
+        _classCallCheck(this, StandardGillWebglUniformCollectionFactory);
     }
 
-    _createClass(StandardGillUniformCollectionFactory, [{
+    _createClass(StandardGillWebglUniformCollectionFactory, [{
         key: "construct",
         value: function construct() {
             return new _collection2.default();
         }
     }]);
 
-    return StandardGillUniformCollectionFactory;
+    return StandardGillWebglUniformCollectionFactory;
 }();
 
-exports.default = StandardGillUniformCollectionFactory;
+exports.default = StandardGillWebglUniformCollectionFactory;

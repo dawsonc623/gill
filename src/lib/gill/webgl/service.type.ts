@@ -1,4 +1,4 @@
-import GillTypedArrayFactory        from "lib/gill/webgl/typed-array/factory.type";
+import GillWebglTypedArrayFactory   from "lib/gill/webgl/typed-array/factory.type";
 import GillWebglAttribute           from "lib/gill/webgl/attribute.type";
 import GillWebglAttributeCollection from "lib/gill/webgl/attribute/collection.type";
 import GillWebglUniform             from "lib/gill/webgl/uniform.type";
@@ -27,13 +27,13 @@ interface GillWebglService
   ): WebGLProgram;
 
   setAttributeType(
-    webglType         : number,
-    dataType          : number,
-    typedArrayFactory : GillTypedArrayFactory,
-    dataSize          : number,
-    dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei,
-    dataOffset        : GLintptr
+    webglType                   : number,
+    dataType                    : number,
+    gillWebglTypedArrayFactory  : GillWebglTypedArrayFactory,
+    dataSize                    : number,
+    dataIsNormalized            : GLboolean,
+    dataStride                  : GLsizei,
+    dataOffset                  : GLintptr
   ): void;
 
   setUniformType(

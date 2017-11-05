@@ -1,12 +1,11 @@
-import GillAttribute      from "lib/gill/webgl/attribute.type";
-import GillAttributeType  from "lib/gill/webgl/attribute/type.type";
-import TypedArray         from "lib/gill/webgl/typed-array.type";
+import GillWebglAttribute     from "lib/gill/webgl/attribute.type";
+import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
 
-class StandardGillAttribute implements GillAttribute
+class StandardGillWebglAttribute implements GillWebglAttribute
 {
   constructor(
     private name      : string,
-    private type      : GillAttributeType,
+    private type      : GillWebglAttributeType,
     private location  : number,
     private usage     : GLenum
   ) {
@@ -23,7 +22,7 @@ class StandardGillAttribute implements GillAttribute
     return  this.name;
   }
 
-  getType(): GillAttributeType
+  getType(): GillWebglAttributeType
   {
     return  this.type;
   }
@@ -34,4 +33,4 @@ class StandardGillAttribute implements GillAttribute
   }
 }
 
-export default StandardGillAttribute;
+export default StandardGillWebglAttribute;
