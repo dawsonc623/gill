@@ -1,17 +1,17 @@
-import GillAttribute  from "lib/gill/webgl/attribute.type";
-import GillUniform    from "lib/gill/webgl/uniform.type";
+import GillProgramWebglAttribute  from "lib/gill/program/webgl/attribute.type";
+import GillProgramWebglUniform    from "lib/gill/program/webgl/uniform.type";
 
 interface GillProgram
 {
   forEachAttribute(
     action  : (
-      attribute : GillAttribute
+      attribute : GillProgramWebglAttribute
     ) => void
   ): void;
 
   forEachUniform(
     action  : (
-      attribute : GillUniform
+      attribute : GillProgramWebglUniform
     ) => void
   ): void;
 

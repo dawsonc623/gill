@@ -16,7 +16,7 @@ var _factory3 = require("app/gill/program/service/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
 
-var _service = require("app/gill/webgl/service");
+var _service = require("app/gill/program/webgl/service");
 
 var _service2 = _interopRequireDefault(_service);
 

@@ -1,38 +1,38 @@
-import GillAttribute            from "lib/gill/webgl/attribute.type";
-import GillAttributeCollection  from "lib/gill/webgl/attribute/collection.type";
-import GillProgram              from "lib/gill/program.type";
-import GillUniform              from "lib/gill/webgl/uniform.type";
-import GillUniformCollection    from "lib/gill/webgl/uniform/collection.type";
+import GillProgram                          from "lib/gill/program.type";
+import GillProgramWebglAttribute            from "lib/gill/program/webgl/attribute.type";
+import GillProgramWebglAttributeCollection  from "lib/gill/program/webgl/attribute/collection.type";
+import GillProgramWebglUniform              from "lib/gill/program/webgl/uniform.type";
+import GillProgramUniformCollection         from "lib/gill/program/webgl/uniform/collection.type";
 
 class StandardGillProgram implements GillProgram
 {
   constructor(
     private webglRenderingContext : WebGLRenderingContext,
     private webglProgram          : WebGLProgram,
-    private attributes            : GillAttributeCollection,
-    private uniforms              : GillUniformCollection
+    private attributes            : GillProgramWebglAttributeCollection,
+    private uniforms              : GillProgramUniformCollection
   ) {
 
   }
 
   forEachAttribute(
     action  : (
-      attribute : GillAttribute
+      attribute : GillProgramWebglAttribute
     ) => void
   ): void
   {
-    this.attributes.forEachAttribute(
+    this.attributes.eachAttribute(
       action
     );
   }
 
   forEachUniform(
     action  : (
-      attribute : GillUniform
+      attribute : GillProgramWebglUniform
     ) => void
   ): void
   {
-    this.uniforms.forEachUniform(
+    this.uniforms.eachUniform(
       action
     );
   }

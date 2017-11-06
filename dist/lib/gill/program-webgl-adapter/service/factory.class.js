@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _service = require("lib/gill/program/service.class");
+var _service = require("lib/gill/program-webgl-adapter/service.class");
 
 var _service2 = _interopRequireDefault(_service);
 
@@ -14,19 +14,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillProgramServiceFactory = function () {
-    function StandardGillProgramServiceFactory() {
-        _classCallCheck(this, StandardGillProgramServiceFactory);
+var StandardGillProgramWebglServiceAdapterFactory = function () {
+    function StandardGillProgramWebglServiceAdapterFactory() {
+        _classCallCheck(this, StandardGillProgramWebglServiceAdapterFactory);
     }
 
-    _createClass(StandardGillProgramServiceFactory, [{
+    _createClass(StandardGillProgramWebglServiceAdapterFactory, [{
         key: "construct",
-        value: function construct(gillProgramCache, gillProgramFactory, gillProgramWebglService) {
-            return new _service2.default(gillProgramCache, gillProgramFactory, gillProgramWebglService);
+        value: function construct(gillProgramWebglAttributeCollectionAdapterFactory, gillProgramWebglUniformCollectionAdapterFactory, gillWebglService) {
+            return new _service2.default(gillProgramWebglAttributeCollectionAdapterFactory, gillProgramWebglUniformCollectionAdapterFactory, gillWebglService);
         }
     }]);
 
-    return StandardGillProgramServiceFactory;
+    return StandardGillProgramWebglServiceAdapterFactory;
 }();
 
-exports.default = StandardGillProgramServiceFactory;
+exports.default = StandardGillProgramWebglServiceAdapterFactory;

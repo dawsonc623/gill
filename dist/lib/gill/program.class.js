@@ -21,12 +21,12 @@ var StandardGillProgram = function () {
     _createClass(StandardGillProgram, [{
         key: "forEachAttribute",
         value: function forEachAttribute(action) {
-            this.attributes.forEachAttribute(action);
+            this.attributes.eachAttribute(action);
         }
     }, {
         key: "forEachUniform",
         value: function forEachUniform(action) {
-            this.uniforms.forEachUniform(action);
+            this.uniforms.eachUniform(action);
         }
     }, {
         key: "getWebglProgram",

@@ -1,16 +1,16 @@
-import GillProgram        from "lib/gill/program.type";
-import GillProgramCache   from "lib/gill/program/cache.type";
-import GillProgramFactory from "lib/gill/program/factory.type";
-import GillProgramService from "lib/gill/program/service.type";
-import GillProgramSource  from "lib/gill/program/source.type";
-import GillWebglService   from "lib/gill/webgl/service.type";
+import GillProgram              from "lib/gill/program.type";
+import GillProgramCache         from "lib/gill/program/cache.type";
+import GillProgramFactory       from "lib/gill/program/factory.type";
+import GillProgramService       from "lib/gill/program/service.type";
+import GillProgramSource        from "lib/gill/program/source.type";
+import GillProgramWebglService  from "lib/gill/program/webgl/service.type";
 
 class StandardGillProgramService implements GillProgramService
 {
   constructor(
-    private gillProgramCache    : GillProgramCache,
-    private gillProgramFactory  : GillProgramFactory,
-    private gillWebglService    : GillWebglService
+    private gillProgramCache        : GillProgramCache,
+    private gillProgramFactory      : GillProgramFactory,
+    private gillProgramWebglService : GillProgramWebglService
   ) {
 
   }
@@ -36,17 +36,17 @@ class StandardGillProgramService implements GillProgramService
     }
     else
     {
-      const webglProgram  = this.gillWebglService.getWebglProgram(
+      const webglProgram  = this.gillProgramWebglService.getWebglProgram(
                               webglRenderingContext,
                               gillProgramSource.getVertexShaderSource(),
                               gillProgramSource.getFragmentShaderSource()
                             );
 
-      const attributes  = this.gillWebglService.getAttributes(
+      const attributes  = this.gillProgramWebglService.getAttributes(
                             webglRenderingContext,
                             webglProgram
                           ),
-            uniforms    = this.gillWebglService.getUniforms(
+            uniforms    = this.gillProgramWebglService.getUniforms(
                             webglRenderingContext,
                             webglProgram
                           );
