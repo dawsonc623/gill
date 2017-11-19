@@ -21,22 +21,6 @@ interface GillWebglProgramService
     vertexShaderSource    : string,
     fragmentShaderSource  : string
   ): WebGLProgram;
-
-  setAttributeType(
-    webglType         : number,
-    dataType          : number,
-    typedArrayFactory : GillWebglTypedArrayFactory,
-    dataSize          : number,
-    dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei,
-    dataOffset        : GLintptr
-  ): void;
-
-  setUniformType(
-    webglType : number,
-    dataType  : string,
-    dataSize  : number
-  ): void;
 }
 
 export default GillWebglProgramService;

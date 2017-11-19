@@ -9,15 +9,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglProgramService = function () {
-    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeFactory, gillWebglUniformTypeMap) {
+    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap) {
         _classCallCheck(this, StandardGillWebglProgramService);
 
         this.gillWebglAttributeFactory = gillWebglAttributeFactory;
-        this.gillWebglAttributeTypeFactory = gillWebglAttributeTypeFactory;
         this.gillWebglAttributeTypeMap = gillWebglAttributeTypeMap;
         this.gillWebglProgramFactory = gillWebglProgramFactory;
         this.gillWebglUniformFactory = gillWebglUniformFactory;
-        this.gillWebglUniformTypeFactory = gillWebglUniformTypeFactory;
         this.gillWebglUniformTypeMap = gillWebglUniformTypeMap;
     }
 
@@ -48,16 +46,6 @@ var StandardGillWebglProgramService = function () {
         key: "getWebglProgram",
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
             return this.gillWebglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
-        }
-    }, {
-        key: "setAttributeType",
-        value: function setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            this.gillWebglAttributeTypeMap.setAttributeType(webglType, this.gillWebglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset));
-        }
-    }, {
-        key: "setUniformType",
-        value: function setUniformType(webglType, dataType, dataSize) {
-            this.gillWebglUniformTypeMap.setUniformType(webglType, this.gillWebglUniformTypeFactory.construct(dataType, dataSize));
         }
     }]);
 

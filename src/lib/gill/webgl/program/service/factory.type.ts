@@ -11,11 +11,9 @@ interface GillWebglProgramServiceFactory
 {
   construct(
     gillWebglAttributeFactory     : GillWebglAttributeFactory,
-    gillWebglAttributeTypeFactory : GillWebglAttributeTypeFactory,
     gillWebglAttributeTypeMap     : GillWebglAttributeTypeMap,
     gillWebglProgramFactory       : GillWebglProgramFactory,
     gillWebglUniformFactory       : GillWebglUniformFactory,
-    gillWebglUniformTypeFactory   : GillWebglUniformTypeFactory,
     gillWebglUniformTypeMap       : GillWebglUniformTypeMap
   ): GillWebglProgramService;
 }

@@ -101,40 +101,6 @@ class StandardGillWebglService implements GillWebglService
               fragmentShaderSource
             );
   }
-
-  setAttributeType(
-    webglType                   : number,
-    dataType                    : number,
-    gillWebglTypedArrayFactory  : GillWebglTypedArrayFactory,
-    dataSize                    : number,
-    dataIsNormalized            : GLboolean,
-    dataStride                  : GLsizei,
-    dataOffset                  : GLintptr
-  ): void
-  {
-    this.gillWebglProgramService.setAttributeType(
-      webglType,
-      dataType,
-      gillWebglTypedArrayFactory,
-      dataSize,
-      dataIsNormalized,
-      dataStride,
-      dataOffset
-    );
-  }
-
-  setUniformType(
-    webglType : number,
-    dataType  : string,
-    dataSize  : number
-  ): void
-  {
-    this.gillWebglProgramService.setUniformType(
-      webglType,
-      dataType,
-      dataSize
-    );
-  }
 }
 
 export default StandardGillWebglService;

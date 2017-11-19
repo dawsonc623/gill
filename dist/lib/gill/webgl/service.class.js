@@ -51,16 +51,6 @@ var StandardGillWebglService = function () {
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
             return this.gillWebglProgramService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
-    }, {
-        key: "setAttributeType",
-        value: function setAttributeType(webglType, dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            this.gillWebglProgramService.setAttributeType(webglType, dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
-        }
-    }, {
-        key: "setUniformType",
-        value: function setUniformType(webglType, dataType, dataSize) {
-            this.gillWebglProgramService.setUniformType(webglType, dataType, dataSize);
-        }
     }]);
 
     return StandardGillWebglService;

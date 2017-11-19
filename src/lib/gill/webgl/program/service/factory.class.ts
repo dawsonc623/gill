@@ -13,21 +13,17 @@ class StandardGillWebglProgramServiceFactory implements GillWebglProgramServiceF
 {
   construct(
     gillWebglAttributeFactory     : GillWebglAttributeFactory,
-    gillWebglAttributeTypeFactory : GillWebglAttributeTypeFactory,
     gillWebglAttributeTypeMap     : GillWebglAttributeTypeMap,
     gillWebglProgramFactory       : GillWebglProgramFactory,
     gillWebglUniformFactory       : GillWebglUniformFactory,
-    gillWebglUniformTypeFactory   : GillWebglUniformTypeFactory,
     gillWebglUniformTypeMap       : GillWebglUniformTypeMap
   ): GillWebglProgramService
   {
     return  new StandardGillWebglProgramService(
               gillWebglAttributeFactory,
-              gillWebglAttributeTypeFactory,
               gillWebglAttributeTypeMap,
               gillWebglProgramFactory,
               gillWebglUniformFactory,
-              gillWebglUniformTypeFactory,
               gillWebglUniformTypeMap
             );
   }

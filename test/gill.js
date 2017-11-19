@@ -825,29 +825,21 @@ var _factory = require("app/gill/webgl/attribute/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-var _factory3 = require("app/gill/webgl/attribute/type/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
 var _map = require("app/gill/webgl/attribute/type/map");
 
 var _map2 = _interopRequireDefault(_map);
 
-var _factory5 = require("app/gill/webgl/program/factory");
+var _factory3 = require("app/gill/webgl/program/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
+var _factory5 = require("app/gill/webgl/program/service/factory");
 
 var _factory6 = _interopRequireDefault(_factory5);
 
-var _factory7 = require("app/gill/webgl/program/service/factory");
+var _factory7 = require("app/gill/webgl/uniform/factory");
 
 var _factory8 = _interopRequireDefault(_factory7);
-
-var _factory9 = require("app/gill/webgl/uniform/factory");
-
-var _factory10 = _interopRequireDefault(_factory9);
-
-var _factory11 = require("app/gill/webgl/uniform/type/factory");
-
-var _factory12 = _interopRequireDefault(_factory11);
 
 var _map3 = require("app/gill/webgl/uniform/type/map");
 
@@ -855,9 +847,9 @@ var _map4 = _interopRequireDefault(_map3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglProgramService = _factory8.default.construct(_factory2.default, _factory4.default, _map2.default, _factory6.default, _factory10.default, _factory12.default, _map4.default);
+var gillWebglProgramService = _factory6.default.construct(_factory2.default, _map2.default, _factory4.default, _factory8.default, _map4.default);
 exports.default = gillWebglProgramService;
-},{"app/gill/webgl/attribute/factory":41,"app/gill/webgl/attribute/type/factory":42,"app/gill/webgl/attribute/type/map":43,"app/gill/webgl/program/factory":45,"app/gill/webgl/program/service/factory":47,"app/gill/webgl/uniform/factory":53,"app/gill/webgl/uniform/type/factory":54,"app/gill/webgl/uniform/type/map":55}],47:[function(require,module,exports){
+},{"app/gill/webgl/attribute/factory":41,"app/gill/webgl/attribute/type/map":43,"app/gill/webgl/program/factory":45,"app/gill/webgl/program/service/factory":47,"app/gill/webgl/uniform/factory":53,"app/gill/webgl/uniform/type/map":55}],47:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3792,15 +3784,13 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglProgramService = function () {
-    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeFactory, gillWebglUniformTypeMap) {
+    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap) {
         _classCallCheck(this, StandardGillWebglProgramService);
 
         this.gillWebglAttributeFactory = gillWebglAttributeFactory;
-        this.gillWebglAttributeTypeFactory = gillWebglAttributeTypeFactory;
         this.gillWebglAttributeTypeMap = gillWebglAttributeTypeMap;
         this.gillWebglProgramFactory = gillWebglProgramFactory;
         this.gillWebglUniformFactory = gillWebglUniformFactory;
-        this.gillWebglUniformTypeFactory = gillWebglUniformTypeFactory;
         this.gillWebglUniformTypeMap = gillWebglUniformTypeMap;
     }
 
@@ -3832,16 +3822,6 @@ var StandardGillWebglProgramService = function () {
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
             return this.gillWebglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
-    }, {
-        key: "setAttributeType",
-        value: function setAttributeType(webglType, dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            this.gillWebglAttributeTypeMap.setAttributeType(webglType, this.gillWebglAttributeTypeFactory.construct(dataType, typedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset));
-        }
-    }, {
-        key: "setUniformType",
-        value: function setUniformType(webglType, dataType, dataSize) {
-            this.gillWebglUniformTypeMap.setUniformType(webglType, this.gillWebglUniformTypeFactory.construct(dataType, dataSize));
-        }
     }]);
 
     return StandardGillWebglProgramService;
@@ -3872,8 +3852,8 @@ var StandardGillWebglProgramServiceFactory = function () {
 
     _createClass(StandardGillWebglProgramServiceFactory, [{
         key: "construct",
-        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeFactory, gillWebglUniformTypeMap) {
-            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeFactory, gillWebglUniformTypeMap);
+        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap) {
+            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap);
         }
     }]);
 
@@ -3934,16 +3914,6 @@ var StandardGillWebglService = function () {
         key: "getWebglProgram",
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
             return this.gillWebglProgramService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
-        }
-    }, {
-        key: "setAttributeType",
-        value: function setAttributeType(webglType, dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset) {
-            this.gillWebglProgramService.setAttributeType(webglType, dataType, gillWebglTypedArrayFactory, dataSize, dataIsNormalized, dataStride, dataOffset);
-        }
-    }, {
-        key: "setUniformType",
-        value: function setUniformType(webglType, dataType, dataSize) {
-            this.gillWebglProgramService.setUniformType(webglType, dataType, dataSize);
         }
     }]);
 

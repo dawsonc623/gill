@@ -14,11 +14,9 @@ class StandardGillWebglProgramService implements GillWebglProgramService
 {
   constructor(
     private gillWebglAttributeFactory     : GillWebglAttributeFactory,
-    private gillWebglAttributeTypeFactory : GillWebglAttributeTypeFactory,
     private gillWebglAttributeTypeMap     : GillWebglAttributeTypeMap,
     private gillWebglProgramFactory       : GillWebglProgramFactory,
     private gillWebglUniformFactory       : GillWebglUniformFactory,
-    private gillWebglUniformTypeFactory   : GillWebglUniformTypeFactory,
     private gillWebglUniformTypeMap       : GillWebglUniformTypeMap
   ) {
 
@@ -112,44 +110,6 @@ class StandardGillWebglProgramService implements GillWebglProgramService
               vertexShaderSource,
               fragmentShaderSource
             );
-  }
-
-  setAttributeType(
-    webglType         : number,
-    dataType          : number,
-    typedArrayFactory : GillWebglTypedArrayFactory,
-    dataSize          : number,
-    dataIsNormalized  : GLboolean,
-    dataStride        : GLsizei,
-    dataOffset        : GLintptr
-  ): void
-  {
-    this.gillWebglAttributeTypeMap.setAttributeType(
-      webglType,
-      this.gillWebglAttributeTypeFactory.construct(
-        dataType,
-        typedArrayFactory,
-        dataSize,
-        dataIsNormalized,
-        dataStride,
-        dataOffset
-      )
-    );
-  }
-
-  setUniformType(
-    webglType : number,
-    dataType  : string,
-    dataSize  : number
-  ): void
-  {
-    this.gillWebglUniformTypeMap.setUniformType(
-      webglType,
-      this.gillWebglUniformTypeFactory.construct(
-        dataType,
-        dataSize
-      )
-    );
   }
 }
 
