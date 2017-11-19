@@ -4,11 +4,9 @@ import GillWebglAttributeTypeFactory  from "lib/gill/webgl/attribute/type/factor
 import GillWebglAttributeTypeMap      from "lib/gill/webgl/attribute/type/map.type";
 import GillWebglProgramFactory        from "lib/gill/webgl/program/factory.type";
 import GillWebglProgramService        from "lib/gill/webgl/program/service.type";
-import GillWebglTypedArrayFactory     from "lib/gill/webgl/typed-array/factory.type";
 import GillWebglUniform               from "lib/gill/webgl/uniform.type";
 import GillWebglUniformFactory        from "lib/gill/webgl/uniform/factory.type";
-import GillWebglUniformTypeFactory    from "lib/gill/webgl/uniform/type/factory.type";
-import GillWebglUniformTypeMap        from "lib/gill/webgl/uniform/type/map.type";
+import GillWebglVariableTypeMap       from "lib/gill/webgl/variable/type-map.type";
 
 class StandardGillWebglProgramService implements GillWebglProgramService
 {
@@ -17,7 +15,7 @@ class StandardGillWebglProgramService implements GillWebglProgramService
     private gillWebglAttributeTypeMap     : GillWebglAttributeTypeMap,
     private gillWebglProgramFactory       : GillWebglProgramFactory,
     private gillWebglUniformFactory       : GillWebglUniformFactory,
-    private gillWebglUniformTypeMap       : GillWebglUniformTypeMap
+    private gillWebglVariableTypeMap      : GillWebglVariableTypeMap
   ) {
 
   }
@@ -74,7 +72,7 @@ class StandardGillWebglProgramService implements GillWebglProgramService
                           uniformIndex
                         );
 
-    const uniformTypeExists = this.gillWebglUniformTypeMap.hasUniformType(
+    const uniformTypeExists = this.gillWebglVariableTypeMap.hasWebglVariableType(
       uniformInfo.type
     );
 
@@ -92,7 +90,7 @@ class StandardGillWebglProgramService implements GillWebglProgramService
 
     return  this.gillWebglUniformFactory.construct(
               uniformInfo.name,
-              this.gillWebglUniformTypeMap.getUniformType(
+              this.gillWebglVariableTypeMap.getWebglVariableType(
                 uniformInfo.type
               ),
               uniformLocation

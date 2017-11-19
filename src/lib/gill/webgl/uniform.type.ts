@@ -1,4 +1,4 @@
-import GillWebglUniformType from "lib/gill/webgl/uniform/type.type";
+import GillWebglVariableType  from "lib/gill/webgl/variable/type.type";
 
 interface GillWebglUniform
 {
@@ -6,7 +6,7 @@ interface GillWebglUniform
 
   getName(): string;
 
-  getType(): GillWebglUniformType;
+  getType(): GillWebglVariableType;
 }
 
 export default GillWebglUniform;

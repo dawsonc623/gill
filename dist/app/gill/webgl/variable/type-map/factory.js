@@ -4,11 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/typed-array/float32-array/factory.class");
+var _factory = require("lib/gill/webgl/variable/type-map/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillFloat32ArrayFactory = new _factory2.default();
-exports.default = gillFloat32ArrayFactory;
+var gillWebglVariableTypeMapFactory = new _factory2.default();
+exports.default = gillWebglVariableTypeMapFactory;

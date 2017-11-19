@@ -1,6 +1,6 @@
-import GillWebglAttribute         from "lib/gill/webgl/attribute.type";
-import GillWebglTypedArrayFactory from "lib/gill/webgl/typed-array/factory.type";
-import GillWebglUniform           from "lib/gill/webgl/uniform.type";
+import GillTypedArrayFactory  from "lib/gill/typed-array/factory.type";
+import GillWebglAttribute     from "lib/gill/webgl/attribute.type";
+import GillWebglUniform       from "lib/gill/webgl/uniform.type";
 
 interface GillWebglProgramService
 {

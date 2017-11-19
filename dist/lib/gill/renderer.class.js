@@ -40,8 +40,8 @@ var StandardGillRenderer = function () {
             // Bind uniforms
             this.gillProgram.forEachUniform(function (uniform) {
                 var uniformType = uniform.getType();
-                var size = uniformType.getDataSize(),
-                    type = uniformType.getDataType();
+                var size = uniformType.getUnitSize(),
+                    type = uniformType.getDataType() === _this.webglRenderingContext.FLOAT ? "f" : "i";
                 var uniformFunction = "uniform" + size + type + "v";
                 _this.webglRenderingContext[uniformFunction](uniform.getLocation(), model.getUniformData(uniform.getName()));
             });

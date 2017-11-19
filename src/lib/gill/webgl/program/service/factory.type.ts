@@ -4,8 +4,7 @@ import GillWebglAttributeTypeMap      from "lib/gill/webgl/attribute/type/map.ty
 import GillWebglProgramFactory        from "lib/gill/webgl/program/factory.type";
 import GillWebglProgramService        from "lib/gill/webgl/program/service.type";
 import GillWebglUniformFactory        from "lib/gill/webgl/uniform/factory.type";
-import GillWebglUniformTypeFactory    from "lib/gill/webgl/uniform/type/factory.type";
-import GillWebglUniformTypeMap        from "lib/gill/webgl/uniform/type/map.type";
+import GillWebglVariableTypeMap       from "lib/gill/webgl/variable/type-map.type";
 
 interface GillWebglProgramServiceFactory
 {
@@ -14,7 +13,7 @@ interface GillWebglProgramServiceFactory
     gillWebglAttributeTypeMap     : GillWebglAttributeTypeMap,
     gillWebglProgramFactory       : GillWebglProgramFactory,
     gillWebglUniformFactory       : GillWebglUniformFactory,
-    gillWebglUniformTypeMap       : GillWebglUniformTypeMap
+    gillWebglVariableTypeMap      : GillWebglVariableTypeMap
   ): GillWebglProgramService;
 }
 

@@ -24,11 +24,11 @@ var _factory7 = require("app/gill/webgl/uniform/factory");
 
 var _factory8 = _interopRequireDefault(_factory7);
 
-var _map3 = require("app/gill/webgl/uniform/type/map");
+var _typeMap = require("app/gill/webgl/variable/type-map");
 
-var _map4 = _interopRequireDefault(_map3);
+var _typeMap2 = _interopRequireDefault(_typeMap);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglProgramService = _factory6.default.construct(_factory2.default, _map2.default, _factory4.default, _factory8.default, _map4.default);
+var gillWebglProgramService = _factory6.default.construct(_factory2.default, _map2.default, _factory4.default, _factory8.default, _typeMap2.default);
 exports.default = gillWebglProgramService;

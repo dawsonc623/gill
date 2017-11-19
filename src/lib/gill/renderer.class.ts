@@ -82,8 +82,8 @@ class StandardGillRenderer implements GillRenderer
     this.gillProgram.forEachUniform((uniform) => {
       const uniformType  = uniform.getType();
 
-      const size  = uniformType.getDataSize(),
-            type  = uniformType.getDataType();
+      const size  = uniformType.getUnitSize(),
+            type  = uniformType.getDataType() === this.webglRenderingContext.FLOAT ? "f" : "i";
 
       const uniformFunction = `uniform${size}${type}v`;
 

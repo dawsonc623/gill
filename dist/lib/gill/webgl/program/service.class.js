@@ -9,14 +9,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglProgramService = function () {
-    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap) {
+    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
         _classCallCheck(this, StandardGillWebglProgramService);
 
         this.gillWebglAttributeFactory = gillWebglAttributeFactory;
         this.gillWebglAttributeTypeMap = gillWebglAttributeTypeMap;
         this.gillWebglProgramFactory = gillWebglProgramFactory;
         this.gillWebglUniformFactory = gillWebglUniformFactory;
-        this.gillWebglUniformTypeMap = gillWebglUniformTypeMap;
+        this.gillWebglVariableTypeMap = gillWebglVariableTypeMap;
     }
 
     _createClass(StandardGillWebglProgramService, [{
@@ -35,12 +35,12 @@ var StandardGillWebglProgramService = function () {
         key: "getUniform",
         value: function getUniform(webglRenderingContext, webglProgram, uniformIndex) {
             var uniformInfo = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
-            var uniformTypeExists = this.gillWebglUniformTypeMap.hasUniformType(uniformInfo.type);
+            var uniformTypeExists = this.gillWebglVariableTypeMap.hasWebglVariableType(uniformInfo.type);
             if (!uniformTypeExists) {
                 throw new Error("Unknown WebGL variable type '" + uniformInfo.type + "' ('" + uniformInfo.name + "')");
             }
             var uniformLocation = webglRenderingContext.getUniformLocation(webglProgram, uniformInfo.name);
-            return this.gillWebglUniformFactory.construct(uniformInfo.name, this.gillWebglUniformTypeMap.getUniformType(uniformInfo.type), uniformLocation);
+            return this.gillWebglUniformFactory.construct(uniformInfo.name, this.gillWebglVariableTypeMap.getWebglVariableType(uniformInfo.type), uniformLocation);
         }
     }, {
         key: "getWebglProgram",

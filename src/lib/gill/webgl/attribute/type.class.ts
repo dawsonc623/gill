@@ -1,12 +1,12 @@
-import GillWebglAttributeType     from "lib/gill/webgl/attribute/type.type";
-import GillWebglTypedArrayFactory from "lib/gill/webgl/typed-array/factory.type";
-import TypedArray                 from "lib/gill/typed-array.type";
+import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
+import GillTypedArrayFactory  from "lib/gill/typed-array/factory.type";
+import TypedArray             from "lib/gill/typed-array.type";
 
 class StandardGillWebglAttributeType implements GillWebglAttributeType
 {
   constructor(
     private dataType                    : number,
-    private gillWebglTypedArrayFactory  : GillWebglTypedArrayFactory,
+    private gillWebglTypedArrayFactory  : GillTypedArrayFactory,
     private dataSize                    : number,
     private dataIsNormalized            : GLboolean,
     private dataStride                  : GLsizei,

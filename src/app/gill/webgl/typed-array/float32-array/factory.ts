@@ -1,5 +1,5 @@
-import GillWebglFloat32ArrayFactory from "lib/gill/webgl/typed-array/float32-array/factory.class";
+import GillFloat32ArrayFactory  from "lib/gill/typed-array/float32-array/factory.class";
 
-const gillWebglFloat32ArrayFactory  = new GillWebglFloat32ArrayFactory();
+const gillFloat32ArrayFactory   = new GillFloat32ArrayFactory();
 
-export default gillWebglFloat32ArrayFactory;
+export default gillFloat32ArrayFactory;

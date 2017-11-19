@@ -6,27 +6,27 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _service = require("lib/gill/webgl/program/service.class");
+var _type = require("lib/gill/webgl/variable/type.class");
 
-var _service2 = _interopRequireDefault(_service);
+var _type2 = _interopRequireDefault(_type);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglProgramServiceFactory = function () {
-    function StandardGillWebglProgramServiceFactory() {
-        _classCallCheck(this, StandardGillWebglProgramServiceFactory);
+var StandardGillWebglVariableTypeFactory = function () {
+    function StandardGillWebglVariableTypeFactory() {
+        _classCallCheck(this, StandardGillWebglVariableTypeFactory);
     }
 
-    _createClass(StandardGillWebglProgramServiceFactory, [{
+    _createClass(StandardGillWebglVariableTypeFactory, [{
         key: "construct",
-        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
-            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap);
+        value: function construct(dataType, typedArrayFactory, unitSize) {
+            return new _type2.default(dataType, typedArrayFactory, unitSize);
         }
     }]);
 
-    return StandardGillWebglProgramServiceFactory;
+    return StandardGillWebglVariableTypeFactory;
 }();
 
-exports.default = StandardGillWebglProgramServiceFactory;
+exports.default = StandardGillWebglVariableTypeFactory;

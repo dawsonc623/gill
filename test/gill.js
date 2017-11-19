@@ -712,7 +712,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglAttributeCollectionFactory = new _factory2.default();
 exports.default = gillWebglAttributeCollectionFactory;
-},{"lib/gill/webgl/attribute/collection/factory.class":117}],41:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/collection/factory.class":118}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -727,7 +727,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglAttributeFactory = new _factory2.default();
 exports.default = gillWebglAttributeFactory;
-},{"lib/gill/webgl/attribute/factory.class":118}],42:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/factory.class":119}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -742,7 +742,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglAttributeTypeFactory = new _factory2.default();
 exports.default = gillWebglAttributeTypeFactory;
-},{"lib/gill/webgl/attribute/type/factory.class":120}],43:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/type/factory.class":121}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -795,7 +795,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglAttributeTypeMapFactory = new _factory2.default();
 exports.default = gillWebglAttributeTypeMapFactory;
-},{"lib/gill/webgl/attribute/type/map/factory.class":122}],45:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/type/map/factory.class":123}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -814,7 +814,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglProgramFactory = new _factory2.default(_factory4.default);
 exports.default = gillWebglProgramFactory;
-},{"app/gill/webgl/shader/factory":50,"lib/gill/webgl/program/factory.class":123}],46:[function(require,module,exports){
+},{"app/gill/webgl/shader/factory":50,"lib/gill/webgl/program/factory.class":124}],46:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -841,15 +841,15 @@ var _factory7 = require("app/gill/webgl/uniform/factory");
 
 var _factory8 = _interopRequireDefault(_factory7);
 
-var _map3 = require("app/gill/webgl/uniform/type/map");
+var _typeMap = require("app/gill/webgl/variable/type-map");
 
-var _map4 = _interopRequireDefault(_map3);
+var _typeMap2 = _interopRequireDefault(_typeMap);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglProgramService = _factory6.default.construct(_factory2.default, _map2.default, _factory4.default, _factory8.default, _map4.default);
+var gillWebglProgramService = _factory6.default.construct(_factory2.default, _map2.default, _factory4.default, _factory8.default, _typeMap2.default);
 exports.default = gillWebglProgramService;
-},{"app/gill/webgl/attribute/factory":41,"app/gill/webgl/attribute/type/map":43,"app/gill/webgl/program/factory":45,"app/gill/webgl/program/service/factory":47,"app/gill/webgl/uniform/factory":53,"app/gill/webgl/uniform/type/map":55}],47:[function(require,module,exports){
+},{"app/gill/webgl/attribute/factory":41,"app/gill/webgl/attribute/type/map":43,"app/gill/webgl/program/factory":45,"app/gill/webgl/program/service/factory":47,"app/gill/webgl/uniform/factory":53,"app/gill/webgl/variable/type-map":54}],47:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -864,7 +864,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglProgramServiceFactory = new _factory2.default();
 exports.default = gillWebglProgramServiceFactory;
-},{"lib/gill/webgl/program/service/factory.class":125}],48:[function(require,module,exports){
+},{"lib/gill/webgl/program/service/factory.class":126}],48:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -906,7 +906,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglServiceFactory = new _factory2.default();
 exports.default = gillWebglServiceFactory;
-},{"lib/gill/webgl/service/factory.class":127}],50:[function(require,module,exports){
+},{"lib/gill/webgl/service/factory.class":128}],50:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -921,22 +921,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglShaderFactory = new _factory2.default();
 exports.default = gillWebglShaderFactory;
-},{"lib/gill/webgl/shader/factory.class":128}],51:[function(require,module,exports){
+},{"lib/gill/webgl/shader/factory.class":129}],51:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/webgl/typed-array/float32-array/factory.class");
+var _factory = require("lib/gill/typed-array/float32-array/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglFloat32ArrayFactory = new _factory2.default();
-exports.default = gillWebglFloat32ArrayFactory;
-},{"lib/gill/webgl/typed-array/float32-array/factory.class":129}],52:[function(require,module,exports){
+var gillFloat32ArrayFactory = new _factory2.default();
+exports.default = gillFloat32ArrayFactory;
+},{"lib/gill/typed-array/float32-array/factory.class":115}],52:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -973,53 +973,68 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/webgl/uniform/type/factory.class");
+var _factory = require("app/gill/webgl/typed-array/float32-array/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglUniformTypeFactory = new _factory2.default();
-exports.default = gillWebglUniformTypeFactory;
-},{"lib/gill/webgl/uniform/type/factory.class":135}],55:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("app/gill/webgl/uniform/type/factory");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _factory3 = require("app/gill/webgl/uniform/type/map/factory");
+var _factory3 = require("app/gill/webgl/variable/type-map/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
 
+var _factory5 = require("app/gill/webgl/variable/type/factory");
+
+var _factory6 = _interopRequireDefault(_factory5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglUniformTypeMap = _factory4.default.construct();
-// Set up uniform types
-gillWebglUniformTypeMap.setUniformType(5126, // gl.FLOAT
-_factory2.default.construct("f", // uniformXfv
-1));
-exports.default = gillWebglUniformTypeMap;
-},{"app/gill/webgl/uniform/type/factory":54,"app/gill/webgl/uniform/type/map/factory":56}],56:[function(require,module,exports){
+var gillWebglVariableTypeMap = _factory4.default.construct();
+// Add types
+gillWebglVariableTypeMap.setWebglVariableType(35664, // gl.FLOAT_VEC2
+_factory6.default.construct(5126, // gl.FLOAT based on "gl.FLOAT_VEC2"
+// gl.FLOAT
+// gl.FLOAT
+_factory2.default, // Data will be an array of FLOATs (based on "gl.FLOAT")
+2));
+//TODO Move to "value"-based data
+// true,   // Whether or not the data is normalized
+// 0,      // The span between the start of each attribute value
+// 0       // The starting index for the first attribute value
+gillWebglVariableTypeMap.setWebglVariableType(35665, // gl.FLOAT_VEC3
+_factory6.default.construct(5126, _factory2.default, 3));
+gillWebglVariableTypeMap.setWebglVariableType(5126, // gl.FLOAT
+_factory6.default.construct(5126, _factory2.default, 1));
+exports.default = gillWebglVariableTypeMap;
+},{"app/gill/webgl/typed-array/float32-array/factory":51,"app/gill/webgl/variable/type-map/factory":55,"app/gill/webgl/variable/type/factory":56}],55:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/webgl/uniform/type/map/factory.class");
+var _factory = require("lib/gill/webgl/variable/type-map/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglUniformTypeMapFactory = new _factory2.default();
-exports.default = gillWebglUniformTypeMapFactory;
-},{"lib/gill/webgl/uniform/type/map/factory.class":137}],57:[function(require,module,exports){
+var gillWebglVariableTypeMapFactory = new _factory2.default();
+exports.default = gillWebglVariableTypeMapFactory;
+},{"lib/gill/webgl/variable/type-map/factory.class":135}],56:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/variable/type/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillWebglVariableTypeFactory = new _factory2.default();
+exports.default = gillWebglVariableTypeFactory;
+},{"lib/gill/webgl/variable/type/factory.class":137}],57:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3189,8 +3204,8 @@ var StandardGillRenderer = function () {
             // Bind uniforms
             this.gillProgram.forEachUniform(function (uniform) {
                 var uniformType = uniform.getType();
-                var size = uniformType.getDataSize(),
-                    type = uniformType.getDataType();
+                var size = uniformType.getUnitSize(),
+                    type = uniformType.getDataType() === _this.webglRenderingContext.FLOAT ? "f" : "i";
                 var uniformFunction = "uniform" + size + type + "v";
                 _this.webglRenderingContext[uniformFunction](uniform.getLocation(), model.getUniformData(uniform.getName()));
             });
@@ -3432,6 +3447,33 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var GillFloat32ArrayFactory = function () {
+    function GillFloat32ArrayFactory() {
+        _classCallCheck(this, GillFloat32ArrayFactory);
+    }
+
+    _createClass(GillFloat32ArrayFactory, [{
+        key: "construct",
+        value: function construct(arrayData) {
+            return Float32Array.from(arrayData);
+        }
+    }]);
+
+    return GillFloat32ArrayFactory;
+}();
+
+exports.default = GillFloat32ArrayFactory;
+},{}],116:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var StandardGillWebglAttribute = function () {
     function StandardGillWebglAttribute(name, type, location, usage) {
         _classCallCheck(this, StandardGillWebglAttribute);
@@ -3468,7 +3510,7 @@ var StandardGillWebglAttribute = function () {
 }();
 
 exports.default = StandardGillWebglAttribute;
-},{}],116:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3504,7 +3546,7 @@ var StandardGillWebglAttributeCollection = function () {
 }();
 
 exports.default = StandardGillWebglAttributeCollection;
-},{}],117:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3537,7 +3579,7 @@ var StandardGillWebglAttributeCollectionFactory = function () {
 }();
 
 exports.default = StandardGillWebglAttributeCollectionFactory;
-},{"lib/gill/webgl/attribute/collection.class":116}],118:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/collection.class":117}],119:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3570,7 +3612,7 @@ var StandardGillWebglAttributeFactory = function () {
 }();
 
 exports.default = StandardGillWebglAttributeFactory;
-},{"lib/gill/webgl/attribute.class":115}],119:[function(require,module,exports){
+},{"lib/gill/webgl/attribute.class":116}],120:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3629,7 +3671,7 @@ var StandardGillWebglAttributeType = function () {
 }();
 
 exports.default = StandardGillWebglAttributeType;
-},{}],120:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3662,7 +3704,7 @@ var StandardGillWebglAttributeTypeFactory = function () {
 }();
 
 exports.default = StandardGillWebglAttributeTypeFactory;
-},{"lib/gill/webgl/attribute/type.class":119}],121:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/type.class":120}],122:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3701,7 +3743,7 @@ var StandardGillWebglAttributeTypeMap = function () {
 }();
 
 exports.default = StandardGillWebglAttributeTypeMap;
-},{}],122:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3734,7 +3776,7 @@ var StandardGillWebglAttributeTypeMapFactory = function () {
 }();
 
 exports.default = StandardGillWebglAttributeTypeMapFactory;
-},{"lib/gill/webgl/attribute/type/map.class":121}],123:[function(require,module,exports){
+},{"lib/gill/webgl/attribute/type/map.class":122}],124:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3772,7 +3814,7 @@ var StandardGillWebglProgramFactory = function () {
 }();
 
 exports.default = StandardGillWebglProgramFactory;
-},{}],124:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3784,14 +3826,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglProgramService = function () {
-    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap) {
+    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
         _classCallCheck(this, StandardGillWebglProgramService);
 
         this.gillWebglAttributeFactory = gillWebglAttributeFactory;
         this.gillWebglAttributeTypeMap = gillWebglAttributeTypeMap;
         this.gillWebglProgramFactory = gillWebglProgramFactory;
         this.gillWebglUniformFactory = gillWebglUniformFactory;
-        this.gillWebglUniformTypeMap = gillWebglUniformTypeMap;
+        this.gillWebglVariableTypeMap = gillWebglVariableTypeMap;
     }
 
     _createClass(StandardGillWebglProgramService, [{
@@ -3810,12 +3852,12 @@ var StandardGillWebglProgramService = function () {
         key: "getUniform",
         value: function getUniform(webglRenderingContext, webglProgram, uniformIndex) {
             var uniformInfo = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
-            var uniformTypeExists = this.gillWebglUniformTypeMap.hasUniformType(uniformInfo.type);
+            var uniformTypeExists = this.gillWebglVariableTypeMap.hasWebglVariableType(uniformInfo.type);
             if (!uniformTypeExists) {
                 throw new Error("Unknown WebGL variable type '" + uniformInfo.type + "' ('" + uniformInfo.name + "')");
             }
             var uniformLocation = webglRenderingContext.getUniformLocation(webglProgram, uniformInfo.name);
-            return this.gillWebglUniformFactory.construct(uniformInfo.name, this.gillWebglUniformTypeMap.getUniformType(uniformInfo.type), uniformLocation);
+            return this.gillWebglUniformFactory.construct(uniformInfo.name, this.gillWebglVariableTypeMap.getWebglVariableType(uniformInfo.type), uniformLocation);
         }
     }, {
         key: "getWebglProgram",
@@ -3828,7 +3870,7 @@ var StandardGillWebglProgramService = function () {
 }();
 
 exports.default = StandardGillWebglProgramService;
-},{}],125:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3852,8 +3894,8 @@ var StandardGillWebglProgramServiceFactory = function () {
 
     _createClass(StandardGillWebglProgramServiceFactory, [{
         key: "construct",
-        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap) {
-            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglUniformTypeMap);
+        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
+            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap);
         }
     }]);
 
@@ -3861,7 +3903,7 @@ var StandardGillWebglProgramServiceFactory = function () {
 }();
 
 exports.default = StandardGillWebglProgramServiceFactory;
-},{"lib/gill/webgl/program/service.class":124}],126:[function(require,module,exports){
+},{"lib/gill/webgl/program/service.class":125}],127:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3921,7 +3963,7 @@ var StandardGillWebglService = function () {
 }();
 
 exports.default = StandardGillWebglService;
-},{}],127:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3954,7 +3996,7 @@ var StandardGillWebglServiceFactory = function () {
 }();
 
 exports.default = StandardGillWebglServiceFactory;
-},{"lib/gill/webgl/service.class":126}],128:[function(require,module,exports){
+},{"lib/gill/webgl/service.class":127}],129:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3990,33 +4032,6 @@ var StandardGillWebglShaderFactory = function () {
 }();
 
 exports.default = StandardGillWebglShaderFactory;
-},{}],129:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var GillWebglFloat32ArrayFactory = function () {
-    function GillWebglFloat32ArrayFactory() {
-        _classCallCheck(this, GillWebglFloat32ArrayFactory);
-    }
-
-    _createClass(GillWebglFloat32ArrayFactory, [{
-        key: "construct",
-        value: function construct(arrayData) {
-            return Float32Array.from(arrayData);
-        }
-    }]);
-
-    return GillWebglFloat32ArrayFactory;
-}();
-
-exports.default = GillWebglFloat32ArrayFactory;
 },{}],130:[function(require,module,exports){
 "use strict";
 
@@ -4167,34 +4182,70 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformType = function () {
-    function StandardGillWebglUniformType(dataType, dataSize) {
-        _classCallCheck(this, StandardGillWebglUniformType);
+var StandardGillWebglVariableTypeMap = function () {
+    function StandardGillWebglVariableTypeMap() {
+        _classCallCheck(this, StandardGillWebglVariableTypeMap);
 
-        this.dataType = dataType;
-        this.dataSize = dataSize;
+        this.gillWebglVariableTypes = new Map();
     }
 
-    _createClass(StandardGillWebglUniformType, [{
-        key: "getDataSize",
-        value: function getDataSize() {
-            return this.dataSize;
+    _createClass(StandardGillWebglVariableTypeMap, [{
+        key: "eachWebglVariableType",
+        value: function eachWebglVariableType(action) {
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.gillWebglVariableTypes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var _step$value = _slicedToArray(_step.value, 2),
+                        webglType = _step$value[0],
+                        gillWebglVariableType = _step$value[1];
+
+                    action(webglType, gillWebglVariableType);
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
         }
     }, {
-        key: "getDataType",
-        value: function getDataType() {
-            return this.dataType;
+        key: "hasWebglVariableType",
+        value: function hasWebglVariableType(webglType) {
+            return this.gillWebglVariableTypes.has(webglType);
+        }
+    }, {
+        key: "getWebglVariableType",
+        value: function getWebglVariableType(webglType) {
+            return this.gillWebglVariableTypes.get(webglType);
+        }
+    }, {
+        key: "setWebglVariableType",
+        value: function setWebglVariableType(webglType, gillWebglVariableType) {
+            this.gillWebglVariableTypes.set(webglType, gillWebglVariableType);
         }
     }]);
 
-    return StandardGillWebglUniformType;
+    return StandardGillWebglVariableTypeMap;
 }();
 
-exports.default = StandardGillWebglUniformType;
+exports.default = StandardGillWebglVariableTypeMap;
 },{}],135:[function(require,module,exports){
 "use strict";
 
@@ -4204,31 +4255,31 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _type = require("lib/gill/webgl/uniform/type.class");
+var _typeMap = require("lib/gill/webgl/variable/type-map.class");
 
-var _type2 = _interopRequireDefault(_type);
+var _typeMap2 = _interopRequireDefault(_typeMap);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformTypeFactory = function () {
-    function StandardGillWebglUniformTypeFactory() {
-        _classCallCheck(this, StandardGillWebglUniformTypeFactory);
+var StandardGillWebglVariableTypeMapFactory = function () {
+    function StandardGillWebglVariableTypeMapFactory() {
+        _classCallCheck(this, StandardGillWebglVariableTypeMapFactory);
     }
 
-    _createClass(StandardGillWebglUniformTypeFactory, [{
+    _createClass(StandardGillWebglVariableTypeMapFactory, [{
         key: "construct",
-        value: function construct(dataType, dataSize) {
-            return new _type2.default(dataType, dataSize);
+        value: function construct() {
+            return new _typeMap2.default();
         }
     }]);
 
-    return StandardGillWebglUniformTypeFactory;
+    return StandardGillWebglVariableTypeMapFactory;
 }();
 
-exports.default = StandardGillWebglUniformTypeFactory;
-},{"lib/gill/webgl/uniform/type.class":134}],136:[function(require,module,exports){
+exports.default = StandardGillWebglVariableTypeMapFactory;
+},{"lib/gill/webgl/variable/type-map.class":134}],136:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4239,34 +4290,36 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformTypeMap = function () {
-    function StandardGillWebglUniformTypeMap() {
-        _classCallCheck(this, StandardGillWebglUniformTypeMap);
+var StandardGillWebglVariable = function () {
+    function StandardGillWebglVariable(dataType, typedArrayFactory, unitSize) {
+        _classCallCheck(this, StandardGillWebglVariable);
 
-        this.uniformType = new Map();
+        this.dataType = dataType;
+        this.typedArrayFactory = typedArrayFactory;
+        this.unitSize = unitSize;
     }
 
-    _createClass(StandardGillWebglUniformTypeMap, [{
-        key: "getUniformType",
-        value: function getUniformType(webglType) {
-            return this.uniformType.get(webglType);
+    _createClass(StandardGillWebglVariable, [{
+        key: "getDataType",
+        value: function getDataType() {
+            return this.dataType;
         }
     }, {
-        key: "hasUniformType",
-        value: function hasUniformType(webglType) {
-            return this.uniformType.has(webglType);
+        key: "getTypedArrayFactory",
+        value: function getTypedArrayFactory() {
+            return this.typedArrayFactory;
         }
     }, {
-        key: "setUniformType",
-        value: function setUniformType(webglType, GillWebglUniformType) {
-            this.uniformType.set(webglType, GillWebglUniformType);
+        key: "getUnitSize",
+        value: function getUnitSize() {
+            return this.unitSize;
         }
     }]);
 
-    return StandardGillWebglUniformTypeMap;
+    return StandardGillWebglVariable;
 }();
 
-exports.default = StandardGillWebglUniformTypeMap;
+exports.default = StandardGillWebglVariable;
 },{}],137:[function(require,module,exports){
 "use strict";
 
@@ -4276,28 +4329,28 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _map = require("lib/gill/webgl/uniform/type/map.class");
+var _type = require("lib/gill/webgl/variable/type.class");
 
-var _map2 = _interopRequireDefault(_map);
+var _type2 = _interopRequireDefault(_type);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformTypeMapFactory = function () {
-    function StandardGillWebglUniformTypeMapFactory() {
-        _classCallCheck(this, StandardGillWebglUniformTypeMapFactory);
+var StandardGillWebglVariableTypeFactory = function () {
+    function StandardGillWebglVariableTypeFactory() {
+        _classCallCheck(this, StandardGillWebglVariableTypeFactory);
     }
 
-    _createClass(StandardGillWebglUniformTypeMapFactory, [{
+    _createClass(StandardGillWebglVariableTypeFactory, [{
         key: "construct",
-        value: function construct() {
-            return new _map2.default();
+        value: function construct(dataType, typedArrayFactory, unitSize) {
+            return new _type2.default(dataType, typedArrayFactory, unitSize);
         }
     }]);
 
-    return StandardGillWebglUniformTypeMapFactory;
+    return StandardGillWebglVariableTypeFactory;
 }();
 
-exports.default = StandardGillWebglUniformTypeMapFactory;
-},{"lib/gill/webgl/uniform/type/map.class":136}]},{},[2]);
+exports.default = StandardGillWebglVariableTypeFactory;
+},{"lib/gill/webgl/variable/type.class":136}]},{},[2]);

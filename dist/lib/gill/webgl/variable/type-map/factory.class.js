@@ -6,27 +6,27 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _service = require("lib/gill/webgl/program/service.class");
+var _typeMap = require("lib/gill/webgl/variable/type-map.class");
 
-var _service2 = _interopRequireDefault(_service);
+var _typeMap2 = _interopRequireDefault(_typeMap);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglProgramServiceFactory = function () {
-    function StandardGillWebglProgramServiceFactory() {
-        _classCallCheck(this, StandardGillWebglProgramServiceFactory);
+var StandardGillWebglVariableTypeMapFactory = function () {
+    function StandardGillWebglVariableTypeMapFactory() {
+        _classCallCheck(this, StandardGillWebglVariableTypeMapFactory);
     }
 
-    _createClass(StandardGillWebglProgramServiceFactory, [{
+    _createClass(StandardGillWebglVariableTypeMapFactory, [{
         key: "construct",
-        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
-            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap);
+        value: function construct() {
+            return new _typeMap2.default();
         }
     }]);
 
-    return StandardGillWebglProgramServiceFactory;
+    return StandardGillWebglVariableTypeMapFactory;
 }();
 
-exports.default = StandardGillWebglProgramServiceFactory;
+exports.default = StandardGillWebglVariableTypeMapFactory;
