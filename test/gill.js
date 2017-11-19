@@ -898,10 +898,6 @@ var _factory6 = _interopRequireDefault(_factory5);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var webglService = _factory4.default.construct(_factory2.default, _service2.default, _factory6.default);
-// Set up uniform types
-webglService.setUniformType(5126, // gl.FLOAT
-"f", // uniformXfv
-1);
 exports.default = webglService;
 },{"app/gill/webgl/attribute/collection/factory":40,"app/gill/webgl/program/service":46,"app/gill/webgl/service/factory":49,"app/gill/webgl/uniform/collection/factory":52}],49:[function(require,module,exports){
 "use strict";
@@ -1000,15 +996,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("app/gill/webgl/uniform/type/map/factory");
+var _factory = require("app/gill/webgl/uniform/type/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
+var _factory3 = require("app/gill/webgl/uniform/type/map/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglUniformTypeMap = _factory2.default.construct();
+var gillWebglUniformTypeMap = _factory4.default.construct();
+// Set up uniform types
+gillWebglUniformTypeMap.setUniformType(5126, // gl.FLOAT
+_factory2.default.construct("f", // uniformXfv
+1));
 exports.default = gillWebglUniformTypeMap;
-},{"app/gill/webgl/uniform/type/map/factory":56}],56:[function(require,module,exports){
+},{"app/gill/webgl/uniform/type/factory":54,"app/gill/webgl/uniform/type/map/factory":56}],56:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

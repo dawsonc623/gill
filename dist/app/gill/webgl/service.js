@@ -23,8 +23,4 @@ var _factory6 = _interopRequireDefault(_factory5);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var webglService = _factory4.default.construct(_factory2.default, _service2.default, _factory6.default);
-// Set up uniform types
-webglService.setUniformType(5126, // gl.FLOAT
-"f", // uniformXfv
-1);
 exports.default = webglService;

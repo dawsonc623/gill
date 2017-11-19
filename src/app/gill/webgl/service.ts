@@ -9,12 +9,4 @@ const webglService  = gillWebglServiceFactory.construct(
                         gillWebglUniformCollectionFactory
                       );
 
-// Set up uniform types
-
-webglService.setUniformType(
-  5126, // gl.FLOAT
-  "f",  // uniformXfv
-  1
-);
-
 export default webglService;
