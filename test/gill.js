@@ -753,11 +753,34 @@ var _factory = require("app/gill/webgl/attribute/type/map/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
+var _factory3 = require("app/gill/webgl/attribute/type/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
+var _factory5 = require("app/gill/webgl/typed-array/float32-array/factory");
+
+var _factory6 = _interopRequireDefault(_factory5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var gillWebglAttributeTypeMap = _factory2.default.construct();
+// Set up attribute types
+gillWebglAttributeTypeMap.setAttributeType(35664, // gl.FLOAT_VEC2
+_factory4.default.construct(5126, // gl.FLOAT based on "gl.FLOAT_VEC2"
+// gl.FLOAT
+_factory6.default, // Data will be an array of FLOATs (based on "gl.FLOAT")
+2, // Each element will be 2 indices based on "gl.FLOAT_VEC2"
+true, // Whether or not the data is normalized
+0, // The span between the start of each attribute value
+0 // The starting index for the first attribute value
+));
+gillWebglAttributeTypeMap.setAttributeType(35665, // gl.FLOAT_VEC3
+_factory4.default.construct(5126, _factory6.default, 3, true, // Whether or not the data is normalized
+0, // The span between the start of each attribute value
+0 // The starting index for the first attribute value
+));
 exports.default = gillWebglAttributeTypeMap;
-},{"app/gill/webgl/attribute/type/map/factory":44}],44:[function(require,module,exports){
+},{"app/gill/webgl/attribute/type/factory":42,"app/gill/webgl/attribute/type/map/factory":44,"app/gill/webgl/typed-array/float32-array/factory":51}],44:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -860,44 +883,27 @@ var _factory = require("app/gill/webgl/attribute/collection/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-var _factory3 = require("app/gill/webgl/typed-array/float32-array/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
 var _service = require("app/gill/webgl/program/service");
 
 var _service2 = _interopRequireDefault(_service);
 
-var _factory5 = require("app/gill/webgl/service/factory");
+var _factory3 = require("app/gill/webgl/service/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
+var _factory5 = require("app/gill/webgl/uniform/collection/factory");
 
 var _factory6 = _interopRequireDefault(_factory5);
 
-var _factory7 = require("app/gill/webgl/uniform/collection/factory");
-
-var _factory8 = _interopRequireDefault(_factory7);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var webglService = _factory6.default.construct(_factory2.default, _service2.default, _factory8.default);
-// Set up attribute types
-webglService.setAttributeType(35664, // gl.FLOAT_VEC2
-5126, // gl.FLOAT
-// gl.FLOAT
-_factory4.default, 2, true, // Whether or not the data is normalized
-0, // The span between the start of each attribute value
-0 // The starting index for the first attribute value
-);
-webglService.setAttributeType(35665, // gl.FLOAT_VEC3
-5126, _factory4.default, 3, true, // Whether or not the data is normalized
-0, // The span between the start of each attribute value
-0 // The starting index for the first attribute value
-);
+var webglService = _factory4.default.construct(_factory2.default, _service2.default, _factory6.default);
 // Set up uniform types
 webglService.setUniformType(5126, // gl.FLOAT
 "f", // uniformXfv
 1);
 exports.default = webglService;
-},{"app/gill/webgl/attribute/collection/factory":40,"app/gill/webgl/program/service":46,"app/gill/webgl/service/factory":49,"app/gill/webgl/typed-array/float32-array/factory":51,"app/gill/webgl/uniform/collection/factory":52}],49:[function(require,module,exports){
+},{"app/gill/webgl/attribute/collection/factory":40,"app/gill/webgl/program/service":46,"app/gill/webgl/service/factory":49,"app/gill/webgl/uniform/collection/factory":52}],49:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
