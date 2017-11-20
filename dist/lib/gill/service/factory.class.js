@@ -21,8 +21,8 @@ var StandardGillServiceFactory = function () {
 
     _createClass(StandardGillServiceFactory, [{
         key: "construct",
-        value: function construct(gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService) {
-            return new _service2.default(gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService);
+        value: function construct(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService) {
+            return new _service2.default(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService);
         }
     }]);
 

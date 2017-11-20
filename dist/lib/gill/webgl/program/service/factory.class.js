@@ -21,8 +21,8 @@ var StandardGillWebglProgramServiceFactory = function () {
 
     _createClass(StandardGillWebglProgramServiceFactory, [{
         key: "construct",
-        value: function construct(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
-            return new _service2.default(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap);
+        value: function construct(gillWebglAttributeFactory, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
+            return new _service2.default(gillWebglAttributeFactory, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap);
         }
     }]);
 

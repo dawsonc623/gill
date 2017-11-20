@@ -29,12 +29,13 @@ var StandardGillRenderer = function () {
                 var attributeName = attribute.getName(),
                     attributeType = attribute.getType();
                 _this.webglRenderingContext.bindBuffer(_this.webglRenderingContext.ARRAY_BUFFER, _this.gillModelBufferService.getModelAttributeBuffer(model, attributeName, _this.webglRenderingContext));
-                var needsBuffered = model.getBufferAttribute(attributeName);
-                if (needsBuffered) {
-                    _this.webglRenderingContext.bufferData(_this.webglRenderingContext.ARRAY_BUFFER, attributeType.toTypedArray(model.getAttributeData(attributeName)), attribute.getUsage());
-                    model.setBufferAttribute(attributeName, false);
+                var attributeData = model.getAttributeData(attributeName);
+                if (attributeData.needsBuffered()) {
+                    var typedArrayFactory = attributeType.getTypedArrayFactory();
+                    _this.webglRenderingContext.bufferData(_this.webglRenderingContext.ARRAY_BUFFER, typedArrayFactory.construct(attributeData.getData()), attribute.getUsage());
+                    attributeData.setNeedsBuffered(false);
                 }
-                _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getDataSize(), attributeType.getDataType(), attributeType.getDataIsNormalized(), attributeType.getDataStride(), attributeType.getDataOffset());
+                _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getUnitSize(), attributeType.getDataType(), attributeData.isNormalized(), attributeData.getStride(), attributeData.getOffset());
             });
             this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ARRAY_BUFFER, null);
             // Bind uniforms

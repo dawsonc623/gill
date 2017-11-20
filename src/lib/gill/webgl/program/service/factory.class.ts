@@ -1,6 +1,4 @@
 import GillWebglAttributeFactory        from "lib/gill/webgl/attribute/factory.type";
-import GillWebglAttributeTypeFactory    from "lib/gill/webgl/attribute/type/factory.type";
-import GillWebglAttributeTypeMap        from "lib/gill/webgl/attribute/type/map.type";
 import GillWebglProgramFactory          from "lib/gill/webgl/program/factory.type";
 import GillWebglProgramService          from "lib/gill/webgl/program/service.type";
 import GillWebglProgramServiceFactory   from "lib/gill/webgl/program/service/factory.type";
@@ -12,7 +10,6 @@ class StandardGillWebglProgramServiceFactory implements GillWebglProgramServiceF
 {
   construct(
     gillWebglAttributeFactory     : GillWebglAttributeFactory,
-    gillWebglAttributeTypeMap     : GillWebglAttributeTypeMap,
     gillWebglProgramFactory       : GillWebglProgramFactory,
     gillWebglUniformFactory       : GillWebglUniformFactory,
     gillWebglVariableTypeMap      : GillWebglVariableTypeMap
@@ -20,7 +17,6 @@ class StandardGillWebglProgramServiceFactory implements GillWebglProgramServiceF
   {
     return  new StandardGillWebglProgramService(
               gillWebglAttributeFactory,
-              gillWebglAttributeTypeMap,
               gillWebglProgramFactory,
               gillWebglUniformFactory,
               gillWebglVariableTypeMap

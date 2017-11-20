@@ -1,11 +1,11 @@
 import GillWebglAttribute     from "lib/gill/webgl/attribute.type";
-import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
+import GillWebglVariableType  from "lib/gill/webgl/variable/type.type";
 
 class StandardGillWebglAttribute implements GillWebglAttribute
 {
   constructor(
     private name      : string,
-    private type      : GillWebglAttributeType,
+    private type      : GillWebglVariableType,
     private location  : number,
     private usage     : GLenum
   ) {
@@ -22,7 +22,7 @@ class StandardGillWebglAttribute implements GillWebglAttribute
     return  this.name;
   }
 
-  getType(): GillWebglAttributeType
+  getType(): GillWebglVariableType
   {
     return  this.type;
   }

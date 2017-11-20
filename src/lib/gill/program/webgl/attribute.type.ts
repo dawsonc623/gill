@@ -1,4 +1,4 @@
-import GillProgramWebglAttributeType  from "lib/gill/program/webgl/attribute/type.type";
+import GillProgramWebglVariableType from "lib/gill/program/webgl/variable/type.type";
 
 interface GillProgramWebglAttribute
 {
@@ -6,7 +6,7 @@ interface GillProgramWebglAttribute
 
   getName(): string;
 
-  getType(): GillProgramWebglAttributeType;
+  getType(): GillProgramWebglVariableType;
 
   getUsage(): GLenum;
 }

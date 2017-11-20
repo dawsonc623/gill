@@ -1,20 +1,24 @@
-import GillChangedAttributeMap  from "lib/gill/model/changed-attribute-map.type";
-import GillIndexCollection      from "lib/gill/model/index-collection.type";
-import GillModel                from "lib/gill/model.type";
-import GillUniformValue         from "lib/gill/model/uniform-value.type";
-import GillUniformValueMap      from "lib/gill/model/uniform-value-map.type";
-import GillVertex               from "lib/gill/model/vertex.type";
-import GillVertexCollection     from "lib/gill/model/vertex/collection.type";
+import GillModelAttributeData           from "lib/gill/model/attribute-data.type";
+import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
+import GillModelAttributeValue          from "lib/gill/model/attribute-value.type";
+import GillChangedAttributeMap          from "lib/gill/model/changed-attribute-map.type";
+import GillIndexCollection              from "lib/gill/model/index-collection.type";
+import GillModel                        from "lib/gill/model.type";
+import GillUniformValue                 from "lib/gill/model/uniform-value.type";
+import GillUniformValueMap              from "lib/gill/model/uniform-value-map.type";
+import GillVertex                       from "lib/gill/model/vertex.type";
+import GillVertexCollection             from "lib/gill/model/vertex/collection.type";
 
 class StandardGillModel implements GillModel
 {
   private indicesChanged  : boolean;
 
   constructor(
-    private changedAttributes : GillChangedAttributeMap,
-    private indices           : GillIndexCollection,
-    private uniformValues     : GillUniformValueMap,
-    private vertices          : GillVertexCollection
+    private gillModelAttributeDataRepository  : GillModelAttributeDataRepository,
+    private changedAttributes                 : GillChangedAttributeMap,
+    private indices                           : GillIndexCollection,
+    private uniformValues                     : GillUniformValueMap,
+    private vertices                          : GillVertexCollection
   ) {
     this.indicesChanged = false;
   }
@@ -23,73 +27,38 @@ class StandardGillModel implements GillModel
     vertex  : GillVertex
   ): this
   {
-    this.vertices.addVertex(
-      vertex
-    );
-
     this.indices.addIndex(
       this.indices.indexCount()
     );
 
     this.indicesChanged = true;
 
-    this.changedAttributes.eachChanged(
+    vertex.eachAttribute(
       (
-        attributeName     : string,
-        attributeChanged  : boolean
+        attributeName   : string,
+        attributeValue  : GillModelAttributeValue
       ) =>
       {
-        this.changedAttributes.setChanged(
-          attributeName,
-          true
+        const attributeData = this.gillModelAttributeDataRepository.getAttributeData(
+                                attributeName
+                              );
+
+        attributeData.addAttributeValue(
+          attributeValue
         );
       }
-    );
+    )
 
     return  this;
   }
 
   getAttributeData(
     attributeName : string
-  ): Array<number>
+  ): GillModelAttributeData
   {
-    let attributeData = new Array<number>();
-
-    this.vertices.eachVertex(
-      (
-        vertex  : GillVertex
-      ) =>
-      {
-        vertex.getAttribute(
-                attributeName
-              )
-              .addToAttributeData(
-                attributeData
-              );
-      }
-    );
-
-    return  attributeData;
-  }
-
-  getBufferAttribute(
-    attributeName : string
-  ): boolean
-  {
-    const trackingAttribute = this.changedAttributes.hasChanged(
-                                attributeName
-                              );
-
-    let rebufferAttribute = true;
-
-    if (trackingAttribute)
-    {
-      rebufferAttribute = this.changedAttributes.getChanged(
-                            attributeName
-                          );
-    }
-
-    return  rebufferAttribute;
+    return  this.gillModelAttributeDataRepository.getAttributeData(
+              attributeName
+            );
   }
 
   getBufferIndices(): boolean
@@ -110,17 +79,6 @@ class StandardGillModel implements GillModel
               uniformName
             )
             .toUniformData();
-  }
-
-  setBufferAttribute(
-    attributeName   : string,
-    bufferAttribute : boolean
-  ): void
-  {
-    this.changedAttributes.setChanged(
-      attributeName,
-      bufferAttribute
-    );
   }
 
   setBufferIndices(

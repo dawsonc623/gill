@@ -1,5 +1,6 @@
-import GillUniformValue from "lib/gill/model/uniform-value.type";
-import GillVertex       from "lib/gill/model/vertex.type";
+import GillModelAttributeData from "lib/gill/model/attribute-data.type";
+import GillUniformValue       from "lib/gill/model/uniform-value.type";
+import GillVertex             from "lib/gill/model/vertex.type";
 
 interface GillModel
 {
@@ -9,11 +10,7 @@ interface GillModel
 
   getAttributeData(
     attributeName : string
-  ): Array<number>;
-
-  getBufferAttribute(
-    attributeName : string
-  ): boolean;
+  ): GillModelAttributeData;
 
   getBufferIndices(): boolean;
 
@@ -22,11 +19,6 @@ interface GillModel
   getUniformData(
     uniformName : string
   ): Array<number>;
-
-  setBufferAttribute(
-    attributeName   : string,
-    bufferAttribute : boolean
-  ): void;
 
   setBufferIndices(
     indicesChanged: boolean

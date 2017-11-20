@@ -1,11 +1,11 @@
 import GillWebglAttribute     from "lib/gill/webgl/attribute.type";
-import GillWebglAttributeType from "lib/gill/webgl/attribute/type.type";
+import GillWebglVariableType  from "lib/gill/webgl/variable/type.type";
 
 interface GillWebglAttributeFactory
 {
   construct(
     name      : string,
-    type      : GillWebglAttributeType,
+    type      : GillWebglVariableType,
     location  : number,
     usage     : GLenum
   ): GillWebglAttribute;

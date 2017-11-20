@@ -15,11 +15,6 @@ gillWebglVariableTypeMap.setWebglVariableType(
   )
 );
 
-//TODO Move to "value"-based data
-// true,   // Whether or not the data is normalized
-// 0,      // The span between the start of each attribute value
-// 0       // The starting index for the first attribute value
-
 gillWebglVariableTypeMap.setWebglVariableType(
   35665,  // gl.FLOAT_VEC3
   gillWebglVariableTypeFactory.construct(

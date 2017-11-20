@@ -16,6 +16,11 @@ var StandardGillVertex = function () {
     }
 
     _createClass(StandardGillVertex, [{
+        key: "eachAttribute",
+        value: function eachAttribute(action) {
+            this.gillAttributeValues.eachValue(action);
+        }
+    }, {
         key: "getAttribute",
         value: function getAttribute(name) {
             return this.gillAttributeValues.getValue(name);

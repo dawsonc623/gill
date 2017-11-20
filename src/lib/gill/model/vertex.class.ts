@@ -10,6 +10,18 @@ class StandardGillVertex implements GillVertex
 
   }
 
+  eachAttribute(
+    action  : (
+      attributeName   : string,
+      attributeValue  : GillAttributeValue
+    ) => void
+  ): void
+  {
+    this.gillAttributeValues.eachValue(
+      action
+    );
+  }
+
   getAttribute(
     name  : string
   ): GillAttributeValue

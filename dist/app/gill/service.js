@@ -8,6 +8,10 @@ var _factory = require("app/gill/service/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
+var _repository = require("app/gill/model/attribute-data/repository");
+
+var _repository2 = _interopRequireDefault(_repository);
+
 var _factory3 = require("app/gill/model/attribute-value-map/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
@@ -66,5 +70,5 @@ var _service4 = _interopRequireDefault(_service3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillService = _factory2.default.construct(_factory4.default, _factory6.default, _factory8.default, _modelBufferService2.default, _factory10.default, _factory12.default, _factory14.default, _service2.default, _factory16.default, _factory18.default, _factory20.default, _factory22.default, _factory24.default, _service4.default);
+var gillService = _factory2.default.construct(_repository2.default, _factory4.default, _factory6.default, _factory8.default, _modelBufferService2.default, _factory10.default, _factory12.default, _factory14.default, _service2.default, _factory16.default, _factory18.default, _factory20.default, _factory22.default, _factory24.default, _service4.default);
 exports.default = gillService;

@@ -40,35 +40,35 @@ class StandardGillRenderer implements GillRenderer
         )
       );
 
-      const needsBuffered = model.getBufferAttribute(
+      const attributeData = model.getAttributeData(
                               attributeName
                             );
 
-      if (needsBuffered)
-      {
+      if (
+        attributeData.needsBuffered()
+      ) {
+        const typedArrayFactory = attributeType.getTypedArrayFactory();
+
         this.webglRenderingContext.bufferData(
           this.webglRenderingContext.ARRAY_BUFFER,
-          attributeType.toTypedArray(
-            model.getAttributeData(
-              attributeName
-            )
+          typedArrayFactory.construct(
+            attributeData.getData()
           ),
           attribute.getUsage()
         );
 
-        model.setBufferAttribute(
-          attributeName,
+        attributeData.setNeedsBuffered(
           false
         );
       }
 
       this.webglRenderingContext.vertexAttribPointer(
         attribute.getLocation(),
-        attributeType.getDataSize(),
+        attributeType.getUnitSize(),
         attributeType.getDataType(),
-        attributeType.getDataIsNormalized(),
-        attributeType.getDataStride(),
-        attributeType.getDataOffset()
+        attributeData.isNormalized(),
+        attributeData.getStride(),
+        attributeData.getOffset()
       );
     });
 

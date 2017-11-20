@@ -26,10 +26,6 @@ _factory6.default.construct(5126, // gl.FLOAT based on "gl.FLOAT_VEC2"
 // gl.FLOAT
 _factory2.default, // Data will be an array of FLOATs (based on "gl.FLOAT")
 2));
-//TODO Move to "value"-based data
-// true,   // Whether or not the data is normalized
-// 0,      // The span between the start of each attribute value
-// 0       // The starting index for the first attribute value
 gillWebglVariableTypeMap.setWebglVariableType(35665, // gl.FLOAT_VEC3
 _factory6.default.construct(5126, _factory2.default, 3));
 gillWebglVariableTypeMap.setWebglVariableType(5126, // gl.FLOAT

@@ -10,6 +10,27 @@ class StandardGillAttributeValueMap implements GillAttributeValueMap
     this.attributeValues = new Map<string, GillAttributeValue>();
   }
 
+  eachValue(
+    action  : (
+      attributeName   : string,
+      attributeValue  : GillAttributeValue
+    ) => void
+  ): void
+  {
+    this.attributeValues.forEach(
+      (
+        attributeValue  : GillAttributeValue,
+        attributeName   : string
+      ) =>
+      {
+        action(
+          attributeName,
+          attributeValue
+        );
+      }
+    )
+  }
+
   hasValue(
     attributeName : string
   ): boolean

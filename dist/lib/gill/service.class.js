@@ -9,9 +9,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillService = function () {
-    function StandardGillService(gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService) {
+    function StandardGillService(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService) {
         _classCallCheck(this, StandardGillService);
 
+        this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
         this.gillAttributeValueMapFactory = gillAttributeValueMapFactory;
         this.gillChangedAttributeMapFactory = gillChangedAttributeMapFactory;
         this.gillIndexCollectionFactory = gillIndexCollectionFactory;
@@ -37,7 +38,7 @@ var StandardGillService = function () {
     }, {
         key: "createModel",
         value: function createModel() {
-            return this.gillModelFactory.construct(this.gillChangedAttributeMapFactory.construct(), this.gillIndexCollectionFactory.construct(), this.gillUniformValueMapFactory.construct(), this.gillVertexCollectionFactory.construct());
+            return this.gillModelFactory.construct(this.gillModelAttributeDataRepository, this.gillChangedAttributeMapFactory.construct(), this.gillIndexCollectionFactory.construct(), this.gillUniformValueMapFactory.construct(), this.gillVertexCollectionFactory.construct());
         }
     }, {
         key: "createNumber",

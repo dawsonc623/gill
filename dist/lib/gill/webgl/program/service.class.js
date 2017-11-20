@@ -9,11 +9,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglProgramService = function () {
-    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglAttributeTypeMap, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
+    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
         _classCallCheck(this, StandardGillWebglProgramService);
 
         this.gillWebglAttributeFactory = gillWebglAttributeFactory;
-        this.gillWebglAttributeTypeMap = gillWebglAttributeTypeMap;
         this.gillWebglProgramFactory = gillWebglProgramFactory;
         this.gillWebglUniformFactory = gillWebglUniformFactory;
         this.gillWebglVariableTypeMap = gillWebglVariableTypeMap;
@@ -23,13 +22,13 @@ var StandardGillWebglProgramService = function () {
         key: "getAttribute",
         value: function getAttribute(webglRenderingContext, webglProgram, attributeIndex) {
             var attributeInfo = webglRenderingContext.getActiveAttrib(webglProgram, attributeIndex);
-            var attributeTypeExists = this.gillWebglAttributeTypeMap.hasAttributeType(attributeInfo.type);
+            var attributeTypeExists = this.gillWebglVariableTypeMap.hasWebglVariableType(attributeInfo.type);
             if (!attributeTypeExists) {
                 throw new Error("Unknown WebGL variable type '" + attributeInfo.type + "' ('" + attributeInfo.name + "')");
             }
             var attributeLocation = webglRenderingContext.getAttribLocation(webglProgram, attributeInfo.name);
             webglRenderingContext.enableVertexAttribArray(attributeLocation);
-            return this.gillWebglAttributeFactory.construct(attributeInfo.name, this.gillWebglAttributeTypeMap.getAttributeType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW);
+            return this.gillWebglAttributeFactory.construct(attributeInfo.name, this.gillWebglVariableTypeMap.getWebglVariableType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW);
         }
     }, {
         key: "getUniform",

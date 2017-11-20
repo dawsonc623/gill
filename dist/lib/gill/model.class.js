@@ -9,9 +9,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillModel = function () {
-    function StandardGillModel(changedAttributes, indices, uniformValues, vertices) {
+    function StandardGillModel(gillModelAttributeDataRepository, changedAttributes, indices, uniformValues, vertices) {
         _classCallCheck(this, StandardGillModel);
 
+        this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
         this.changedAttributes = changedAttributes;
         this.indices = indices;
         this.uniformValues = uniformValues;
@@ -24,32 +25,18 @@ var StandardGillModel = function () {
         value: function addVertex(vertex) {
             var _this = this;
 
-            this.vertices.addVertex(vertex);
             this.indices.addIndex(this.indices.indexCount());
             this.indicesChanged = true;
-            this.changedAttributes.eachChanged(function (attributeName, attributeChanged) {
-                _this.changedAttributes.setChanged(attributeName, true);
+            vertex.eachAttribute(function (attributeName, attributeValue) {
+                var attributeData = _this.gillModelAttributeDataRepository.getAttributeData(attributeName);
+                attributeData.addAttributeValue(attributeValue);
             });
             return this;
         }
     }, {
         key: "getAttributeData",
         value: function getAttributeData(attributeName) {
-            var attributeData = new Array();
-            this.vertices.eachVertex(function (vertex) {
-                vertex.getAttribute(attributeName).addToAttributeData(attributeData);
-            });
-            return attributeData;
-        }
-    }, {
-        key: "getBufferAttribute",
-        value: function getBufferAttribute(attributeName) {
-            var trackingAttribute = this.changedAttributes.hasChanged(attributeName);
-            var rebufferAttribute = true;
-            if (trackingAttribute) {
-                rebufferAttribute = this.changedAttributes.getChanged(attributeName);
-            }
-            return rebufferAttribute;
+            return this.gillModelAttributeDataRepository.getAttributeData(attributeName);
         }
     }, {
         key: "getBufferIndices",
@@ -65,11 +52,6 @@ var StandardGillModel = function () {
         key: "getUniformData",
         value: function getUniformData(uniformName) {
             return this.uniformValues.getValue(uniformName).toUniformData();
-        }
-    }, {
-        key: "setBufferAttribute",
-        value: function setBufferAttribute(attributeName, bufferAttribute) {
-            this.changedAttributes.setChanged(attributeName, bufferAttribute);
         }
     }, {
         key: "setBufferIndices",

@@ -8,10 +8,6 @@ var _factory = require("app/gill/webgl/attribute/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-var _map = require("app/gill/webgl/attribute/type/map");
-
-var _map2 = _interopRequireDefault(_map);
-
 var _factory3 = require("app/gill/webgl/program/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
@@ -30,5 +26,5 @@ var _typeMap2 = _interopRequireDefault(_typeMap);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglProgramService = _factory6.default.construct(_factory2.default, _map2.default, _factory4.default, _factory8.default, _typeMap2.default);
+var gillWebglProgramService = _factory6.default.construct(_factory2.default, _factory4.default, _factory8.default, _typeMap2.default);
 exports.default = gillWebglProgramService;

@@ -2,6 +2,13 @@ import GillAttributeValue from "lib/gill/model/attribute-value.type";
 
 interface GillAttributeValueMap
 {
+  eachValue(
+    action  : (
+      attributeName   : string,
+      attributeValue  : GillAttributeValue
+    ) => void
+  ): void;
+
   hasValue(
     attributeName : string,
   ): boolean;

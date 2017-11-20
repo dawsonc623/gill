@@ -4,9 +4,9 @@ interface GillProgamWebglVariableType
 {
   getDataType(): GLenum;
 
-    getTypedArrayFactory(): GillTypedArrayFactory;
+  getTypedArrayFactory(): GillTypedArrayFactory;
 
-    getUnitSize(): GLint;
+  getUnitSize(): GLint;
 }
 
 export default GillProgamWebglVariableType;

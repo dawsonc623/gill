@@ -16,6 +16,13 @@ var StandardGillAttributeValueMap = function () {
     }
 
     _createClass(StandardGillAttributeValueMap, [{
+        key: "eachValue",
+        value: function eachValue(action) {
+            this.attributeValues.forEach(function (attributeValue, attributeName) {
+                action(attributeName, attributeValue);
+            });
+        }
+    }, {
         key: "hasValue",
         value: function hasValue(attributeName) {
             return this.attributeValues.has(attributeName);
