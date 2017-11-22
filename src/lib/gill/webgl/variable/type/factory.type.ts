@@ -1,12 +1,12 @@
-import GillTypedArrayFactory        from "lib/gill/typed-array/factory.type";
+import TypedArrayConstructor        from "lib/gill/typed-array/constructor.type";
 import GillWebglVariableTypeFactory from "lib/gill/webgl/variable/type.type";
 
 interface GillWebglVariableTypeFactoryFactory
 {
   construct(
-    dataType          : GLenum,
-    typedArrayFactory : GillTypedArrayFactory,
-    unitSize          : GLint
+    dataType              : GLenum,
+    typedArrayConstructor : TypedArrayConstructor,
+    unitSize              : GLint
   ): GillWebglVariableTypeFactory;
 }
 

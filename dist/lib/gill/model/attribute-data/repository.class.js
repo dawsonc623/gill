@@ -24,7 +24,9 @@ var StandardGillModelAttributeDataRepository = function () {
             if (hasAttributeData) {
                 attributeData = this.gillModelAttributeDataCache.getAttributeData(attributeName);
             } else {
-                attributeData = this.gillModelAttributeDataFactory.construct([], //TODO Should there be a collection here? The starting data
+                attributeData = this.gillModelAttributeDataFactory.construct(
+                //TODO Do not hardcode?
+                [], //TODO Should there be a collection here? The starting data
                 false, // Whether or not the data has changed since last buffer
                 true, // Whether or not the data is normalized
                 0, // The span between the start of each attribute value

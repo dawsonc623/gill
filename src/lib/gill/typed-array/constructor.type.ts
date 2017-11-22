@@ -29,3 +29,5 @@ interface TypedArrayConstructor
     */
   from(arrayLike: ArrayLike<number>, mapfn?: (v: number, k: number) => number, thisArg?: any): TypedArray;
 }
+
+export default TypedArrayConstructor;

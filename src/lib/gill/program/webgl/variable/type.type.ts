@@ -1,10 +1,10 @@
-import GillTypedArrayFactory  from "lib/gill/typed-array/factory.type";
+import TypedArrayConstructor  from "lib/gill/typed-array/constructor.type";
 
 interface GillProgamWebglVariableType
 {
   getDataType(): GLenum;
 
-  getTypedArrayFactory(): GillTypedArrayFactory;
+  getTypedArrayConstructor(): TypedArrayConstructor;
 
   getUnitSize(): GLint;
 }

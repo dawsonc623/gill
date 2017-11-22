@@ -30,6 +30,7 @@ class StandardGillModelAttributeDataRepository implements GillModelAttributeData
     else
     {
       attributeData = this.gillModelAttributeDataFactory.construct(
+                        //TODO Do not hardcode?
                         [],     //TODO Should there be a collection here? The starting data
                         false,  // Whether or not the data has changed since last buffer
                         true,   // Whether or not the data is normalized

@@ -1,4 +1,3 @@
-import GillTypedArrayFactory  from "lib/gill/typed-array/factory.type";
 import GillWebglAttribute     from "lib/gill/webgl/attribute.type";
 import GillWebglUniform       from "lib/gill/webgl/uniform.type";
 

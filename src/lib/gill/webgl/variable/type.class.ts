@@ -1,12 +1,12 @@
-import GillTypedArrayFactory  from "lib/gill/typed-array/factory.type";
+import TypedArrayConstructor  from "lib/gill/typed-array/constructor.type";
 import GillWebglVariable      from "lib/gill/webgl/variable/type.type";
 
 class StandardGillWebglVariable implements GillWebglVariable
 {
   constructor(
-    private dataType          : GLenum,
-    private typedArrayFactory : GillTypedArrayFactory,
-    private unitSize          : GLint
+    private dataType              : GLenum,
+    private typedArrayConstructor : TypedArrayConstructor,
+    private unitSize              : GLint
   ) {
 
   }
@@ -16,9 +16,9 @@ class StandardGillWebglVariable implements GillWebglVariable
     return  this.dataType;
   }
 
-  getTypedArrayFactory(): GillTypedArrayFactory
+  getTypedArrayConstructor(): TypedArrayConstructor
   {
-    return  this.typedArrayFactory;
+    return  this.typedArrayConstructor;
   }
 
   getUnitSize(): GLint

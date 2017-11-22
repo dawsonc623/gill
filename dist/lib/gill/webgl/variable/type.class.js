@@ -9,11 +9,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglVariable = function () {
-    function StandardGillWebglVariable(dataType, typedArrayFactory, unitSize) {
+    function StandardGillWebglVariable(dataType, typedArrayConstructor, unitSize) {
         _classCallCheck(this, StandardGillWebglVariable);
 
         this.dataType = dataType;
-        this.typedArrayFactory = typedArrayFactory;
+        this.typedArrayConstructor = typedArrayConstructor;
         this.unitSize = unitSize;
     }
 
@@ -23,9 +23,9 @@ var StandardGillWebglVariable = function () {
             return this.dataType;
         }
     }, {
-        key: "getTypedArrayFactory",
-        value: function getTypedArrayFactory() {
-            return this.typedArrayFactory;
+        key: "getTypedArrayConstructor",
+        value: function getTypedArrayConstructor() {
+            return this.typedArrayConstructor;
         }
     }, {
         key: "getUnitSize",

@@ -21,8 +21,8 @@ var StandardGillWebglVariableTypeFactory = function () {
 
     _createClass(StandardGillWebglVariableTypeFactory, [{
         key: "construct",
-        value: function construct(dataType, typedArrayFactory, unitSize) {
-            return new _type2.default(dataType, typedArrayFactory, unitSize);
+        value: function construct(dataType, typedArrayConstructor, unitSize) {
+            return new _type2.default(dataType, typedArrayConstructor, unitSize);
         }
     }]);
 

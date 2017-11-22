@@ -47,11 +47,11 @@ class StandardGillRenderer implements GillRenderer
       if (
         attributeData.needsBuffered()
       ) {
-        const typedArrayFactory = attributeType.getTypedArrayFactory();
+        const typedArrayConstructor = attributeType.getTypedArrayConstructor();
 
         this.webglRenderingContext.bufferData(
           this.webglRenderingContext.ARRAY_BUFFER,
-          typedArrayFactory.construct(
+          typedArrayConstructor.from(
             attributeData.getData()
           ),
           attribute.getUsage()
