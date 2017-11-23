@@ -5,6 +5,12 @@ import GillWebglUniformCollection   from "lib/gill/webgl/uniform/collection.type
 
 interface GillWebglService
 {
+  createWebglProgram(
+    webglRenderingContext : WebGLRenderingContext,
+    vertexShaderSource    : string,
+    fragmentShaderSource  : string
+  ): WebGLProgram;
+
   getAttributes(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
@@ -18,12 +24,6 @@ interface GillWebglService
   getWebglContext(
     canvas  : HTMLCanvasElement
   ): WebGLRenderingContext;
-
-  getWebglProgram(
-    webglRenderingContext : WebGLRenderingContext,
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
-  ): WebGLProgram;
 }
 
 export default GillWebglService;

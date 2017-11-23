@@ -32,7 +32,7 @@ var GillProgramWebglServiceAdapter = function () {
     }, {
         key: "getWebglProgram",
         value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.gillWebglService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
+            return this.gillWebglService.createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
     }]);
 

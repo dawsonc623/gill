@@ -9,16 +9,25 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglService = function () {
-    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
+    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramFactory, gillWebglProgramRenderingContexts, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
         _classCallCheck(this, StandardGillWebglService);
 
         this.gillWebglAttributeCollectionFactory = gillWebglAttributeCollectionFactory;
+        this.gillWebglProgramFactory = gillWebglProgramFactory;
+        this.gillWebglProgramRenderingContexts = gillWebglProgramRenderingContexts;
         this.gillWebglProgramService = gillWebglProgramService;
         this.gillWebglRenderingContextRepository = gillWebglRenderingContextRepository;
         this.gillWebglUniformCollectionFactory = gillWebglUniformCollectionFactory;
     }
 
     _createClass(StandardGillWebglService, [{
+        key: "createWebglProgram",
+        value: function createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
+            var webglProgram = this.gillWebglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
+            this.gillWebglProgramRenderingContexts.setWebglRenderingContext(webglProgram, webglRenderingContext);
+            return webglProgram;
+        }
+    }, {
         key: "getAttributes",
         value: function getAttributes(webglRenderingContext, webglProgram) {
             var attributeCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_ATTRIBUTES);
@@ -42,11 +51,6 @@ var StandardGillWebglService = function () {
         key: "getWebglContext",
         value: function getWebglContext(canvas) {
             return this.gillWebglRenderingContextRepository.getWebglRenderingContext(canvas);
-        }
-    }, {
-        key: "getWebglProgram",
-        value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.gillWebglProgramService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
     }]);
 

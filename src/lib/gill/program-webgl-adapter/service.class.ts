@@ -51,7 +51,7 @@ class GillProgramWebglServiceAdapter  implements GillProgramWebglService
     fragmentShaderSource  : string
   ): WebGLProgram
   {
-    return  this.gillWebglService.getWebglProgram(
+    return  this.gillWebglService.createWebglProgram(
               webglRenderingContext,
               vertexShaderSource,
               fragmentShaderSource
