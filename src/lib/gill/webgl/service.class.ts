@@ -2,6 +2,7 @@ import GillWebglAttribute                   from "lib/gill/webgl/attribute.type"
 import GillWebglAttributeCollection         from "lib/gill/webgl/attribute/collection.type";
 import GillWebglAttributeCollectionFactory  from "lib/gill/webgl/attribute/collection/factory.type";
 import GillWebglProgramService              from "lib/gill/webgl/program/service.type";
+import GillWebglRenderingContextRepository  from "lib/gill/webgl/rendering-context/repository.type";
 import GillWebglService                     from "lib/gill/webgl/service.type";
 import GillWebglUniform                     from "lib/gill/webgl/uniform.type";
 import GillWebglUniformCollection           from "lib/gill/webgl/uniform/collection.type";
@@ -12,6 +13,7 @@ class StandardGillWebglService implements GillWebglService
   constructor(
     private gillWebglAttributeCollectionFactory : GillWebglAttributeCollectionFactory,
     private gillWebglProgramService             : GillWebglProgramService,
+    private gillWebglRenderingContextRepository : GillWebglRenderingContextRepository,
     private gillWebglUniformCollectionFactory   : GillWebglUniformCollectionFactory,
   ) {
 
@@ -74,18 +76,9 @@ class StandardGillWebglService implements GillWebglService
     canvas  : HTMLCanvasElement
   ): WebGLRenderingContext
   {
-    let webglRenderingContext = canvas.getContext(
-                                  "webgl"
-                                );
-
-    if (webglRenderingContext === null)
-    {
-      webglRenderingContext = canvas.getContext(
-                                "experimental-webgl"
-                              );
-    }
-
-    return  webglRenderingContext;
+    return  this.gillWebglRenderingContextRepository.getWebglRenderingContext(
+              canvas
+            );
   }
 
   getWebglProgram(

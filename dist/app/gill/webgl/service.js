@@ -12,6 +12,10 @@ var _service = require("app/gill/webgl/program/service");
 
 var _service2 = _interopRequireDefault(_service);
 
+var _repository = require("app/gill/webgl/rendering-context/repository");
+
+var _repository2 = _interopRequireDefault(_repository);
+
 var _factory3 = require("app/gill/webgl/service/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
@@ -22,5 +26,5 @@ var _factory6 = _interopRequireDefault(_factory5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var webglService = _factory4.default.construct(_factory2.default, _service2.default, _factory6.default);
+var webglService = _factory4.default.construct(_factory2.default, _service2.default, _repository2.default, _factory6.default);
 exports.default = webglService;

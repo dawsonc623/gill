@@ -9,11 +9,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglService = function () {
-    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglUniformCollectionFactory) {
+    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
         _classCallCheck(this, StandardGillWebglService);
 
         this.gillWebglAttributeCollectionFactory = gillWebglAttributeCollectionFactory;
         this.gillWebglProgramService = gillWebglProgramService;
+        this.gillWebglRenderingContextRepository = gillWebglRenderingContextRepository;
         this.gillWebglUniformCollectionFactory = gillWebglUniformCollectionFactory;
     }
 
@@ -40,11 +41,7 @@ var StandardGillWebglService = function () {
     }, {
         key: "getWebglContext",
         value: function getWebglContext(canvas) {
-            var webglRenderingContext = canvas.getContext("webgl");
-            if (webglRenderingContext === null) {
-                webglRenderingContext = canvas.getContext("experimental-webgl");
-            }
-            return webglRenderingContext;
+            return this.gillWebglRenderingContextRepository.getWebglRenderingContext(canvas);
         }
     }, {
         key: "getWebglProgram",
