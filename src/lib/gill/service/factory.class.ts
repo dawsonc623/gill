@@ -1,6 +1,5 @@
 import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
 import GillAttributeValueMapFactory     from "lib/gill/model/attribute-value-map/factory.type";
-import GillChangedAttributeMapFactory   from "lib/gill/model/changed-attribute-map/factory.type";
 import GillIndexCollectionFactory       from "lib/gill/model/index-collection/factory.type";
 import GillModelBufferService           from "lib/gill/model-buffer-service.type";
 import GillModelFactory                 from "lib/gill/model/factory.type";
@@ -12,7 +11,6 @@ import GillServiceFactory               from "lib/gill/service/factory.type";
 import GillUniformValueMapFactory       from "lib/gill/model/uniform-value-map/factory.type";
 import GillVector2Factory               from "lib/gill/model/vector2/factory.type";
 import GillVector3Factory               from "lib/gill/model/vector3/factory.type";
-import GillVertexCollectionFactory      from "lib/gill/model/vertex/collection/factory.type";
 import GillVertexFactory                from "lib/gill/model/vertex/factory.type";
 import GillWebglService                 from "lib/gill/webgl/service.type";
 import StandardGillService              from "lib/gill/service.class";
@@ -22,7 +20,6 @@ class StandardGillServiceFactory implements GillServiceFactory
   construct(
     gillModelAttributeDataRepository  : GillModelAttributeDataRepository,
     gillAttributeValueMapFactory      : GillAttributeValueMapFactory,
-    gillChangedAttributeMapFactory    : GillChangedAttributeMapFactory,
     gillIndexCollectionFactory        : GillIndexCollectionFactory,
     gillModelBufferService            : GillModelBufferService,
     gillModelFactory                  : GillModelFactory,
@@ -32,7 +29,6 @@ class StandardGillServiceFactory implements GillServiceFactory
     gillUniformValueMapFactory        : GillUniformValueMapFactory,
     gillVector2Factory                : GillVector2Factory,
     gillVector3Factory                : GillVector3Factory,
-    gillVertexCollectionFactory       : GillVertexCollectionFactory,
     gillVertexFactory                 : GillVertexFactory,
     gillWebglService                  : GillWebglService
   ): GillService
@@ -40,7 +36,6 @@ class StandardGillServiceFactory implements GillServiceFactory
     return  new StandardGillService(
               gillModelAttributeDataRepository,
               gillAttributeValueMapFactory,
-              gillChangedAttributeMapFactory,
               gillIndexCollectionFactory,
               gillModelBufferService,
               gillModelFactory,
@@ -50,7 +45,6 @@ class StandardGillServiceFactory implements GillServiceFactory
               gillUniformValueMapFactory,
               gillVector2Factory,
               gillVector3Factory,
-              gillVertexCollectionFactory,
               gillVertexFactory,
               gillWebglService
             );

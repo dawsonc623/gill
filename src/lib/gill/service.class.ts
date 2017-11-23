@@ -1,6 +1,5 @@
 import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
 import GillAttributeValueMapFactory     from "lib/gill/model/attribute-value-map/factory.type";
-import GillChangedAttributeMapFactory   from "lib/gill/model/changed-attribute-map/factory.type";
 import GillIndexCollectionFactory       from "lib/gill/model/index-collection/factory.type";
 import GillModelBufferService           from "lib/gill/model-buffer-service.type";
 import GillModel                        from "lib/gill/model.type";
@@ -17,7 +16,6 @@ import GillVector2Factory               from "lib/gill/model/vector2/factory.typ
 import GillVector3                      from "lib/gill/model/vector3.type";
 import GillVector3Factory               from "lib/gill/model/vector3/factory.type";
 import GillVertex                       from "lib/gill/model/vertex.type";
-import GillVertexCollectionFactory      from "lib/gill/model/vertex/collection/factory.type";
 import GillVertexFactory                from "lib/gill/model/vertex/factory.type";
 import GillWebglService                 from "lib/gill/webgl/service.type";
 
@@ -27,7 +25,6 @@ class StandardGillService implements GillService
   constructor(
     private gillModelAttributeDataRepository  : GillModelAttributeDataRepository,
     private gillAttributeValueMapFactory      : GillAttributeValueMapFactory,
-    private gillChangedAttributeMapFactory    : GillChangedAttributeMapFactory,
     private gillIndexCollectionFactory        : GillIndexCollectionFactory,
     private gillModelBufferService            : GillModelBufferService,
     private gillModelFactory                  : GillModelFactory,
@@ -37,7 +34,6 @@ class StandardGillService implements GillService
     private gillUniformValueMapFactory        : GillUniformValueMapFactory,
     private gillVector2Factory                : GillVector2Factory,
     private gillVector3Factory                : GillVector3Factory,
-    private gillVertexCollectionFactory       : GillVertexCollectionFactory,
     private gillVertexFactory                 : GillVertexFactory,
     private gillWebglService                  : GillWebglService
   ) {
@@ -62,10 +58,8 @@ class StandardGillService implements GillService
   {
     return  this.gillModelFactory.construct(
               this.gillModelAttributeDataRepository,
-              this.gillChangedAttributeMapFactory.construct(),
               this.gillIndexCollectionFactory.construct(),
-              this.gillUniformValueMapFactory.construct(),
-              this.gillVertexCollectionFactory.construct()
+              this.gillUniformValueMapFactory.construct()
             );
   }
 

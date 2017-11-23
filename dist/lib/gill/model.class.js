@@ -9,14 +9,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillModel = function () {
-    function StandardGillModel(gillModelAttributeDataRepository, changedAttributes, indices, uniformValues, vertices) {
+    function StandardGillModel(gillModelAttributeDataRepository, indices, uniformValues) {
         _classCallCheck(this, StandardGillModel);
 
         this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
-        this.changedAttributes = changedAttributes;
         this.indices = indices;
         this.uniformValues = uniformValues;
-        this.vertices = vertices;
         this.indicesChanged = false;
     }
 
