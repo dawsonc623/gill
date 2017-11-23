@@ -1,4 +1,5 @@
 import gillWebglAttributeCollectionFactory  from "app/gill/webgl/attribute/collection/factory";
+import gillWebglBufferRenderingContextMap   from "app/gill/webgl/buffer-rendering-context-map";
 import gillWebglProgramFactory              from "app/gill/webgl/program/factory";
 import gillWebglProgramRenderingContextMap  from "app/gill/webgl/program-rendering-context-map";
 import gillWebglProgramService              from "app/gill/webgl/program/service";
@@ -8,6 +9,7 @@ import gillWebglUniformCollectionFactory    from "app/gill/webgl/uniform/collect
 
 const webglService  = gillWebglServiceFactory.construct(
                         gillWebglAttributeCollectionFactory,
+                        gillWebglBufferRenderingContextMap,
                         gillWebglProgramFactory,
                         gillWebglProgramRenderingContextMap,
                         gillWebglProgramService,

@@ -1,6 +1,7 @@
 import GillWebglAttribute                   from "lib/gill/webgl/attribute.type";
 import GillWebglAttributeCollection         from "lib/gill/webgl/attribute/collection.type";
 import GillWebglAttributeCollectionFactory  from "lib/gill/webgl/attribute/collection/factory.type";
+import GillWebglBufferRenderingContextMap   from "lib/gill/webgl/buffer-rendering-context-map.type";
 import GillWebglProgramFactory              from "lib/gill/webgl/program/factory.type";
 import GillWebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
 import GillWebglProgramService              from "lib/gill/webgl/program/service.type";
@@ -14,6 +15,7 @@ class StandardGillWebglService implements GillWebglService
 {
   constructor(
     private gillWebglAttributeCollectionFactory : GillWebglAttributeCollectionFactory,
+    private gillWebglBufferRenderingContexts    : GillWebglBufferRenderingContextMap,
     private gillWebglProgramFactory             : GillWebglProgramFactory,
     private gillWebglProgramRenderingContexts   : GillWebglProgramRenderingContextMap,
     private gillWebglProgramService             : GillWebglProgramService,
@@ -21,6 +23,20 @@ class StandardGillWebglService implements GillWebglService
     private gillWebglUniformCollectionFactory   : GillWebglUniformCollectionFactory,
   ) {
 
+  }
+
+  createWebglBuffer(
+    webglRenderingContext : WebGLRenderingContext
+  ): WebGLBuffer
+  {
+    const webglBuffer = webglRenderingContext.createBuffer();
+
+    this.gillWebglBufferRenderingContexts.setWebglRenderingContext(
+      webglBuffer,
+      webglRenderingContext
+    );
+
+    return  webglBuffer;
   }
 
   createWebglProgram(

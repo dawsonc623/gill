@@ -1,4 +1,5 @@
 import GillWebglAttributeCollectionFactory  from "lib/gill/webgl/attribute/collection/factory.type";
+import GillWebglBufferRenderingContextMap   from "lib/gill/webgl/buffer-rendering-context-map.type";
 import GillWebglProgramFactory              from "lib/gill/webgl/program/factory.type";
 import GillWebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
 import GillWebglProgramService              from "lib/gill/webgl/program/service.type";
@@ -12,6 +13,7 @@ class StandardGillWebglServiceFactory implements GillWebglServiceFactory
 {
   construct(
     gillWebglAttributeCollectionFactory : GillWebglAttributeCollectionFactory,
+    gillWebglBufferRenderingContexts    : GillWebglBufferRenderingContextMap,
     gillWebglProgramFactory             : GillWebglProgramFactory,
     gillWebglProgramRenderingContexts   : GillWebglProgramRenderingContextMap,
     gillWebglProgramService             : GillWebglProgramService,
@@ -21,6 +23,7 @@ class StandardGillWebglServiceFactory implements GillWebglServiceFactory
   {
     return  new StandardGillWebglService(
               gillWebglAttributeCollectionFactory,
+              gillWebglBufferRenderingContexts,
               gillWebglProgramFactory,
               gillWebglProgramRenderingContexts,
               gillWebglProgramService,

@@ -9,10 +9,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillWebglService = function () {
-    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramFactory, gillWebglProgramRenderingContexts, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
+    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglBufferRenderingContexts, gillWebglProgramFactory, gillWebglProgramRenderingContexts, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
         _classCallCheck(this, StandardGillWebglService);
 
         this.gillWebglAttributeCollectionFactory = gillWebglAttributeCollectionFactory;
+        this.gillWebglBufferRenderingContexts = gillWebglBufferRenderingContexts;
         this.gillWebglProgramFactory = gillWebglProgramFactory;
         this.gillWebglProgramRenderingContexts = gillWebglProgramRenderingContexts;
         this.gillWebglProgramService = gillWebglProgramService;
@@ -21,6 +22,13 @@ var StandardGillWebglService = function () {
     }
 
     _createClass(StandardGillWebglService, [{
+        key: "createWebglBuffer",
+        value: function createWebglBuffer(webglRenderingContext) {
+            var webglBuffer = webglRenderingContext.createBuffer();
+            this.gillWebglBufferRenderingContexts.setWebglRenderingContext(webglBuffer, webglRenderingContext);
+            return webglBuffer;
+        }
+    }, {
         key: "createWebglProgram",
         value: function createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
             var webglProgram = this.gillWebglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);

@@ -5,6 +5,10 @@ import GillWebglUniformCollection   from "lib/gill/webgl/uniform/collection.type
 
 interface GillWebglService
 {
+  createWebglBuffer(
+    webglRenderingContext : WebGLRenderingContext
+  ): WebGLBuffer;
+
   createWebglProgram(
     webglRenderingContext : WebGLRenderingContext,
     vertexShaderSource    : string,
