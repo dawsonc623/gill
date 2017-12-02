@@ -1,24 +1,18 @@
-import GillProgramWebglAttributeCollectionAdapterFactory  from "lib/gill/program-webgl-adapter/attribute/collection/factory.type";
-import GillProgramWebglServiceAdapterFactory              from "lib/gill/program-webgl-adapter/service/factory.type";
-import GillProgramWebglService                            from "lib/gill/program/webgl/service.type";
-import GillProgramWebglUniformCollectionAdapterFactory    from "lib/gill/program-webgl-adapter/uniform/collection/factory.type";
-import GillWebglService                                   from "lib/gill/webgl/service.type";
-import StandardGillProgramWebglServiceAdapter             from "lib/gill/program-webgl-adapter/service.class";
+import ProgramWebglService                from "lib/gill/program/webgl/service.type";
+import ProgramWebglServiceAdapterFactory  from "lib/gill/program-webgl-adapter/service/factory.type";
+import StandardProgramWebglServiceAdapter from "lib/gill/program-webgl-adapter/service.class";
+import WebglService                       from "lib/gill/webgl/service.type";
 
-class StandardGillProgramWebglServiceAdapterFactory implements GillProgramWebglServiceAdapterFactory
+class StandardProgramWebglServiceAdapterFactory implements ProgramWebglServiceAdapterFactory
 {
   construct(
-    gillProgramWebglAttributeCollectionAdapterFactory : GillProgramWebglAttributeCollectionAdapterFactory,
-    gillProgramWebglUniformCollectionAdapterFactory   : GillProgramWebglUniformCollectionAdapterFactory,
-    gillWebglService                                  : GillWebglService
-  ): GillProgramWebglService
+    webglService  : WebglService
+  ): ProgramWebglService
   {
-    return  new StandardGillProgramWebglServiceAdapter(
-              gillProgramWebglAttributeCollectionAdapterFactory,
-              gillProgramWebglUniformCollectionAdapterFactory,
-              gillWebglService
+    return  new StandardProgramWebglServiceAdapter(
+              webglService
             );
   }
 }
 
-export default StandardGillProgramWebglServiceAdapterFactory;
+export default StandardProgramWebglServiceAdapterFactory;

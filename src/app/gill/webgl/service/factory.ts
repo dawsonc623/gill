@@ -1,5 +1,5 @@
-import GillWebglServiceFactory  from "lib/gill/webgl/service/factory.class";
+import WebglServiceFactory  from "lib/gill/webgl/service/factory.class";
 
-const gillWebglServiceFactory = new GillWebglServiceFactory();
+const webglServiceFactory = new WebglServiceFactory();
 
-export default gillWebglServiceFactory;
+export default webglServiceFactory;

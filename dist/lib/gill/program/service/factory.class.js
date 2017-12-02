@@ -21,8 +21,8 @@ var StandardGillProgramServiceFactory = function () {
 
     _createClass(StandardGillProgramServiceFactory, [{
         key: "construct",
-        value: function construct(gillProgramCache, gillProgramFactory, gillProgramWebglService) {
-            return new _service2.default(gillProgramCache, gillProgramFactory, gillProgramWebglService);
+        value: function construct(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, uniformCollectionFactory, uniformFactory, variableTypes) {
+            return new _service2.default(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, uniformCollectionFactory, uniformFactory, variableTypes);
         }
     }]);
 

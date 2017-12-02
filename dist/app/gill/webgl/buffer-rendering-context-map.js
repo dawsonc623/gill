@@ -10,5 +10,5 @@ var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillWebglBufferRenderingContextMap = _factory2.default.construct();
-exports.default = gillWebglBufferRenderingContextMap;
+var webglBufferRenderingContextMap = _factory2.default.construct();
+exports.default = webglBufferRenderingContextMap;

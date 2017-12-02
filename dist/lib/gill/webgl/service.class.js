@@ -8,40 +8,40 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglService = function () {
-    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglBufferRenderingContexts, gillWebglProgramFactory, gillWebglProgramRenderingContexts, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
-        _classCallCheck(this, StandardGillWebglService);
+var StandardWebglService = function () {
+    function StandardWebglService(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory) {
+        _classCallCheck(this, StandardWebglService);
 
-        this.gillWebglAttributeCollectionFactory = gillWebglAttributeCollectionFactory;
-        this.gillWebglBufferRenderingContexts = gillWebglBufferRenderingContexts;
-        this.gillWebglProgramFactory = gillWebglProgramFactory;
-        this.gillWebglProgramRenderingContexts = gillWebglProgramRenderingContexts;
-        this.gillWebglProgramService = gillWebglProgramService;
-        this.gillWebglRenderingContextRepository = gillWebglRenderingContextRepository;
-        this.gillWebglUniformCollectionFactory = gillWebglUniformCollectionFactory;
+        this.webglBufferRenderingContexts = webglBufferRenderingContexts;
+        this.webglProgramFactory = webglProgramFactory;
+        this.webglProgramRenderingContexts = webglProgramRenderingContexts;
+        this.webglRenderingContextRepository = webglRenderingContextRepository;
+        this.webglShaderFactory = webglShaderFactory;
     }
 
-    _createClass(StandardGillWebglService, [{
+    _createClass(StandardWebglService, [{
         key: "createWebglBuffer",
         value: function createWebglBuffer(webglRenderingContext) {
             var webglBuffer = webglRenderingContext.createBuffer();
-            this.gillWebglBufferRenderingContexts.setWebglRenderingContext(webglBuffer, webglRenderingContext);
+            this.webglBufferRenderingContexts.setWebglRenderingContext(webglBuffer, webglRenderingContext);
             return webglBuffer;
         }
     }, {
         key: "createWebglProgram",
         value: function createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            var webglProgram = this.gillWebglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
-            this.gillWebglProgramRenderingContexts.setWebglRenderingContext(webglProgram, webglRenderingContext);
+            var fragmentShader = this.webglShaderFactory.construct(webglRenderingContext, fragmentShaderSource, webglRenderingContext.FRAGMENT_SHADER),
+                vertexShader = this.webglShaderFactory.construct(webglRenderingContext, vertexShaderSource, webglRenderingContext.VERTEX_SHADER);
+            var webglProgram = this.webglProgramFactory.construct(webglRenderingContext, vertexShader, fragmentShader);
+            this.webglProgramRenderingContexts.setWebglRenderingContext(webglProgram, webglRenderingContext);
             return webglProgram;
         }
     }, {
         key: "getAttributes",
         value: function getAttributes(webglRenderingContext, webglProgram) {
             var attributeCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_ATTRIBUTES);
-            var attributes = this.gillWebglAttributeCollectionFactory.construct();
-            for (var index = 0; index < attributeCount; index += 1) {
-                attributes.addAttribute(this.gillWebglProgramService.getAttribute(webglRenderingContext, webglProgram, index));
+            var attributes = new Array(attributeCount);
+            for (var attributeIndex = 0; attributeIndex < attributeCount; attributeIndex += 1) {
+                attributes[attributeIndex] = webglRenderingContext.getActiveAttrib(webglProgram, attributeIndex);
             }
             return attributes;
         }
@@ -49,20 +49,20 @@ var StandardGillWebglService = function () {
         key: "getUniforms",
         value: function getUniforms(webglRenderingContext, webglProgram) {
             var uniformCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_UNIFORMS);
-            var uniforms = this.gillWebglUniformCollectionFactory.construct();
-            for (var index = 0; index < uniformCount; index += 1) {
-                uniforms.addUniform(this.gillWebglProgramService.getUniform(webglRenderingContext, webglProgram, index));
+            var uniforms = new Array(uniformCount);
+            for (var uniformIndex = 0; uniformIndex < uniformCount; uniformIndex += 1) {
+                uniforms[uniformIndex] = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
             }
             return uniforms;
         }
     }, {
         key: "getWebglContext",
         value: function getWebglContext(canvas) {
-            return this.gillWebglRenderingContextRepository.getWebglRenderingContext(canvas);
+            return this.webglRenderingContextRepository.getWebglRenderingContext(canvas);
         }
     }]);
 
-    return StandardGillWebglService;
+    return StandardWebglService;
 }();
 
-exports.default = StandardGillWebglService;
+exports.default = StandardWebglService;

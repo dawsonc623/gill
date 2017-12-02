@@ -39,7 +39,7 @@ class StandardGillModelAttributeData implements GillModelAttributeData
     return  this.stride;
   }
 
-  isNormalized(): GLboolean
+  normalize(): GLboolean
   {
     return  this.normalized;
   }

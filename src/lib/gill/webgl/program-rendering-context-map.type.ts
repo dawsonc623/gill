@@ -1,4 +1,4 @@
-interface GillWebglProgramRenderingContextMap
+interface WebglProgramRenderingContextMap
 {
   eachWebglRenderingContext(
     action  : (
@@ -21,4 +21,4 @@ interface GillWebglProgramRenderingContextMap
   ): void;
 }
 
-export default GillWebglProgramRenderingContextMap;
+export default WebglProgramRenderingContextMap;

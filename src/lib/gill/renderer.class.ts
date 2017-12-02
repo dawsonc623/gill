@@ -66,7 +66,7 @@ class StandardGillRenderer implements GillRenderer
         attribute.getLocation(),
         attributeType.getUnitSize(),
         attributeType.getDataType(),
-        attributeData.isNormalized(),
+        attributeData.normalize(),
         attributeData.getStride(),
         attributeData.getOffset()
       );

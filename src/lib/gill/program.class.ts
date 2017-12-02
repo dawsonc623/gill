@@ -1,8 +1,8 @@
 import GillProgram                          from "lib/gill/program.type";
-import GillProgramWebglAttribute            from "lib/gill/program/webgl/attribute.type";
-import GillProgramWebglAttributeCollection  from "lib/gill/program/webgl/attribute/collection.type";
-import GillProgramWebglUniform              from "lib/gill/program/webgl/uniform.type";
-import GillProgramUniformCollection         from "lib/gill/program/webgl/uniform/collection.type";
+import GillProgramWebglAttribute            from "lib/gill/program/attribute.type";
+import GillProgramWebglAttributeCollection  from "lib/gill/program/attribute/collection.type";
+import GillProgramWebglUniform              from "lib/gill/program/uniform.type";
+import GillProgramUniformCollection         from "lib/gill/program/uniform/collection.type";
 
 class StandardGillProgram implements GillProgram
 {

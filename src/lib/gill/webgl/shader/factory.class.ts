@@ -1,31 +1,51 @@
-import GillWebglShaderFactory from "lib/gill/webgl/shader/factory.type";
+import WebglShaderFactory from "lib/gill/webgl/shader/factory.type";
 
-class StandardGillWebglShaderFactory implements GillWebglShaderFactory
+class StandardWebglShaderFactory implements WebglShaderFactory
 {
   construct(
+    webglRenderingContext : WebGLRenderingContext,
     shaderSource          : string,
-    shaderType            : number,
-    webglRenderingContext : WebGLRenderingContext
+    shaderType            : number
   ): WebGLShader
   {
-    const shader  = webglRenderingContext.createShader(shaderType);
+    const shader  = webglRenderingContext.createShader(
+                      shaderType
+                    );
 
-    webglRenderingContext.shaderSource(shader, shaderSource);
+    webglRenderingContext.shaderSource(
+      shader,
+      shaderSource
+    );
 
-    webglRenderingContext.compileShader(shader);
+    webglRenderingContext.compileShader(
+      shader
+    );
 
-    if (!webglRenderingContext.getShaderParameter(shader, webglRenderingContext.COMPILE_STATUS))
+    const compiledSuccessfully  = webglRenderingContext.getShaderParameter(
+                                    shader,
+                                    webglRenderingContext.COMPILE_STATUS
+                                  );
+
+    if (!compiledSuccessfully)
     {
-      const log         = webglRenderingContext.getShaderInfoLog(shader),
-            shaderName  = shaderType == webglRenderingContext.FRAGMENT_SHADER ? "fragment" : "vertex";
+      const errorMessage  = webglRenderingContext.getShaderInfoLog(
+                              shader
+                            ),
+            shaderName    = shaderType === webglRenderingContext.FRAGMENT_SHADER ?
+                              "fragment" :
+                              "vertex";
 
-      webglRenderingContext.deleteShader(shader);
+      webglRenderingContext.deleteShader(
+        shader
+      );
 
-      throw `An error occurred compiling the ${shaderName} shader: ${log}`;
+      throw new Error(
+              `An error occurred compiling the ${shaderName} shader: ${errorMessage}`
+            );
     }
 
     return shader;
   }
 }
 
-export default StandardGillWebglShaderFactory;
+export default StandardWebglShaderFactory;

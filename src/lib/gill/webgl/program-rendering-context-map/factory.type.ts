@@ -1,8 +1,8 @@
-import GillWebglProgramRenderingContextMapFactory from "lib/gill/webgl/program-rendering-context-map.type";
+import WebglProgramRenderingContextMapFactory from "lib/gill/webgl/program-rendering-context-map.type";
 
-interface GillWebglProgramRenderingContextMapFactoryFactory
+interface WebglProgramRenderingContextMapFactoryFactory
 {
-  construct(): GillWebglProgramRenderingContextMapFactory;
+  construct(): WebglProgramRenderingContextMapFactory;
 }
 
-export default GillWebglProgramRenderingContextMapFactoryFactory;
+export default WebglProgramRenderingContextMapFactoryFactory;

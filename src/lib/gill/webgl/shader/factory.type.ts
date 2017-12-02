@@ -1,9 +1,9 @@
 interface GillWebglShaderFactory
 {
   construct(
+    webglRenderingContext : WebGLRenderingContext,
     shaderSource          : string,
-    shaderType            : number,
-    webglRenderingContext : WebGLRenderingContext
+    shaderType            : number
   ): WebGLShader;
 }
 

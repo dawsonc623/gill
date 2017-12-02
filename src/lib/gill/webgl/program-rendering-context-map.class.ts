@@ -1,12 +1,18 @@
-import GillWebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
+import WebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
 
-class StandardGillWebglProgramRenderingContextMap implements GillWebglProgramRenderingContextMap
+class StandardWebglProgramRenderingContextMap implements WebglProgramRenderingContextMap
 {
-  private webglRenderingContexts : Map<WebGLProgram, WebGLRenderingContext>;
+  private webglRenderingContexts  : Map<
+                                      WebGLProgram,
+                                      WebGLRenderingContext
+                                    >;
 
   constructor()
   {
-    this.webglRenderingContexts = new Map<WebGLProgram, WebGLRenderingContext>();
+    this.webglRenderingContexts = new Map<
+                                    WebGLProgram,
+                                    WebGLRenderingContext
+                                  >();
   }
 
   eachWebglRenderingContext(
@@ -60,4 +66,4 @@ class StandardGillWebglProgramRenderingContextMap implements GillWebglProgramRen
   }
 }
 
-export default StandardGillWebglProgramRenderingContextMap;
+export default StandardWebglProgramRenderingContextMap;

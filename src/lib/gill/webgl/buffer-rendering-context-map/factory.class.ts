@@ -1,13 +1,13 @@
-import GillWebglBufferRenderingContextMap         from "lib/gill/webgl/buffer-rendering-context-map.type";
-import GillWebglBufferRenderingContextMapFactory  from "lib/gill/webgl/buffer-rendering-context-map/factory.type";
-import StandardGillWebglBufferRenderingContextMap from "lib/gill/webgl/buffer-rendering-context-map.class";
+import WebglBufferRenderingContextMap         from "lib/gill/webgl/buffer-rendering-context-map.type";
+import WebglBufferRenderingContextMapFactory  from "lib/gill/webgl/buffer-rendering-context-map/factory.type";
+import StandardWebglBufferRenderingContextMap from "lib/gill/webgl/buffer-rendering-context-map.class";
 
-class StandardGillWebglBufferRenderingContextMapFactory implements GillWebglBufferRenderingContextMapFactory
+class StandardWebglBufferRenderingContextMapFactory implements WebglBufferRenderingContextMapFactory
 {
-  construct(): GillWebglBufferRenderingContextMap
+  construct(): WebglBufferRenderingContextMap
   {
-    return  new StandardGillWebglBufferRenderingContextMap();
+    return  new StandardWebglBufferRenderingContextMap();
   }
 }
 
-export default StandardGillWebglBufferRenderingContextMapFactory;
+export default StandardWebglBufferRenderingContextMapFactory;

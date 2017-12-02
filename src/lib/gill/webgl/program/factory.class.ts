@@ -1,45 +1,46 @@
-import GillWebglProgramFactory  from "lib/gill/webgl/program/factory.type";
-import GillWebglShaderFactory   from "lib/gill/webgl/shader/factory.type";
+import WebglProgramFactory  from "lib/gill/webgl/program/factory.type";
 
-class StandardGillWebglProgramFactory implements GillWebglProgramFactory
+class StandardWebglProgramFactory implements WebglProgramFactory
 {
-  constructor(
-    private webglShaderFactory  : GillWebglShaderFactory
-  ) {
-
-  }
-
   construct(
     webglRenderingContext : WebGLRenderingContext,
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
+    vertexShader          : WebGLShader,
+    fragmentShader        : WebGLShader
   ): WebGLProgram
   {
     const webglProgram    = webglRenderingContext.createProgram();
 
-    const fragmentShader  = this.webglShaderFactory.construct(
-            fragmentShaderSource,
-            webglRenderingContext.FRAGMENT_SHADER,
-            webglRenderingContext
-          ),
-          vertexShader    = this.webglShaderFactory.construct(
-            vertexShaderSource,
-            webglRenderingContext.VERTEX_SHADER,
-            webglRenderingContext
-          );
+    webglRenderingContext.attachShader(
+      webglProgram,
+      vertexShader
+    );
 
-    webglRenderingContext.attachShader(webglProgram, vertexShader);
-    webglRenderingContext.attachShader(webglProgram, fragmentShader);
+    webglRenderingContext.attachShader(
+      webglProgram,
+      fragmentShader
+    );
 
-    webglRenderingContext.linkProgram(webglProgram);
+    webglRenderingContext.linkProgram(
+      webglProgram
+    );
 
-    if (!webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.LINK_STATUS))
+    const linkedSuccessfully  = webglRenderingContext.getProgramParameter(
+                                  webglProgram,
+                                  webglRenderingContext.LINK_STATUS
+                                );
+
+    if (!linkedSuccessfully)
     {
-      throw "Unable to initialize the WebGL program: " + webglRenderingContext.getProgramInfoLog(webglProgram);
+      const errorMessage  = webglRenderingContext.getProgramInfoLog(
+                              webglProgram
+                            );
+      throw new Error(
+              `Unable to initialize the WebGL program: ${errorMessage}`
+            );
     }
 
     return webglProgram;
   }
 }
 
-export default StandardGillWebglProgramFactory;
+export default StandardWebglProgramFactory;

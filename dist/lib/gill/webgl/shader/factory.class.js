@@ -8,28 +8,29 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglShaderFactory = function () {
-    function StandardGillWebglShaderFactory() {
-        _classCallCheck(this, StandardGillWebglShaderFactory);
+var StandardWebglShaderFactory = function () {
+    function StandardWebglShaderFactory() {
+        _classCallCheck(this, StandardWebglShaderFactory);
     }
 
-    _createClass(StandardGillWebglShaderFactory, [{
+    _createClass(StandardWebglShaderFactory, [{
         key: "construct",
-        value: function construct(shaderSource, shaderType, webglRenderingContext) {
+        value: function construct(webglRenderingContext, shaderSource, shaderType) {
             var shader = webglRenderingContext.createShader(shaderType);
             webglRenderingContext.shaderSource(shader, shaderSource);
             webglRenderingContext.compileShader(shader);
-            if (!webglRenderingContext.getShaderParameter(shader, webglRenderingContext.COMPILE_STATUS)) {
-                var log = webglRenderingContext.getShaderInfoLog(shader),
-                    shaderName = shaderType == webglRenderingContext.FRAGMENT_SHADER ? "fragment" : "vertex";
+            var compiledSuccessfully = webglRenderingContext.getShaderParameter(shader, webglRenderingContext.COMPILE_STATUS);
+            if (!compiledSuccessfully) {
+                var errorMessage = webglRenderingContext.getShaderInfoLog(shader),
+                    shaderName = shaderType === webglRenderingContext.FRAGMENT_SHADER ? "fragment" : "vertex";
                 webglRenderingContext.deleteShader(shader);
-                throw "An error occurred compiling the " + shaderName + " shader: " + log;
+                throw new Error("An error occurred compiling the " + shaderName + " shader: " + errorMessage);
             }
             return shader;
         }
     }]);
 
-    return StandardGillWebglShaderFactory;
+    return StandardWebglShaderFactory;
 }();
 
-exports.default = StandardGillWebglShaderFactory;
+exports.default = StandardWebglShaderFactory;

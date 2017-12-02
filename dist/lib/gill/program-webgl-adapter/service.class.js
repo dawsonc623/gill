@@ -8,35 +8,31 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var GillProgramWebglServiceAdapter = function () {
-    function GillProgramWebglServiceAdapter(gillProgramWebglAttributeCollectionAdapterFactory, gillProgramWebglUniformCollectionAdapterFactory, gillWebglService) {
-        _classCallCheck(this, GillProgramWebglServiceAdapter);
+var ProgramWebglServiceAdapter = function () {
+    function ProgramWebglServiceAdapter(webglService) {
+        _classCallCheck(this, ProgramWebglServiceAdapter);
 
-        this.gillProgramWebglAttributeCollectionAdapterFactory = gillProgramWebglAttributeCollectionAdapterFactory;
-        this.gillProgramWebglUniformCollectionAdapterFactory = gillProgramWebglUniformCollectionAdapterFactory;
-        this.gillWebglService = gillWebglService;
+        this.webglService = webglService;
     }
 
-    _createClass(GillProgramWebglServiceAdapter, [{
+    _createClass(ProgramWebglServiceAdapter, [{
+        key: "createWebglProgram",
+        value: function createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
+            return this.webglService.createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
+        }
+    }, {
         key: "getAttributes",
         value: function getAttributes(webglRenderingContext, webglProgram) {
-            var attributes = this.gillWebglService.getAttributes(webglRenderingContext, webglProgram);
-            return this.gillProgramWebglAttributeCollectionAdapterFactory.construct(attributes);
+            return this.webglService.getAttributes(webglRenderingContext, webglProgram);
         }
     }, {
         key: "getUniforms",
         value: function getUniforms(webglRenderingContext, webglProgram) {
-            var uniforms = this.gillWebglService.getUniforms(webglRenderingContext, webglProgram);
-            return this.gillProgramWebglUniformCollectionAdapterFactory.construct(uniforms);
-        }
-    }, {
-        key: "getWebglProgram",
-        value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.gillWebglService.createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
+            return this.webglService.getUniforms(webglRenderingContext, webglProgram);
         }
     }]);
 
-    return GillProgramWebglServiceAdapter;
+    return ProgramWebglServiceAdapter;
 }();
 
-exports.default = GillProgramWebglServiceAdapter;
+exports.default = ProgramWebglServiceAdapter;

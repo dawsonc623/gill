@@ -59,16 +59,16 @@ var StandardGillService = function () {
             return this.gillVertexFactory.construct(this.gillAttributeValueMapFactory.construct());
         }
     }, {
-        key: "getGillProgram",
-        value: function getGillProgram(vertexShaderSource, fragmentShaderSource) {
-            return this.gillProgramSourceFactory.construct(vertexShaderSource, fragmentShaderSource);
+        key: "drawModel",
+        value: function drawModel(model, canvas, gillProgram) {
+            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
+            var gillRenderer = this.gillRendererService.getRenderer(webglRenderingContext, this.gillModelBufferService, gillProgram);
+            gillRenderer.drawModel(model);
         }
     }, {
-        key: "drawModel",
-        value: function drawModel(model, canvas, gillProgramSource) {
-            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
-            var gillRenderer = this.gillRendererService.getRenderer(webglRenderingContext, this.gillModelBufferService, gillProgramSource);
-            gillRenderer.drawModel(model);
+        key: "getProgram",
+        value: function getProgram(vertexShaderSource, fragmentShaderSource) {
+            return this.gillProgramSourceFactory.construct(vertexShaderSource, fragmentShaderSource);
         }
     }]);
 

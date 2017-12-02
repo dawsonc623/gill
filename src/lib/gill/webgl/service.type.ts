@@ -1,9 +1,4 @@
-import GillWebglAttribute           from "lib/gill/webgl/attribute.type";
-import GillWebglAttributeCollection from "lib/gill/webgl/attribute/collection.type";
-import GillWebglUniform             from "lib/gill/webgl/uniform.type";
-import GillWebglUniformCollection   from "lib/gill/webgl/uniform/collection.type";
-
-interface GillWebglService
+interface WebglService
 {
   createWebglBuffer(
     webglRenderingContext : WebGLRenderingContext
@@ -18,16 +13,16 @@ interface GillWebglService
   getAttributes(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-  ): GillWebglAttributeCollection;
+  ): Array<WebGLActiveInfo>;
 
   getUniforms(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-  ): GillWebglUniformCollection;
+  ): Array<WebGLActiveInfo>;
 
   getWebglContext(
     canvas  : HTMLCanvasElement
   ): WebGLRenderingContext;
 }
 
-export default GillWebglService;
+export default WebglService;

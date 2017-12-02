@@ -1,5 +1,0 @@
-import GillProgramWebglAttributeCollectionAdapterFactory  from "lib/gill/program-webgl-adapter/attribute/collection/factory.class";
-
-const gillProgramWebglAttributeCollectionAdapterFactory = new GillProgramWebglAttributeCollectionAdapterFactory();
-
-export default gillProgramWebglAttributeCollectionAdapterFactory;

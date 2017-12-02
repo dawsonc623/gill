@@ -41,8 +41,8 @@ var StandardGillModelAttributeData = function () {
             return this.stride;
         }
     }, {
-        key: "isNormalized",
-        value: function isNormalized() {
+        key: "normalize",
+        value: function normalize() {
             return this.normalized;
         }
     }, {

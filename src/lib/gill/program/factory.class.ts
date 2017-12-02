@@ -1,7 +1,7 @@
 import GillProgram                          from "lib/gill/program.type";
 import GillProgramFactory                   from "lib/gill/program/factory.type";
-import GillProgramWebglAttributeCollection  from "lib/gill/program/webgl/attribute/collection.type";
-import GillProgramWebglUniformCollection    from "lib/gill/program/webgl/uniform/collection.type";
+import GillProgramWebglAttributeCollection  from "lib/gill/program/attribute/collection.type";
+import GillProgramWebglUniformCollection    from "lib/gill/program/uniform/collection.type";
 import StandardGillProgram                  from "lib/gill/program.class";
 
 class StandardGillProgramFactory implements GillProgramFactory

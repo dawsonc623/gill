@@ -1,62 +1,48 @@
-import GillProgramWebglAttributeCollection                from "lib/gill/program/webgl/attribute/collection.type";
-import GillProgramWebglAttributeCollectionAdapterFactory  from "lib/gill/program-webgl-adapter/attribute/collection/factory.type";
-import GillProgramWebglUniformCollection                  from "lib/gill/program/webgl/uniform/collection.type";
-import GillProgramWebglUniformCollectionAdapterFactory    from "lib/gill/program-webgl-adapter/uniform/collection/factory.type";
-import GillProgramWebglService                            from "lib/gill/program/webgl/service.type";
-import GillWebglService                                   from "lib/gill/webgl/service.type";
+import ProgramWebglService  from "lib/gill/program/webgl/service.type";
+import WebglService         from "lib/gill/webgl/service.type";
 
-class GillProgramWebglServiceAdapter  implements GillProgramWebglService
+class ProgramWebglServiceAdapter  implements ProgramWebglService
 {
   constructor(
-    private gillProgramWebglAttributeCollectionAdapterFactory : GillProgramWebglAttributeCollectionAdapterFactory,
-    private gillProgramWebglUniformCollectionAdapterFactory   : GillProgramWebglUniformCollectionAdapterFactory,
-    private gillWebglService                                  : GillWebglService
+    private webglService  : WebglService
   ) {
 
+  }
+
+  createWebglProgram(
+    webglRenderingContext : WebGLRenderingContext,
+    vertexShaderSource    : string,
+    fragmentShaderSource  : string
+  ): WebGLProgram
+  {
+    return  this.webglService.createWebglProgram(
+              webglRenderingContext,
+              vertexShaderSource,
+              fragmentShaderSource
+            );
   }
 
   getAttributes(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-  ): GillProgramWebglAttributeCollection
+  ): Array<WebGLActiveInfo>
   {
-    const attributes  = this.gillWebglService.getAttributes(
-                          webglRenderingContext,
-                          webglProgram
-                        );
-
-    return  this.gillProgramWebglAttributeCollectionAdapterFactory.construct(
-              attributes
+    return  this.webglService.getAttributes(
+              webglRenderingContext,
+              webglProgram
             );
   }
 
   getUniforms(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-  ): GillProgramWebglUniformCollection
+  ): Array<WebGLActiveInfo>
   {
-    const uniforms  = this.gillWebglService.getUniforms(
-                          webglRenderingContext,
-                          webglProgram
-                        );
-
-    return  this.gillProgramWebglUniformCollectionAdapterFactory.construct(
-              uniforms
-            );
-  }
-
-  getWebglProgram(
-    webglRenderingContext : WebGLRenderingContext,
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
-  ): WebGLProgram
-  {
-    return  this.gillWebglService.createWebglProgram(
+    return  this.webglService.getUniforms(
               webglRenderingContext,
-              vertexShaderSource,
-              fragmentShaderSource
+              webglProgram
             );
   }
 }
 
-export default GillProgramWebglServiceAdapter;
+export default ProgramWebglServiceAdapter;

@@ -30,16 +30,16 @@ interface GillService
 
   createVertex(): GillVertex;
 
-  getGillProgram(
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
-  ): GillProgramSource;
-
   drawModel(
     model             : GillModel,
     canvas            : HTMLCanvasElement,
     gillProgramSource : GillProgramSource
   ): void;
+
+  getProgram(
+    vertexShaderSource    : string,
+    fragmentShaderSource  : string
+  ): GillProgramSource;
 }
 
 export default GillService;

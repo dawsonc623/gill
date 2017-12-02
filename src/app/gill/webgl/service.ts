@@ -1,20 +1,16 @@
-import gillWebglAttributeCollectionFactory  from "app/gill/webgl/attribute/collection/factory";
-import gillWebglBufferRenderingContextMap   from "app/gill/webgl/buffer-rendering-context-map";
-import gillWebglProgramFactory              from "app/gill/webgl/program/factory";
-import gillWebglProgramRenderingContextMap  from "app/gill/webgl/program-rendering-context-map";
-import gillWebglProgramService              from "app/gill/webgl/program/service";
-import gillWebglRenderingContextRepository  from "app/gill/webgl/rendering-context/repository";
-import gillWebglServiceFactory              from "app/gill/webgl/service/factory";
-import gillWebglUniformCollectionFactory    from "app/gill/webgl/uniform/collection/factory";
+import webglBufferRenderingContexts     from "app/gill/webgl/buffer-rendering-context-map";
+import webglProgramFactory              from "app/gill/webgl/program/factory";
+import webglProgramRenderingContexts    from "app/gill/webgl/program-rendering-context-map";
+import webglRenderingContextRepository  from "app/gill/webgl/rendering-context-repository";
+import webglServiceFactory              from "app/gill/webgl/service/factory";
+import webglShaderFactory               from "app/gill/webgl/shader/factory";
 
-const webglService  = gillWebglServiceFactory.construct(
-                        gillWebglAttributeCollectionFactory,
-                        gillWebglBufferRenderingContextMap,
-                        gillWebglProgramFactory,
-                        gillWebglProgramRenderingContextMap,
-                        gillWebglProgramService,
-                        gillWebglRenderingContextRepository,
-                        gillWebglUniformCollectionFactory
+const webglService  = webglServiceFactory.construct(
+                        webglBufferRenderingContexts,
+                        webglProgramFactory,
+                        webglProgramRenderingContexts,
+                        webglRenderingContextRepository,
+                        webglShaderFactory
                       );
 
 export default webglService;

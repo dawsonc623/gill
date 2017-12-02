@@ -1,5 +1,5 @@
-import GillWebglShaderFactory from "lib/gill/webgl/shader/factory.class";
+import WebglShaderFactory from "lib/gill/webgl/shader/factory.class";
 
-const gillWebglShaderFactory = new GillWebglShaderFactory();
+const webglShaderFactory  = new WebglShaderFactory();
 
-export default gillWebglShaderFactory;
+export default webglShaderFactory;

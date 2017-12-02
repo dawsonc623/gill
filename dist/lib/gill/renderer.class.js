@@ -35,7 +35,7 @@ var StandardGillRenderer = function () {
                     _this.webglRenderingContext.bufferData(_this.webglRenderingContext.ARRAY_BUFFER, typedArrayConstructor.from(attributeData.getData()), attribute.getUsage());
                     attributeData.setNeedsBuffered(false);
                 }
-                _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getUnitSize(), attributeType.getDataType(), attributeData.isNormalized(), attributeData.getStride(), attributeData.getOffset());
+                _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getUnitSize(), attributeType.getDataType(), attributeData.normalize(), attributeData.getStride(), attributeData.getOffset());
             });
             this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ARRAY_BUFFER, null);
             // Bind uniforms

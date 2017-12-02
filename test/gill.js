@@ -23,7 +23,7 @@ var _service2 = _interopRequireDefault(_service);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.gill = _service2.default;
-},{"app/gill/service":43}],3:[function(require,module,exports){
+},{"app/gill/service":46}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -287,21 +287,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/model/changed-attribute-map/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillChangedAttributeMapFactory = new _factory2.default();
-exports.default = gillChangedAttributeMapFactory;
-},{"lib/gill/model/changed-attribute-map/factory.class":82}],19:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _factory = require("lib/gill/model/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
@@ -310,7 +295,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillModelFactory = new _factory2.default();
 exports.default = gillModelFactory;
-},{"lib/gill/model/factory.class":83}],20:[function(require,module,exports){
+},{"lib/gill/model/factory.class":81}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -325,7 +310,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillIndexCollectionFactory = new _factory2.default();
 exports.default = gillIndexCollectionFactory;
-},{"lib/gill/model/index-collection/factory.class":85}],21:[function(require,module,exports){
+},{"lib/gill/model/index-collection/factory.class":83}],20:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -340,7 +325,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillNumberFactory = new _factory2.default();
 exports.default = gillNumberFactory;
-},{"lib/gill/model/number/factory.class":87}],22:[function(require,module,exports){
+},{"lib/gill/model/number/factory.class":85}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -355,7 +340,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillUniformValueMapFactory = new _factory2.default();
 exports.default = gillUniformValueMapFactory;
-},{"lib/gill/model/uniform-value-map/factory.class":89}],23:[function(require,module,exports){
+},{"lib/gill/model/uniform-value-map/factory.class":87}],22:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -370,7 +355,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillVector2Factory = new _factory2.default();
 exports.default = gillVector2Factory;
-},{"lib/gill/model/vector2/factory.class":91}],24:[function(require,module,exports){
+},{"lib/gill/model/vector2/factory.class":89}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -385,22 +370,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillVector3Factory = new _factory2.default();
 exports.default = gillVector3Factory;
-},{"lib/gill/model/vector3/factory.class":93}],25:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/model/vertex/collection/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillVertexCollectionFactory = new _factory2.default();
-exports.default = gillVertexCollectionFactory;
-},{"lib/gill/model/vertex/collection/factory.class":96}],26:[function(require,module,exports){
+},{"lib/gill/model/vector3/factory.class":91}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -415,22 +385,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillVertexFactory = new _factory2.default();
 exports.default = gillVertexFactory;
-},{"lib/gill/model/vertex/factory.class":97}],27:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/program-webgl-adapter/attribute/collection/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillProgramWebglAttributeCollectionAdapterFactory = new _factory2.default();
-exports.default = gillProgramWebglAttributeCollectionAdapterFactory;
-},{"lib/gill/program-webgl-adapter/attribute/collection/factory.class":99}],28:[function(require,module,exports){
+},{"lib/gill/model/vertex/factory.class":93}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -441,23 +396,15 @@ var _factory = require("app/gill/program-webgl-adapter/service/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-var _factory3 = require("app/gill/program-webgl-adapter/attribute/collection/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-var _factory5 = require("app/gill/program-webgl-adapter/uniform/collection/factory");
-
-var _factory6 = _interopRequireDefault(_factory5);
-
 var _service = require("app/gill/webgl/service");
 
 var _service2 = _interopRequireDefault(_service);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillProgramWebglServiceAdapter = _factory2.default.construct(_factory4.default, _factory6.default, _service2.default);
+var gillProgramWebglServiceAdapter = _factory2.default.construct(_service2.default);
 exports.default = gillProgramWebglServiceAdapter;
-},{"app/gill/program-webgl-adapter/attribute/collection/factory":27,"app/gill/program-webgl-adapter/service/factory":29,"app/gill/program-webgl-adapter/uniform/collection/factory":30,"app/gill/webgl/service":50}],29:[function(require,module,exports){
+},{"app/gill/program-webgl-adapter/service/factory":26,"app/gill/webgl/service":55}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -470,24 +417,39 @@ var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillProgramWebglServiceAdapterFactory = new _factory2.default();
-exports.default = gillProgramWebglServiceAdapterFactory;
-},{"lib/gill/program-webgl-adapter/service/factory.class":101}],30:[function(require,module,exports){
+var programWebglServiceAdapterFactory = new _factory2.default();
+exports.default = programWebglServiceAdapterFactory;
+},{"lib/gill/program-webgl-adapter/service/factory.class":95}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/program-webgl-adapter/uniform/collection/factory.class");
+var _factory = require("lib/gill/program/attribute/collection/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillProgramWebglUniformCollectionAdapterFactory = new _factory2.default();
-exports.default = gillProgramWebglUniformCollectionAdapterFactory;
-},{"lib/gill/program-webgl-adapter/uniform/collection/factory.class":103}],31:[function(require,module,exports){
+var gillWebglAttributeCollectionFactory = new _factory2.default();
+exports.default = gillWebglAttributeCollectionFactory;
+},{"lib/gill/program/attribute/collection/factory.class":99}],28:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/program/attribute/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillWebglAttributeFactory = new _factory2.default();
+exports.default = gillWebglAttributeFactory;
+},{"lib/gill/program/attribute/factory.class":100}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -510,7 +472,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillProgramCache = _factory2.default.construct(_factory4.default.construct(), _factory6.default);
 exports.default = gillProgramCache;
-},{"app/gill/program/cache/factory":32,"app/gill/program/context-source-map/factory":33,"app/gill/program/source-program-map/factory":37}],32:[function(require,module,exports){
+},{"app/gill/program/cache/factory":30,"app/gill/program/context-source-map/factory":31,"app/gill/program/source-program-map/factory":35}],30:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -525,7 +487,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillProgramCache = new _factory2.default();
 exports.default = gillProgramCache;
-},{"lib/gill/program/cache/factory.class":106}],33:[function(require,module,exports){
+},{"lib/gill/program/cache/factory.class":102}],31:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -540,7 +502,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillContextSourceMapFactory = new _factory2.default();
 exports.default = gillContextSourceMapFactory;
-},{"lib/gill/program/context-source-map/factory.class":108}],34:[function(require,module,exports){
+},{"lib/gill/program/context-source-map/factory.class":104}],32:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -555,34 +517,54 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillProgramFactory = new _factory2.default();
 exports.default = gillProgramFactory;
-},{"lib/gill/program/factory.class":109}],35:[function(require,module,exports){
+},{"lib/gill/program/factory.class":105}],33:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _factory = require("app/gill/program/attribute/collection/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+var _factory3 = require("app/gill/program/attribute/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
 var _cache = require("app/gill/program/cache");
 
 var _cache2 = _interopRequireDefault(_cache);
 
-var _factory = require("app/gill/program/factory");
+var _factory5 = require("app/gill/program/factory");
 
-var _factory2 = _interopRequireDefault(_factory);
+var _factory6 = _interopRequireDefault(_factory5);
 
-var _factory3 = require("app/gill/program/service/factory");
+var _factory7 = require("app/gill/program/service/factory");
 
-var _factory4 = _interopRequireDefault(_factory3);
+var _factory8 = _interopRequireDefault(_factory7);
 
 var _service = require("app/gill/program/webgl/service");
 
 var _service2 = _interopRequireDefault(_service);
 
+var _factory9 = require("app/gill/program/uniform/collection/factory");
+
+var _factory10 = _interopRequireDefault(_factory9);
+
+var _factory11 = require("app/gill/program/uniform/factory");
+
+var _factory12 = _interopRequireDefault(_factory11);
+
+var _typeMap = require("app/gill/program/variable/type-map");
+
+var _typeMap2 = _interopRequireDefault(_typeMap);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillProgramService = _factory4.default.construct(_cache2.default, _factory2.default, _service2.default);
+var gillProgramService = _factory8.default.construct(_factory2.default, _factory4.default, _cache2.default, _factory6.default, _service2.default, _factory10.default, _factory12.default, _typeMap2.default);
 exports.default = gillProgramService;
-},{"app/gill/program/cache":31,"app/gill/program/factory":34,"app/gill/program/service/factory":36,"app/gill/program/webgl/service":39}],36:[function(require,module,exports){
+},{"app/gill/program/attribute/collection/factory":27,"app/gill/program/attribute/factory":28,"app/gill/program/cache":29,"app/gill/program/factory":32,"app/gill/program/service/factory":34,"app/gill/program/uniform/collection/factory":37,"app/gill/program/uniform/factory":38,"app/gill/program/variable/type-map":39,"app/gill/program/webgl/service":42}],34:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -597,7 +579,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillProgramServiceFactory = new _factory2.default();
 exports.default = gillProgramServiceFactory;
-},{"lib/gill/program/service/factory.class":111}],37:[function(require,module,exports){
+},{"lib/gill/program/service/factory.class":107}],35:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -612,7 +594,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillSourceProgramMapFactory = new _factory2.default();
 exports.default = gillSourceProgramMapFactory;
-},{"lib/gill/program/source-program-map/factory.class":113}],38:[function(require,module,exports){
+},{"lib/gill/program/source-program-map/factory.class":109}],36:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -627,323 +609,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var standardGillProgramSourceFactory = new _factory2.default();
 exports.default = standardGillProgramSourceFactory;
-},{"lib/gill/program/source/factory.class":115}],39:[function(require,module,exports){
+},{"lib/gill/program/source/factory.class":111}],37:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _service = require("app/gill/program-webgl-adapter/service");
-
-var _service2 = _interopRequireDefault(_service);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _service2.default;
-},{"app/gill/program-webgl-adapter/service":28}],40:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/renderer/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillRendererFactory = new _factory2.default();
-exports.default = gillRendererFactory;
-},{"lib/gill/renderer/factory.class":117}],41:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("app/gill/renderer/service/factory");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _service = require("app/gill/program/service");
-
-var _service2 = _interopRequireDefault(_service);
-
-var _factory3 = require("app/gill/renderer/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillRendererService = _factory2.default.construct(_service2.default, _factory4.default);
-exports.default = gillRendererService;
-},{"app/gill/program/service":35,"app/gill/renderer/factory":40,"app/gill/renderer/service/factory":42}],42:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/renderer/service/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillRendererServiceFactory = new _factory2.default();
-exports.default = gillRendererServiceFactory;
-},{"lib/gill/renderer/service/factory.class":119}],43:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("app/gill/service/factory");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _repository = require("app/gill/model/attribute-data/repository");
-
-var _repository2 = _interopRequireDefault(_repository);
-
-var _factory3 = require("app/gill/model/attribute-value-map/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-var _factory5 = require("app/gill/model/changed-attribute-map/factory");
-
-var _factory6 = _interopRequireDefault(_factory5);
-
-var _factory7 = require("app/gill/model/index-collection/factory");
-
-var _factory8 = _interopRequireDefault(_factory7);
-
-var _modelBufferService = require("app/gill/model-buffer-service");
-
-var _modelBufferService2 = _interopRequireDefault(_modelBufferService);
-
-var _factory9 = require("app/gill/model/factory");
-
-var _factory10 = _interopRequireDefault(_factory9);
-
-var _factory11 = require("app/gill/model/number/factory");
-
-var _factory12 = _interopRequireDefault(_factory11);
-
-var _factory13 = require("app/gill/program/source/factory");
-
-var _factory14 = _interopRequireDefault(_factory13);
-
-var _service = require("app/gill/renderer/service");
-
-var _service2 = _interopRequireDefault(_service);
-
-var _factory15 = require("app/gill/model/uniform-value-map/factory");
-
-var _factory16 = _interopRequireDefault(_factory15);
-
-var _factory17 = require("app/gill/model/vector2/factory");
-
-var _factory18 = _interopRequireDefault(_factory17);
-
-var _factory19 = require("app/gill/model/vector3/factory");
-
-var _factory20 = _interopRequireDefault(_factory19);
-
-var _factory21 = require("app/gill/model/vertex/collection/factory");
-
-var _factory22 = _interopRequireDefault(_factory21);
-
-var _factory23 = require("app/gill/model/vertex/factory");
-
-var _factory24 = _interopRequireDefault(_factory23);
-
-var _service3 = require("app/gill/webgl/service");
-
-var _service4 = _interopRequireDefault(_service3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillService = _factory2.default.construct(_repository2.default, _factory4.default, _factory6.default, _factory8.default, _modelBufferService2.default, _factory10.default, _factory12.default, _factory14.default, _service2.default, _factory16.default, _factory18.default, _factory20.default, _factory22.default, _factory24.default, _service4.default);
-exports.default = gillService;
-},{"app/gill/model-buffer-service":10,"app/gill/model/attribute-data/repository":15,"app/gill/model/attribute-value-map/factory":17,"app/gill/model/changed-attribute-map/factory":18,"app/gill/model/factory":19,"app/gill/model/index-collection/factory":20,"app/gill/model/number/factory":21,"app/gill/model/uniform-value-map/factory":22,"app/gill/model/vector2/factory":23,"app/gill/model/vector3/factory":24,"app/gill/model/vertex/collection/factory":25,"app/gill/model/vertex/factory":26,"app/gill/program/source/factory":38,"app/gill/renderer/service":41,"app/gill/service/factory":44,"app/gill/webgl/service":50}],44:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/service/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillServiceFactory = new _factory2.default();
-exports.default = gillServiceFactory;
-},{"lib/gill/service/factory.class":121}],45:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/attribute/collection/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglAttributeCollectionFactory = new _factory2.default();
-exports.default = gillWebglAttributeCollectionFactory;
-},{"lib/gill/webgl/attribute/collection/factory.class":124}],46:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/attribute/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglAttributeFactory = new _factory2.default();
-exports.default = gillWebglAttributeFactory;
-},{"lib/gill/webgl/attribute/factory.class":125}],47:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/program/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _factory3 = require("app/gill/webgl/shader/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglProgramFactory = new _factory2.default(_factory4.default);
-exports.default = gillWebglProgramFactory;
-},{"app/gill/webgl/shader/factory":52,"lib/gill/webgl/program/factory.class":126}],48:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("app/gill/webgl/attribute/factory");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _factory3 = require("app/gill/webgl/program/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-var _factory5 = require("app/gill/webgl/program/service/factory");
-
-var _factory6 = _interopRequireDefault(_factory5);
-
-var _factory7 = require("app/gill/webgl/uniform/factory");
-
-var _factory8 = _interopRequireDefault(_factory7);
-
-var _typeMap = require("app/gill/webgl/variable/type-map");
-
-var _typeMap2 = _interopRequireDefault(_typeMap);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglProgramService = _factory6.default.construct(_factory2.default, _factory4.default, _factory8.default, _typeMap2.default);
-exports.default = gillWebglProgramService;
-},{"app/gill/webgl/attribute/factory":46,"app/gill/webgl/program/factory":47,"app/gill/webgl/program/service/factory":49,"app/gill/webgl/uniform/factory":54,"app/gill/webgl/variable/type-map":55}],49:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/program/service/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglProgramServiceFactory = new _factory2.default();
-exports.default = gillWebglProgramServiceFactory;
-},{"lib/gill/webgl/program/service/factory.class":128}],50:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("app/gill/webgl/attribute/collection/factory");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-var _service = require("app/gill/webgl/program/service");
-
-var _service2 = _interopRequireDefault(_service);
-
-var _factory3 = require("app/gill/webgl/service/factory");
-
-var _factory4 = _interopRequireDefault(_factory3);
-
-var _factory5 = require("app/gill/webgl/uniform/collection/factory");
-
-var _factory6 = _interopRequireDefault(_factory5);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var webglService = _factory4.default.construct(_factory2.default, _service2.default, _factory6.default);
-exports.default = webglService;
-},{"app/gill/webgl/attribute/collection/factory":45,"app/gill/webgl/program/service":48,"app/gill/webgl/service/factory":51,"app/gill/webgl/uniform/collection/factory":53}],51:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/service/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglServiceFactory = new _factory2.default();
-exports.default = gillWebglServiceFactory;
-},{"lib/gill/webgl/service/factory.class":130}],52:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/shader/factory.class");
-
-var _factory2 = _interopRequireDefault(_factory);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var gillWebglShaderFactory = new _factory2.default();
-exports.default = gillWebglShaderFactory;
-},{"lib/gill/webgl/shader/factory.class":131}],53:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _factory = require("lib/gill/webgl/uniform/collection/factory.class");
+var _factory = require("lib/gill/program/uniform/collection/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
@@ -951,14 +624,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglUniformCollectionFactory = new _factory2.default();
 exports.default = gillWebglUniformCollectionFactory;
-},{"lib/gill/webgl/uniform/collection/factory.class":134}],54:[function(require,module,exports){
+},{"lib/gill/program/uniform/collection/factory.class":114}],38:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/webgl/uniform/factory.class");
+var _factory = require("lib/gill/program/uniform/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
@@ -966,18 +639,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglUniformFactory = new _factory2.default();
 exports.default = gillWebglUniformFactory;
-},{"lib/gill/webgl/uniform/factory.class":135}],55:[function(require,module,exports){
+},{"lib/gill/program/uniform/factory.class":115}],39:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("app/gill/webgl/variable/type-map/factory");
+var _factory = require("app/gill/program/variable/type-map/factory");
 
 var _factory2 = _interopRequireDefault(_factory);
 
-var _factory3 = require("app/gill/webgl/variable/type/factory");
+var _factory3 = require("app/gill/program/variable/type/factory");
 
 var _factory4 = _interopRequireDefault(_factory3);
 
@@ -1000,14 +673,14 @@ Float32Array, // Data will be an array of FLOATs (based on "gl.FLOAT")
 1 // Each element will be 1 index based on "gl.FLOAT"
 ));
 exports.default = gillWebglVariableTypeMap;
-},{"app/gill/webgl/variable/type-map/factory":56,"app/gill/webgl/variable/type/factory":57}],56:[function(require,module,exports){
+},{"app/gill/program/variable/type-map/factory":40,"app/gill/program/variable/type/factory":41}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/webgl/variable/type-map/factory.class");
+var _factory = require("lib/gill/program/variable/type-map/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
@@ -1015,14 +688,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglVariableTypeMapFactory = new _factory2.default();
 exports.default = gillWebglVariableTypeMapFactory;
-},{"lib/gill/webgl/variable/type-map/factory.class":137}],57:[function(require,module,exports){
+},{"lib/gill/program/variable/type-map/factory.class":117}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _factory = require("lib/gill/webgl/variable/type/factory.class");
+var _factory = require("lib/gill/program/variable/type/factory.class");
 
 var _factory2 = _interopRequireDefault(_factory);
 
@@ -1030,7 +703,326 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var gillWebglVariableTypeFactory = new _factory2.default();
 exports.default = gillWebglVariableTypeFactory;
-},{"lib/gill/webgl/variable/type/factory.class":139}],58:[function(require,module,exports){
+},{"lib/gill/program/variable/type/factory.class":119}],42:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _service = require("app/gill/program-webgl-adapter/service");
+
+var _service2 = _interopRequireDefault(_service);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _service2.default;
+},{"app/gill/program-webgl-adapter/service":25}],43:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/renderer/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillRendererFactory = new _factory2.default();
+exports.default = gillRendererFactory;
+},{"lib/gill/renderer/factory.class":121}],44:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("app/gill/renderer/service/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+var _service = require("app/gill/program/service");
+
+var _service2 = _interopRequireDefault(_service);
+
+var _factory3 = require("app/gill/renderer/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillRendererService = _factory2.default.construct(_service2.default, _factory4.default);
+exports.default = gillRendererService;
+},{"app/gill/program/service":33,"app/gill/renderer/factory":43,"app/gill/renderer/service/factory":45}],45:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/renderer/service/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillRendererServiceFactory = new _factory2.default();
+exports.default = gillRendererServiceFactory;
+},{"lib/gill/renderer/service/factory.class":123}],46:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("app/gill/service/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+var _repository = require("app/gill/model/attribute-data/repository");
+
+var _repository2 = _interopRequireDefault(_repository);
+
+var _factory3 = require("app/gill/model/attribute-value-map/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
+var _factory5 = require("app/gill/model/index-collection/factory");
+
+var _factory6 = _interopRequireDefault(_factory5);
+
+var _modelBufferService = require("app/gill/model-buffer-service");
+
+var _modelBufferService2 = _interopRequireDefault(_modelBufferService);
+
+var _factory7 = require("app/gill/model/factory");
+
+var _factory8 = _interopRequireDefault(_factory7);
+
+var _factory9 = require("app/gill/model/number/factory");
+
+var _factory10 = _interopRequireDefault(_factory9);
+
+var _factory11 = require("app/gill/program/source/factory");
+
+var _factory12 = _interopRequireDefault(_factory11);
+
+var _service = require("app/gill/renderer/service");
+
+var _service2 = _interopRequireDefault(_service);
+
+var _factory13 = require("app/gill/model/uniform-value-map/factory");
+
+var _factory14 = _interopRequireDefault(_factory13);
+
+var _factory15 = require("app/gill/model/vector2/factory");
+
+var _factory16 = _interopRequireDefault(_factory15);
+
+var _factory17 = require("app/gill/model/vector3/factory");
+
+var _factory18 = _interopRequireDefault(_factory17);
+
+var _factory19 = require("app/gill/model/vertex/factory");
+
+var _factory20 = _interopRequireDefault(_factory19);
+
+var _service3 = require("app/gill/webgl/service");
+
+var _service4 = _interopRequireDefault(_service3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillService = _factory2.default.construct(_repository2.default, _factory4.default, _factory6.default, _modelBufferService2.default, _factory8.default, _factory10.default, _factory12.default, _service2.default, _factory14.default, _factory16.default, _factory18.default, _factory20.default, _service4.default);
+exports.default = gillService;
+},{"app/gill/model-buffer-service":10,"app/gill/model/attribute-data/repository":15,"app/gill/model/attribute-value-map/factory":17,"app/gill/model/factory":18,"app/gill/model/index-collection/factory":19,"app/gill/model/number/factory":20,"app/gill/model/uniform-value-map/factory":21,"app/gill/model/vector2/factory":22,"app/gill/model/vector3/factory":23,"app/gill/model/vertex/factory":24,"app/gill/program/source/factory":36,"app/gill/renderer/service":44,"app/gill/service/factory":47,"app/gill/webgl/service":55}],47:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/service/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var gillServiceFactory = new _factory2.default();
+exports.default = gillServiceFactory;
+},{"lib/gill/service/factory.class":125}],48:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("app/gill/webgl/buffer-rendering-context-map/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglBufferRenderingContextMap = _factory2.default.construct();
+exports.default = webglBufferRenderingContextMap;
+},{"app/gill/webgl/buffer-rendering-context-map/factory":49}],49:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/buffer-rendering-context-map/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglBufferRenderingContextMapFactory = new _factory2.default();
+exports.default = webglBufferRenderingContextMapFactory;
+},{"lib/gill/webgl/buffer-rendering-context-map/factory.class":127}],50:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("app/gill/webgl/program-rendering-context-map/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglProgramRenderingContextMap = _factory2.default.construct();
+exports.default = webglProgramRenderingContextMap;
+},{"app/gill/webgl/program-rendering-context-map/factory":51}],51:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/program-rendering-context-map/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglProgramRenderingContextMapFactory = new _factory2.default();
+exports.default = webglProgramRenderingContextMapFactory;
+},{"lib/gill/webgl/program-rendering-context-map/factory.class":129}],52:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/program/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglProgramFactory = new _factory2.default();
+exports.default = webglProgramFactory;
+},{"lib/gill/webgl/program/factory.class":130}],53:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("app/gill/webgl/rendering-context-repository/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglRenderingContextRepository = _factory2.default.construct();
+exports.default = webglRenderingContextRepository;
+},{"app/gill/webgl/rendering-context-repository/factory":54}],54:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/rendering-context-repository/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglRenderingContextRepositoryFactory = new _factory2.default();
+exports.default = webglRenderingContextRepositoryFactory;
+},{"lib/gill/webgl/rendering-context-repository/factory.class":132}],55:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _bufferRenderingContextMap = require("app/gill/webgl/buffer-rendering-context-map");
+
+var _bufferRenderingContextMap2 = _interopRequireDefault(_bufferRenderingContextMap);
+
+var _factory = require("app/gill/webgl/program/factory");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+var _programRenderingContextMap = require("app/gill/webgl/program-rendering-context-map");
+
+var _programRenderingContextMap2 = _interopRequireDefault(_programRenderingContextMap);
+
+var _renderingContextRepository = require("app/gill/webgl/rendering-context-repository");
+
+var _renderingContextRepository2 = _interopRequireDefault(_renderingContextRepository);
+
+var _factory3 = require("app/gill/webgl/service/factory");
+
+var _factory4 = _interopRequireDefault(_factory3);
+
+var _factory5 = require("app/gill/webgl/shader/factory");
+
+var _factory6 = _interopRequireDefault(_factory5);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglService = _factory4.default.construct(_bufferRenderingContextMap2.default, _factory2.default, _programRenderingContextMap2.default, _renderingContextRepository2.default, _factory6.default);
+exports.default = webglService;
+},{"app/gill/webgl/buffer-rendering-context-map":48,"app/gill/webgl/program-rendering-context-map":50,"app/gill/webgl/program/factory":52,"app/gill/webgl/rendering-context-repository":53,"app/gill/webgl/service/factory":56,"app/gill/webgl/shader/factory":57}],56:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/service/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglServiceFactory = new _factory2.default();
+exports.default = webglServiceFactory;
+},{"lib/gill/webgl/service/factory.class":134}],57:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _factory = require("lib/gill/webgl/shader/factory.class");
+
+var _factory2 = _interopRequireDefault(_factory);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var webglShaderFactory = new _factory2.default();
+exports.default = webglShaderFactory;
+},{"lib/gill/webgl/shader/factory.class":135}],58:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1674,14 +1666,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillModel = function () {
-    function StandardGillModel(gillModelAttributeDataRepository, changedAttributes, indices, uniformValues, vertices) {
+    function StandardGillModel(gillModelAttributeDataRepository, indices, uniformValues) {
         _classCallCheck(this, StandardGillModel);
 
         this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
-        this.changedAttributes = changedAttributes;
         this.indices = indices;
         this.uniformValues = uniformValues;
-        this.vertices = vertices;
         this.indicesChanged = false;
     }
 
@@ -1779,8 +1769,8 @@ var StandardGillModelAttributeData = function () {
             return this.stride;
         }
     }, {
-        key: "isNormalized",
-        value: function isNormalized() {
+        key: "normalize",
+        value: function normalize() {
             return this.normalized;
         }
     }, {
@@ -2072,110 +2062,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillChangedAttributeMap = function () {
-    function StandardGillChangedAttributeMap() {
-        _classCallCheck(this, StandardGillChangedAttributeMap);
-
-        this.attributeChanges = new Map();
-    }
-
-    _createClass(StandardGillChangedAttributeMap, [{
-        key: "eachChanged",
-        value: function eachChanged(action) {
-            var _iteratorNormalCompletion = true;
-            var _didIteratorError = false;
-            var _iteratorError = undefined;
-
-            try {
-                for (var _iterator = this.attributeChanges[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                    var _step$value = _slicedToArray(_step.value, 2),
-                        attributeName = _step$value[0],
-                        attributeChanged = _step$value[1];
-
-                    action(attributeName, attributeChanged);
-                }
-            } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion && _iterator.return) {
-                        _iterator.return();
-                    }
-                } finally {
-                    if (_didIteratorError) {
-                        throw _iteratorError;
-                    }
-                }
-            }
-        }
-    }, {
-        key: "hasChanged",
-        value: function hasChanged(attributeName) {
-            return this.attributeChanges.has(attributeName);
-        }
-    }, {
-        key: "getChanged",
-        value: function getChanged(attributeName) {
-            return this.attributeChanges.get(attributeName);
-        }
-    }, {
-        key: "setChanged",
-        value: function setChanged(attributeName, attributeChanged) {
-            this.attributeChanges.set(attributeName, attributeChanged);
-        }
-    }]);
-
-    return StandardGillChangedAttributeMap;
-}();
-
-exports.default = StandardGillChangedAttributeMap;
-},{}],82:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _changedAttributeMap = require("lib/gill/model/changed-attribute-map.class");
-
-var _changedAttributeMap2 = _interopRequireDefault(_changedAttributeMap);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillChangedAttributeMapFactory = function () {
-    function StandardGillChangedAttributeMapFactory() {
-        _classCallCheck(this, StandardGillChangedAttributeMapFactory);
-    }
-
-    _createClass(StandardGillChangedAttributeMapFactory, [{
-        key: "construct",
-        value: function construct() {
-            return new _changedAttributeMap2.default();
-        }
-    }]);
-
-    return StandardGillChangedAttributeMapFactory;
-}();
-
-exports.default = StandardGillChangedAttributeMapFactory;
-},{"lib/gill/model/changed-attribute-map.class":81}],83:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _model = require("lib/gill/model.class");
@@ -2193,8 +2079,8 @@ var StandardGillModelFactory = function () {
 
     _createClass(StandardGillModelFactory, [{
         key: "construct",
-        value: function construct(gillModelAttributeDataRepository, changedAttributes, indices, uniformValues, vertices) {
-            return new _model2.default(gillModelAttributeDataRepository, changedAttributes, indices, uniformValues, vertices);
+        value: function construct(gillModelAttributeDataRepository, indices, uniformValues) {
+            return new _model2.default(gillModelAttributeDataRepository, indices, uniformValues);
         }
     }]);
 
@@ -2202,7 +2088,7 @@ var StandardGillModelFactory = function () {
 }();
 
 exports.default = StandardGillModelFactory;
-},{"lib/gill/model.class":72}],84:[function(require,module,exports){
+},{"lib/gill/model.class":72}],82:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2269,7 +2155,7 @@ var StandardGillIndexCollection = function () {
 }();
 
 exports.default = StandardGillIndexCollection;
-},{}],85:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2302,7 +2188,7 @@ var StandardGillIndexCollectionFactory = function () {
 }();
 
 exports.default = StandardGillIndexCollectionFactory;
-},{"lib/gill/model/index-collection.class":84}],86:[function(require,module,exports){
+},{"lib/gill/model/index-collection.class":82}],84:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2336,7 +2222,7 @@ var StandardGillNumber = function () {
 }();
 
 exports.default = StandardGillNumber;
-},{}],87:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2369,7 +2255,7 @@ var StandardGillNumberFactory = function () {
 }();
 
 exports.default = StandardGillNumberFactory;
-},{"lib/gill/model/number.class":86}],88:[function(require,module,exports){
+},{"lib/gill/model/number.class":84}],86:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2408,7 +2294,7 @@ var StandardGillUniformValueMap = function () {
 }();
 
 exports.default = StandardGillUniformValueMap;
-},{}],89:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2441,7 +2327,7 @@ var StandardGillUniformValueMapFactory = function () {
 }();
 
 exports.default = StandardGillUniformValueMapFactory;
-},{"lib/gill/model/uniform-value-map.class":88}],90:[function(require,module,exports){
+},{"lib/gill/model/uniform-value-map.class":86}],88:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2477,7 +2363,7 @@ var StandardGillVector2 = function () {
 }();
 
 exports.default = StandardGillVector2;
-},{}],91:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2510,7 +2396,7 @@ var StandardGillVector2Factory = function () {
 }();
 
 exports.default = StandardGillVector2Factory;
-},{"lib/gill/model/vector2.class":90}],92:[function(require,module,exports){
+},{"lib/gill/model/vector2.class":88}],90:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2548,7 +2434,7 @@ var StandardGillVector3 = function () {
 }();
 
 exports.default = StandardGillVector3;
-},{}],93:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2581,7 +2467,7 @@ var StandardGillVector3Factory = function () {
 }();
 
 exports.default = StandardGillVector3Factory;
-},{"lib/gill/model/vector3.class":92}],94:[function(require,module,exports){
+},{"lib/gill/model/vector3.class":90}],92:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2621,97 +2507,7 @@ var StandardGillVertex = function () {
 }();
 
 exports.default = StandardGillVertex;
-},{}],95:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillVertexCollection = function () {
-    function StandardGillVertexCollection() {
-        _classCallCheck(this, StandardGillVertexCollection);
-
-        this.vertices = new Array();
-    }
-
-    _createClass(StandardGillVertexCollection, [{
-        key: "addVertex",
-        value: function addVertex(vertex) {
-            this.vertices.push(vertex);
-        }
-    }, {
-        key: "eachVertex",
-        value: function eachVertex(action) {
-            var _iteratorNormalCompletion = true;
-            var _didIteratorError = false;
-            var _iteratorError = undefined;
-
-            try {
-                for (var _iterator = this.vertices[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                    var vertex = _step.value;
-
-                    action(vertex);
-                }
-            } catch (err) {
-                _didIteratorError = true;
-                _iteratorError = err;
-            } finally {
-                try {
-                    if (!_iteratorNormalCompletion && _iterator.return) {
-                        _iterator.return();
-                    }
-                } finally {
-                    if (_didIteratorError) {
-                        throw _iteratorError;
-                    }
-                }
-            }
-        }
-    }]);
-
-    return StandardGillVertexCollection;
-}();
-
-exports.default = StandardGillVertexCollection;
-},{}],96:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _collection = require("lib/gill/model/vertex/collection.class");
-
-var _collection2 = _interopRequireDefault(_collection);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillVertexCollectionFactory = function () {
-    function StandardGillVertexCollectionFactory() {
-        _classCallCheck(this, StandardGillVertexCollectionFactory);
-    }
-
-    _createClass(StandardGillVertexCollectionFactory, [{
-        key: "construct",
-        value: function construct() {
-            return new _collection2.default();
-        }
-    }]);
-
-    return StandardGillVertexCollectionFactory;
-}();
-
-exports.default = StandardGillVertexCollectionFactory;
-},{"lib/gill/model/vertex/collection.class":95}],97:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2744,7 +2540,7 @@ var StandardGillVertexFactory = function () {
 }();
 
 exports.default = StandardGillVertexFactory;
-},{"lib/gill/model/vertex.class":94}],98:[function(require,module,exports){
+},{"lib/gill/model/vertex.class":92}],94:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2755,101 +2551,35 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var GillProgramWebglAttributeCollectionAdapter = function () {
-    function GillProgramWebglAttributeCollectionAdapter(gillWebglAttributeCollection) {
-        _classCallCheck(this, GillProgramWebglAttributeCollectionAdapter);
+var ProgramWebglServiceAdapter = function () {
+    function ProgramWebglServiceAdapter(webglService) {
+        _classCallCheck(this, ProgramWebglServiceAdapter);
 
-        this.gillWebglAttributeCollection = gillWebglAttributeCollection;
+        this.webglService = webglService;
     }
 
-    _createClass(GillProgramWebglAttributeCollectionAdapter, [{
-        key: "eachAttribute",
-        value: function eachAttribute(action) {
-            this.gillWebglAttributeCollection.forEachAttribute(action);
+    _createClass(ProgramWebglServiceAdapter, [{
+        key: "createWebglProgram",
+        value: function createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
+            return this.webglService.createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
         }
-    }]);
-
-    return GillProgramWebglAttributeCollectionAdapter;
-}();
-
-exports.default = GillProgramWebglAttributeCollectionAdapter;
-},{}],99:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _collection = require("lib/gill/program-webgl-adapter/attribute/collection.class");
-
-var _collection2 = _interopRequireDefault(_collection);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillProgramAttributeCollectionAdapterFactory = function () {
-    function StandardGillProgramAttributeCollectionAdapterFactory() {
-        _classCallCheck(this, StandardGillProgramAttributeCollectionAdapterFactory);
-    }
-
-    _createClass(StandardGillProgramAttributeCollectionAdapterFactory, [{
-        key: "construct",
-        value: function construct(gillWebglAttributeCollection) {
-            return new _collection2.default(gillWebglAttributeCollection);
-        }
-    }]);
-
-    return StandardGillProgramAttributeCollectionAdapterFactory;
-}();
-
-exports.default = StandardGillProgramAttributeCollectionAdapterFactory;
-},{"lib/gill/program-webgl-adapter/attribute/collection.class":98}],100:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var GillProgramWebglServiceAdapter = function () {
-    function GillProgramWebglServiceAdapter(gillProgramWebglAttributeCollectionAdapterFactory, gillProgramWebglUniformCollectionAdapterFactory, gillWebglService) {
-        _classCallCheck(this, GillProgramWebglServiceAdapter);
-
-        this.gillProgramWebglAttributeCollectionAdapterFactory = gillProgramWebglAttributeCollectionAdapterFactory;
-        this.gillProgramWebglUniformCollectionAdapterFactory = gillProgramWebglUniformCollectionAdapterFactory;
-        this.gillWebglService = gillWebglService;
-    }
-
-    _createClass(GillProgramWebglServiceAdapter, [{
+    }, {
         key: "getAttributes",
         value: function getAttributes(webglRenderingContext, webglProgram) {
-            var attributes = this.gillWebglService.getAttributes(webglRenderingContext, webglProgram);
-            return this.gillProgramWebglAttributeCollectionAdapterFactory.construct(attributes);
+            return this.webglService.getAttributes(webglRenderingContext, webglProgram);
         }
     }, {
         key: "getUniforms",
         value: function getUniforms(webglRenderingContext, webglProgram) {
-            var uniforms = this.gillWebglService.getUniforms(webglRenderingContext, webglProgram);
-            return this.gillProgramWebglUniformCollectionAdapterFactory.construct(uniforms);
-        }
-    }, {
-        key: "getWebglProgram",
-        value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.gillWebglService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
+            return this.webglService.getUniforms(webglRenderingContext, webglProgram);
         }
     }]);
 
-    return GillProgramWebglServiceAdapter;
+    return ProgramWebglServiceAdapter;
 }();
 
-exports.default = GillProgramWebglServiceAdapter;
-},{}],101:[function(require,module,exports){
+exports.default = ProgramWebglServiceAdapter;
+},{}],95:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2866,85 +2596,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillProgramWebglServiceAdapterFactory = function () {
-    function StandardGillProgramWebglServiceAdapterFactory() {
-        _classCallCheck(this, StandardGillProgramWebglServiceAdapterFactory);
+var StandardProgramWebglServiceAdapterFactory = function () {
+    function StandardProgramWebglServiceAdapterFactory() {
+        _classCallCheck(this, StandardProgramWebglServiceAdapterFactory);
     }
 
-    _createClass(StandardGillProgramWebglServiceAdapterFactory, [{
+    _createClass(StandardProgramWebglServiceAdapterFactory, [{
         key: "construct",
-        value: function construct(gillProgramWebglAttributeCollectionAdapterFactory, gillProgramWebglUniformCollectionAdapterFactory, gillWebglService) {
-            return new _service2.default(gillProgramWebglAttributeCollectionAdapterFactory, gillProgramWebglUniformCollectionAdapterFactory, gillWebglService);
+        value: function construct(webglService) {
+            return new _service2.default(webglService);
         }
     }]);
 
-    return StandardGillProgramWebglServiceAdapterFactory;
+    return StandardProgramWebglServiceAdapterFactory;
 }();
 
-exports.default = StandardGillProgramWebglServiceAdapterFactory;
-},{"lib/gill/program-webgl-adapter/service.class":100}],102:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var GillProgramWebglUniformCollectionAdapter = function () {
-    function GillProgramWebglUniformCollectionAdapter(gillWebglUniformCollection) {
-        _classCallCheck(this, GillProgramWebglUniformCollectionAdapter);
-
-        this.gillWebglUniformCollection = gillWebglUniformCollection;
-    }
-
-    _createClass(GillProgramWebglUniformCollectionAdapter, [{
-        key: "eachUniform",
-        value: function eachUniform(action) {
-            this.gillWebglUniformCollection.forEachUniform(action);
-        }
-    }]);
-
-    return GillProgramWebglUniformCollectionAdapter;
-}();
-
-exports.default = GillProgramWebglUniformCollectionAdapter;
-},{}],103:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _collection = require("lib/gill/program-webgl-adapter/uniform/collection.class");
-
-var _collection2 = _interopRequireDefault(_collection);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillProgramUniformCollectionAdapterFactory = function () {
-    function StandardGillProgramUniformCollectionAdapterFactory() {
-        _classCallCheck(this, StandardGillProgramUniformCollectionAdapterFactory);
-    }
-
-    _createClass(StandardGillProgramUniformCollectionAdapterFactory, [{
-        key: "construct",
-        value: function construct(gillWebglUniformCollection) {
-            return new _collection2.default(gillWebglUniformCollection);
-        }
-    }]);
-
-    return StandardGillProgramUniformCollectionAdapterFactory;
-}();
-
-exports.default = StandardGillProgramUniformCollectionAdapterFactory;
-},{"lib/gill/program-webgl-adapter/uniform/collection.class":102}],104:[function(require,module,exports){
+exports.default = StandardProgramWebglServiceAdapterFactory;
+},{"lib/gill/program-webgl-adapter/service.class":94}],96:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2991,7 +2659,156 @@ var StandardGillProgram = function () {
 }();
 
 exports.default = StandardGillProgram;
-},{}],105:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardAttribute = function () {
+    function StandardAttribute(name, type, location, usage) {
+        _classCallCheck(this, StandardAttribute);
+
+        this.name = name;
+        this.type = type;
+        this.location = location;
+        this.usage = usage;
+    }
+
+    _createClass(StandardAttribute, [{
+        key: "getLocation",
+        value: function getLocation() {
+            return this.location;
+        }
+    }, {
+        key: "getName",
+        value: function getName() {
+            return this.name;
+        }
+    }, {
+        key: "getType",
+        value: function getType() {
+            return this.type;
+        }
+    }, {
+        key: "getUsage",
+        value: function getUsage() {
+            return this.usage;
+        }
+    }]);
+
+    return StandardAttribute;
+}();
+
+exports.default = StandardAttribute;
+},{}],98:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardAttributeCollection = function () {
+    function StandardAttributeCollection() {
+        _classCallCheck(this, StandardAttributeCollection);
+
+        this.attributes = new Array();
+    }
+
+    _createClass(StandardAttributeCollection, [{
+        key: "addAttribute",
+        value: function addAttribute(attribute) {
+            this.attributes.push(attribute);
+        }
+    }, {
+        key: "eachAttribute",
+        value: function eachAttribute(action) {
+            this.attributes.forEach(function (attribute) {
+                action(attribute);
+            });
+        }
+    }]);
+
+    return StandardAttributeCollection;
+}();
+
+exports.default = StandardAttributeCollection;
+},{}],99:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _collection = require("lib/gill/program/attribute/collection.class");
+
+var _collection2 = _interopRequireDefault(_collection);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardAttributeCollectionFactory = function () {
+    function StandardAttributeCollectionFactory() {
+        _classCallCheck(this, StandardAttributeCollectionFactory);
+    }
+
+    _createClass(StandardAttributeCollectionFactory, [{
+        key: "construct",
+        value: function construct() {
+            return new _collection2.default();
+        }
+    }]);
+
+    return StandardAttributeCollectionFactory;
+}();
+
+exports.default = StandardAttributeCollectionFactory;
+},{"lib/gill/program/attribute/collection.class":98}],100:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _attribute = require("lib/gill/program/attribute.class");
+
+var _attribute2 = _interopRequireDefault(_attribute);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardAttributeFactory = function () {
+    function StandardAttributeFactory() {
+        _classCallCheck(this, StandardAttributeFactory);
+    }
+
+    _createClass(StandardAttributeFactory, [{
+        key: "construct",
+        value: function construct(name, type, location, usage) {
+            return new _attribute2.default(name, type, location, usage);
+        }
+    }]);
+
+    return StandardAttributeFactory;
+}();
+
+exports.default = StandardAttributeFactory;
+},{"lib/gill/program/attribute.class":97}],101:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3049,7 +2866,7 @@ var StandardGillProgramCache = function () {
 }();
 
 exports.default = StandardGillProgramCache;
-},{}],106:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3082,7 +2899,7 @@ var StandardGillProgramCacheFactory = function () {
 }();
 
 exports.default = StandardGillProgramCacheFactory;
-},{"lib/gill/program/cache.class":105}],107:[function(require,module,exports){
+},{"lib/gill/program/cache.class":101}],103:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3121,7 +2938,7 @@ var StandardGillContextSourceMap = function () {
 }();
 
 exports.default = StandardGillContextSourceMap;
-},{}],108:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3154,7 +2971,7 @@ var StandardGillContextSourceMapFactory = function () {
 }();
 
 exports.default = StandardGillContextSourceMapFactory;
-},{"lib/gill/program/context-source-map.class":107}],109:[function(require,module,exports){
+},{"lib/gill/program/context-source-map.class":103}],105:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3187,7 +3004,7 @@ var StandardGillProgramFactory = function () {
 }();
 
 exports.default = StandardGillProgramFactory;
-},{"lib/gill/program.class":104}],110:[function(require,module,exports){
+},{"lib/gill/program.class":96}],106:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3199,12 +3016,17 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillProgramService = function () {
-    function StandardGillProgramService(gillProgramCache, gillProgramFactory, gillProgramWebglService) {
+    function StandardGillProgramService(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, uniformCollectionFactory, uniformFactory, variableTypes) {
         _classCallCheck(this, StandardGillProgramService);
 
+        this.attributeCollectionFactory = attributeCollectionFactory;
+        this.attributeFactory = attributeFactory;
         this.gillProgramCache = gillProgramCache;
         this.gillProgramFactory = gillProgramFactory;
         this.gillProgramWebglService = gillProgramWebglService;
+        this.uniformCollectionFactory = uniformCollectionFactory;
+        this.uniformFactory = uniformFactory;
+        this.variableTypes = variableTypes;
     }
 
     _createClass(StandardGillProgramService, [{
@@ -3215,9 +3037,64 @@ var StandardGillProgramService = function () {
             if (programExists) {
                 program = this.gillProgramCache.getProgram(webglRenderingContext, gillProgramSource);
             } else {
-                var webglProgram = this.gillProgramWebglService.getWebglProgram(webglRenderingContext, gillProgramSource.getVertexShaderSource(), gillProgramSource.getFragmentShaderSource());
-                var attributes = this.gillProgramWebglService.getAttributes(webglRenderingContext, webglProgram),
-                    uniforms = this.gillProgramWebglService.getUniforms(webglRenderingContext, webglProgram);
+                var webglProgram = this.gillProgramWebglService.createWebglProgram(webglRenderingContext, gillProgramSource.getVertexShaderSource(), gillProgramSource.getFragmentShaderSource());
+                var attributeInfo = this.gillProgramWebglService.getAttributes(webglRenderingContext, webglProgram),
+                    attributes = this.attributeCollectionFactory.construct(),
+                    uniformInfo = this.gillProgramWebglService.getUniforms(webglRenderingContext, webglProgram),
+                    uniforms = this.uniformCollectionFactory.construct();
+                var _iteratorNormalCompletion = true;
+                var _didIteratorError = false;
+                var _iteratorError = undefined;
+
+                try {
+                    for (var _iterator = attributeInfo[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var attribute = _step.value;
+
+                        var location = webglRenderingContext.getAttribLocation(webglProgram, attribute.name);
+                        webglRenderingContext.enableVertexAttribArray(location);
+                        attributes.addAttribute(this.attributeFactory.construct(attribute.name, this.variableTypes.getWebglVariableType(attribute.type), location, webglRenderingContext.STATIC_DRAW));
+                    }
+                } catch (err) {
+                    _didIteratorError = true;
+                    _iteratorError = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion && _iterator.return) {
+                            _iterator.return();
+                        }
+                    } finally {
+                        if (_didIteratorError) {
+                            throw _iteratorError;
+                        }
+                    }
+                }
+
+                var _iteratorNormalCompletion2 = true;
+                var _didIteratorError2 = false;
+                var _iteratorError2 = undefined;
+
+                try {
+                    for (var _iterator2 = uniformInfo[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                        var uniform = _step2.value;
+
+                        var _location = webglRenderingContext.getUniformLocation(webglProgram, uniform.name);
+                        uniforms.addUniform(this.uniformFactory.construct(uniform.name, this.variableTypes.getWebglVariableType(uniform.type), _location));
+                    }
+                } catch (err) {
+                    _didIteratorError2 = true;
+                    _iteratorError2 = err;
+                } finally {
+                    try {
+                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                            _iterator2.return();
+                        }
+                    } finally {
+                        if (_didIteratorError2) {
+                            throw _iteratorError2;
+                        }
+                    }
+                }
+
                 program = this.gillProgramFactory.construct(webglRenderingContext, webglProgram, attributes, uniforms);
                 this.gillProgramCache.cacheProgram(webglRenderingContext, gillProgramSource, program);
             }
@@ -3229,7 +3106,7 @@ var StandardGillProgramService = function () {
 }();
 
 exports.default = StandardGillProgramService;
-},{}],111:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3253,8 +3130,8 @@ var StandardGillProgramServiceFactory = function () {
 
     _createClass(StandardGillProgramServiceFactory, [{
         key: "construct",
-        value: function construct(gillProgramCache, gillProgramFactory, gillProgramWebglService) {
-            return new _service2.default(gillProgramCache, gillProgramFactory, gillProgramWebglService);
+        value: function construct(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, uniformCollectionFactory, uniformFactory, variableTypes) {
+            return new _service2.default(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, uniformCollectionFactory, uniformFactory, variableTypes);
         }
     }]);
 
@@ -3262,7 +3139,7 @@ var StandardGillProgramServiceFactory = function () {
 }();
 
 exports.default = StandardGillProgramServiceFactory;
-},{"lib/gill/program/service.class":110}],112:[function(require,module,exports){
+},{"lib/gill/program/service.class":106}],108:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3301,7 +3178,7 @@ var StandardGillSourceProgramMap = function () {
 }();
 
 exports.default = StandardGillSourceProgramMap;
-},{}],113:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3334,7 +3211,7 @@ var StandardGillProgramMapFactory = function () {
 }();
 
 exports.default = StandardGillProgramMapFactory;
-},{"lib/gill/program/source-program-map.class":112}],114:[function(require,module,exports){
+},{"lib/gill/program/source-program-map.class":108}],110:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3369,7 +3246,7 @@ var StandardGillProgramSource = function () {
 }();
 
 exports.default = StandardGillProgramSource;
-},{}],115:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3402,7 +3279,7 @@ var StandardGillProgramSourceFactory = function () {
 }();
 
 exports.default = StandardGillProgramSourceFactory;
-},{"lib/gill/program/source.class":114}],116:[function(require,module,exports){
+},{"lib/gill/program/source.class":110}],112:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3413,697 +3290,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillRenderer = function () {
-    function StandardGillRenderer(gillModelBufferService, gillProgram) {
-        _classCallCheck(this, StandardGillRenderer);
-
-        this.gillModelBufferService = gillModelBufferService;
-        this.gillProgram = gillProgram;
-        this.webglProgram = gillProgram.getWebglProgram();
-        this.webglRenderingContext = gillProgram.getWebglRenderingContext();
-    }
-
-    _createClass(StandardGillRenderer, [{
-        key: "drawModel",
-        value: function drawModel(model) {
-            var _this = this;
-
-            this.webglRenderingContext.useProgram(this.webglProgram);
-            // Bind attributes
-            this.gillProgram.forEachAttribute(function (attribute) {
-                var attributeName = attribute.getName(),
-                    attributeType = attribute.getType();
-                _this.webglRenderingContext.bindBuffer(_this.webglRenderingContext.ARRAY_BUFFER, _this.gillModelBufferService.getModelAttributeBuffer(model, attributeName, _this.webglRenderingContext));
-                var attributeData = model.getAttributeData(attributeName);
-                if (attributeData.needsBuffered()) {
-                    var typedArrayConstructor = attributeType.getTypedArrayConstructor();
-                    _this.webglRenderingContext.bufferData(_this.webglRenderingContext.ARRAY_BUFFER, typedArrayConstructor.from(attributeData.getData()), attribute.getUsage());
-                    attributeData.setNeedsBuffered(false);
-                }
-                _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getUnitSize(), attributeType.getDataType(), attributeData.isNormalized(), attributeData.getStride(), attributeData.getOffset());
-            });
-            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ARRAY_BUFFER, null);
-            // Bind uniforms
-            this.gillProgram.forEachUniform(function (uniform) {
-                var uniformType = uniform.getType();
-                var size = uniformType.getUnitSize(),
-                    type = uniformType.getDataType() === _this.webglRenderingContext.FLOAT ? "f" : "i";
-                var uniformFunction = "uniform" + size + type + "v";
-                _this.webglRenderingContext[uniformFunction](uniform.getLocation(), model.getUniformData(uniform.getName()));
-            });
-            var modelIndices = model.getIndexData();
-            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, this.gillModelBufferService.getModelIndexBuffer(model, this.webglRenderingContext));
-            if (model.getBufferIndices()) {
-                this.webglRenderingContext.bufferData(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, Uint16Array.from(modelIndices), this.webglRenderingContext.STATIC_DRAW);
-                model.setBufferIndices(false);
-            }
-            // Draw Elements
-            this.webglRenderingContext.drawElements(this.webglRenderingContext.TRIANGLES, modelIndices.length, this.webglRenderingContext.UNSIGNED_SHORT, 0);
-            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, null);
-            this.webglRenderingContext.useProgram(null);
-        }
-    }]);
-
-    return StandardGillRenderer;
-}();
-
-exports.default = StandardGillRenderer;
-},{}],117:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _renderer = require("lib/gill/renderer.class");
-
-var _renderer2 = _interopRequireDefault(_renderer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillRendererFactory = function () {
-    function StandardGillRendererFactory() {
-        _classCallCheck(this, StandardGillRendererFactory);
-    }
-
-    _createClass(StandardGillRendererFactory, [{
-        key: "construct",
-        value: function construct(gillModelBufferService, gillProgram) {
-            return new _renderer2.default(gillModelBufferService, gillProgram);
-        }
-    }]);
-
-    return StandardGillRendererFactory;
-}();
-
-exports.default = StandardGillRendererFactory;
-},{"lib/gill/renderer.class":116}],118:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillRendererService = function () {
-    function StandardGillRendererService(gillProgramService, gillRendererFactory) {
-        _classCallCheck(this, StandardGillRendererService);
-
-        this.gillProgramService = gillProgramService;
-        this.gillRendererFactory = gillRendererFactory;
-    }
-
-    _createClass(StandardGillRendererService, [{
-        key: "getRenderer",
-        value: function getRenderer(webglRenderingContext, gillModelBufferService, gillProgramSource) {
-            var gillProgram = this.gillProgramService.getProgram(webglRenderingContext, gillProgramSource);
-            return this.gillRendererFactory.construct(gillModelBufferService, gillProgram);
-        }
-    }]);
-
-    return StandardGillRendererService;
-}();
-
-exports.default = StandardGillRendererService;
-},{}],119:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _service = require("lib/gill/renderer/service.class");
-
-var _service2 = _interopRequireDefault(_service);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillRendererServiceFactory = function () {
-    function StandardGillRendererServiceFactory() {
-        _classCallCheck(this, StandardGillRendererServiceFactory);
-    }
-
-    _createClass(StandardGillRendererServiceFactory, [{
-        key: "construct",
-        value: function construct(gillProgramService, gillRendererFactory) {
-            return new _service2.default(gillProgramService, gillRendererFactory);
-        }
-    }]);
-
-    return StandardGillRendererServiceFactory;
-}();
-
-exports.default = StandardGillRendererServiceFactory;
-},{"lib/gill/renderer/service.class":118}],120:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillService = function () {
-    function StandardGillService(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService) {
-        _classCallCheck(this, StandardGillService);
-
-        this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
-        this.gillAttributeValueMapFactory = gillAttributeValueMapFactory;
-        this.gillChangedAttributeMapFactory = gillChangedAttributeMapFactory;
-        this.gillIndexCollectionFactory = gillIndexCollectionFactory;
-        this.gillModelBufferService = gillModelBufferService;
-        this.gillModelFactory = gillModelFactory;
-        this.gillNumberFactory = gillNumberFactory;
-        this.gillProgramSourceFactory = gillProgramSourceFactory;
-        this.gillRendererService = gillRendererService;
-        this.gillUniformValueMapFactory = gillUniformValueMapFactory;
-        this.gillVector2Factory = gillVector2Factory;
-        this.gillVector3Factory = gillVector3Factory;
-        this.gillVertexCollectionFactory = gillVertexCollectionFactory;
-        this.gillVertexFactory = gillVertexFactory;
-        this.gillWebglService = gillWebglService;
-    }
-
-    _createClass(StandardGillService, [{
-        key: "clearCanvas",
-        value: function clearCanvas(canvas) {
-            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
-            webglRenderingContext.clear(webglRenderingContext.COLOR_BUFFER_BIT | webglRenderingContext.DEPTH_BUFFER_BIT);
-        }
-    }, {
-        key: "createModel",
-        value: function createModel() {
-            return this.gillModelFactory.construct(this.gillModelAttributeDataRepository, this.gillChangedAttributeMapFactory.construct(), this.gillIndexCollectionFactory.construct(), this.gillUniformValueMapFactory.construct(), this.gillVertexCollectionFactory.construct());
-        }
-    }, {
-        key: "createNumber",
-        value: function createNumber(value) {
-            return this.gillNumberFactory.construct(value);
-        }
-    }, {
-        key: "createVector2",
-        value: function createVector2(v1, v2) {
-            return this.gillVector2Factory.construct(v1, v2);
-        }
-    }, {
-        key: "createVector3",
-        value: function createVector3(v1, v2, v3) {
-            return this.gillVector3Factory.construct(v1, v2, v3);
-        }
-    }, {
-        key: "createVertex",
-        value: function createVertex() {
-            return this.gillVertexFactory.construct(this.gillAttributeValueMapFactory.construct());
-        }
-    }, {
-        key: "getGillProgram",
-        value: function getGillProgram(vertexShaderSource, fragmentShaderSource) {
-            return this.gillProgramSourceFactory.construct(vertexShaderSource, fragmentShaderSource);
-        }
-    }, {
-        key: "drawModel",
-        value: function drawModel(model, canvas, gillProgramSource) {
-            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
-            var gillRenderer = this.gillRendererService.getRenderer(webglRenderingContext, this.gillModelBufferService, gillProgramSource);
-            gillRenderer.drawModel(model);
-        }
-    }]);
-
-    return StandardGillService;
-}();
-
-exports.default = StandardGillService;
-},{}],121:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _service = require("lib/gill/service.class");
-
-var _service2 = _interopRequireDefault(_service);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillServiceFactory = function () {
-    function StandardGillServiceFactory() {
-        _classCallCheck(this, StandardGillServiceFactory);
-    }
-
-    _createClass(StandardGillServiceFactory, [{
-        key: "construct",
-        value: function construct(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService) {
-            return new _service2.default(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillChangedAttributeMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexCollectionFactory, gillVertexFactory, gillWebglService);
-        }
-    }]);
-
-    return StandardGillServiceFactory;
-}();
-
-exports.default = StandardGillServiceFactory;
-},{"lib/gill/service.class":120}],122:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglAttribute = function () {
-    function StandardGillWebglAttribute(name, type, location, usage) {
-        _classCallCheck(this, StandardGillWebglAttribute);
-
-        this.name = name;
-        this.type = type;
-        this.location = location;
-        this.usage = usage;
-    }
-
-    _createClass(StandardGillWebglAttribute, [{
-        key: "getLocation",
-        value: function getLocation() {
-            return this.location;
-        }
-    }, {
-        key: "getName",
-        value: function getName() {
-            return this.name;
-        }
-    }, {
-        key: "getType",
-        value: function getType() {
-            return this.type;
-        }
-    }, {
-        key: "getUsage",
-        value: function getUsage() {
-            return this.usage;
-        }
-    }]);
-
-    return StandardGillWebglAttribute;
-}();
-
-exports.default = StandardGillWebglAttribute;
-},{}],123:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglAttributeCollection = function () {
-    function StandardGillWebglAttributeCollection() {
-        _classCallCheck(this, StandardGillWebglAttributeCollection);
-
-        this.attributes = new Array();
-    }
-
-    _createClass(StandardGillWebglAttributeCollection, [{
-        key: "addAttribute",
-        value: function addAttribute(attribute) {
-            this.attributes.push(attribute);
-        }
-    }, {
-        key: "forEachAttribute",
-        value: function forEachAttribute(action) {
-            this.attributes.forEach(function (attribute) {
-                action(attribute);
-            });
-        }
-    }]);
-
-    return StandardGillWebglAttributeCollection;
-}();
-
-exports.default = StandardGillWebglAttributeCollection;
-},{}],124:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _collection = require("lib/gill/webgl/attribute/collection.class");
-
-var _collection2 = _interopRequireDefault(_collection);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglAttributeCollectionFactory = function () {
-    function StandardGillWebglAttributeCollectionFactory() {
-        _classCallCheck(this, StandardGillWebglAttributeCollectionFactory);
-    }
-
-    _createClass(StandardGillWebglAttributeCollectionFactory, [{
-        key: "construct",
-        value: function construct() {
-            return new _collection2.default();
-        }
-    }]);
-
-    return StandardGillWebglAttributeCollectionFactory;
-}();
-
-exports.default = StandardGillWebglAttributeCollectionFactory;
-},{"lib/gill/webgl/attribute/collection.class":123}],125:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _attribute = require("lib/gill/webgl/attribute.class");
-
-var _attribute2 = _interopRequireDefault(_attribute);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglAttributeFactory = function () {
-    function StandardGillWebglAttributeFactory() {
-        _classCallCheck(this, StandardGillWebglAttributeFactory);
-    }
-
-    _createClass(StandardGillWebglAttributeFactory, [{
-        key: "construct",
-        value: function construct(name, type, location, usage) {
-            return new _attribute2.default(name, type, location, usage);
-        }
-    }]);
-
-    return StandardGillWebglAttributeFactory;
-}();
-
-exports.default = StandardGillWebglAttributeFactory;
-},{"lib/gill/webgl/attribute.class":122}],126:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglProgramFactory = function () {
-    function StandardGillWebglProgramFactory(webglShaderFactory) {
-        _classCallCheck(this, StandardGillWebglProgramFactory);
-
-        this.webglShaderFactory = webglShaderFactory;
-    }
-
-    _createClass(StandardGillWebglProgramFactory, [{
-        key: "construct",
-        value: function construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            var webglProgram = webglRenderingContext.createProgram();
-            var fragmentShader = this.webglShaderFactory.construct(fragmentShaderSource, webglRenderingContext.FRAGMENT_SHADER, webglRenderingContext),
-                vertexShader = this.webglShaderFactory.construct(vertexShaderSource, webglRenderingContext.VERTEX_SHADER, webglRenderingContext);
-            webglRenderingContext.attachShader(webglProgram, vertexShader);
-            webglRenderingContext.attachShader(webglProgram, fragmentShader);
-            webglRenderingContext.linkProgram(webglProgram);
-            if (!webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.LINK_STATUS)) {
-                throw "Unable to initialize the WebGL program: " + webglRenderingContext.getProgramInfoLog(webglProgram);
-            }
-            return webglProgram;
-        }
-    }]);
-
-    return StandardGillWebglProgramFactory;
-}();
-
-exports.default = StandardGillWebglProgramFactory;
-},{}],127:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglProgramService = function () {
-    function StandardGillWebglProgramService(gillWebglAttributeFactory, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
-        _classCallCheck(this, StandardGillWebglProgramService);
-
-        this.gillWebglAttributeFactory = gillWebglAttributeFactory;
-        this.gillWebglProgramFactory = gillWebglProgramFactory;
-        this.gillWebglUniformFactory = gillWebglUniformFactory;
-        this.gillWebglVariableTypeMap = gillWebglVariableTypeMap;
-    }
-
-    _createClass(StandardGillWebglProgramService, [{
-        key: "getAttribute",
-        value: function getAttribute(webglRenderingContext, webglProgram, attributeIndex) {
-            var attributeInfo = webglRenderingContext.getActiveAttrib(webglProgram, attributeIndex);
-            var attributeTypeExists = this.gillWebglVariableTypeMap.hasWebglVariableType(attributeInfo.type);
-            if (!attributeTypeExists) {
-                throw new Error("Unknown WebGL variable type '" + attributeInfo.type + "' ('" + attributeInfo.name + "')");
-            }
-            var attributeLocation = webglRenderingContext.getAttribLocation(webglProgram, attributeInfo.name);
-            webglRenderingContext.enableVertexAttribArray(attributeLocation);
-            return this.gillWebglAttributeFactory.construct(attributeInfo.name, this.gillWebglVariableTypeMap.getWebglVariableType(attributeInfo.type), attributeLocation, webglRenderingContext.STATIC_DRAW);
-        }
-    }, {
-        key: "getUniform",
-        value: function getUniform(webglRenderingContext, webglProgram, uniformIndex) {
-            var uniformInfo = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
-            var uniformTypeExists = this.gillWebglVariableTypeMap.hasWebglVariableType(uniformInfo.type);
-            if (!uniformTypeExists) {
-                throw new Error("Unknown WebGL variable type '" + uniformInfo.type + "' ('" + uniformInfo.name + "')");
-            }
-            var uniformLocation = webglRenderingContext.getUniformLocation(webglProgram, uniformInfo.name);
-            return this.gillWebglUniformFactory.construct(uniformInfo.name, this.gillWebglVariableTypeMap.getWebglVariableType(uniformInfo.type), uniformLocation);
-        }
-    }, {
-        key: "getWebglProgram",
-        value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.gillWebglProgramFactory.construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
-        }
-    }]);
-
-    return StandardGillWebglProgramService;
-}();
-
-exports.default = StandardGillWebglProgramService;
-},{}],128:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _service = require("lib/gill/webgl/program/service.class");
-
-var _service2 = _interopRequireDefault(_service);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglProgramServiceFactory = function () {
-    function StandardGillWebglProgramServiceFactory() {
-        _classCallCheck(this, StandardGillWebglProgramServiceFactory);
-    }
-
-    _createClass(StandardGillWebglProgramServiceFactory, [{
-        key: "construct",
-        value: function construct(gillWebglAttributeFactory, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap) {
-            return new _service2.default(gillWebglAttributeFactory, gillWebglProgramFactory, gillWebglUniformFactory, gillWebglVariableTypeMap);
-        }
-    }]);
-
-    return StandardGillWebglProgramServiceFactory;
-}();
-
-exports.default = StandardGillWebglProgramServiceFactory;
-},{"lib/gill/webgl/program/service.class":127}],129:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglService = function () {
-    function StandardGillWebglService(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglUniformCollectionFactory) {
-        _classCallCheck(this, StandardGillWebglService);
-
-        this.gillWebglAttributeCollectionFactory = gillWebglAttributeCollectionFactory;
-        this.gillWebglProgramService = gillWebglProgramService;
-        this.gillWebglUniformCollectionFactory = gillWebglUniformCollectionFactory;
-    }
-
-    _createClass(StandardGillWebglService, [{
-        key: "getAttributes",
-        value: function getAttributes(webglRenderingContext, webglProgram) {
-            var attributeCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_ATTRIBUTES);
-            var attributes = this.gillWebglAttributeCollectionFactory.construct();
-            for (var index = 0; index < attributeCount; index += 1) {
-                attributes.addAttribute(this.gillWebglProgramService.getAttribute(webglRenderingContext, webglProgram, index));
-            }
-            return attributes;
-        }
-    }, {
-        key: "getUniforms",
-        value: function getUniforms(webglRenderingContext, webglProgram) {
-            var uniformCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_UNIFORMS);
-            var uniforms = this.gillWebglUniformCollectionFactory.construct();
-            for (var index = 0; index < uniformCount; index += 1) {
-                uniforms.addUniform(this.gillWebglProgramService.getUniform(webglRenderingContext, webglProgram, index));
-            }
-            return uniforms;
-        }
-    }, {
-        key: "getWebglContext",
-        value: function getWebglContext(canvas) {
-            var webglRenderingContext = canvas.getContext("webgl");
-            if (webglRenderingContext === null) {
-                webglRenderingContext = canvas.getContext("experimental-webgl");
-            }
-            return webglRenderingContext;
-        }
-    }, {
-        key: "getWebglProgram",
-        value: function getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
-            return this.gillWebglProgramService.getWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource);
-        }
-    }]);
-
-    return StandardGillWebglService;
-}();
-
-exports.default = StandardGillWebglService;
-},{}],130:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _service = require("lib/gill/webgl/service.class");
-
-var _service2 = _interopRequireDefault(_service);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglServiceFactory = function () {
-    function StandardGillWebglServiceFactory() {
-        _classCallCheck(this, StandardGillWebglServiceFactory);
-    }
-
-    _createClass(StandardGillWebglServiceFactory, [{
-        key: "construct",
-        value: function construct(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglUniformCollectionFactory) {
-            return new _service2.default(gillWebglAttributeCollectionFactory, gillWebglProgramService, gillWebglUniformCollectionFactory);
-        }
-    }]);
-
-    return StandardGillWebglServiceFactory;
-}();
-
-exports.default = StandardGillWebglServiceFactory;
-},{"lib/gill/webgl/service.class":129}],131:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglShaderFactory = function () {
-    function StandardGillWebglShaderFactory() {
-        _classCallCheck(this, StandardGillWebglShaderFactory);
-    }
-
-    _createClass(StandardGillWebglShaderFactory, [{
-        key: "construct",
-        value: function construct(shaderSource, shaderType, webglRenderingContext) {
-            var shader = webglRenderingContext.createShader(shaderType);
-            webglRenderingContext.shaderSource(shader, shaderSource);
-            webglRenderingContext.compileShader(shader);
-            if (!webglRenderingContext.getShaderParameter(shader, webglRenderingContext.COMPILE_STATUS)) {
-                var log = webglRenderingContext.getShaderInfoLog(shader),
-                    shaderName = shaderType == webglRenderingContext.FRAGMENT_SHADER ? "fragment" : "vertex";
-                webglRenderingContext.deleteShader(shader);
-                throw "An error occurred compiling the " + shaderName + " shader: " + log;
-            }
-            return shader;
-        }
-    }]);
-
-    return StandardGillWebglShaderFactory;
-}();
-
-exports.default = StandardGillWebglShaderFactory;
-},{}],132:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var StandardGillWebglUniform = function () {
-    function StandardGillWebglUniform(name, type, location) {
-        _classCallCheck(this, StandardGillWebglUniform);
+var StandardUniform = function () {
+    function StandardUniform(name, type, location) {
+        _classCallCheck(this, StandardUniform);
 
         this.name = name;
         this.type = type;
         this.location = location;
     }
 
-    _createClass(StandardGillWebglUniform, [{
+    _createClass(StandardUniform, [{
         key: "getLocation",
         value: function getLocation() {
             return this.location;
@@ -4120,11 +3316,11 @@ var StandardGillWebglUniform = function () {
         }
     }]);
 
-    return StandardGillWebglUniform;
+    return StandardUniform;
 }();
 
-exports.default = StandardGillWebglUniform;
-},{}],133:[function(require,module,exports){
+exports.default = StandardUniform;
+},{}],113:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4135,32 +3331,32 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformCollection = function () {
-    function StandardGillWebglUniformCollection() {
-        _classCallCheck(this, StandardGillWebglUniformCollection);
+var StandardUniformCollection = function () {
+    function StandardUniformCollection() {
+        _classCallCheck(this, StandardUniformCollection);
 
         this.uniforms = new Array();
     }
 
-    _createClass(StandardGillWebglUniformCollection, [{
+    _createClass(StandardUniformCollection, [{
         key: "addUniform",
         value: function addUniform(uniform) {
             this.uniforms.push(uniform);
         }
     }, {
-        key: "forEachUniform",
-        value: function forEachUniform(action) {
+        key: "eachUniform",
+        value: function eachUniform(action) {
             this.uniforms.forEach(function (uniform) {
                 action(uniform);
             });
         }
     }]);
 
-    return StandardGillWebglUniformCollection;
+    return StandardUniformCollection;
 }();
 
-exports.default = StandardGillWebglUniformCollection;
-},{}],134:[function(require,module,exports){
+exports.default = StandardUniformCollection;
+},{}],114:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4169,7 +3365,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _collection = require("lib/gill/webgl/uniform/collection.class");
+var _collection = require("lib/gill/program/uniform/collection.class");
 
 var _collection2 = _interopRequireDefault(_collection);
 
@@ -4177,23 +3373,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformCollectionFactory = function () {
-    function StandardGillWebglUniformCollectionFactory() {
-        _classCallCheck(this, StandardGillWebglUniformCollectionFactory);
+var StandardUniformCollectionFactory = function () {
+    function StandardUniformCollectionFactory() {
+        _classCallCheck(this, StandardUniformCollectionFactory);
     }
 
-    _createClass(StandardGillWebglUniformCollectionFactory, [{
+    _createClass(StandardUniformCollectionFactory, [{
         key: "construct",
         value: function construct() {
             return new _collection2.default();
         }
     }]);
 
-    return StandardGillWebglUniformCollectionFactory;
+    return StandardUniformCollectionFactory;
 }();
 
-exports.default = StandardGillWebglUniformCollectionFactory;
-},{"lib/gill/webgl/uniform/collection.class":133}],135:[function(require,module,exports){
+exports.default = StandardUniformCollectionFactory;
+},{"lib/gill/program/uniform/collection.class":113}],115:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4202,7 +3398,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _uniform = require("lib/gill/webgl/uniform.class");
+var _uniform = require("lib/gill/program/uniform.class");
 
 var _uniform2 = _interopRequireDefault(_uniform);
 
@@ -4210,23 +3406,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglUniformFactory = function () {
-    function StandardGillWebglUniformFactory() {
-        _classCallCheck(this, StandardGillWebglUniformFactory);
+var StandardUniformFactory = function () {
+    function StandardUniformFactory() {
+        _classCallCheck(this, StandardUniformFactory);
     }
 
-    _createClass(StandardGillWebglUniformFactory, [{
+    _createClass(StandardUniformFactory, [{
         key: "construct",
         value: function construct(name, type, location) {
             return new _uniform2.default(name, type, location);
         }
     }]);
 
-    return StandardGillWebglUniformFactory;
+    return StandardUniformFactory;
 }();
 
-exports.default = StandardGillWebglUniformFactory;
-},{"lib/gill/webgl/uniform.class":132}],136:[function(require,module,exports){
+exports.default = StandardUniformFactory;
+},{"lib/gill/program/uniform.class":112}],116:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4239,14 +3435,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglVariableTypeMap = function () {
-    function StandardGillWebglVariableTypeMap() {
-        _classCallCheck(this, StandardGillWebglVariableTypeMap);
+var StandardVariableTypeMap = function () {
+    function StandardVariableTypeMap() {
+        _classCallCheck(this, StandardVariableTypeMap);
 
         this.gillWebglVariableTypes = new Map();
     }
 
-    _createClass(StandardGillWebglVariableTypeMap, [{
+    _createClass(StandardVariableTypeMap, [{
         key: "eachWebglVariableType",
         value: function eachWebglVariableType(action) {
             var _iteratorNormalCompletion = true;
@@ -4293,11 +3489,11 @@ var StandardGillWebglVariableTypeMap = function () {
         }
     }]);
 
-    return StandardGillWebglVariableTypeMap;
+    return StandardVariableTypeMap;
 }();
 
-exports.default = StandardGillWebglVariableTypeMap;
-},{}],137:[function(require,module,exports){
+exports.default = StandardVariableTypeMap;
+},{}],117:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4306,7 +3502,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _typeMap = require("lib/gill/webgl/variable/type-map.class");
+var _typeMap = require("lib/gill/program/variable/type-map.class");
 
 var _typeMap2 = _interopRequireDefault(_typeMap);
 
@@ -4314,23 +3510,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglVariableTypeMapFactory = function () {
-    function StandardGillWebglVariableTypeMapFactory() {
-        _classCallCheck(this, StandardGillWebglVariableTypeMapFactory);
+var StandardVariableTypeMapFactory = function () {
+    function StandardVariableTypeMapFactory() {
+        _classCallCheck(this, StandardVariableTypeMapFactory);
     }
 
-    _createClass(StandardGillWebglVariableTypeMapFactory, [{
+    _createClass(StandardVariableTypeMapFactory, [{
         key: "construct",
         value: function construct() {
             return new _typeMap2.default();
         }
     }]);
 
-    return StandardGillWebglVariableTypeMapFactory;
+    return StandardVariableTypeMapFactory;
 }();
 
-exports.default = StandardGillWebglVariableTypeMapFactory;
-},{"lib/gill/webgl/variable/type-map.class":136}],138:[function(require,module,exports){
+exports.default = StandardVariableTypeMapFactory;
+},{"lib/gill/program/variable/type-map.class":116}],118:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4341,16 +3537,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglVariable = function () {
-    function StandardGillWebglVariable(dataType, typedArrayConstructor, unitSize) {
-        _classCallCheck(this, StandardGillWebglVariable);
+var StandardVariable = function () {
+    function StandardVariable(dataType, typedArrayConstructor, unitSize) {
+        _classCallCheck(this, StandardVariable);
 
         this.dataType = dataType;
         this.typedArrayConstructor = typedArrayConstructor;
         this.unitSize = unitSize;
     }
 
-    _createClass(StandardGillWebglVariable, [{
+    _createClass(StandardVariable, [{
         key: "getDataType",
         value: function getDataType() {
             return this.dataType;
@@ -4367,11 +3563,11 @@ var StandardGillWebglVariable = function () {
         }
     }]);
 
-    return StandardGillWebglVariable;
+    return StandardVariable;
 }();
 
-exports.default = StandardGillWebglVariable;
-},{}],139:[function(require,module,exports){
+exports.default = StandardVariable;
+},{}],119:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4380,7 +3576,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _type = require("lib/gill/webgl/variable/type.class");
+var _type = require("lib/gill/program/variable/type.class");
 
 var _type2 = _interopRequireDefault(_type);
 
@@ -4388,20 +3584,742 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglVariableTypeFactory = function () {
-    function StandardGillWebglVariableTypeFactory() {
-        _classCallCheck(this, StandardGillWebglVariableTypeFactory);
+var StandardVariableTypeFactory = function () {
+    function StandardVariableTypeFactory() {
+        _classCallCheck(this, StandardVariableTypeFactory);
     }
 
-    _createClass(StandardGillWebglVariableTypeFactory, [{
+    _createClass(StandardVariableTypeFactory, [{
         key: "construct",
         value: function construct(dataType, typedArrayConstructor, unitSize) {
             return new _type2.default(dataType, typedArrayConstructor, unitSize);
         }
     }]);
 
-    return StandardGillWebglVariableTypeFactory;
+    return StandardVariableTypeFactory;
 }();
 
-exports.default = StandardGillWebglVariableTypeFactory;
-},{"lib/gill/webgl/variable/type.class":138}]},{},[2]);
+exports.default = StandardVariableTypeFactory;
+},{"lib/gill/program/variable/type.class":118}],120:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillRenderer = function () {
+    function StandardGillRenderer(gillModelBufferService, gillProgram) {
+        _classCallCheck(this, StandardGillRenderer);
+
+        this.gillModelBufferService = gillModelBufferService;
+        this.gillProgram = gillProgram;
+        this.webglProgram = gillProgram.getWebglProgram();
+        this.webglRenderingContext = gillProgram.getWebglRenderingContext();
+    }
+
+    _createClass(StandardGillRenderer, [{
+        key: "drawModel",
+        value: function drawModel(model) {
+            var _this = this;
+
+            this.webglRenderingContext.useProgram(this.webglProgram);
+            // Bind attributes
+            this.gillProgram.forEachAttribute(function (attribute) {
+                var attributeName = attribute.getName(),
+                    attributeType = attribute.getType();
+                _this.webglRenderingContext.bindBuffer(_this.webglRenderingContext.ARRAY_BUFFER, _this.gillModelBufferService.getModelAttributeBuffer(model, attributeName, _this.webglRenderingContext));
+                var attributeData = model.getAttributeData(attributeName);
+                if (attributeData.needsBuffered()) {
+                    var typedArrayConstructor = attributeType.getTypedArrayConstructor();
+                    _this.webglRenderingContext.bufferData(_this.webglRenderingContext.ARRAY_BUFFER, typedArrayConstructor.from(attributeData.getData()), attribute.getUsage());
+                    attributeData.setNeedsBuffered(false);
+                }
+                _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getUnitSize(), attributeType.getDataType(), attributeData.normalize(), attributeData.getStride(), attributeData.getOffset());
+            });
+            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ARRAY_BUFFER, null);
+            // Bind uniforms
+            this.gillProgram.forEachUniform(function (uniform) {
+                var uniformType = uniform.getType();
+                var size = uniformType.getUnitSize(),
+                    type = uniformType.getDataType() === _this.webglRenderingContext.FLOAT ? "f" : "i";
+                var uniformFunction = "uniform" + size + type + "v";
+                _this.webglRenderingContext[uniformFunction](uniform.getLocation(), model.getUniformData(uniform.getName()));
+            });
+            var modelIndices = model.getIndexData();
+            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, this.gillModelBufferService.getModelIndexBuffer(model, this.webglRenderingContext));
+            if (model.getBufferIndices()) {
+                this.webglRenderingContext.bufferData(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, Uint16Array.from(modelIndices), this.webglRenderingContext.STATIC_DRAW);
+                model.setBufferIndices(false);
+            }
+            // Draw Elements
+            this.webglRenderingContext.drawElements(this.webglRenderingContext.TRIANGLES, modelIndices.length, this.webglRenderingContext.UNSIGNED_SHORT, 0);
+            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, null);
+            this.webglRenderingContext.useProgram(null);
+        }
+    }]);
+
+    return StandardGillRenderer;
+}();
+
+exports.default = StandardGillRenderer;
+},{}],121:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _renderer = require("lib/gill/renderer.class");
+
+var _renderer2 = _interopRequireDefault(_renderer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillRendererFactory = function () {
+    function StandardGillRendererFactory() {
+        _classCallCheck(this, StandardGillRendererFactory);
+    }
+
+    _createClass(StandardGillRendererFactory, [{
+        key: "construct",
+        value: function construct(gillModelBufferService, gillProgram) {
+            return new _renderer2.default(gillModelBufferService, gillProgram);
+        }
+    }]);
+
+    return StandardGillRendererFactory;
+}();
+
+exports.default = StandardGillRendererFactory;
+},{"lib/gill/renderer.class":120}],122:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillRendererService = function () {
+    function StandardGillRendererService(gillProgramService, gillRendererFactory) {
+        _classCallCheck(this, StandardGillRendererService);
+
+        this.gillProgramService = gillProgramService;
+        this.gillRendererFactory = gillRendererFactory;
+    }
+
+    _createClass(StandardGillRendererService, [{
+        key: "getRenderer",
+        value: function getRenderer(webglRenderingContext, gillModelBufferService, gillProgramSource) {
+            var gillProgram = this.gillProgramService.getProgram(webglRenderingContext, gillProgramSource);
+            return this.gillRendererFactory.construct(gillModelBufferService, gillProgram);
+        }
+    }]);
+
+    return StandardGillRendererService;
+}();
+
+exports.default = StandardGillRendererService;
+},{}],123:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _service = require("lib/gill/renderer/service.class");
+
+var _service2 = _interopRequireDefault(_service);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillRendererServiceFactory = function () {
+    function StandardGillRendererServiceFactory() {
+        _classCallCheck(this, StandardGillRendererServiceFactory);
+    }
+
+    _createClass(StandardGillRendererServiceFactory, [{
+        key: "construct",
+        value: function construct(gillProgramService, gillRendererFactory) {
+            return new _service2.default(gillProgramService, gillRendererFactory);
+        }
+    }]);
+
+    return StandardGillRendererServiceFactory;
+}();
+
+exports.default = StandardGillRendererServiceFactory;
+},{"lib/gill/renderer/service.class":122}],124:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillService = function () {
+    function StandardGillService(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
+        _classCallCheck(this, StandardGillService);
+
+        this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
+        this.gillAttributeValueMapFactory = gillAttributeValueMapFactory;
+        this.gillIndexCollectionFactory = gillIndexCollectionFactory;
+        this.gillModelBufferService = gillModelBufferService;
+        this.gillModelFactory = gillModelFactory;
+        this.gillNumberFactory = gillNumberFactory;
+        this.gillProgramSourceFactory = gillProgramSourceFactory;
+        this.gillRendererService = gillRendererService;
+        this.gillUniformValueMapFactory = gillUniformValueMapFactory;
+        this.gillVector2Factory = gillVector2Factory;
+        this.gillVector3Factory = gillVector3Factory;
+        this.gillVertexFactory = gillVertexFactory;
+        this.gillWebglService = gillWebglService;
+    }
+
+    _createClass(StandardGillService, [{
+        key: "clearCanvas",
+        value: function clearCanvas(canvas) {
+            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
+            webglRenderingContext.clear(webglRenderingContext.COLOR_BUFFER_BIT | webglRenderingContext.DEPTH_BUFFER_BIT);
+        }
+    }, {
+        key: "createModel",
+        value: function createModel() {
+            return this.gillModelFactory.construct(this.gillModelAttributeDataRepository, this.gillIndexCollectionFactory.construct(), this.gillUniformValueMapFactory.construct());
+        }
+    }, {
+        key: "createNumber",
+        value: function createNumber(value) {
+            return this.gillNumberFactory.construct(value);
+        }
+    }, {
+        key: "createVector2",
+        value: function createVector2(v1, v2) {
+            return this.gillVector2Factory.construct(v1, v2);
+        }
+    }, {
+        key: "createVector3",
+        value: function createVector3(v1, v2, v3) {
+            return this.gillVector3Factory.construct(v1, v2, v3);
+        }
+    }, {
+        key: "createVertex",
+        value: function createVertex() {
+            return this.gillVertexFactory.construct(this.gillAttributeValueMapFactory.construct());
+        }
+    }, {
+        key: "drawModel",
+        value: function drawModel(model, canvas, gillProgram) {
+            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
+            var gillRenderer = this.gillRendererService.getRenderer(webglRenderingContext, this.gillModelBufferService, gillProgram);
+            gillRenderer.drawModel(model);
+        }
+    }, {
+        key: "getProgram",
+        value: function getProgram(vertexShaderSource, fragmentShaderSource) {
+            return this.gillProgramSourceFactory.construct(vertexShaderSource, fragmentShaderSource);
+        }
+    }]);
+
+    return StandardGillService;
+}();
+
+exports.default = StandardGillService;
+},{}],125:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _service = require("lib/gill/service.class");
+
+var _service2 = _interopRequireDefault(_service);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillServiceFactory = function () {
+    function StandardGillServiceFactory() {
+        _classCallCheck(this, StandardGillServiceFactory);
+    }
+
+    _createClass(StandardGillServiceFactory, [{
+        key: "construct",
+        value: function construct(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
+            return new _service2.default(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService);
+        }
+    }]);
+
+    return StandardGillServiceFactory;
+}();
+
+exports.default = StandardGillServiceFactory;
+},{"lib/gill/service.class":124}],126:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglBufferRenderingContextMap = function () {
+    function StandardWebglBufferRenderingContextMap() {
+        _classCallCheck(this, StandardWebglBufferRenderingContextMap);
+
+        this.webglRenderingContexts = new Map();
+    }
+
+    _createClass(StandardWebglBufferRenderingContextMap, [{
+        key: "eachWebglRenderingContext",
+        value: function eachWebglRenderingContext(action) {
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.webglRenderingContexts[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var _step$value = _slicedToArray(_step.value, 2),
+                        webglBuffer = _step$value[0],
+                        webglRenderingContext = _step$value[1];
+
+                    action(webglBuffer, webglRenderingContext);
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+        }
+    }, {
+        key: "hasWebglRenderingContext",
+        value: function hasWebglRenderingContext(webglBuffer) {
+            return this.webglRenderingContexts.has(webglBuffer);
+        }
+    }, {
+        key: "getWebglRenderingContext",
+        value: function getWebglRenderingContext(webglBuffer) {
+            return this.webglRenderingContexts.get(webglBuffer);
+        }
+    }, {
+        key: "setWebglRenderingContext",
+        value: function setWebglRenderingContext(webglBuffer, webglRenderingContext) {
+            this.webglRenderingContexts.set(webglBuffer, webglRenderingContext);
+        }
+    }]);
+
+    return StandardWebglBufferRenderingContextMap;
+}();
+
+exports.default = StandardWebglBufferRenderingContextMap;
+},{}],127:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _bufferRenderingContextMap = require("lib/gill/webgl/buffer-rendering-context-map.class");
+
+var _bufferRenderingContextMap2 = _interopRequireDefault(_bufferRenderingContextMap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglBufferRenderingContextMapFactory = function () {
+    function StandardWebglBufferRenderingContextMapFactory() {
+        _classCallCheck(this, StandardWebglBufferRenderingContextMapFactory);
+    }
+
+    _createClass(StandardWebglBufferRenderingContextMapFactory, [{
+        key: "construct",
+        value: function construct() {
+            return new _bufferRenderingContextMap2.default();
+        }
+    }]);
+
+    return StandardWebglBufferRenderingContextMapFactory;
+}();
+
+exports.default = StandardWebglBufferRenderingContextMapFactory;
+},{"lib/gill/webgl/buffer-rendering-context-map.class":126}],128:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglProgramRenderingContextMap = function () {
+    function StandardWebglProgramRenderingContextMap() {
+        _classCallCheck(this, StandardWebglProgramRenderingContextMap);
+
+        this.webglRenderingContexts = new Map();
+    }
+
+    _createClass(StandardWebglProgramRenderingContextMap, [{
+        key: "eachWebglRenderingContext",
+        value: function eachWebglRenderingContext(action) {
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.webglRenderingContexts[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var _step$value = _slicedToArray(_step.value, 2),
+                        webglProgram = _step$value[0],
+                        webglRenderingContext = _step$value[1];
+
+                    action(webglProgram, webglRenderingContext);
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+        }
+    }, {
+        key: "hasWebglRenderingContext",
+        value: function hasWebglRenderingContext(webglProgram) {
+            return this.webglRenderingContexts.has(webglProgram);
+        }
+    }, {
+        key: "getWebglRenderingContext",
+        value: function getWebglRenderingContext(webglProgram) {
+            return this.webglRenderingContexts.get(webglProgram);
+        }
+    }, {
+        key: "setWebglRenderingContext",
+        value: function setWebglRenderingContext(webglProgram, webglRenderingContext) {
+            this.webglRenderingContexts.set(webglProgram, webglRenderingContext);
+        }
+    }]);
+
+    return StandardWebglProgramRenderingContextMap;
+}();
+
+exports.default = StandardWebglProgramRenderingContextMap;
+},{}],129:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _programRenderingContextMap = require("lib/gill/webgl/program-rendering-context-map.class");
+
+var _programRenderingContextMap2 = _interopRequireDefault(_programRenderingContextMap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglProgramRenderingContextMapFactory = function () {
+    function StandardWebglProgramRenderingContextMapFactory() {
+        _classCallCheck(this, StandardWebglProgramRenderingContextMapFactory);
+    }
+
+    _createClass(StandardWebglProgramRenderingContextMapFactory, [{
+        key: "construct",
+        value: function construct() {
+            return new _programRenderingContextMap2.default();
+        }
+    }]);
+
+    return StandardWebglProgramRenderingContextMapFactory;
+}();
+
+exports.default = StandardWebglProgramRenderingContextMapFactory;
+},{"lib/gill/webgl/program-rendering-context-map.class":128}],130:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglProgramFactory = function () {
+    function StandardWebglProgramFactory() {
+        _classCallCheck(this, StandardWebglProgramFactory);
+    }
+
+    _createClass(StandardWebglProgramFactory, [{
+        key: "construct",
+        value: function construct(webglRenderingContext, vertexShader, fragmentShader) {
+            var webglProgram = webglRenderingContext.createProgram();
+            webglRenderingContext.attachShader(webglProgram, vertexShader);
+            webglRenderingContext.attachShader(webglProgram, fragmentShader);
+            webglRenderingContext.linkProgram(webglProgram);
+            var linkedSuccessfully = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.LINK_STATUS);
+            if (!linkedSuccessfully) {
+                var errorMessage = webglRenderingContext.getProgramInfoLog(webglProgram);
+                throw new Error("Unable to initialize the WebGL program: " + errorMessage);
+            }
+            return webglProgram;
+        }
+    }]);
+
+    return StandardWebglProgramFactory;
+}();
+
+exports.default = StandardWebglProgramFactory;
+},{}],131:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglRenderingContextRepository = function () {
+    function StandardWebglRenderingContextRepository() {
+        _classCallCheck(this, StandardWebglRenderingContextRepository);
+    }
+
+    _createClass(StandardWebglRenderingContextRepository, [{
+        key: "getWebglRenderingContext",
+        value: function getWebglRenderingContext(canvas) {
+            var webglRenderingContext = canvas.getContext("webgl");
+            if (webglRenderingContext === null) {
+                webglRenderingContext = canvas.getContext("experimental-webgl");
+            }
+            return webglRenderingContext;
+        }
+    }]);
+
+    return StandardWebglRenderingContextRepository;
+}();
+
+exports.default = StandardWebglRenderingContextRepository;
+},{}],132:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _renderingContextRepository = require("lib/gill/webgl/rendering-context-repository.class");
+
+var _renderingContextRepository2 = _interopRequireDefault(_renderingContextRepository);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardGillWebglRenderingContextRepositoryFactory = function () {
+    function StandardGillWebglRenderingContextRepositoryFactory() {
+        _classCallCheck(this, StandardGillWebglRenderingContextRepositoryFactory);
+    }
+
+    _createClass(StandardGillWebglRenderingContextRepositoryFactory, [{
+        key: "construct",
+        value: function construct() {
+            return new _renderingContextRepository2.default();
+        }
+    }]);
+
+    return StandardGillWebglRenderingContextRepositoryFactory;
+}();
+
+exports.default = StandardGillWebglRenderingContextRepositoryFactory;
+},{"lib/gill/webgl/rendering-context-repository.class":131}],133:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglService = function () {
+    function StandardWebglService(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory) {
+        _classCallCheck(this, StandardWebglService);
+
+        this.webglBufferRenderingContexts = webglBufferRenderingContexts;
+        this.webglProgramFactory = webglProgramFactory;
+        this.webglProgramRenderingContexts = webglProgramRenderingContexts;
+        this.webglRenderingContextRepository = webglRenderingContextRepository;
+        this.webglShaderFactory = webglShaderFactory;
+    }
+
+    _createClass(StandardWebglService, [{
+        key: "createWebglBuffer",
+        value: function createWebglBuffer(webglRenderingContext) {
+            var webglBuffer = webglRenderingContext.createBuffer();
+            this.webglBufferRenderingContexts.setWebglRenderingContext(webglBuffer, webglRenderingContext);
+            return webglBuffer;
+        }
+    }, {
+        key: "createWebglProgram",
+        value: function createWebglProgram(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
+            var fragmentShader = this.webglShaderFactory.construct(webglRenderingContext, fragmentShaderSource, webglRenderingContext.FRAGMENT_SHADER),
+                vertexShader = this.webglShaderFactory.construct(webglRenderingContext, vertexShaderSource, webglRenderingContext.VERTEX_SHADER);
+            var webglProgram = this.webglProgramFactory.construct(webglRenderingContext, vertexShader, fragmentShader);
+            this.webglProgramRenderingContexts.setWebglRenderingContext(webglProgram, webglRenderingContext);
+            return webglProgram;
+        }
+    }, {
+        key: "getAttributes",
+        value: function getAttributes(webglRenderingContext, webglProgram) {
+            var attributeCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_ATTRIBUTES);
+            var attributes = new Array(attributeCount);
+            for (var attributeIndex = 0; attributeIndex < attributeCount; attributeIndex += 1) {
+                attributes[attributeIndex] = webglRenderingContext.getActiveAttrib(webglProgram, attributeIndex);
+            }
+            return attributes;
+        }
+    }, {
+        key: "getUniforms",
+        value: function getUniforms(webglRenderingContext, webglProgram) {
+            var uniformCount = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.ACTIVE_UNIFORMS);
+            var uniforms = new Array(uniformCount);
+            for (var uniformIndex = 0; uniformIndex < uniformCount; uniformIndex += 1) {
+                uniforms[uniformIndex] = webglRenderingContext.getActiveUniform(webglProgram, uniformIndex);
+            }
+            return uniforms;
+        }
+    }, {
+        key: "getWebglContext",
+        value: function getWebglContext(canvas) {
+            return this.webglRenderingContextRepository.getWebglRenderingContext(canvas);
+        }
+    }]);
+
+    return StandardWebglService;
+}();
+
+exports.default = StandardWebglService;
+},{}],134:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _service = require("lib/gill/webgl/service.class");
+
+var _service2 = _interopRequireDefault(_service);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglServiceFactory = function () {
+    function StandardWebglServiceFactory() {
+        _classCallCheck(this, StandardWebglServiceFactory);
+    }
+
+    _createClass(StandardWebglServiceFactory, [{
+        key: "construct",
+        value: function construct(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory) {
+            return new _service2.default(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory);
+        }
+    }]);
+
+    return StandardWebglServiceFactory;
+}();
+
+exports.default = StandardWebglServiceFactory;
+},{"lib/gill/webgl/service.class":133}],135:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StandardWebglShaderFactory = function () {
+    function StandardWebglShaderFactory() {
+        _classCallCheck(this, StandardWebglShaderFactory);
+    }
+
+    _createClass(StandardWebglShaderFactory, [{
+        key: "construct",
+        value: function construct(webglRenderingContext, shaderSource, shaderType) {
+            var shader = webglRenderingContext.createShader(shaderType);
+            webglRenderingContext.shaderSource(shader, shaderSource);
+            webglRenderingContext.compileShader(shader);
+            var compiledSuccessfully = webglRenderingContext.getShaderParameter(shader, webglRenderingContext.COMPILE_STATUS);
+            if (!compiledSuccessfully) {
+                var errorMessage = webglRenderingContext.getShaderInfoLog(shader),
+                    shaderName = shaderType === webglRenderingContext.FRAGMENT_SHADER ? "fragment" : "vertex";
+                webglRenderingContext.deleteShader(shader);
+                throw new Error("An error occurred compiling the " + shaderName + " shader: " + errorMessage);
+            }
+            return shader;
+        }
+    }]);
+
+    return StandardWebglShaderFactory;
+}();
+
+exports.default = StandardWebglShaderFactory;
+},{}]},{},[2]);

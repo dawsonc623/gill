@@ -10,14 +10,14 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglBufferRenderingContextMap = function () {
-    function StandardGillWebglBufferRenderingContextMap() {
-        _classCallCheck(this, StandardGillWebglBufferRenderingContextMap);
+var StandardWebglBufferRenderingContextMap = function () {
+    function StandardWebglBufferRenderingContextMap() {
+        _classCallCheck(this, StandardWebglBufferRenderingContextMap);
 
         this.webglRenderingContexts = new Map();
     }
 
-    _createClass(StandardGillWebglBufferRenderingContextMap, [{
+    _createClass(StandardWebglBufferRenderingContextMap, [{
         key: "eachWebglRenderingContext",
         value: function eachWebglRenderingContext(action) {
             var _iteratorNormalCompletion = true;
@@ -64,7 +64,7 @@ var StandardGillWebglBufferRenderingContextMap = function () {
         }
     }]);
 
-    return StandardGillWebglBufferRenderingContextMap;
+    return StandardWebglBufferRenderingContextMap;
 }();
 
-exports.default = StandardGillWebglBufferRenderingContextMap;
+exports.default = StandardWebglBufferRenderingContextMap;

@@ -1,5 +1,5 @@
-import GillProgramWebglAttribute  from "lib/gill/program/webgl/attribute.type";
-import GillProgramWebglUniform    from "lib/gill/program/webgl/uniform.type";
+import GillProgramWebglAttribute  from "lib/gill/program/attribute.type";
+import GillProgramWebglUniform    from "lib/gill/program/uniform.type";
 
 interface GillProgram
 {

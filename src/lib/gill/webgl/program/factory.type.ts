@@ -1,10 +1,10 @@
-interface GillWebglProgramFactory
+interface WebglProgramFactory
 {
   construct(
     webglRenderingContext : WebGLRenderingContext,
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
+    vertexShader          : WebGLShader,
+    fragmentShader        : WebGLShader
   ): WebGLProgram;
 }
 
-export default GillWebglProgramFactory;
+export default WebglProgramFactory;

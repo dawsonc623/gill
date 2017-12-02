@@ -1,23 +1,20 @@
-import GillProgramWebglAttributeCollection  from "lib/gill/program/webgl/attribute/collection.type";
-import GillProgramWebglUniformCollection    from "lib/gill/program/webgl/uniform/collection.type";
-
 interface GillProgramWebglService
 {
-  getAttributes(
-    webglRenderingContext : WebGLRenderingContext,
-    webglProgram          : WebGLProgram,
-  ): GillProgramWebglAttributeCollection;
-
-  getUniforms(
-    webglRenderingContext : WebGLRenderingContext,
-    webglProgram          : WebGLProgram,
-  ): GillProgramWebglUniformCollection;
-
-  getWebglProgram(
+  createWebglProgram(
     webglRenderingContext : WebGLRenderingContext,
     vertexShaderSource    : string,
     fragmentShaderSource  : string
   ): WebGLProgram;
+
+  getAttributes(
+    webglRenderingContext : WebGLRenderingContext,
+    webglProgram          : WebGLProgram,
+  ): Array<WebGLActiveInfo>;
+
+  getUniforms(
+    webglRenderingContext : WebGLRenderingContext,
+    webglProgram          : WebGLProgram,
+  ): Array<WebGLActiveInfo>;
 }
 
 export default GillProgramWebglService;

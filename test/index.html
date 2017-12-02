@@ -49,10 +49,10 @@
       }
     `;
 
-    let gillProgram = gill.getGillProgram(
-      vertexShaderSource,
-      fragmentShaderSource
-    );
+    let gillProgram = gill.getProgram(
+                        vertexShaderSource,
+                        fragmentShaderSource
+                      );
 
     // Create a square
 
@@ -189,7 +189,7 @@
       gillProgram
     );
 
-    setTimeout(
+    let timeout = setTimeout(
       function()
       {
         console.log("Draw square again");
@@ -273,6 +273,8 @@
       },
       1000
     );
+
+    // clearTimeout(timeout);
   </script>
 </body>
 </html>

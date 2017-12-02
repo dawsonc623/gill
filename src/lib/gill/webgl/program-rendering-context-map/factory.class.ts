@@ -1,13 +1,13 @@
-import GillWebglProgramRenderingContextMap          from "lib/gill/webgl/program-rendering-context-map.type";
-import GillWebglProgramRenderingContextMapFactory   from "lib/gill/webgl/program-rendering-context-map/factory.type";
-import StandardGillWebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.class";
+import WebglProgramRenderingContextMap          from "lib/gill/webgl/program-rendering-context-map.type";
+import WebglProgramRenderingContextMapFactory   from "lib/gill/webgl/program-rendering-context-map/factory.type";
+import StandardWebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.class";
 
-class StandardGillWebglProgramRenderingContextMapFactory implements GillWebglProgramRenderingContextMapFactory
+class StandardWebglProgramRenderingContextMapFactory implements WebglProgramRenderingContextMapFactory
 {
-  construct(): GillWebglProgramRenderingContextMap
+  construct(): WebglProgramRenderingContextMap
   {
-    return  new StandardGillWebglProgramRenderingContextMap();
+    return  new StandardWebglProgramRenderingContextMap();
   }
 }
 
-export default StandardGillWebglProgramRenderingContextMapFactory;
+export default StandardWebglProgramRenderingContextMapFactory;

@@ -1,26 +1,18 @@
-import GillWebglAttribute                   from "lib/gill/webgl/attribute.type";
-import GillWebglAttributeCollection         from "lib/gill/webgl/attribute/collection.type";
-import GillWebglAttributeCollectionFactory  from "lib/gill/webgl/attribute/collection/factory.type";
-import GillWebglBufferRenderingContextMap   from "lib/gill/webgl/buffer-rendering-context-map.type";
-import GillWebglProgramFactory              from "lib/gill/webgl/program/factory.type";
-import GillWebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
-import GillWebglProgramService              from "lib/gill/webgl/program/service.type";
-import GillWebglRenderingContextRepository  from "lib/gill/webgl/rendering-context/repository.type";
-import GillWebglService                     from "lib/gill/webgl/service.type";
-import GillWebglUniform                     from "lib/gill/webgl/uniform.type";
-import GillWebglUniformCollection           from "lib/gill/webgl/uniform/collection.type";
-import GillWebglUniformCollectionFactory    from "lib/gill/webgl/uniform/collection/factory.type";
+import WebglBufferRenderingContextMap   from "lib/gill/webgl/buffer-rendering-context-map.type";
+import WebglProgramFactory              from "lib/gill/webgl/program/factory.type";
+import WebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
+import WebglRenderingContextRepository  from "lib/gill/webgl/rendering-context-repository.type";
+import WebglService                     from "lib/gill/webgl/service.type";
+import WebglShaderFactory               from "lib/gill/webgl/shader/factory.type";
 
-class StandardGillWebglService implements GillWebglService
+class StandardWebglService implements WebglService
 {
   constructor(
-    private gillWebglAttributeCollectionFactory : GillWebglAttributeCollectionFactory,
-    private gillWebglBufferRenderingContexts    : GillWebglBufferRenderingContextMap,
-    private gillWebglProgramFactory             : GillWebglProgramFactory,
-    private gillWebglProgramRenderingContexts   : GillWebglProgramRenderingContextMap,
-    private gillWebglProgramService             : GillWebglProgramService,
-    private gillWebglRenderingContextRepository : GillWebglRenderingContextRepository,
-    private gillWebglUniformCollectionFactory   : GillWebglUniformCollectionFactory,
+    private webglBufferRenderingContexts    : WebglBufferRenderingContextMap,
+    private webglProgramFactory             : WebglProgramFactory,
+    private webglProgramRenderingContexts   : WebglProgramRenderingContextMap,
+    private webglRenderingContextRepository : WebglRenderingContextRepository,
+    private webglShaderFactory              : WebglShaderFactory
   ) {
 
   }
@@ -31,7 +23,7 @@ class StandardGillWebglService implements GillWebglService
   {
     const webglBuffer = webglRenderingContext.createBuffer();
 
-    this.gillWebglBufferRenderingContexts.setWebglRenderingContext(
+    this.webglBufferRenderingContexts.setWebglRenderingContext(
       webglBuffer,
       webglRenderingContext
     );
@@ -45,13 +37,24 @@ class StandardGillWebglService implements GillWebglService
     fragmentShaderSource  : string
   ): WebGLProgram
   {
-    const webglProgram  = this.gillWebglProgramFactory.construct(
+    const fragmentShader  = this.webglShaderFactory.construct(
+            webglRenderingContext,
+            fragmentShaderSource,
+            webglRenderingContext.FRAGMENT_SHADER
+          ),
+          vertexShader    = this.webglShaderFactory.construct(
+            webglRenderingContext,
+            vertexShaderSource,
+            webglRenderingContext.VERTEX_SHADER
+          );
+
+    const webglProgram  = this.webglProgramFactory.construct(
                             webglRenderingContext,
-                            vertexShaderSource,
-                            fragmentShaderSource
+                            vertexShader,
+                            fragmentShader
                           );
 
-    this.gillWebglProgramRenderingContexts.setWebglRenderingContext(
+    this.webglProgramRenderingContexts.setWebglRenderingContext(
       webglProgram,
       webglRenderingContext
     );
@@ -62,7 +65,7 @@ class StandardGillWebglService implements GillWebglService
   getAttributes(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-  ): GillWebglAttributeCollection
+  ): Array<WebGLActiveInfo>
   {
 
     const attributeCount  = webglRenderingContext.getProgramParameter(
@@ -70,17 +73,19 @@ class StandardGillWebglService implements GillWebglService
                               webglRenderingContext.ACTIVE_ATTRIBUTES
                             );
 
-    const attributes  = this.gillWebglAttributeCollectionFactory.construct();
+    const attributes  = new Array<WebGLActiveInfo>(
+                          attributeCount
+                        );
 
-    for (let index = 0; index < attributeCount; index += 1)
-    {
-      attributes.addAttribute(
-        this.gillWebglProgramService.getAttribute(
-          webglRenderingContext,
-          webglProgram,
-          index
-        )
-      );
+    for (
+      let attributeIndex = 0;
+      attributeIndex < attributeCount;
+      attributeIndex += 1
+    ) {
+      attributes[attributeIndex]  = webglRenderingContext.getActiveAttrib(
+                                      webglProgram,
+                                      attributeIndex
+                                    );
     }
 
     return  attributes;
@@ -89,24 +94,26 @@ class StandardGillWebglService implements GillWebglService
   getUniforms(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-  ): GillWebglUniformCollection
+  ): Array<WebGLActiveInfo>
   {
     const uniformCount  = webglRenderingContext.getProgramParameter(
                             webglProgram,
                             webglRenderingContext.ACTIVE_UNIFORMS
                           );
 
-    const uniforms  = this.gillWebglUniformCollectionFactory.construct();
+    const uniforms  = new Array<WebGLActiveInfo>(
+                        uniformCount
+                      );
 
-    for (let index = 0; index < uniformCount; index += 1)
-    {
-      uniforms.addUniform(
-        this.gillWebglProgramService.getUniform(
-          webglRenderingContext,
-          webglProgram,
-          index
-        )
-      );
+    for (
+      let uniformIndex = 0;
+      uniformIndex < uniformCount;
+      uniformIndex += 1
+    ) {
+      uniforms[uniformIndex]  = webglRenderingContext.getActiveUniform(
+                                  webglProgram,
+                                  uniformIndex
+                                );
     }
 
     return  uniforms;
@@ -116,10 +123,10 @@ class StandardGillWebglService implements GillWebglService
     canvas  : HTMLCanvasElement
   ): WebGLRenderingContext
   {
-    return  this.gillWebglRenderingContextRepository.getWebglRenderingContext(
+    return  this.webglRenderingContextRepository.getWebglRenderingContext(
               canvas
             );
   }
 }
 
-export default StandardGillWebglService;
+export default StandardWebglService;

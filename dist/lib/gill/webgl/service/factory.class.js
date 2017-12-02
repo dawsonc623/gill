@@ -14,19 +14,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglServiceFactory = function () {
-    function StandardGillWebglServiceFactory() {
-        _classCallCheck(this, StandardGillWebglServiceFactory);
+var StandardWebglServiceFactory = function () {
+    function StandardWebglServiceFactory() {
+        _classCallCheck(this, StandardWebglServiceFactory);
     }
 
-    _createClass(StandardGillWebglServiceFactory, [{
+    _createClass(StandardWebglServiceFactory, [{
         key: "construct",
-        value: function construct(gillWebglAttributeCollectionFactory, gillWebglBufferRenderingContexts, gillWebglProgramFactory, gillWebglProgramRenderingContexts, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory) {
-            return new _service2.default(gillWebglAttributeCollectionFactory, gillWebglBufferRenderingContexts, gillWebglProgramFactory, gillWebglProgramRenderingContexts, gillWebglProgramService, gillWebglRenderingContextRepository, gillWebglUniformCollectionFactory);
+        value: function construct(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory) {
+            return new _service2.default(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory);
         }
     }]);
 
-    return StandardGillWebglServiceFactory;
+    return StandardWebglServiceFactory;
 }();
 
-exports.default = StandardGillWebglServiceFactory;
+exports.default = StandardWebglServiceFactory;

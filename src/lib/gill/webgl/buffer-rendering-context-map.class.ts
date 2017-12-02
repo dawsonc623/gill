@@ -1,12 +1,18 @@
-import GillWebglBufferRenderingContextMap from "lib/gill/webgl/buffer-rendering-context-map.type";
+import WebglBufferRenderingContextMap from "lib/gill/webgl/buffer-rendering-context-map.type";
 
-class StandardGillWebglBufferRenderingContextMap implements GillWebglBufferRenderingContextMap
+class StandardWebglBufferRenderingContextMap implements WebglBufferRenderingContextMap
 {
-  private webglRenderingContexts : Map<WebGLBuffer, WebGLRenderingContext>;
+  private webglRenderingContexts  : Map<
+                                      WebGLBuffer,
+                                      WebGLRenderingContext
+                                    >;
 
   constructor()
   {
-    this.webglRenderingContexts = new Map<WebGLBuffer, WebGLRenderingContext>();
+    this.webglRenderingContexts = new Map<
+                                    WebGLBuffer,
+                                    WebGLRenderingContext
+                                  >();
   }
 
   eachWebglRenderingContext(
@@ -60,4 +66,4 @@ class StandardGillWebglBufferRenderingContextMap implements GillWebglBufferRende
   }
 }
 
-export default StandardGillWebglBufferRenderingContextMap;
+export default StandardWebglBufferRenderingContextMap;

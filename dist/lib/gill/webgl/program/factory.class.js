@@ -8,30 +8,28 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillWebglProgramFactory = function () {
-    function StandardGillWebglProgramFactory(webglShaderFactory) {
-        _classCallCheck(this, StandardGillWebglProgramFactory);
-
-        this.webglShaderFactory = webglShaderFactory;
+var StandardWebglProgramFactory = function () {
+    function StandardWebglProgramFactory() {
+        _classCallCheck(this, StandardWebglProgramFactory);
     }
 
-    _createClass(StandardGillWebglProgramFactory, [{
+    _createClass(StandardWebglProgramFactory, [{
         key: "construct",
-        value: function construct(webglRenderingContext, vertexShaderSource, fragmentShaderSource) {
+        value: function construct(webglRenderingContext, vertexShader, fragmentShader) {
             var webglProgram = webglRenderingContext.createProgram();
-            var fragmentShader = this.webglShaderFactory.construct(fragmentShaderSource, webglRenderingContext.FRAGMENT_SHADER, webglRenderingContext),
-                vertexShader = this.webglShaderFactory.construct(vertexShaderSource, webglRenderingContext.VERTEX_SHADER, webglRenderingContext);
             webglRenderingContext.attachShader(webglProgram, vertexShader);
             webglRenderingContext.attachShader(webglProgram, fragmentShader);
             webglRenderingContext.linkProgram(webglProgram);
-            if (!webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.LINK_STATUS)) {
-                throw "Unable to initialize the WebGL program: " + webglRenderingContext.getProgramInfoLog(webglProgram);
+            var linkedSuccessfully = webglRenderingContext.getProgramParameter(webglProgram, webglRenderingContext.LINK_STATUS);
+            if (!linkedSuccessfully) {
+                var errorMessage = webglRenderingContext.getProgramInfoLog(webglProgram);
+                throw new Error("Unable to initialize the WebGL program: " + errorMessage);
             }
             return webglProgram;
         }
     }]);
 
-    return StandardGillWebglProgramFactory;
+    return StandardWebglProgramFactory;
 }();
 
-exports.default = StandardGillWebglProgramFactory;
+exports.default = StandardWebglProgramFactory;

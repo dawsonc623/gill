@@ -1,5 +1,5 @@
-import gillWebglProgramRenderingContextMapFactory from "app/gill/webgl/program-rendering-context-map/factory";
+import webglProgramRenderingContextMapFactory from "app/gill/webgl/program-rendering-context-map/factory";
 
-const gillWebglProgramRenderingContextMap = gillWebglProgramRenderingContextMapFactory.construct();
+const webglProgramRenderingContextMap = webglProgramRenderingContextMapFactory.construct();
 
-export default gillWebglProgramRenderingContextMap;
+export default webglProgramRenderingContextMap;

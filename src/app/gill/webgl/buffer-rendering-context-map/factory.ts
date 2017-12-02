@@ -1,5 +1,5 @@
-import GillWebglBufferRenderingContextMapFactory  from "lib/gill/webgl/buffer-rendering-context-map/factory.class";
+import WebglBufferRenderingContextMapFactory  from "lib/gill/webgl/buffer-rendering-context-map/factory.class";
 
-const gillWebglBufferRenderingContextMapFactory = new GillWebglBufferRenderingContextMapFactory();
+const webglBufferRenderingContextMapFactory = new WebglBufferRenderingContextMapFactory();
 
-export default gillWebglBufferRenderingContextMapFactory;
+export default webglBufferRenderingContextMapFactory;

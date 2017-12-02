@@ -1,5 +1,5 @@
-import GillProgramWebglServiceAdapterFactory  from "lib/gill/program-webgl-adapter/service/factory.class";
+import ProgramWebglServiceAdapterFactory  from "lib/gill/program-webgl-adapter/service/factory.class";
 
-const gillProgramWebglServiceAdapterFactory = new GillProgramWebglServiceAdapterFactory();
+const programWebglServiceAdapterFactory = new ProgramWebglServiceAdapterFactory();
 
-export default gillProgramWebglServiceAdapterFactory;
+export default programWebglServiceAdapterFactory;

@@ -12,7 +12,7 @@ interface GillModelAttributeData
 
   getStride(): GLsizei;
 
-  isNormalized(): GLboolean;
+  normalize(): GLboolean;
 
   needsBuffered(): boolean;
 

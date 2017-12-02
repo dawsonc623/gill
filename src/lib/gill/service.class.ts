@@ -103,21 +103,10 @@ class StandardGillService implements GillService
             );
   }
 
-  getGillProgram(
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
-  ): GillProgramSource
-  {
-    return  this.gillProgramSourceFactory.construct(
-              vertexShaderSource,
-              fragmentShaderSource
-            );
-  }
-
   drawModel(
-    model             : GillModel,
-    canvas            : HTMLCanvasElement,
-    gillProgramSource : GillProgramSource
+    model       : GillModel,
+    canvas      : HTMLCanvasElement,
+    gillProgram : GillProgramSource
   ): void
   {
     const webglRenderingContext = this.gillWebglService.getWebglContext(
@@ -127,12 +116,23 @@ class StandardGillService implements GillService
     const gillRenderer  = this.gillRendererService.getRenderer(
                             webglRenderingContext,
                             this.gillModelBufferService,
-                            gillProgramSource
+                            gillProgram
                           );
 
     gillRenderer.drawModel(
       model
     );
+  }
+
+  getProgram(
+    vertexShaderSource    : string,
+    fragmentShaderSource  : string
+  ): GillProgramSource
+  {
+    return  this.gillProgramSourceFactory.construct(
+              vertexShaderSource,
+              fragmentShaderSource
+            );
   }
 }
 
