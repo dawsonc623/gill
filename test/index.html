@@ -4,277 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Gill Testing Ground</title>
+  <title>Gill Playground</title>
 </head>
 <body>
-  <canvas
-    height  = "400"
-    id      = "my_canvas"
-    style   = "background-color: black;"
-    width   = "800"
-  ></canvas>
-
-  <script src="/gill.js"></script>
-
-  <script>
-    //==========================================
-    //    ~~~~  ~~~~  USING GILL  ~~~~  ~~~~
-    //==========================================
-
-    // Create Rendering Program
-
-    const fragmentShaderSource = `
-      varying highp   vec3  vColor;
-
-      uniform mediump float uOpacity;
-
-      void main(void)
-      {
-        gl_FragColor = vec4(vColor, uOpacity);
-      }
-    `;
-
-    const vertexShaderSource = `
-      attribute vec2 aPosition;
-      attribute vec3 aColor;
-
-      uniform float uLayer;
-
-      varying vec3  vColor;
-
-      void main(void)
-      {
-        gl_Position = vec4(aPosition, uLayer, 1.0);
-        vColor = aColor;
-      }
-    `;
-
-    let gillProgram = gill.getProgram(
-                        vertexShaderSource,
-                        fragmentShaderSource
-                      );
-
-    // Create a square
-
-    let square    = gill.createModel(),
-        sVertex1  = gill.createVertex(),
-        sVertex2  = gill.createVertex(),
-        sVertex3  = gill.createVertex(),
-        sVertex4  = gill.createVertex();
-
-    // WebGL uniforms are applied to all vertices rendered per draw. Therefore, they are set at the model-level.
-
-    square.setUniform(
-            "uLayer",
-            gill.createNumber(
-              0.5
-            )
-          )
-          .setUniform(
-            "uOpacity",
-            gill.createNumber(
-              1.0
-            )
-          );
-
-    // WebGL attributes are applied per vertex per draw. Therefore, they are set at the vertex-level.
-
-    // Upper-left vertex
-
-    sVertex1.setAttribute(
-              "aPosition",
-              gill.createVector2(
-                -0.5,
-                 0.5
-              )
-            ).setAttribute(
-              "aColor",
-              gill.createVector3(
-                1.0,
-                0.0,
-                0.0
-              )
-            );
-
-    // Upper-right vertex
-
-    sVertex2.setAttribute(
-              "aPosition",
-              gill.createVector2(
-                0.5,
-                0.5
-              )
-            ).setAttribute(
-              "aColor",
-              gill.createVector3(
-                1.0,
-                0.0,
-                1.0
-              )
-            );
-
-    // Lower-right vertex
-
-    sVertex3.setAttribute(
-              "aPosition",
-              gill.createVector2(
-                 0.5,
-                -0.5
-              )
-            ).setAttribute(
-              "aColor",
-              gill.createVector3(
-                0.0,
-                0.0,
-                1.0
-              )
-            );
-
-    // Lower-left vertex
-
-    sVertex4.setAttribute(
-              "aPosition",
-              gill.createVector2(
-                -0.5,
-                -0.5
-              )
-            ).setAttribute(
-              "aColor",
-              gill.createVector3(
-                1.0,
-                0.0,
-                1.0
-              )
-            );
-
-    // Triangle One (upper left)
-
-    square.addVertex(
-            sVertex1
-          )
-          .addVertex(
-            sVertex2
-          )
-          .addVertex(
-            sVertex4
-          );
-
-    // Triangle Two (lower right)
-
-    square.addVertex(
-            sVertex4
-          )
-          .addVertex(
-            sVertex2
-          )
-          .addVertex(
-            sVertex3
-          );
-
-    // Get the canvas
-
-    const canvas = document.getElementById("my_canvas");
-
-    // Draw it
-
-    console.log("Draw square");
-
-    gill.clearCanvas(
-      canvas
-    );
-
-    gill.drawModel(
-      square,
-      canvas,
-      gillProgram
-    );
-
-    let timeout = setTimeout(
-      function()
-      {
-        console.log("Draw square again");
-
-        gill.clearCanvas(
-          canvas
-        );
-
-        gill.drawModel(
-          square,
-          canvas,
-          gillProgram
-        );
-
-        setTimeout(
-          function()
-          {
-            // Make it not a square
-
-            const sVertex5  = gill.createVertex();
-
-            sVertex5.setAttribute(
-                      "aPosition",
-                      gill.createVector2(
-                         0.0,
-                        -0.75
-                      )
-                    ).setAttribute(
-                      "aColor",
-                      gill.createVector3(
-                        0.25,
-                        0.0,
-                        1.0
-                      )
-                    );
-
-            square.addVertex(
-                    sVertex4
-                  )
-                  .addVertex(
-                    sVertex3
-                  )
-                  .addVertex(
-                    sVertex5
-                  );
-
-
-            console.log("Draw not square");
-
-            gill.clearCanvas(
-              canvas
-            );
-
-            gill.drawModel(
-              square,
-              canvas,
-              gillProgram
-            );
-
-            setTimeout(
-              function()
-              {
-
-                console.log("Draw not square again");
-
-                gill.clearCanvas(
-                  canvas
-                );
-
-                gill.drawModel(
-                  square,
-                  canvas,
-                  gillProgram
-                );
-              },
-              1000
-            );
-          },
-          1000
-        );
-      },
-      1000
-    );
-
-    // clearTimeout(timeout);
-  </script>
+  <ul>
+    <li>
+      <a href="/demo-colors">
+        Blaster Frenzy
+      </a>
+    </li>
+    <li>
+      <a href="/demo-colors">
+        Demo With Colors
+      </a>
+    </li>
+    <li>
+      <a href="/demo-texture">
+        Demo With Texture
+      </a>
+    </li>
+    <li>
+      <a href="/pokemon-violet-version">
+        Pokemon Violet Version
+      </a>
+    </li>
+  </ul>
 </body>
 </html>
