@@ -3,8 +3,9 @@ import WebglProgramFactory              from "lib/gill/webgl/program/factory.typ
 import WebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-context-map.type";
 import WebglRenderingContextRepository  from "lib/gill/webgl/rendering-context-repository.type";
 import WebglService                     from "lib/gill/webgl/service.type";
-import WebglShaderFactory               from "lib/gill/webgl/shader/factory.type";
+import WebglTextureRenderingContextMap  from "lib/gill/webgl/texture-rendering-context-map.type";
 
+import WebglShaderFactory               from "lib/gill/webgl/shader/factory.type";
 class StandardWebglService implements WebglService
 {
   constructor(
@@ -12,7 +13,8 @@ class StandardWebglService implements WebglService
     private webglProgramFactory             : WebglProgramFactory,
     private webglProgramRenderingContexts   : WebglProgramRenderingContextMap,
     private webglRenderingContextRepository : WebglRenderingContextRepository,
-    private webglShaderFactory              : WebglShaderFactory
+    private webglShaderFactory              : WebglShaderFactory,
+    private webglTextureRenderingContexts   : WebglTextureRenderingContextMap
   ) {
 
   }
@@ -60,6 +62,49 @@ class StandardWebglService implements WebglService
     );
 
     return  webglProgram;
+  }
+
+  createWebglTexture(
+    webglRenderingContext : WebGLRenderingContext
+  ): WebGLTexture
+  {
+    const webglTexture = webglRenderingContext.createTexture();
+
+    //TODO Remove hard-coding
+    webglRenderingContext.bindTexture(
+      webglRenderingContext.TEXTURE_2D,
+      webglTexture
+    );
+
+    webglRenderingContext.texParameteri(
+      webglRenderingContext.TEXTURE_2D,
+      webglRenderingContext.TEXTURE_MIN_FILTER,
+      webglRenderingContext.LINEAR
+    );
+
+    webglRenderingContext.texParameteri(
+      webglRenderingContext.TEXTURE_2D,
+      webglRenderingContext.TEXTURE_WRAP_S,
+      webglRenderingContext.REPEAT
+    );
+
+    webglRenderingContext.texParameteri(
+      webglRenderingContext.TEXTURE_2D,
+      webglRenderingContext.TEXTURE_WRAP_T,
+      webglRenderingContext.REPEAT
+    );
+
+    webglRenderingContext.bindTexture(
+      webglRenderingContext.TEXTURE_2D,
+      null
+    );
+
+    this.webglTextureRenderingContexts.setWebglRenderingContext(
+      webglTexture,
+      webglRenderingContext
+    );
+
+    return  webglTexture;
   }
 
   getAttributes(

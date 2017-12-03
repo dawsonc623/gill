@@ -8,6 +8,7 @@ import GillProgramSourceFactory         from "lib/gill/program/source/factory.ty
 import GillRendererService              from "lib/gill/renderer/service.type";
 import GillService                      from "lib/gill/service.type";
 import GillServiceFactory               from "lib/gill/service/factory.type";
+import TextureDataRepository            from "lib/gill/model/texture-data/repository.type";
 import GillUniformValueMapFactory       from "lib/gill/model/uniform-value-map/factory.type";
 import GillVector2Factory               from "lib/gill/model/vector2/factory.type";
 import GillVector3Factory               from "lib/gill/model/vector3/factory.type";
@@ -26,6 +27,7 @@ class StandardGillServiceFactory implements GillServiceFactory
     gillNumberFactory                 : GillNumberFactory,
     gillProgramSourceFactory          : GillProgramSourceFactory,
     gillRendererService               : GillRendererService,
+    textureDataRepository             : TextureDataRepository,
     gillUniformValueMapFactory        : GillUniformValueMapFactory,
     gillVector2Factory                : GillVector2Factory,
     gillVector3Factory                : GillVector3Factory,
@@ -42,6 +44,7 @@ class StandardGillServiceFactory implements GillServiceFactory
               gillNumberFactory,
               gillProgramSourceFactory,
               gillRendererService,
+              textureDataRepository,
               gillUniformValueMapFactory,
               gillVector2Factory,
               gillVector3Factory,

@@ -6,6 +6,7 @@ import WebglRenderingContextRepository  from "lib/gill/webgl/rendering-context-r
 import WebglService                     from "lib/gill/webgl/service.type";
 import WebglServiceFactory              from "lib/gill/webgl/service/factory.type";
 import WebglShaderFactory               from "lib/gill/webgl/shader/factory.type";
+import WebglTextureRenderingContextMap  from "lib/gill/webgl/texture-rendering-context-map.type";
 
 class StandardWebglServiceFactory implements WebglServiceFactory
 {
@@ -14,7 +15,8 @@ class StandardWebglServiceFactory implements WebglServiceFactory
     webglProgramFactory             : WebglProgramFactory,
     webglProgramRenderingContexts   : WebglProgramRenderingContextMap,
     webglRenderingContextRepository : WebglRenderingContextRepository,
-    webglShaderFactory              : WebglShaderFactory
+    webglShaderFactory              : WebglShaderFactory,
+    webglTextureRenderingContexts   : WebglTextureRenderingContextMap
   ): WebglService
   {
     return  new StandardWebglService(
@@ -22,7 +24,8 @@ class StandardWebglServiceFactory implements WebglServiceFactory
               webglProgramFactory,
               webglProgramRenderingContexts,
               webglRenderingContextRepository,
-              webglShaderFactory
+              webglShaderFactory,
+              webglTextureRenderingContexts
             );
   }
 }

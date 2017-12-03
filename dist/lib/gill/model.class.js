@@ -9,11 +9,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillModel = function () {
-    function StandardGillModel(gillModelAttributeDataRepository, indices, uniformValues) {
+    function StandardGillModel(attributeDataRepository, indices, textureDataRepository, uniformValues) {
         _classCallCheck(this, StandardGillModel);
 
-        this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
+        this.attributeDataRepository = attributeDataRepository;
         this.indices = indices;
+        this.textureDataRepository = textureDataRepository;
         this.uniformValues = uniformValues;
         this.indicesChanged = false;
     }
@@ -26,7 +27,8 @@ var StandardGillModel = function () {
             this.indices.addIndex(this.indices.indexCount());
             this.indicesChanged = true;
             vertex.eachAttribute(function (attributeName, attributeValue) {
-                var attributeData = _this.gillModelAttributeDataRepository.getAttributeData(attributeName);
+                //TODO Change this to follow the pattern used by the texture repository
+                var attributeData = _this.attributeDataRepository.getAttributeData(_this, attributeName);
                 attributeData.addAttributeValue(attributeValue);
             });
             return this;
@@ -34,7 +36,7 @@ var StandardGillModel = function () {
     }, {
         key: "getAttributeData",
         value: function getAttributeData(attributeName) {
-            return this.gillModelAttributeDataRepository.getAttributeData(attributeName);
+            return this.attributeDataRepository.getAttributeData(this, attributeName);
         }
     }, {
         key: "getBufferIndices",
@@ -47,6 +49,11 @@ var StandardGillModel = function () {
             return this.indices.toArray();
         }
     }, {
+        key: "getTextureData",
+        value: function getTextureData(name) {
+            return this.textureDataRepository.getData(this, name);
+        }
+    }, {
         key: "getUniformData",
         value: function getUniformData(uniformName) {
             return this.uniformValues.getValue(uniformName).toUniformData();
@@ -55,6 +62,12 @@ var StandardGillModel = function () {
         key: "setBufferIndices",
         value: function setBufferIndices(indicesChanged) {
             this.indicesChanged = indicesChanged;
+        }
+    }, {
+        key: "setTexture",
+        value: function setTexture(name, value) {
+            this.textureDataRepository.setValue(this, name, value);
+            return this;
         }
     }, {
         key: "setUniform",

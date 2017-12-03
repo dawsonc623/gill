@@ -4,6 +4,7 @@ import WebglProgramRenderingContextMap  from "lib/gill/webgl/program-rendering-c
 import WebglRenderingContextRepository  from "lib/gill/webgl/rendering-context-repository.type";
 import WebglService                     from "lib/gill/webgl/service.type";
 import WebglShaderFactory               from "lib/gill/webgl/shader/factory.type";
+import WebglTextureRenderingContextMap  from "lib/gill/webgl/texture-rendering-context-map.type";
 
 interface GillWebglServiceFactory
 {
@@ -12,7 +13,8 @@ interface GillWebglServiceFactory
     webglProgramFactory             : WebglProgramFactory,
     webglProgramRenderingContexts   : WebglProgramRenderingContextMap,
     webglRenderingContextRepository : WebglRenderingContextRepository,
-    webglShaderFactory              : WebglShaderFactory
+    webglShaderFactory              : WebglShaderFactory,
+    webglTextureRenderingContexts   : WebglTextureRenderingContextMap
   ): WebglService;
 }
 

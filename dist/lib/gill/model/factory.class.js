@@ -21,8 +21,8 @@ var StandardGillModelFactory = function () {
 
     _createClass(StandardGillModelFactory, [{
         key: "construct",
-        value: function construct(gillModelAttributeDataRepository, indices, uniformValues) {
-            return new _model2.default(gillModelAttributeDataRepository, indices, uniformValues);
+        value: function construct(gillModelAttributeDataRepository, indices, textureDataRepository, uniformValues) {
+            return new _model2.default(gillModelAttributeDataRepository, indices, textureDataRepository, uniformValues);
         }
     }]);
 

@@ -21,8 +21,8 @@ var StandardWebglServiceFactory = function () {
 
     _createClass(StandardWebglServiceFactory, [{
         key: "construct",
-        value: function construct(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory) {
-            return new _service2.default(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory);
+        value: function construct(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory, webglTextureRenderingContexts) {
+            return new _service2.default(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory, webglTextureRenderingContexts);
         }
     }]);
 

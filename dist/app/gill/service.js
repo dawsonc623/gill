@@ -40,6 +40,10 @@ var _service = require("app/gill/renderer/service");
 
 var _service2 = _interopRequireDefault(_service);
 
+var _repository3 = require("app/gill/model/texture-data/repository");
+
+var _repository4 = _interopRequireDefault(_repository3);
+
 var _factory13 = require("app/gill/model/uniform-value-map/factory");
 
 var _factory14 = _interopRequireDefault(_factory13);
@@ -62,5 +66,5 @@ var _service4 = _interopRequireDefault(_service3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gillService = _factory2.default.construct(_repository2.default, _factory4.default, _factory6.default, _modelBufferService2.default, _factory8.default, _factory10.default, _factory12.default, _service2.default, _factory14.default, _factory16.default, _factory18.default, _factory20.default, _service4.default);
+var gillService = _factory2.default.construct(_repository2.default, _factory4.default, _factory6.default, _modelBufferService2.default, _factory8.default, _factory10.default, _factory12.default, _service2.default, _repository4.default, _factory14.default, _factory16.default, _factory18.default, _factory20.default, _service4.default);
 exports.default = gillService;

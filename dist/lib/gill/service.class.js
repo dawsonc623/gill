@@ -9,10 +9,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillService = function () {
-    function StandardGillService(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
+    function StandardGillService(attributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
         _classCallCheck(this, StandardGillService);
 
-        this.gillModelAttributeDataRepository = gillModelAttributeDataRepository;
+        this.attributeDataRepository = attributeDataRepository;
         this.gillAttributeValueMapFactory = gillAttributeValueMapFactory;
         this.gillIndexCollectionFactory = gillIndexCollectionFactory;
         this.gillModelBufferService = gillModelBufferService;
@@ -20,6 +20,7 @@ var StandardGillService = function () {
         this.gillNumberFactory = gillNumberFactory;
         this.gillProgramSourceFactory = gillProgramSourceFactory;
         this.gillRendererService = gillRendererService;
+        this.textureDataRepository = textureDataRepository;
         this.gillUniformValueMapFactory = gillUniformValueMapFactory;
         this.gillVector2Factory = gillVector2Factory;
         this.gillVector3Factory = gillVector3Factory;
@@ -36,7 +37,7 @@ var StandardGillService = function () {
     }, {
         key: "createModel",
         value: function createModel() {
-            return this.gillModelFactory.construct(this.gillModelAttributeDataRepository, this.gillIndexCollectionFactory.construct(), this.gillUniformValueMapFactory.construct());
+            return this.gillModelFactory.construct(this.attributeDataRepository, this.gillIndexCollectionFactory.construct(), this.textureDataRepository, this.gillUniformValueMapFactory.construct());
         }
     }, {
         key: "createNumber",

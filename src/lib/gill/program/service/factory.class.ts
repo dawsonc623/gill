@@ -6,6 +6,8 @@ import GillProgramService         from "lib/gill/program/service.type";
 import GillProgramServiceFactory  from "lib/gill/program/service/factory.type";
 import GillProgramWebglService    from "lib/gill/program/webgl/service.type";
 import StandardGillProgramService from "lib/gill/program/service.class";
+import TextureCollectionFactory   from "lib/gill/program/texture/collection/factory.type";
+import TextureFactory             from "lib/gill/program/texture/factory.type";
 import UniformCollectionFactory   from "lib/gill/program/uniform/collection/factory.type";
 import UniformFactory             from "lib/gill/program/uniform/factory.type";
 import WebglVariableTypeMap       from "lib/gill/program/variable/type-map.type";
@@ -18,6 +20,8 @@ class StandardGillProgramServiceFactory implements GillProgramServiceFactory
     gillProgramCache            : GillProgramCache,
     gillProgramFactory          : GillProgramFactory,
     gillProgramWebglService     : GillProgramWebglService,
+    textureCollectionFactory    : TextureCollectionFactory,
+    textureFactory              : TextureFactory,
     uniformCollectionFactory    : UniformCollectionFactory,
     uniformFactory              : UniformFactory,
     variableTypes               : WebglVariableTypeMap
@@ -29,6 +33,8 @@ class StandardGillProgramServiceFactory implements GillProgramServiceFactory
               gillProgramCache,
               gillProgramFactory,
               gillProgramWebglService,
+              textureCollectionFactory,
+              textureFactory,
               uniformCollectionFactory,
               uniformFactory,
               variableTypes

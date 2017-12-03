@@ -9,9 +9,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillRendererService = function () {
-    function StandardGillRendererService(gillProgramService, gillRendererFactory) {
+    function StandardGillRendererService(modelTextureRepository, gillProgramService, gillRendererFactory) {
         _classCallCheck(this, StandardGillRendererService);
 
+        this.modelTextureRepository = modelTextureRepository;
         this.gillProgramService = gillProgramService;
         this.gillRendererFactory = gillRendererFactory;
     }
@@ -20,7 +21,8 @@ var StandardGillRendererService = function () {
         key: "getRenderer",
         value: function getRenderer(webglRenderingContext, gillModelBufferService, gillProgramSource) {
             var gillProgram = this.gillProgramService.getProgram(webglRenderingContext, gillProgramSource);
-            return this.gillRendererFactory.construct(gillModelBufferService, gillProgram);
+            return this.gillRendererFactory.construct(gillModelBufferService, this.modelTextureRepository, //TODO This probably is not right
+            gillProgram);
         }
     }]);
 

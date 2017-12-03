@@ -1,7 +1,8 @@
-import GillModel              from "lib/gill/model.type";
-import GillModelBufferService from "lib/gill/model-buffer-service.type";
-import GillProgram            from "lib/gill/program.type";
-import GillRenderer           from "lib/gill/renderer.type";
+import GillModel                from "lib/gill/model.type";
+import GillModelBufferService   from "lib/gill/model-buffer-service.type";
+import ModelTextureRepository   from "lib/gill/model-texture-repository.type";
+import GillProgram              from "lib/gill/program.type";
+import GillRenderer             from "lib/gill/renderer.type";
 
 class StandardGillRenderer implements GillRenderer
 {
@@ -11,6 +12,7 @@ class StandardGillRenderer implements GillRenderer
 
   constructor(
     private gillModelBufferService  : GillModelBufferService,
+    private modelTextureRepository  : ModelTextureRepository,
     private gillProgram             : GillProgram
   ) {
     this.webglProgram           = gillProgram.getWebglProgram();
@@ -76,6 +78,59 @@ class StandardGillRenderer implements GillRenderer
       this.webglRenderingContext.ARRAY_BUFFER,
       null
     );
+
+    // Bind textures
+    let currentTexture  = 0;
+
+    this.gillProgram.eachTexture((texture) =>
+    {
+      const name  = texture.getName(),
+            type  = texture.getType(),
+            unit  = `TEXTURE${currentTexture}`;
+
+      const bindTarget  = texture.getBindTarget(),
+            data        = model.getTextureData(
+                            name
+                          ),
+            format      = data.getFormat();
+
+      this.webglRenderingContext.activeTexture(
+        (<any>this.webglRenderingContext)[unit]
+      );
+
+      this.webglRenderingContext.bindTexture(
+        bindTarget,
+        this.modelTextureRepository.getTexture(
+          model,
+          name,
+          this.webglRenderingContext
+        )
+      );
+
+      if (
+        data.needsBuffered()
+      ) {
+        this.webglRenderingContext.texImage2D(
+          texture.getImageTarget(),
+          0,
+          format,
+          format,
+          type.getDataType(),
+          data.getPixels()
+        );
+
+        data.setNeedsBuffered(
+          false
+        );
+      }
+
+      this.webglRenderingContext.uniform1i(
+        texture.getLocation(),
+        currentTexture
+      );
+
+      currentTexture += 1;
+    });
 
     // Bind uniforms
 

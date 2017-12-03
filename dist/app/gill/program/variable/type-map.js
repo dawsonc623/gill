@@ -25,6 +25,11 @@ _factory4.default.construct(5126, // gl.FLOAT
 Float32Array, // Data will be an array of FLOATs (based on "gl.FLOAT")
 3 // Each element will be 3 indices based on "gl.FLOAT_VEC3"
 ));
+gillWebglVariableTypeMap.setWebglVariableType(35678, // gl.SAMPLER_2D
+_factory4.default.construct(5121, // gl.UNSIGNED_SHORT
+Int8Array, // Data will be an array of INT8s (based on "gl.UNSIGNED_SHORT")
+1 // Each element will be 1 index based on "gl.UNSIGNED_SHORT"
+));
 gillWebglVariableTypeMap.setWebglVariableType(5126, // gl.FLOAT
 _factory4.default.construct(5126, // gl.FLOAT
 Float32Array, // Data will be an array of FLOATs (based on "gl.FLOAT")

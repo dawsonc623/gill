@@ -9,7 +9,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillProgramService = function () {
-    function StandardGillProgramService(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, uniformCollectionFactory, uniformFactory, variableTypes) {
+    function StandardGillProgramService(attributeCollectionFactory, attributeFactory, gillProgramCache, gillProgramFactory, gillProgramWebglService, textureCollectionFactory, textureFactory, uniformCollectionFactory, uniformFactory, variableTypes) {
         _classCallCheck(this, StandardGillProgramService);
 
         this.attributeCollectionFactory = attributeCollectionFactory;
@@ -17,6 +17,8 @@ var StandardGillProgramService = function () {
         this.gillProgramCache = gillProgramCache;
         this.gillProgramFactory = gillProgramFactory;
         this.gillProgramWebglService = gillProgramWebglService;
+        this.textureCollectionFactory = textureCollectionFactory;
+        this.textureFactory = textureFactory;
         this.uniformCollectionFactory = uniformCollectionFactory;
         this.uniformFactory = uniformFactory;
         this.variableTypes = variableTypes;
@@ -34,6 +36,7 @@ var StandardGillProgramService = function () {
                 var attributeInfo = this.gillProgramWebglService.getAttributes(webglRenderingContext, webglProgram),
                     attributes = this.attributeCollectionFactory.construct(),
                     uniformInfo = this.gillProgramWebglService.getUniforms(webglRenderingContext, webglProgram),
+                    textures = this.textureCollectionFactory.construct(),
                     uniforms = this.uniformCollectionFactory.construct();
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
@@ -71,7 +74,25 @@ var StandardGillProgramService = function () {
                         var uniform = _step2.value;
 
                         var _location = webglRenderingContext.getUniformLocation(webglProgram, uniform.name);
-                        uniforms.addUniform(this.uniformFactory.construct(uniform.name, this.variableTypes.getWebglVariableType(uniform.type), _location));
+                        var isSampler2d = uniform.type === webglRenderingContext.SAMPLER_2D,
+                            isSamplerCube = uniform.type === webglRenderingContext.SAMPLER_CUBE;
+                        if (isSampler2d || isSamplerCube) {
+                            var bindTarget = void 0,
+                                imageTarget = void 0;
+                            if (isSampler2d) {
+                                bindTarget = webglRenderingContext.TEXTURE_2D;
+                            } else {
+                                bindTarget = webglRenderingContext.TEXTURE_CUBE_MAP;
+                            }
+                            if (isSampler2d) {
+                                imageTarget = webglRenderingContext.TEXTURE_2D;
+                            } else {
+                                imageTarget = 0; //TODO I am not sure how this would even work...
+                            }
+                            textures.addTexture(this.textureFactory.construct(bindTarget, imageTarget, _location, uniform.name, this.variableTypes.getWebglVariableType(uniform.type)));
+                        } else {
+                            uniforms.addUniform(this.uniformFactory.construct(uniform.name, this.variableTypes.getWebglVariableType(uniform.type), _location));
+                        }
                     }
                 } catch (err) {
                     _didIteratorError2 = true;
@@ -88,7 +109,7 @@ var StandardGillProgramService = function () {
                     }
                 }
 
-                program = this.gillProgramFactory.construct(webglRenderingContext, webglProgram, attributes, uniforms);
+                program = this.gillProgramFactory.construct(webglRenderingContext, webglProgram, attributes, textures, uniforms);
                 this.gillProgramCache.cacheProgram(webglRenderingContext, gillProgramSource, program);
             }
             return program;

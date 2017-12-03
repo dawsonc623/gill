@@ -4,13 +4,15 @@ import webglProgramRenderingContexts    from "app/gill/webgl/program-rendering-c
 import webglRenderingContextRepository  from "app/gill/webgl/rendering-context-repository";
 import webglServiceFactory              from "app/gill/webgl/service/factory";
 import webglShaderFactory               from "app/gill/webgl/shader/factory";
+import webglTextureRenderingContexts    from "app/gill/webgl/texture-rendering-context-map";
 
 const webglService  = webglServiceFactory.construct(
                         webglBufferRenderingContexts,
                         webglProgramFactory,
                         webglProgramRenderingContexts,
                         webglRenderingContextRepository,
-                        webglShaderFactory
+                        webglShaderFactory,
+                        webglTextureRenderingContexts
                       );
 
 export default webglService;

@@ -9,16 +9,22 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillProgram = function () {
-    function StandardGillProgram(webglRenderingContext, webglProgram, attributes, uniforms) {
+    function StandardGillProgram(webglRenderingContext, webglProgram, attributes, textures, uniforms) {
         _classCallCheck(this, StandardGillProgram);
 
         this.webglRenderingContext = webglRenderingContext;
         this.webglProgram = webglProgram;
         this.attributes = attributes;
+        this.textures = textures;
         this.uniforms = uniforms;
     }
 
     _createClass(StandardGillProgram, [{
+        key: "eachTexture",
+        value: function eachTexture(action) {
+            this.textures.eachTexture(action);
+        }
+    }, {
         key: "forEachAttribute",
         value: function forEachAttribute(action) {
             this.attributes.eachAttribute(action);

@@ -1,52 +1,122 @@
-import GillModelAttributeData       from "lib/gill/model/attribute-data.type";
-import GillModelAttributeDataCache  from "lib/gill/model/attribute-data/cache.type";
+import AttributeData      from "lib/gill/model/attribute-data.type";
+import AttributeDataCache from "lib/gill/model/attribute-data/cache.type";
+import Model              from "lib/gill/model.type";
 
-class StandardGillModelAttributeDataCache implements GillModelAttributeDataCache
+class StandardGillModelAttributeDataCache implements AttributeDataCache
 {
-  private attributeData : Map<string, GillModelAttributeData>;
+  private attributeData : Map<
+                            Model,
+                            Map<
+                              string,
+                              AttributeData
+                            >
+                          >;
 
   constructor()
   {
-    this.attributeData  = new Map<string, GillModelAttributeData>();
+    this.attributeData  = new Map<
+                            Model,
+                            Map<
+                              string,
+                              AttributeData
+                            >
+                          >();
   }
 
   getAttributeData(
-    attributeName : string
-  ): GillModelAttributeData
+    model : Model,
+    name  : string
+  ): AttributeData
   {
-    const hasAttributeData  = this.attributeData.has(
-                                attributeName
-                              );
+    const hasAttributes = this.attributeData.has(
+                            model
+                          );
 
-    if (!hasAttributeData)
+    let attributes,
+        hasAttributeData  = false;
+
+    if (hasAttributes)
+    {
+      attributes  = this.attributeData.get(
+                      model
+                    );
+
+      hasAttributeData  = attributes.has(
+                            name
+                          );
+    }
+
+    if(!hasAttributeData)
     {
       throw new Error(
-              `Attribute '${attributeName}' not found in cache`
+              `Attribute '${name}' not found in cache`
             );
     }
 
-    return  this.attributeData.get(
-              attributeName
+    return  attributes.get(
+              name
             );
   }
 
   hasAttributeData(
-    attributeName : string
+    model : Model,
+    name  : string
   ): boolean
   {
-    return  this.attributeData.has(
-              attributeName
-            );
+    const hasAttributes = this.attributeData.has(
+                            model
+                          );
+
+    let hasAttributeData  = false;
+
+    if (hasAttributes)
+    {
+      const attributes  = this.attributeData.get(
+                            model
+                          );
+
+      hasAttributeData  = attributes.has(
+                            name
+                          );
+    }
+
+    return  hasAttributeData;
   }
 
   setAttributeData(
-    attributeName : string,
-    attributeData : GillModelAttributeData
+    model : Model,
+    name  : string,
+    data  : AttributeData
   ): void
   {
-    this.attributeData.set(
-      attributeName,
-      attributeData
+    const hasAttributes = this.attributeData.has(
+                            model
+                          );
+
+    let attributes;
+
+    if (hasAttributes)
+    {
+      attributes  = this.attributeData.get(
+                      model
+                    );
+    }
+    else
+    {
+      attributes  = new Map<
+                      string,
+                      AttributeData
+                    >();
+
+      this.attributeData.set(
+        model,
+        attributes
+      );
+    }
+
+    attributes.set(
+      name,
+      data
     );
   }
 }

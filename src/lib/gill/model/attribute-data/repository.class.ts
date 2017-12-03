@@ -1,3 +1,4 @@
+import Model                            from "lib/gill/model.type";
 import GillModelAttributeData           from "lib/gill/model/attribute-data.type";
 import GillModelAttributeDataCache      from "lib/gill/model/attribute-data/cache.type";
 import GillModelAttributeDataFactory    from "lib/gill/model/attribute-data/factory.type";
@@ -13,10 +14,12 @@ class StandardGillModelAttributeDataRepository implements GillModelAttributeData
   }
 
   getAttributeData(
+    model         : Model,
     attributeName : string
   ): GillModelAttributeData
   {
     const hasAttributeData  = this.gillModelAttributeDataCache.hasAttributeData(
+                                model,
                                 attributeName
                               );
     let attributeData;
@@ -24,6 +27,7 @@ class StandardGillModelAttributeDataRepository implements GillModelAttributeData
     if (hasAttributeData)
     {
       attributeData = this.gillModelAttributeDataCache.getAttributeData(
+                        model,
                         attributeName
                       );
     }
@@ -39,6 +43,7 @@ class StandardGillModelAttributeDataRepository implements GillModelAttributeData
                       );
 
       this.gillModelAttributeDataCache.setAttributeData(
+        model,
         attributeName,
         attributeData
       );

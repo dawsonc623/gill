@@ -6,6 +6,8 @@ import GillProgramFactory         from "lib/gill/program/factory.type";
 import GillProgramService         from "lib/gill/program/service.type";
 import GillProgramSource          from "lib/gill/program/source.type";
 import GillProgramWebglService    from "lib/gill/program/webgl/service.type";
+import TextureCollectionFactory   from "lib/gill/program/texture/collection/factory.type";
+import TextureFactory             from "lib/gill/program/texture/factory.type";
 import UniformCollectionFactory   from "lib/gill/program/uniform/collection/factory.type";
 import UniformFactory             from "lib/gill/program/uniform/factory.type";
 import WebglVariableTypeMap       from "lib/gill/program/variable/type-map.type";
@@ -18,6 +20,8 @@ class StandardGillProgramService implements GillProgramService
     private gillProgramCache            : GillProgramCache,
     private gillProgramFactory          : GillProgramFactory,
     private gillProgramWebglService     : GillProgramWebglService,
+    private textureCollectionFactory    : TextureCollectionFactory,
+    private textureFactory              : TextureFactory,
     private uniformCollectionFactory    : UniformCollectionFactory,
     private uniformFactory              : UniformFactory,
     private variableTypes               : WebglVariableTypeMap
@@ -61,6 +65,7 @@ class StandardGillProgramService implements GillProgramService
                               webglRenderingContext,
                               webglProgram
                             ),
+            textures      = this.textureCollectionFactory.construct(),
             uniforms      = this.uniformCollectionFactory.construct();
 
       for (
@@ -93,19 +98,61 @@ class StandardGillProgramService implements GillProgramService
                             uniform.name
                           );
 
-        uniforms.addUniform(
-          this.uniformFactory.construct(
-            uniform.name,
-            this.variableTypes.getWebglVariableType(uniform.type),
-            location
-          )
-        );
+        const isSampler2d   = uniform.type  === webglRenderingContext.SAMPLER_2D,
+              isSamplerCube = uniform.type  === webglRenderingContext.SAMPLER_CUBE;
+
+        if (isSampler2d || isSamplerCube)
+        {
+          let bindTarget,
+              imageTarget;
+
+          if (isSampler2d)
+          {
+            bindTarget  = webglRenderingContext.TEXTURE_2D;
+          }
+          else
+          {
+            bindTarget  = webglRenderingContext.TEXTURE_CUBE_MAP;
+          }
+
+          if (isSampler2d)
+          {
+            imageTarget = webglRenderingContext.TEXTURE_2D;
+          }
+          else
+          {
+            imageTarget = 0; //TODO I am not sure how this would even work...
+          }
+
+          textures.addTexture(
+            this.textureFactory.construct(
+              bindTarget,
+              imageTarget,
+              location,
+              uniform.name,
+              this.variableTypes.getWebglVariableType(
+                uniform.type
+              )
+            )
+          );
+        }
+        else
+        {
+          uniforms.addUniform(
+            this.uniformFactory.construct(
+              uniform.name,
+              this.variableTypes.getWebglVariableType(uniform.type),
+              location
+            )
+          );
+        }
       }
 
       program = this.gillProgramFactory.construct(
                   webglRenderingContext,
                   webglProgram,
                   attributes,
+                  textures,
                   uniforms
                 );
 

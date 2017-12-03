@@ -9,10 +9,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardGillRenderer = function () {
-    function StandardGillRenderer(gillModelBufferService, gillProgram) {
+    function StandardGillRenderer(gillModelBufferService, modelTextureRepository, gillProgram) {
         _classCallCheck(this, StandardGillRenderer);
 
         this.gillModelBufferService = gillModelBufferService;
+        this.modelTextureRepository = modelTextureRepository;
         this.gillProgram = gillProgram;
         this.webglProgram = gillProgram.getWebglProgram();
         this.webglRenderingContext = gillProgram.getWebglRenderingContext();
@@ -38,6 +39,24 @@ var StandardGillRenderer = function () {
                 _this.webglRenderingContext.vertexAttribPointer(attribute.getLocation(), attributeType.getUnitSize(), attributeType.getDataType(), attributeData.normalize(), attributeData.getStride(), attributeData.getOffset());
             });
             this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ARRAY_BUFFER, null);
+            // Bind textures
+            var currentTexture = 0;
+            this.gillProgram.eachTexture(function (texture) {
+                var name = texture.getName(),
+                    type = texture.getType(),
+                    unit = "TEXTURE" + currentTexture;
+                var bindTarget = texture.getBindTarget(),
+                    data = model.getTextureData(name),
+                    format = data.getFormat();
+                _this.webglRenderingContext.activeTexture(_this.webglRenderingContext[unit]);
+                _this.webglRenderingContext.bindTexture(bindTarget, _this.modelTextureRepository.getTexture(model, name, _this.webglRenderingContext));
+                if (data.needsBuffered()) {
+                    _this.webglRenderingContext.texImage2D(texture.getImageTarget(), 0, format, format, type.getDataType(), data.getPixels());
+                    data.setNeedsBuffered(false);
+                }
+                _this.webglRenderingContext.uniform1i(texture.getLocation(), currentTexture);
+                currentTexture += 1;
+            });
             // Bind uniforms
             this.gillProgram.forEachUniform(function (uniform) {
                 var uniformType = uniform.getType();

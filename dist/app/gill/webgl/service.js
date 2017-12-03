@@ -28,7 +28,11 @@ var _factory5 = require("app/gill/webgl/shader/factory");
 
 var _factory6 = _interopRequireDefault(_factory5);
 
+var _textureRenderingContextMap = require("app/gill/webgl/texture-rendering-context-map");
+
+var _textureRenderingContextMap2 = _interopRequireDefault(_textureRenderingContextMap);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var webglService = _factory4.default.construct(_bufferRenderingContextMap2.default, _factory2.default, _programRenderingContextMap2.default, _renderingContextRepository2.default, _factory6.default);
+var webglService = _factory4.default.construct(_bufferRenderingContextMap2.default, _factory2.default, _programRenderingContextMap2.default, _renderingContextRepository2.default, _factory6.default, _textureRenderingContextMap2.default);
 exports.default = webglService;

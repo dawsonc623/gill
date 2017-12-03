@@ -24,6 +24,16 @@ gillWebglVariableTypeMap.setWebglVariableType(
 );
 
 gillWebglVariableTypeMap.setWebglVariableType(
+  35678,        // gl.SAMPLER_2D
+  gillWebglVariableTypeFactory.construct(
+    5121,       // gl.UNSIGNED_SHORT
+    Int8Array,  // Data will be an array of INT8s (based on "gl.UNSIGNED_SHORT")
+    1           // Each element will be 1 index based on "gl.UNSIGNED_SHORT"
+  )
+);
+
+
+gillWebglVariableTypeMap.setWebglVariableType(
   5126,           // gl.FLOAT
   gillWebglVariableTypeFactory.construct(
     5126,         // gl.FLOAT

@@ -9,7 +9,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var StandardWebglService = function () {
-    function StandardWebglService(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory) {
+    function StandardWebglService(webglBufferRenderingContexts, webglProgramFactory, webglProgramRenderingContexts, webglRenderingContextRepository, webglShaderFactory, webglTextureRenderingContexts) {
         _classCallCheck(this, StandardWebglService);
 
         this.webglBufferRenderingContexts = webglBufferRenderingContexts;
@@ -17,6 +17,7 @@ var StandardWebglService = function () {
         this.webglProgramRenderingContexts = webglProgramRenderingContexts;
         this.webglRenderingContextRepository = webglRenderingContextRepository;
         this.webglShaderFactory = webglShaderFactory;
+        this.webglTextureRenderingContexts = webglTextureRenderingContexts;
     }
 
     _createClass(StandardWebglService, [{
@@ -34,6 +35,19 @@ var StandardWebglService = function () {
             var webglProgram = this.webglProgramFactory.construct(webglRenderingContext, vertexShader, fragmentShader);
             this.webglProgramRenderingContexts.setWebglRenderingContext(webglProgram, webglRenderingContext);
             return webglProgram;
+        }
+    }, {
+        key: "createWebglTexture",
+        value: function createWebglTexture(webglRenderingContext) {
+            var webglTexture = webglRenderingContext.createTexture();
+            //TODO Remove hard-coding
+            webglRenderingContext.bindTexture(webglRenderingContext.TEXTURE_2D, webglTexture);
+            webglRenderingContext.texParameteri(webglRenderingContext.TEXTURE_2D, webglRenderingContext.TEXTURE_MIN_FILTER, webglRenderingContext.LINEAR);
+            webglRenderingContext.texParameteri(webglRenderingContext.TEXTURE_2D, webglRenderingContext.TEXTURE_WRAP_S, webglRenderingContext.REPEAT);
+            webglRenderingContext.texParameteri(webglRenderingContext.TEXTURE_2D, webglRenderingContext.TEXTURE_WRAP_T, webglRenderingContext.REPEAT);
+            webglRenderingContext.bindTexture(webglRenderingContext.TEXTURE_2D, null);
+            this.webglTextureRenderingContexts.setWebglRenderingContext(webglTexture, webglRenderingContext);
+            return webglTexture;
         }
     }, {
         key: "getAttributes",

@@ -1,41 +1,43 @@
-import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
-import GillAttributeValueMapFactory     from "lib/gill/model/attribute-value-map/factory.type";
-import GillIndexCollectionFactory       from "lib/gill/model/index-collection/factory.type";
-import GillModelBufferService           from "lib/gill/model-buffer-service.type";
-import GillModel                        from "lib/gill/model.type";
-import GillModelFactory                 from "lib/gill/model/factory.type";
-import GillNumber                       from "lib/gill/model/number.type";
-import GillNumberFactory                from "lib/gill/model/number/factory.type";
-import GillProgramSource                from "lib/gill/program/source.type";
-import GillProgramSourceFactory         from "lib/gill/program/source/factory.type";
-import GillRendererService              from "lib/gill/renderer/service.type";
-import GillService                      from "lib/gill/service.type";
-import GillUniformValueMapFactory       from "lib/gill/model/uniform-value-map/factory.type";
-import GillVector2                      from "lib/gill/model/vector2.type";
-import GillVector2Factory               from "lib/gill/model/vector2/factory.type";
-import GillVector3                      from "lib/gill/model/vector3.type";
-import GillVector3Factory               from "lib/gill/model/vector3/factory.type";
-import GillVertex                       from "lib/gill/model/vertex.type";
-import GillVertexFactory                from "lib/gill/model/vertex/factory.type";
-import GillWebglService                 from "lib/gill/webgl/service.type";
+import AttributeDataRepository      from "lib/gill/model/attribute-data/repository.type";
+import GillAttributeValueMapFactory from "lib/gill/model/attribute-value-map/factory.type";
+import GillIndexCollectionFactory   from "lib/gill/model/index-collection/factory.type";
+import GillModelBufferService       from "lib/gill/model-buffer-service.type";
+import GillModel                    from "lib/gill/model.type";
+import GillModelFactory             from "lib/gill/model/factory.type";
+import GillNumber                   from "lib/gill/model/number.type";
+import GillNumberFactory            from "lib/gill/model/number/factory.type";
+import GillProgramSource            from "lib/gill/program/source.type";
+import GillProgramSourceFactory     from "lib/gill/program/source/factory.type";
+import GillRendererService          from "lib/gill/renderer/service.type";
+import GillService                  from "lib/gill/service.type";
+import TextureDataRepository        from "lib/gill/model/texture-data/repository.type";
+import GillUniformValueMapFactory   from "lib/gill/model/uniform-value-map/factory.type";
+import GillVector2                  from "lib/gill/model/vector2.type";
+import GillVector2Factory           from "lib/gill/model/vector2/factory.type";
+import GillVector3                  from "lib/gill/model/vector3.type";
+import GillVector3Factory           from "lib/gill/model/vector3/factory.type";
+import GillVertex                   from "lib/gill/model/vertex.type";
+import GillVertexFactory            from "lib/gill/model/vertex/factory.type";
+import GillWebglService             from "lib/gill/webgl/service.type";
 
 
 class StandardGillService implements GillService
 {
   constructor(
-    private gillModelAttributeDataRepository  : GillModelAttributeDataRepository,
-    private gillAttributeValueMapFactory      : GillAttributeValueMapFactory,
-    private gillIndexCollectionFactory        : GillIndexCollectionFactory,
-    private gillModelBufferService            : GillModelBufferService,
-    private gillModelFactory                  : GillModelFactory,
-    private gillNumberFactory                 : GillNumberFactory,
-    private gillProgramSourceFactory          : GillProgramSourceFactory,
-    private gillRendererService               : GillRendererService,
-    private gillUniformValueMapFactory        : GillUniformValueMapFactory,
-    private gillVector2Factory                : GillVector2Factory,
-    private gillVector3Factory                : GillVector3Factory,
-    private gillVertexFactory                 : GillVertexFactory,
-    private gillWebglService                  : GillWebglService
+    private attributeDataRepository       : AttributeDataRepository,
+    private gillAttributeValueMapFactory  : GillAttributeValueMapFactory,
+    private gillIndexCollectionFactory    : GillIndexCollectionFactory,
+    private gillModelBufferService        : GillModelBufferService,
+    private gillModelFactory              : GillModelFactory,
+    private gillNumberFactory             : GillNumberFactory,
+    private gillProgramSourceFactory      : GillProgramSourceFactory,
+    private gillRendererService           : GillRendererService,
+    private textureDataRepository         : TextureDataRepository,
+    private gillUniformValueMapFactory    : GillUniformValueMapFactory,
+    private gillVector2Factory            : GillVector2Factory,
+    private gillVector3Factory            : GillVector3Factory,
+    private gillVertexFactory             : GillVertexFactory,
+    private gillWebglService              : GillWebglService
   ) {
 
   }
@@ -57,8 +59,9 @@ class StandardGillService implements GillService
   createModel(): GillModel
   {
     return  this.gillModelFactory.construct(
-              this.gillModelAttributeDataRepository,
+              this.attributeDataRepository,
               this.gillIndexCollectionFactory.construct(),
+              this.textureDataRepository,
               this.gillUniformValueMapFactory.construct()
             );
   }

@@ -17,22 +17,42 @@ var StandardGillModelAttributeDataCache = function () {
 
     _createClass(StandardGillModelAttributeDataCache, [{
         key: "getAttributeData",
-        value: function getAttributeData(attributeName) {
-            var hasAttributeData = this.attributeData.has(attributeName);
-            if (!hasAttributeData) {
-                throw new Error("Attribute '" + attributeName + "' not found in cache");
+        value: function getAttributeData(model, name) {
+            var hasAttributes = this.attributeData.has(model);
+            var attributes = void 0,
+                hasAttributeData = false;
+            if (hasAttributes) {
+                attributes = this.attributeData.get(model);
+                hasAttributeData = attributes.has(name);
             }
-            return this.attributeData.get(attributeName);
+            if (!hasAttributeData) {
+                throw new Error("Attribute '" + name + "' not found in cache");
+            }
+            return attributes.get(name);
         }
     }, {
         key: "hasAttributeData",
-        value: function hasAttributeData(attributeName) {
-            return this.attributeData.has(attributeName);
+        value: function hasAttributeData(model, name) {
+            var hasAttributes = this.attributeData.has(model);
+            var hasAttributeData = false;
+            if (hasAttributes) {
+                var attributes = this.attributeData.get(model);
+                hasAttributeData = attributes.has(name);
+            }
+            return hasAttributeData;
         }
     }, {
         key: "setAttributeData",
-        value: function setAttributeData(attributeName, attributeData) {
-            this.attributeData.set(attributeName, attributeData);
+        value: function setAttributeData(model, name, data) {
+            var hasAttributes = this.attributeData.has(model);
+            var attributes = void 0;
+            if (hasAttributes) {
+                attributes = this.attributeData.get(model);
+            } else {
+                attributes = new Map();
+                this.attributeData.set(model, attributes);
+            }
+            attributes.set(name, data);
         }
     }]);
 

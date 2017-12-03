@@ -10,6 +10,10 @@ interface WebglService
     fragmentShaderSource  : string
   ): WebGLProgram;
 
+  createWebglTexture(
+    webglRenderingContext : WebGLRenderingContext
+  ): WebGLTexture;
+
   getAttributes(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,

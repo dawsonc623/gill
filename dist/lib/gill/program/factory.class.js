@@ -21,8 +21,8 @@ var StandardGillProgramFactory = function () {
 
     _createClass(StandardGillProgramFactory, [{
         key: "construct",
-        value: function construct(webglRenderingContext, webglProgram, attributes, uniforms) {
-            return new _program2.default(webglRenderingContext, webglProgram, attributes, uniforms);
+        value: function construct(webglRenderingContext, webglProgram, attributes, textures, uniforms) {
+            return new _program2.default(webglRenderingContext, webglProgram, attributes, textures, uniforms);
         }
     }]);
 

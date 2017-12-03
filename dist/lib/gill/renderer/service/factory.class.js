@@ -21,8 +21,8 @@ var StandardGillRendererServiceFactory = function () {
 
     _createClass(StandardGillRendererServiceFactory, [{
         key: "construct",
-        value: function construct(gillProgramService, gillRendererFactory) {
-            return new _service2.default(gillProgramService, gillRendererFactory);
+        value: function construct(modelTextureRepository, gillProgramService, gillRendererFactory) {
+            return new _service2.default(modelTextureRepository, gillProgramService, gillRendererFactory);
         }
     }]);
 

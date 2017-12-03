@@ -18,11 +18,11 @@ var StandardGillModelAttributeDataRepository = function () {
 
     _createClass(StandardGillModelAttributeDataRepository, [{
         key: "getAttributeData",
-        value: function getAttributeData(attributeName) {
-            var hasAttributeData = this.gillModelAttributeDataCache.hasAttributeData(attributeName);
+        value: function getAttributeData(model, attributeName) {
+            var hasAttributeData = this.gillModelAttributeDataCache.hasAttributeData(model, attributeName);
             var attributeData = void 0;
             if (hasAttributeData) {
-                attributeData = this.gillModelAttributeDataCache.getAttributeData(attributeName);
+                attributeData = this.gillModelAttributeDataCache.getAttributeData(model, attributeName);
             } else {
                 attributeData = this.gillModelAttributeDataFactory.construct(
                 //TODO Do not hardcode?
@@ -32,7 +32,7 @@ var StandardGillModelAttributeDataRepository = function () {
                 0, // The span between the start of each attribute value
                 0 // The starting index for the first attribute value
                 );
-                this.gillModelAttributeDataCache.setAttributeData(attributeName, attributeData);
+                this.gillModelAttributeDataCache.setAttributeData(model, attributeName, attributeData);
             }
             return attributeData;
         }
