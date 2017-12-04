@@ -1,12 +1,12 @@
-import Model                  from "lib/gill/model.type";
-import GillModelAttributeData from "lib/gill/model/attribute-data.type";
+import Model          from "lib/gill/model.type";
+import AttributeData  from "lib/gill/model/attribute-data.type";
 
 interface GillModelAttributeDataCache
 {
   getAttributeData(
     model         : Model,
     attributeName : string
-  ): GillModelAttributeData;
+  ): AttributeData;
 
   hasAttributeData(
     model         : Model,
@@ -16,7 +16,7 @@ interface GillModelAttributeDataCache
   setAttributeData(
     model         : Model,
     attributeName : string,
-    attributeData : GillModelAttributeData
+    attributeData : AttributeData
   ): void;
 }
 

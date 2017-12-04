@@ -1,7 +1,7 @@
-import GillModelAttributeData   from "lib/gill/model/attribute-data.type";
-import GillModelAttributeValue  from "lib/gill/model/attribute-value.type";
+import AttributeData   from "lib/gill/model/attribute-data.type";
+import AttributeValue  from "lib/gill/model/attribute-value.type";
 
-class StandardGillModelAttributeData implements GillModelAttributeData
+class StandardAttributeData implements AttributeData
 {
   constructor(
     private data        : Array<number>,
@@ -14,7 +14,7 @@ class StandardGillModelAttributeData implements GillModelAttributeData
   }
 
   addAttributeValue(
-    attributeValue  : GillModelAttributeValue
+    attributeValue  : AttributeValue
   ): void
   {
     attributeValue.addToAttributeData(
@@ -55,6 +55,30 @@ class StandardGillModelAttributeData implements GillModelAttributeData
   {
     this.hasChanged = needsBuffered;
   }
+
+  setValueAt(
+    index           : number,
+    attributeValue  : AttributeValue
+  ): void
+  {
+    const newData = new Array<number>();
+
+    attributeValue.addToAttributeData(
+      newData
+    );
+
+    console.log(index);
+    console.log("old value", this.data.slice(index, index + 2));
+    console.log("new value", newData);
+
+    this.data.splice(
+      index * newData.length, //TODO Is this reliable? Should data know the size of each "unit"? Probably
+      newData.length,
+      ...newData
+    );
+
+    this.hasChanged = true;
+  }
 }
 
-export default StandardGillModelAttributeData;
+export default StandardAttributeData;

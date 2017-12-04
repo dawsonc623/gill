@@ -1,4 +1,4 @@
-import GillModelAttributeData from "lib/gill/model/attribute-data.type";
+import AttributeData  from "lib/gill/model/attribute-data.type";
 
 interface GillModelAttributeDataFactory
 {
@@ -8,7 +8,7 @@ interface GillModelAttributeDataFactory
     normalized  : GLboolean,
     offset      : GLintptr,
     stride      : GLsizei
-  ): GillModelAttributeData;
+  ): AttributeData;
 }
 
 export default GillModelAttributeDataFactory;

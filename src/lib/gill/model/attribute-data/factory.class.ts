@@ -1,8 +1,8 @@
-import GillModelAttributeData         from "lib/gill/model/attribute-data.type";
-import GillModelAttributeDataFactory  from "lib/gill/model/attribute-data/factory.type";
-import StandardGillModelAttributeData from "lib/gill/model/attribute-data.class";
+import AttributeData          from "lib/gill/model/attribute-data.type";
+import AttributeDataFactory   from "lib/gill/model/attribute-data/factory.type";
+import StandardAttributeData  from "lib/gill/model/attribute-data.class";
 
-class StandardGillModelAttributeDataFactory implements GillModelAttributeDataFactory
+class StandardGillModelAttributeDataFactory implements AttributeDataFactory
 {
   construct(
     data        : Array<number>,
@@ -10,9 +10,9 @@ class StandardGillModelAttributeDataFactory implements GillModelAttributeDataFac
     normalized  : GLboolean,
     offset      : GLintptr,
     stride      : GLsizei
-  ): GillModelAttributeData
+  ): AttributeData
   {
-    return  new StandardGillModelAttributeData(
+    return  new StandardAttributeData(
               data,
               hasChanged,
               normalized,

@@ -1,4 +1,4 @@
-import GillModelAttributeData   from "lib/gill/model/attribute-data.type";
+import AttributeData            from "lib/gill/model/attribute-data.type";
 import AttributeDataRepository  from "lib/gill/model/attribute-data/repository.type";
 import GillModelAttributeValue  from "lib/gill/model/attribute-value.type";
 import GillIndexCollection      from "lib/gill/model/index-collection.type";
@@ -49,14 +49,14 @@ class StandardGillModel implements GillModel
           attributeValue
         );
       }
-    )
+    );
 
     return  this;
   }
 
   getAttributeData(
     attributeName : string
-  ): GillModelAttributeData
+  ): AttributeData
   {
     return  this.attributeDataRepository.getAttributeData(
               this,
@@ -123,6 +123,29 @@ class StandardGillModel implements GillModel
     this.uniformValues.setValue(
       uniformName,
       uniformValue
+    );
+
+    return  this;
+  }
+
+  setVertex(
+    index   : number,
+    vertex  : GillVertex
+  ): this
+  {
+    vertex.eachAttribute(
+      (
+        attributeName   : string,
+        attributeValue  : GillModelAttributeValue
+      ) =>
+      {
+        this.attributeDataRepository.setValueAt(
+          this,
+          attributeName,
+          index,
+          attributeValue
+        );
+      }
     );
 
     return  this;

@@ -75,6 +75,16 @@ var StandardGillModel = function () {
             this.uniformValues.setValue(uniformName, uniformValue);
             return this;
         }
+    }, {
+        key: "setVertex",
+        value: function setVertex(index, vertex) {
+            var _this2 = this;
+
+            vertex.eachAttribute(function (attributeName, attributeValue) {
+                _this2.attributeDataRepository.setValueAt(_this2, attributeName, index, attributeValue);
+            });
+            return this;
+        }
     }]);
 
     return StandardGillModel;

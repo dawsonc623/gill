@@ -36,6 +36,13 @@ var StandardGillModelAttributeDataRepository = function () {
             }
             return attributeData;
         }
+    }, {
+        key: "setValueAt",
+        value: function setValueAt(model, attributeName, index, attributeValue) {
+            var attributeData = this.getAttributeData(model, attributeName);
+            console.log("setting data for " + attributeName);
+            attributeData.setValueAt(index, attributeValue);
+        }
     }]);
 
     return StandardGillModelAttributeDataRepository;

@@ -8,9 +8,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var StandardGillModelAttributeData = function () {
-    function StandardGillModelAttributeData(data, hasChanged, normalized, offset, stride) {
-        _classCallCheck(this, StandardGillModelAttributeData);
+var StandardAttributeData = function () {
+    function StandardAttributeData(data, hasChanged, normalized, offset, stride) {
+        _classCallCheck(this, StandardAttributeData);
 
         this.data = data;
         this.hasChanged = hasChanged;
@@ -19,7 +19,7 @@ var StandardGillModelAttributeData = function () {
         this.stride = stride;
     }
 
-    _createClass(StandardGillModelAttributeData, [{
+    _createClass(StandardAttributeData, [{
         key: "addAttributeValue",
         value: function addAttributeValue(attributeValue) {
             attributeValue.addToAttributeData(this.data);
@@ -55,9 +55,22 @@ var StandardGillModelAttributeData = function () {
         value: function setNeedsBuffered(needsBuffered) {
             this.hasChanged = needsBuffered;
         }
+    }, {
+        key: "setValueAt",
+        value: function setValueAt(index, attributeValue) {
+            var _data;
+
+            var newData = new Array();
+            attributeValue.addToAttributeData(newData);
+            console.log(index);
+            console.log("old value", this.data.slice(index, index + 2));
+            console.log("new value", newData);
+            (_data = this.data).splice.apply(_data, [index * newData.length, newData.length].concat(newData));
+            this.hasChanged = true;
+        }
     }]);
 
-    return StandardGillModelAttributeData;
+    return StandardAttributeData;
 }();
 
-exports.default = StandardGillModelAttributeData;
+exports.default = StandardAttributeData;

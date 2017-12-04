@@ -1,9 +1,9 @@
-import GillModelAttributeValue  from "lib/gill/model/attribute-value.type";
+import AttributeValue from "lib/gill/model/attribute-value.type";
 
-interface GillModelAttributeData
+interface AttributeData
 {
   addAttributeValue(
-    attributeValue  : GillModelAttributeValue
+    attributeValue  : AttributeValue
   ): void;
 
   getData(): Array<number>;
@@ -19,6 +19,11 @@ interface GillModelAttributeData
   setNeedsBuffered(
     needsBuffered : boolean
   ): void;
+
+  setValueAt(
+    index           : number,
+    attributeValue  : AttributeValue
+  ): void;
 }
 
-export default GillModelAttributeData;
+export default AttributeData;

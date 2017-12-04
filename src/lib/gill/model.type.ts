@@ -1,8 +1,8 @@
-import GillModelAttributeData from "lib/gill/model/attribute-data.type";
-import TextureData            from "lib/gill/model/texture-data.type";
-import TextureValue           from "lib/gill/model/texture-value.type";
-import GillUniformValue       from "lib/gill/model/uniform-value.type";
-import GillVertex             from "lib/gill/model/vertex.type";
+import AttributeData    from "lib/gill/model/attribute-data.type";
+import TextureData      from "lib/gill/model/texture-data.type";
+import TextureValue     from "lib/gill/model/texture-value.type";
+import GillUniformValue from "lib/gill/model/uniform-value.type";
+import GillVertex       from "lib/gill/model/vertex.type";
 
 interface GillModel
 {
@@ -12,7 +12,7 @@ interface GillModel
 
   getAttributeData(
     attributeName : string
-  ): GillModelAttributeData;
+  ): AttributeData;
 
   getBufferIndices(): boolean;
 
@@ -35,14 +35,14 @@ interface GillModel
     texture : TextureValue
   ): this;
 
-  setTexture(
-    name    : string,
-    texture : TextureValue
-  ): this;
-
   setUniform(
     uniformName   : string,
     uniformValue  : GillUniformValue
+  ): this;
+
+  setVertex(
+    index   : number,
+    vertex  : GillVertex
   ): this;
 }
 
