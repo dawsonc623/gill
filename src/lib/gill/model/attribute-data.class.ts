@@ -61,17 +61,29 @@ class StandardAttributeData implements AttributeData
     attributeValue  : AttributeValue
   ): void
   {
-    const newData = new Array<number>();
+    const newData   = new Array<number>();
 
     attributeValue.addToAttributeData(
       newData
     );
 
-    this.data.splice(
-      index * newData.length, //TODO Is this reliable? Should data know the size of each "unit"? Probably
-      newData.length,
-      ...newData
-    );
+    const dataIndex = index * newData.length;
+
+    if (dataIndex > this.data.length)
+    {
+      for (let di = 0; di < newData.length; di += 1)
+      {
+        this.data[dataIndex + di] = newData[di];
+      }
+    }
+    else
+    {
+      this.data.splice(
+        dataIndex, //TODO Is this reliable? Should data know the size of each "unit"? Probably
+        newData.length,
+        ...newData
+      );
+    }
 
     this.hasChanged = true;
   }

@@ -129,12 +129,19 @@ var StandardAttributeData = function () {
     }, {
         key: "setValueAt",
         value: function setValueAt(index, attributeValue) {
-            var _data;
-
             var newData = new Array();
             attributeValue.addToAttributeData(newData);
-            (_data = this.data).splice.apply(_data, [index * newData.length, //TODO Is this reliable? Should data know the size of each "unit"? Probably
-            newData.length].concat(newData));
+            var dataIndex = index * newData.length;
+            if (dataIndex > this.data.length) {
+                for (var di = 0; di < newData.length; di += 1) {
+                    this.data[dataIndex + di] = newData[di];
+                }
+            } else {
+                var _data;
+
+                (_data = this.data).splice.apply(_data, [dataIndex, //TODO Is this reliable? Should data know the size of each "unit"? Probably
+                newData.length].concat(newData));
+            }
             this.hasChanged = true;
         }
     }]);
@@ -802,11 +809,12 @@ var StandardModel = function () {
         value: function addVertex(vertex) {
             var _this = this;
 
-            this.indices.addIndex(this.indices.indexCount());
+            var index = this.indices.indexCount();
+            vertex.addModelIndex(this, index);
+            this.indices.addIndex(index);
             vertex.eachAttribute(function (attributeName, attributeValue) {
-                //TODO Change this to follow the pattern used by the texture repository
-                var attributeData = _this.attributeDataRepository.getAttributeData(_this, attributeName);
-                attributeData.addAttributeValue(attributeValue);
+                //TODO Make sure this is not a performance bottleneck (array splicing versus array pushing internally)
+                _this.attributeDataRepository.setValueAt(_this, attributeName, index, attributeValue);
             });
             return this;
         }
@@ -2432,7 +2440,7 @@ var StandardGillService = function () {
     }, {
         key: "createVertex",
         value: function createVertex() {
-            return this.gillVertexFactory.construct(this.gillAttributeValueMapFactory.construct());
+            return this.gillVertexFactory.construct(this.attributeDataRepository, this.gillAttributeValueMapFactory.construct());
         }
     }, {
         key: "getProgram",
@@ -2709,13 +2717,25 @@ var StandardGillVector3Factory = function () {
 var gillVector3Factory = new StandardGillVector3Factory();
 
 var StandardGillVertex = function () {
-    function StandardGillVertex(gillAttributeValues) {
+    function StandardGillVertex(attributeDataRepository, gillAttributeValues) {
         _classCallCheck(this, StandardGillVertex);
 
+        this.attributeDataRepository = attributeDataRepository;
         this.gillAttributeValues = gillAttributeValues;
+        this.models = new Map();
     }
 
     _createClass(StandardGillVertex, [{
+        key: "addModelIndex",
+        value: function addModelIndex(model, index) {
+            var indices = this.models.get(model);
+            if (!indices) {
+                indices = new Array();
+                this.models.set(model, indices);
+            }
+            indices.push(index);
+        }
+    }, {
         key: "eachAttribute",
         value: function eachAttribute(action) {
             this.gillAttributeValues.eachValue(action);
@@ -2728,6 +2748,13 @@ var StandardGillVertex = function () {
     }, {
         key: "setAttribute",
         value: function setAttribute(name, value) {
+            var _this4 = this;
+
+            this.models.forEach(function (indices, model) {
+                indices.forEach(function (index) {
+                    _this4.attributeDataRepository.setValueAt(model, name, index, value);
+                });
+            });
             this.gillAttributeValues.setValue(name, value);
             return this;
         }
@@ -2743,8 +2770,8 @@ var StandardGillVertexFactory = function () {
 
     _createClass(StandardGillVertexFactory, [{
         key: "construct",
-        value: function construct(gillAttributeValues) {
-            return new StandardGillVertex(gillAttributeValues);
+        value: function construct(attributeDataRepository, gillAttributeValues) {
+            return new StandardGillVertex(attributeDataRepository, gillAttributeValues);
         }
     }]);
 

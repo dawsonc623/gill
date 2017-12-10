@@ -25,8 +25,12 @@ class StandardModel implements Model
     vertex  : GillVertex
   ): this
   {
+    const index = this.indices.indexCount();
+
+    vertex.addModelIndex(this, index);
+
     this.indices.addIndex(
-      this.indices.indexCount()
+      index
     );
 
     vertex.eachAttribute(
@@ -35,13 +39,11 @@ class StandardModel implements Model
         attributeValue  : GillModelAttributeValue
       ) =>
       {
-        //TODO Change this to follow the pattern used by the texture repository
-        const attributeData = this.attributeDataRepository.getAttributeData(
-                                this,
-                                attributeName
-                              );
-
-        attributeData.addAttributeValue(
+        //TODO Make sure this is not a performance bottleneck (array splicing versus array pushing internally)
+        this.attributeDataRepository.setValueAt(
+          this,
+          attributeName,
+          index,
           attributeValue
         );
       }

@@ -1,13 +1,42 @@
-import AttributeValue         from "lib/gill/model/attribute-value.type";
-import GillAttributeValueMap  from "lib/gill/model/attribute-value-map.type";
-import GillVertex             from "lib/gill/model/vertex.type";
+import AttributeDataRepository  from "lib/gill/model/attribute-data/repository.type";
+import AttributeValue           from "lib/gill/model/attribute-value.type";
+import GillAttributeValueMap    from "lib/gill/model/attribute-value-map.type";
+import Model                    from "lib/gill/model.type";
+import GillVertex               from "lib/gill/model/vertex.type";
 
 class StandardGillVertex implements GillVertex
 {
-  constructor(
-    private gillAttributeValues : GillAttributeValueMap
-  ) {
+  private models                  : Map<Model, Array<number>>;
 
+  constructor(
+    private attributeDataRepository : AttributeDataRepository,
+    private gillAttributeValues     : GillAttributeValueMap
+  ) {
+    this.models = new Map<Model, Array<number>>();
+  }
+
+  addModelIndex(
+    model : Model,
+    index : number
+  ): void
+  {
+    let indices = this.models.get(
+                    model
+                  );
+
+    if (!indices)
+    {
+      indices = new Array<number>();
+
+      this.models.set(
+        model,
+        indices
+      );
+    }
+
+    indices.push(
+      index
+    );
   }
 
   eachAttribute(
@@ -36,6 +65,23 @@ class StandardGillVertex implements GillVertex
     value : AttributeValue
   ): this
   {
+    this.models.forEach(
+      (indices, model) =>
+      {
+        indices.forEach(
+          (index) =>
+          {
+            this.attributeDataRepository.setValueAt(
+              model,
+              name,
+              index,
+              value
+            );
+          }
+        );
+      }
+    );
+
     this.gillAttributeValues.setValue(
       name,
       value

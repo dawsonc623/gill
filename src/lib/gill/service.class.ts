@@ -103,6 +103,7 @@ class StandardGillService implements GillService
   createVertex(): GillVertex
   {
     return  this.gillVertexFactory.construct(
+              this.attributeDataRepository,
               this.gillAttributeValueMapFactory.construct()
             );
   }
