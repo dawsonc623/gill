@@ -1,5 +1,5 @@
+import IndexData                        from "lib/gill/model/index-collection.type";
 import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
-import GillIndexCollection              from "lib/gill/model/index-collection.type";
 import Model                            from "lib/gill/model.type";
 import GillModelFactory                 from "lib/gill/model/factory.type";
 import TextureDataRepository            from "lib/gill/model/texture-data/repository.type";
@@ -10,7 +10,7 @@ class StandardGillModelFactory implements GillModelFactory
 {
   construct(
     gillModelAttributeDataRepository  : GillModelAttributeDataRepository,
-    indices                           : GillIndexCollection,
+    indices                           : IndexData,
     textureDataRepository             : TextureDataRepository,
     uniformValues                     : GillUniformValueMap
   ): Model

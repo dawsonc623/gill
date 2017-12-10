@@ -1,6 +1,6 @@
 import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
 import GillAttributeValueMapFactory     from "lib/gill/model/attribute-value-map/factory.type";
-import GillIndexCollectionFactory       from "lib/gill/model/index-collection/factory.type";
+import IndexDataFactory                 from "lib/gill/model/index-collection/factory.type";
 import GillModelBufferService           from "lib/gill/model-buffer-service.type";
 import GillModelFactory                 from "lib/gill/model/factory.type";
 import GillNumberFactory                from "lib/gill/model/number/factory.type";
@@ -19,7 +19,7 @@ interface GillServiceFactory
   construct(
     gillModelAttributeDataRepository  : GillModelAttributeDataRepository,
     gillAttributeValueMapFactory      : GillAttributeValueMapFactory,
-    gillIndexCollectionFactory        : GillIndexCollectionFactory,
+    indexDataFactory                  : IndexDataFactory,
     gillModelBufferService            : GillModelBufferService,
     gillModelFactory                  : GillModelFactory,
     gillNumberFactory                 : GillNumberFactory,

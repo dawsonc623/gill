@@ -1,7 +1,7 @@
 import AttributeData            from "lib/gill/model/attribute-data.type";
 import AttributeDataRepository  from "lib/gill/model/attribute-data/repository.type";
+import IndexData                from "lib/gill/model/index-collection.type";
 import GillModelAttributeValue  from "lib/gill/model/attribute-value.type";
-import GillIndexCollection      from "lib/gill/model/index-collection.type";
 import Model                    from "lib/gill/model.type";
 import TextureData              from "lib/gill/model/texture-data.type";
 import TextureDataRepository    from "lib/gill/model/texture-data/repository.type";
@@ -12,15 +12,13 @@ import GillVertex               from "lib/gill/model/vertex.type";
 
 class StandardModel implements Model
 {
-  private indicesChanged  : boolean;
-
   constructor(
     private attributeDataRepository : AttributeDataRepository,
-    private indices                 : GillIndexCollection,
+    private indices                 : IndexData,
     private textureDataRepository   : TextureDataRepository,
     private uniformValues           : GillUniformValueMap
   ) {
-    this.indicesChanged = false;
+
   }
 
   addVertex(
@@ -30,8 +28,6 @@ class StandardModel implements Model
     this.indices.addIndex(
       this.indices.indexCount()
     );
-
-    this.indicesChanged = true;
 
     vertex.eachAttribute(
       (
@@ -64,14 +60,9 @@ class StandardModel implements Model
             );
   }
 
-  getBufferIndices(): boolean
+  getIndexData(): IndexData
   {
-    return  this.indicesChanged;
-  }
-
-  getIndexData(): Array<number>
-  {
-    return  this.indices.toArray();
+    return  this.indices;
   }
 
   getTextureData(
@@ -92,13 +83,6 @@ class StandardModel implements Model
               uniformName
             )
             .toUniformData();
-  }
-
-  setBufferIndices(
-    indicesChanged: boolean
-  ): void
-  {
-    this.indicesChanged = indicesChanged;
   }
 
   setTexture(

@@ -265,14 +265,15 @@ var StandardGillAttributeValueMapFactory = function () {
 
 var gillAttributeValueMapFactory = new StandardGillAttributeValueMapFactory();
 
-var StandardGillIndexCollection = function () {
-    function StandardGillIndexCollection() {
-        _classCallCheck(this, StandardGillIndexCollection);
+var StandardIndexData = function () {
+    function StandardIndexData() {
+        _classCallCheck(this, StandardIndexData);
 
+        this.hasChanged = true;
         this.indices = new Array();
     }
 
-    _createClass(StandardGillIndexCollection, [{
+    _createClass(StandardIndexData, [{
         key: "addIndex",
         value: function addIndex(index) {
             this.indices.push(index);
@@ -306,36 +307,46 @@ var StandardGillIndexCollection = function () {
             }
         }
     }, {
+        key: "getData",
+        value: function getData() {
+            return this.indices;
+        }
+    }, {
         key: "indexCount",
         value: function indexCount() {
             return this.indices.length;
         }
     }, {
-        key: "toArray",
-        value: function toArray() {
-            return this.indices;
+        key: "needsBuffered",
+        value: function needsBuffered() {
+            return this.hasChanged;
+        }
+    }, {
+        key: "setNeedsBuffered",
+        value: function setNeedsBuffered(needsBuffered) {
+            this.hasChanged = needsBuffered;
         }
     }]);
 
-    return StandardGillIndexCollection;
+    return StandardIndexData;
 }();
 
-var StandardGillIndexCollectionFactory = function () {
-    function StandardGillIndexCollectionFactory() {
-        _classCallCheck(this, StandardGillIndexCollectionFactory);
+var StandardIndexDataFactory = function () {
+    function StandardIndexDataFactory() {
+        _classCallCheck(this, StandardIndexDataFactory);
     }
 
-    _createClass(StandardGillIndexCollectionFactory, [{
+    _createClass(StandardIndexDataFactory, [{
         key: "construct",
         value: function construct() {
-            return new StandardGillIndexCollection();
+            return new StandardIndexData();
         }
     }]);
 
-    return StandardGillIndexCollectionFactory;
+    return StandardIndexDataFactory;
 }();
 
-var gillIndexCollectionFactory = new StandardGillIndexCollectionFactory();
+var gillIndexCollectionFactory = new StandardIndexDataFactory();
 
 var StandardGillModelBufferService = function () {
     function StandardGillModelBufferService(gillBufferService) {
@@ -781,7 +792,6 @@ var StandardModel = function () {
         this.indices = indices;
         this.textureDataRepository = textureDataRepository;
         this.uniformValues = uniformValues;
-        this.indicesChanged = false;
     }
 
     _createClass(StandardModel, [{
@@ -790,7 +800,6 @@ var StandardModel = function () {
             var _this = this;
 
             this.indices.addIndex(this.indices.indexCount());
-            this.indicesChanged = true;
             vertex.eachAttribute(function (attributeName, attributeValue) {
                 //TODO Change this to follow the pattern used by the texture repository
                 var attributeData = _this.attributeDataRepository.getAttributeData(_this, attributeName);
@@ -804,14 +813,9 @@ var StandardModel = function () {
             return this.attributeDataRepository.getAttributeData(this, attributeName);
         }
     }, {
-        key: "getBufferIndices",
-        value: function getBufferIndices() {
-            return this.indicesChanged;
-        }
-    }, {
         key: "getIndexData",
         value: function getIndexData() {
-            return this.indices.toArray();
+            return this.indices;
         }
     }, {
         key: "getTextureData",
@@ -822,11 +826,6 @@ var StandardModel = function () {
         key: "getUniformData",
         value: function getUniformData(uniformName) {
             return this.uniformValues.getValue(uniformName).toUniformData();
-        }
-    }, {
-        key: "setBufferIndices",
-        value: function setBufferIndices(indicesChanged) {
-            this.indicesChanged = indicesChanged;
         }
     }, {
         key: "setTexture",
@@ -2310,12 +2309,12 @@ var StandardGillRenderer = function () {
             });
             var modelIndices = model.getIndexData();
             this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, this.gillModelBufferService.getModelIndexBuffer(model, this.webglRenderingContext));
-            if (model.getBufferIndices()) {
-                this.webglRenderingContext.bufferData(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, Uint16Array.from(modelIndices), this.webglRenderingContext.STATIC_DRAW);
-                model.setBufferIndices(false);
+            if (modelIndices.needsBuffered()) {
+                this.webglRenderingContext.bufferData(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, Uint16Array.from(modelIndices.getData()), this.webglRenderingContext.STATIC_DRAW);
+                modelIndices.setNeedsBuffered(false);
             }
             // Draw Elements
-            this.webglRenderingContext.drawElements(this.webglRenderingContext.TRIANGLES, modelIndices.length, this.webglRenderingContext.UNSIGNED_SHORT, 0);
+            this.webglRenderingContext.drawElements(this.webglRenderingContext.TRIANGLES, modelIndices.indexCount(), this.webglRenderingContext.UNSIGNED_SHORT, 0);
             this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, null);
             this.webglRenderingContext.useProgram(null);
         }
@@ -2382,12 +2381,12 @@ var gillRendererServiceFactory = new StandardGillRendererServiceFactory();
 var gillRendererService = gillRendererServiceFactory.construct(modelTextureRepository, gillProgramService, gillRendererFactory);
 
 var StandardGillService = function () {
-    function StandardGillService(attributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
+    function StandardGillService(attributeDataRepository, gillAttributeValueMapFactory, indexDataFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
         _classCallCheck(this, StandardGillService);
 
         this.attributeDataRepository = attributeDataRepository;
         this.gillAttributeValueMapFactory = gillAttributeValueMapFactory;
-        this.gillIndexCollectionFactory = gillIndexCollectionFactory;
+        this.indexDataFactory = indexDataFactory;
         this.gillModelBufferService = gillModelBufferService;
         this.gillModelFactory = gillModelFactory;
         this.gillNumberFactory = gillNumberFactory;
@@ -2410,7 +2409,7 @@ var StandardGillService = function () {
     }, {
         key: "createModel",
         value: function createModel() {
-            return this.gillModelFactory.construct(this.attributeDataRepository, this.gillIndexCollectionFactory.construct(), this.textureDataRepository, this.gillUniformValueMapFactory.construct());
+            return this.gillModelFactory.construct(this.attributeDataRepository, this.indexDataFactory.construct(), this.textureDataRepository, this.gillUniformValueMapFactory.construct());
         }
     }, {
         key: "createNumber",
@@ -2456,8 +2455,8 @@ var StandardGillServiceFactory = function () {
 
     _createClass(StandardGillServiceFactory, [{
         key: "construct",
-        value: function construct(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
-            return new StandardGillService(gillModelAttributeDataRepository, gillAttributeValueMapFactory, gillIndexCollectionFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService);
+        value: function construct(gillModelAttributeDataRepository, gillAttributeValueMapFactory, indexDataFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService) {
+            return new StandardGillService(gillModelAttributeDataRepository, gillAttributeValueMapFactory, indexDataFactory, gillModelBufferService, gillModelFactory, gillNumberFactory, gillProgramSourceFactory, gillRendererService, textureDataRepository, gillUniformValueMapFactory, gillVector2Factory, gillVector3Factory, gillVertexFactory, gillWebglService);
         }
     }]);
 

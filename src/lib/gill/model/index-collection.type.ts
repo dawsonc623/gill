@@ -1,4 +1,4 @@
-interface GillIndexCollection
+interface IndexData
 {
   addIndex(
     index : number
@@ -10,9 +10,15 @@ interface GillIndexCollection
     ) => void
   ): void;
 
+  getData(): Array<number>;
+
   indexCount(): number;
 
-  toArray(): Array<number>;
+  needsBuffered(): boolean;
+
+  setNeedsBuffered(
+    needsBuffered : boolean
+  ): void;
 }
 
-export default GillIndexCollection;
+export default IndexData;

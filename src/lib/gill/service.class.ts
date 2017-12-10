@@ -1,6 +1,6 @@
 import AttributeDataRepository      from "lib/gill/model/attribute-data/repository.type";
 import GillAttributeValueMapFactory from "lib/gill/model/attribute-value-map/factory.type";
-import GillIndexCollectionFactory   from "lib/gill/model/index-collection/factory.type";
+import IndexDataFactory             from "lib/gill/model/index-collection/factory.type";
 import GillModelBufferService       from "lib/gill/model-buffer-service.type";
 import Model                        from "lib/gill/model.type";
 import GillModelFactory             from "lib/gill/model/factory.type";
@@ -26,7 +26,7 @@ class StandardGillService implements GillService
   constructor(
     private attributeDataRepository       : AttributeDataRepository,
     private gillAttributeValueMapFactory  : GillAttributeValueMapFactory,
-    private gillIndexCollectionFactory    : GillIndexCollectionFactory,
+    private indexDataFactory              : IndexDataFactory,
     private gillModelBufferService        : GillModelBufferService,
     private gillModelFactory              : GillModelFactory,
     private gillNumberFactory             : GillNumberFactory,
@@ -60,7 +60,7 @@ class StandardGillService implements GillService
   {
     return  this.gillModelFactory.construct(
               this.attributeDataRepository,
-              this.gillIndexCollectionFactory.construct(),
+              this.indexDataFactory.construct(),
               this.textureDataRepository,
               this.gillUniformValueMapFactory.construct()
             );

@@ -1,8 +1,8 @@
-import GillIndexCollection  from "lib/gill/model/index-collection.type";
+import IndexData  from "lib/gill/model/index-collection.type";
 
-interface GillIndexCollectionFactory
+interface IndexDataFactory
 {
-  construct(): GillIndexCollection;
+  construct(): IndexData;
 }
 
-export default GillIndexCollectionFactory;
+export default IndexDataFactory;

@@ -1,13 +1,13 @@
-import GillIndexCollection          from "lib/gill/model/index-collection.type";
-import GillIndexCollectionFactory   from "lib/gill/model/index-collection/factory.type";
-import StandardGillIndexCollection  from "lib/gill/model/index-collection.class";
+import IndexData          from "lib/gill/model/index-collection.type";
+import IndexDataFactory   from "lib/gill/model/index-collection/factory.type";
+import StandardIndexData  from "lib/gill/model/index-collection.class";
 
-class StandardGillIndexCollectionFactory implements GillIndexCollectionFactory
+class StandardIndexDataFactory implements IndexDataFactory
 {
-  construct(): GillIndexCollection
+  construct(): IndexData
   {
-    return  new StandardGillIndexCollection();
+    return  new StandardIndexData();
   }
 }
 
-export default StandardGillIndexCollectionFactory;
+export default StandardIndexDataFactory;

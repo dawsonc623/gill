@@ -1,12 +1,14 @@
-import GillIndexCollection  from "lib/gill/model/index-collection.type";
+import IndexData  from "lib/gill/model/index-collection.type";
 
-class StandardGillIndexCollection implements GillIndexCollection
+class StandardIndexData implements IndexData
 {
-  private indices : Array<number>;
+  private hasChanged  : boolean;
+  private indices     : Array<number>;
 
   constructor()
   {
-    this.indices = new Array<number>();
+    this.hasChanged = true;
+    this.indices    = new Array<number>();
   }
 
   addIndex(
@@ -34,15 +36,27 @@ class StandardGillIndexCollection implements GillIndexCollection
     }
   }
 
+  getData(): Array<number>
+  {
+    return  this.indices;
+  }
+
   indexCount(): number
   {
     return  this.indices.length;
   }
 
-  toArray(): Array<number>
+  needsBuffered(): boolean
   {
-    return  this.indices;
+    return  this.hasChanged;
+  }
+
+  setNeedsBuffered(
+    needsBuffered : boolean
+  ): void
+  {
+    this.hasChanged = needsBuffered;
   }
 }
 
-export default StandardGillIndexCollection;
+export default StandardIndexData;

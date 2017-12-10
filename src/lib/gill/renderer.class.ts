@@ -178,17 +178,17 @@ class StandardGillRenderer implements GillRenderer
     );
 
     if (
-      model.getBufferIndices()
+      modelIndices.needsBuffered()
     ) {
       this.webglRenderingContext.bufferData(
         this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
         Uint16Array.from(
-          modelIndices
+          modelIndices.getData()
         ),
         this.webglRenderingContext.STATIC_DRAW
       );
 
-      model.setBufferIndices(
+      modelIndices.setNeedsBuffered(
         false
       );
     }
@@ -197,7 +197,7 @@ class StandardGillRenderer implements GillRenderer
 
     this.webglRenderingContext.drawElements(
       this.webglRenderingContext.TRIANGLES,
-      modelIndices.length,
+      modelIndices.indexCount(),
       this.webglRenderingContext.UNSIGNED_SHORT,
       0
     );
