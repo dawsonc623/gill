@@ -1,5 +1,7 @@
 import gillBufferServiceFactory       from "app/gill/buffer/service/factory";
 
+import GillBufferService              from "lib/gill/buffer/service.type";
+
 import gillAttributeBufferMapFactory  from "app/gill/attribute-buffer-map/factory";
 import gillBufferCache                from "app/gill/buffer-cache";
 import gillBufferFactory              from "app/gill/buffer/factory";

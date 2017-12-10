@@ -1,4 +1,4 @@
-interface GillWebglShaderFactory
+interface WebglShaderFactory
 {
   construct(
     webglRenderingContext : WebGLRenderingContext,
@@ -7,4 +7,4 @@ interface GillWebglShaderFactory
   ): WebGLShader;
 }
 
-export default GillWebglShaderFactory;
+export default WebglShaderFactory;

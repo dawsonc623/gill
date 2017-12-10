@@ -1,7 +1,7 @@
 import GillBuffer                 from "lib/gill/buffer.type";
 import GillBufferCache            from "lib/gill/buffer-cache.type";
 import GillContextModelsMap       from "lib/gill/context-models-map.type";
-import GillModel                  from "lib/gill/model.type";
+import Model                      from "lib/gill/model.type";
 import GillModelBufferMapFactory  from "lib/gill/model-buffer-map/factory.type";
 
 class StandardGillBufferCache implements GillBufferCache
@@ -14,7 +14,7 @@ class StandardGillBufferCache implements GillBufferCache
   }
 
   cacheBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     gillBuffer            : GillBuffer,
     webglRenderingContext : WebGLRenderingContext
   ): void
@@ -40,7 +40,7 @@ class StandardGillBufferCache implements GillBufferCache
   }
 
   getBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     webglRenderingContext : WebGLRenderingContext
   ): GillBuffer
   {
@@ -68,7 +68,7 @@ class StandardGillBufferCache implements GillBufferCache
   }
 
   hasBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     webglRenderingContext : WebGLRenderingContext
   ): boolean
   {

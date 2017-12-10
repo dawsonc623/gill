@@ -1,7 +1,7 @@
 import TypedArrayConstructor  from "lib/gill/typed-array/constructor.type";
-import Variable      from "lib/gill/program/variable/type.type";
+import VariableType           from "lib/gill/program/variable/type.type";
 
-class StandardVariable implements Variable
+class StandardVariableType implements VariableType
 {
   constructor(
     private dataType              : GLenum,
@@ -27,4 +27,4 @@ class StandardVariable implements Variable
   }
 }
 
-export default StandardVariable;
+export default StandardVariableType;

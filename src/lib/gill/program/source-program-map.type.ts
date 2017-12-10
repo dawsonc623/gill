@@ -1,7 +1,7 @@
 import GillProgram        from "lib/gill/program.type";
 import GillProgramSource  from "lib/gill/program/source.type";
 
-interface GillSourceProgramMap
+interface GillProgramMap
 {
   hasProgram(
     gillProgramSource : GillProgramSource,
@@ -17,4 +17,4 @@ interface GillSourceProgramMap
   ): void;
 }
 
-export default GillSourceProgramMap;
+export default GillProgramMap;

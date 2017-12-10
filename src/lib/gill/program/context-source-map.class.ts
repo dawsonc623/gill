@@ -1,13 +1,13 @@
 import GillContextSourceMap from "lib/gill/program/context-source-map.type";
-import GillSourceProgramMap from "lib/gill/program/source-program-map.type";
+import GillProgramMap       from "lib/gill/program/source-program-map.type";
 
 class StandardGillContextSourceMap implements GillContextSourceMap
 {
-  private contextSources  : Map<WebGLRenderingContext, GillSourceProgramMap>;
+  private contextSources  : Map<WebGLRenderingContext, GillProgramMap>;
 
   constructor()
   {
-    this.contextSources = new Map<WebGLRenderingContext, GillSourceProgramMap>();
+    this.contextSources = new Map<WebGLRenderingContext, GillProgramMap>();
   }
 
   hasSources(
@@ -21,7 +21,7 @@ class StandardGillContextSourceMap implements GillContextSourceMap
 
   getSources(
     WebGLRenderingContext : WebGLRenderingContext
-  ): GillSourceProgramMap
+  ): GillProgramMap
   {
     return  this.contextSources.get(
               WebGLRenderingContext
@@ -30,7 +30,7 @@ class StandardGillContextSourceMap implements GillContextSourceMap
 
   setSources(
     WebGLRenderingContext : WebGLRenderingContext,
-    gillProgramSources    : GillSourceProgramMap
+    gillProgramSources    : GillProgramMap
   ): void
   {
     this.contextSources.set(

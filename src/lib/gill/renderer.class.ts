@@ -1,4 +1,4 @@
-import GillModel                from "lib/gill/model.type";
+import Model                    from "lib/gill/model.type";
 import GillModelBufferService   from "lib/gill/model-buffer-service.type";
 import ModelTextureRepository   from "lib/gill/model-texture-repository.type";
 import GillProgram              from "lib/gill/program.type";
@@ -17,10 +17,27 @@ class StandardGillRenderer implements GillRenderer
   ) {
     this.webglProgram           = gillProgram.getWebglProgram();
     this.webglRenderingContext  = gillProgram.getWebglRenderingContext();
+
+    //TODO Figure this nonsense out
+
+    // Enable depth testing
+    // this.webglRenderingContext.enable(
+    //   this.webglRenderingContext.DEPTH_TEST
+    // );
+
+    // Enable alpha
+    this.webglRenderingContext.blendFunc(
+      this.webglRenderingContext.SRC_ALPHA,
+      this.webglRenderingContext.ONE_MINUS_SRC_ALPHA
+    );
+
+    this.webglRenderingContext.enable(
+      this.webglRenderingContext.BLEND
+    );
   }
 
   drawModel(
-    model : GillModel
+    model : Model
   ): void
   {
     this.webglRenderingContext.useProgram(

@@ -13,7 +13,7 @@ import GillUniformValueMapFactory       from "lib/gill/model/uniform-value-map/f
 import GillVector2Factory               from "lib/gill/model/vector2/factory.type";
 import GillVector3Factory               from "lib/gill/model/vector3/factory.type";
 import GillVertexFactory                from "lib/gill/model/vertex/factory.type";
-import GillWebglService                 from "lib/gill/webgl/service.type";
+import WebglService                     from "lib/gill/webgl/service.type";
 import StandardGillService              from "lib/gill/service.class";
 
 class StandardGillServiceFactory implements GillServiceFactory
@@ -32,7 +32,7 @@ class StandardGillServiceFactory implements GillServiceFactory
     gillVector2Factory                : GillVector2Factory,
     gillVector3Factory                : GillVector3Factory,
     gillVertexFactory                 : GillVertexFactory,
-    gillWebglService                  : GillWebglService
+    gillWebglService                  : WebglService
   ): GillService
   {
     return  new StandardGillService(

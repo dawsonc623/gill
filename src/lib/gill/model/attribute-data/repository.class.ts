@@ -65,8 +65,6 @@ class StandardGillModelAttributeDataRepository implements GillModelAttributeData
                             attributeName
                           );
 
-    console.log(`setting data for ${attributeName}`);
-
     attributeData.setValueAt(
       index,
       attributeValue

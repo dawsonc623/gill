@@ -1,8 +1,8 @@
-import VariableTypeMapFactory from "lib/gill/program/variable/type-map.type";
+import VariableTypeMap from "lib/gill/program/variable/type-map.type";
 
-interface VariableTypeMapFactoryFactory
+interface VariableTypeMapFactory
 {
-  construct(): VariableTypeMapFactory;
+  construct(): VariableTypeMap;
 }
 
-export default VariableTypeMapFactoryFactory;
+export default VariableTypeMapFactory;

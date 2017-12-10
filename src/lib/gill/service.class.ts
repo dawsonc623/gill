@@ -2,7 +2,7 @@ import AttributeDataRepository      from "lib/gill/model/attribute-data/reposito
 import GillAttributeValueMapFactory from "lib/gill/model/attribute-value-map/factory.type";
 import GillIndexCollectionFactory   from "lib/gill/model/index-collection/factory.type";
 import GillModelBufferService       from "lib/gill/model-buffer-service.type";
-import GillModel                    from "lib/gill/model.type";
+import Model                        from "lib/gill/model.type";
 import GillModelFactory             from "lib/gill/model/factory.type";
 import GillNumber                   from "lib/gill/model/number.type";
 import GillNumberFactory            from "lib/gill/model/number/factory.type";
@@ -18,7 +18,7 @@ import GillVector3                  from "lib/gill/model/vector3.type";
 import GillVector3Factory           from "lib/gill/model/vector3/factory.type";
 import GillVertex                   from "lib/gill/model/vertex.type";
 import GillVertexFactory            from "lib/gill/model/vertex/factory.type";
-import GillWebglService             from "lib/gill/webgl/service.type";
+import WebglService                 from "lib/gill/webgl/service.type";
 
 
 class StandardGillService implements GillService
@@ -37,7 +37,7 @@ class StandardGillService implements GillService
     private gillVector2Factory            : GillVector2Factory,
     private gillVector3Factory            : GillVector3Factory,
     private gillVertexFactory             : GillVertexFactory,
-    private gillWebglService              : GillWebglService
+    private gillWebglService              : WebglService
   ) {
 
   }
@@ -56,7 +56,7 @@ class StandardGillService implements GillService
     );
   }
 
-  createModel(): GillModel
+  createModel(): Model
   {
     return  this.gillModelFactory.construct(
               this.attributeDataRepository,
@@ -107,7 +107,7 @@ class StandardGillService implements GillService
   }
 
   drawModel(
-    model       : GillModel,
+    model       : Model,
     canvas      : HTMLCanvasElement,
     gillProgram : GillProgramSource
   ): void

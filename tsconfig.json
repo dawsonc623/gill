@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-      "baseUrl": "src",
-      "noImplicitAny": true,
-      "rootDir": "src",
-      "target": "es2015"
+    "baseUrl"       : "src",
+    "noImplicitAny" : true,
+    "rootDir"       : "src",
+    "target"        : "es2015"
   },
   "exclude": [
       "src/**/*.type.ts"

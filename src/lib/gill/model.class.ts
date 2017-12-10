@@ -2,7 +2,7 @@ import AttributeData            from "lib/gill/model/attribute-data.type";
 import AttributeDataRepository  from "lib/gill/model/attribute-data/repository.type";
 import GillModelAttributeValue  from "lib/gill/model/attribute-value.type";
 import GillIndexCollection      from "lib/gill/model/index-collection.type";
-import GillModel                from "lib/gill/model.type";
+import Model                    from "lib/gill/model.type";
 import TextureData              from "lib/gill/model/texture-data.type";
 import TextureDataRepository    from "lib/gill/model/texture-data/repository.type";
 import TextureValue             from "lib/gill/model/texture-value.type";
@@ -10,7 +10,7 @@ import GillUniformValue         from "lib/gill/model/uniform-value.type";
 import GillUniformValueMap      from "lib/gill/model/uniform-value-map.type";
 import GillVertex               from "lib/gill/model/vertex.type";
 
-class StandardGillModel implements GillModel
+class StandardModel implements Model
 {
   private indicesChanged  : boolean;
 
@@ -152,4 +152,4 @@ class StandardGillModel implements GillModel
   }
 }
 
-export default StandardGillModel;
+export default StandardModel;

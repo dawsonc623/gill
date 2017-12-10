@@ -1,3 +1,5 @@
+import GillProgramService         from "lib/gill/program/service.type";
+
 import attributeCollectionFactory from "app/gill/program/attribute/collection/factory";
 import attributeFactory           from "app/gill/program/attribute/factory";
 import gillProgramCache           from "app/gill/program/cache";

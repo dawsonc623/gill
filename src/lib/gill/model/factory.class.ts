@@ -1,10 +1,10 @@
 import GillModelAttributeDataRepository from "lib/gill/model/attribute-data/repository.type";
 import GillIndexCollection              from "lib/gill/model/index-collection.type";
-import GillModel                        from "lib/gill/model.type";
+import Model                            from "lib/gill/model.type";
 import GillModelFactory                 from "lib/gill/model/factory.type";
 import TextureDataRepository            from "lib/gill/model/texture-data/repository.type";
 import GillUniformValueMap              from "lib/gill/model/uniform-value-map.type";
-import StandardGillModel                from "lib/gill/model.class";
+import StandardModel                    from "lib/gill/model.class";
 
 class StandardGillModelFactory implements GillModelFactory
 {
@@ -13,9 +13,9 @@ class StandardGillModelFactory implements GillModelFactory
     indices                           : GillIndexCollection,
     textureDataRepository             : TextureDataRepository,
     uniformValues                     : GillUniformValueMap
-  ): GillModel
+  ): Model
   {
-    return  new StandardGillModel(
+    return  new StandardModel(
               gillModelAttributeDataRepository,
               indices,
               textureDataRepository,

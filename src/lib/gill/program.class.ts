@@ -1,17 +1,17 @@
-import GillProgram                          from "lib/gill/program.type";
-import GillProgramWebglAttribute            from "lib/gill/program/attribute.type";
-import GillProgramWebglAttributeCollection  from "lib/gill/program/attribute/collection.type";
-import GillProgramWebglUniform              from "lib/gill/program/uniform.type";
-import Texture                              from "lib/gill/program/texture.type";
-import TextureCollection                    from "lib/gill/program/texture/collection.type";
-import GillProgramUniformCollection         from "lib/gill/program/uniform/collection.type";
+import Attribute                    from "lib/gill/program/attribute.type";
+import AttributeCollection          from "lib/gill/program/attribute/collection.type";
+import GillProgram                  from "lib/gill/program.type";
+import Uniform                      from "lib/gill/program/uniform.type";
+import Texture                      from "lib/gill/program/texture.type";
+import TextureCollection            from "lib/gill/program/texture/collection.type";
+import GillProgramUniformCollection from "lib/gill/program/uniform/collection.type";
 
 class StandardGillProgram implements GillProgram
 {
   constructor(
     private webglRenderingContext : WebGLRenderingContext,
     private webglProgram          : WebGLProgram,
-    private attributes            : GillProgramWebglAttributeCollection,
+    private attributes            : AttributeCollection,
     private textures              : TextureCollection,
     private uniforms              : GillProgramUniformCollection
   ) {
@@ -31,7 +31,7 @@ class StandardGillProgram implements GillProgram
 
   forEachAttribute(
     action  : (
-      attribute : GillProgramWebglAttribute
+      attribute : Attribute
     ) => void
   ): void
   {
@@ -42,7 +42,7 @@ class StandardGillProgram implements GillProgram
 
   forEachUniform(
     action  : (
-      attribute : GillProgramWebglUniform
+      attribute : Uniform
     ) => void
   ): void
   {

@@ -1,8 +1,8 @@
-interface GillAttributeValue
+interface AttributeValue
 {
   addToAttributeData(
     attributeData : Array<number>
   ): void;
 }
 
-export default GillAttributeValue;
+export default AttributeValue;

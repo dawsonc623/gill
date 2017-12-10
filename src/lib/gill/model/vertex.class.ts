@@ -1,4 +1,4 @@
-import GillAttributeValue     from "lib/gill/model/attribute-value.type";
+import AttributeValue         from "lib/gill/model/attribute-value.type";
 import GillAttributeValueMap  from "lib/gill/model/attribute-value-map.type";
 import GillVertex             from "lib/gill/model/vertex.type";
 
@@ -13,7 +13,7 @@ class StandardGillVertex implements GillVertex
   eachAttribute(
     action  : (
       attributeName   : string,
-      attributeValue  : GillAttributeValue
+      attributeValue  : AttributeValue
     ) => void
   ): void
   {
@@ -24,7 +24,7 @@ class StandardGillVertex implements GillVertex
 
   getAttribute(
     name  : string
-  ): GillAttributeValue
+  ): AttributeValue
   {
     return  this.gillAttributeValues.getValue(
               name
@@ -33,7 +33,7 @@ class StandardGillVertex implements GillVertex
 
   setAttribute(
     name  : string,
-    value : GillAttributeValue
+    value : AttributeValue
   ): this
   {
     this.gillAttributeValues.setValue(

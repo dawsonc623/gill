@@ -1,5 +1,5 @@
 import GillBufferService      from "lib/gill/buffer/service.type";
-import GillModel              from "lib/gill/model.type";
+import Model                  from "lib/gill/model.type";
 import GillModelBufferService from "lib/gill/model-buffer-service.type";
 
 class StandardGillModelBufferService implements GillModelBufferService
@@ -11,7 +11,7 @@ class StandardGillModelBufferService implements GillModelBufferService
   }
 
   getModelAttributeBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     attributeName         : string,
     webglRenderingContext : WebGLRenderingContext
   ): WebGLBuffer
@@ -47,7 +47,7 @@ class StandardGillModelBufferService implements GillModelBufferService
   }
 
   getModelIndexBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     webglRenderingContext : WebGLRenderingContext
   ): WebGLBuffer
   {

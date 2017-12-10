@@ -1,3 +1,5 @@
+import WebglService                     from "lib/gill/webgl/service.type";
+
 import webglBufferRenderingContexts     from "app/gill/webgl/buffer-rendering-context-map";
 import webglProgramFactory              from "app/gill/webgl/program/factory";
 import webglProgramRenderingContexts    from "app/gill/webgl/program-rendering-context-map";

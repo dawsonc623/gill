@@ -1,10 +1,10 @@
 import GillBuffer from "lib/gill/buffer.type";
-import GillModel  from "lib/gill/model.type";
+import Model      from "lib/gill/model.type";
 
 interface GillBufferService
 {
   getModelBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     webglRenderingContext : WebGLRenderingContext
   ): GillBuffer;
 }

@@ -67,10 +67,6 @@ class StandardAttributeData implements AttributeData
       newData
     );
 
-    console.log(index);
-    console.log("old value", this.data.slice(index, index + 2));
-    console.log("new value", newData);
-
     this.data.splice(
       index * newData.length, //TODO Is this reliable? Should data know the size of each "unit"? Probably
       newData.length,

@@ -1,25 +1,25 @@
-import GillModel  from "lib/gill/model.type";
+import Model      from "lib/gill/model.type";
 import GillBuffer from "lib/gill/buffer.type";
 
 interface GillModelBufferMap
 {
   eachBuffer(
     action  : (
-      gillModel   : GillModel,
+      gillModel   : Model,
       gillBuffer  : GillBuffer
     ) => void
   ): void;
 
   hasBuffer(
-    gillModel : GillModel,
+    gillModel : Model,
   ): boolean;
 
   getBuffer(
-    gillModel : GillModel,
+    gillModel : Model,
   ): GillBuffer;
 
   setBuffer(
-    gillModel   : GillModel,
+    gillModel   : Model,
     gillBuffer  : GillBuffer
   ): void;
 }

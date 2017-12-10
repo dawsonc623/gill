@@ -1,19 +1,19 @@
 import GillModelBufferMap from "lib/gill/model-buffer-map.type";
-import GillModel          from "lib/gill/model.type";
+import Model              from "lib/gill/model.type";
 import GillBuffer         from "lib/gill/buffer.type";
 
 class StandardGillModelBufferMap implements GillModelBufferMap
 {
-  private gillModelBuffers : Map<GillModel, GillBuffer>;
+  private gillModelBuffers : Map<Model, GillBuffer>;
 
   constructor()
   {
-    this.gillModelBuffers = new Map<GillModel, GillBuffer>();
+    this.gillModelBuffers = new Map<Model, GillBuffer>();
   }
 
   eachBuffer(
     action  : (
-      gillModel   : GillModel,
+      gillModel   : Model,
       gillBuffer  : GillBuffer
     ) => void
   ): void
@@ -33,7 +33,7 @@ class StandardGillModelBufferMap implements GillModelBufferMap
   }
 
   hasBuffer(
-    gillModel : GillModel
+    gillModel : Model
   ): boolean
   {
     return  this.gillModelBuffers.has(
@@ -42,7 +42,7 @@ class StandardGillModelBufferMap implements GillModelBufferMap
   }
 
   getBuffer(
-    gillModel : GillModel
+    gillModel : Model
   ): GillBuffer
   {
     return  this.gillModelBuffers.get(
@@ -51,7 +51,7 @@ class StandardGillModelBufferMap implements GillModelBufferMap
   }
 
   setBuffer(
-    gillModel   : GillModel,
+    gillModel   : Model,
     gillBuffer  : GillBuffer
   ): void
   {

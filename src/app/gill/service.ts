@@ -1,4 +1,4 @@
-import gillServiceFactory               from "app/gill/service/factory";
+import GillService                      from "lib/gill/service.type";
 
 import gillModelAttributeDataRepository from "app/gill/model/attribute-data/repository";
 import gillAttributeValueMapFactory     from "app/gill/model/attribute-value-map/factory";
@@ -8,6 +8,7 @@ import gillModelFactory                 from "app/gill/model/factory";
 import gillNumberFactory                from "app/gill/model/number/factory";
 import gillProgramSourceFactory         from "app/gill/program/source/factory";
 import gillRendererService              from "app/gill/renderer/service";
+import gillServiceFactory               from "app/gill/service/factory";
 import textureDataRepository            from "app/gill/model/texture-data/repository";
 import gillUniformValueMapFactory       from "app/gill/model/uniform-value-map/factory";
 import gillVector2Factory               from "app/gill/model/vector2/factory";

@@ -1,9 +1,9 @@
-import GillModel  from "lib/gill/model.type";
+import Model  from "lib/gill/model.type";
 
 interface GillRenderer
 {
   drawModel(
-    model : GillModel
+    model : Model
   ): void;
 }
 

@@ -1,6 +1,6 @@
 import TypedArrayConstructor  from "lib/gill/typed-array/constructor.type";
 
-interface Variable
+interface VariableType
 {
   getDataType(): GLenum;
 
@@ -9,4 +9,4 @@ interface Variable
   getUnitSize(): GLint;
 }
 
-export default Variable;
+export default VariableType;

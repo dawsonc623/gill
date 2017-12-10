@@ -1,4 +1,4 @@
-import GillSourceProgramMap from "lib/gill/program/source-program-map.type";
+import GillProgramMap from "lib/gill/program/source-program-map.type";
 
 interface GillContextSourceMap
 {
@@ -8,11 +8,11 @@ interface GillContextSourceMap
 
   getSources(
     webglRenderingContext : WebGLRenderingContext
-  ): GillSourceProgramMap;
+  ): GillProgramMap;
 
   setSources(
     webglRenderingContext : WebGLRenderingContext,
-    gillPrograms          : GillSourceProgramMap
+    gillPrograms          : GillProgramMap
   ): void;
 }
 

@@ -1,6 +1,6 @@
-import GillProgramWebglAttribute  from "lib/gill/program/attribute.type";
-import Texture                    from "lib/gill/program/texture.type";
-import GillProgramWebglUniform    from "lib/gill/program/uniform.type";
+import Attribute  from "lib/gill/program/attribute.type";
+import Texture    from "lib/gill/program/texture.type";
+import Uniform    from "lib/gill/program/uniform.type";
 
 interface GillProgram
 {
@@ -12,13 +12,13 @@ interface GillProgram
 
   forEachAttribute(
     action  : (
-      attribute : GillProgramWebglAttribute
+      attribute : Attribute
     ) => void
   ): void;
 
   forEachUniform(
     action  : (
-      attribute : GillProgramWebglUniform
+      attribute : Uniform
     ) => void
   ): void;
 

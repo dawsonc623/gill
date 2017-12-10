@@ -4,7 +4,7 @@ import TextureValue     from "lib/gill/model/texture-value.type";
 import GillUniformValue from "lib/gill/model/uniform-value.type";
 import GillVertex       from "lib/gill/model/vertex.type";
 
-interface GillModel
+interface Model
 {
   addVertex(
     vertex  : GillVertex
@@ -46,4 +46,4 @@ interface GillModel
   ): this;
 }
 
-export default GillModel;
+export default Model;

@@ -1,25 +1,25 @@
 import GillAttributeValueMap  from "lib/gill/model/attribute-value-map.type";
-import GillAttributeValue     from "lib/gill/model/attribute-value.type";
+import AttributeValue         from "lib/gill/model/attribute-value.type";
 
 class StandardGillAttributeValueMap implements GillAttributeValueMap
 {
-  private attributeValues  : Map<string, GillAttributeValue>;
+  private attributeValues  : Map<string, AttributeValue>;
 
   constructor()
   {
-    this.attributeValues = new Map<string, GillAttributeValue>();
+    this.attributeValues = new Map<string, AttributeValue>();
   }
 
   eachValue(
     action  : (
       attributeName   : string,
-      attributeValue  : GillAttributeValue
+      attributeValue  : AttributeValue
     ) => void
   ): void
   {
     this.attributeValues.forEach(
       (
-        attributeValue  : GillAttributeValue,
+        attributeValue  : AttributeValue,
         attributeName   : string
       ) =>
       {
@@ -42,7 +42,7 @@ class StandardGillAttributeValueMap implements GillAttributeValueMap
 
   getValue(
     attributeName : string
-  ): GillAttributeValue
+  ): AttributeValue
   {
     return  this.attributeValues.get(
               attributeName
@@ -51,7 +51,7 @@ class StandardGillAttributeValueMap implements GillAttributeValueMap
 
   setValue(
     attributeName   : string,
-    attributeValue  : GillAttributeValue
+    attributeValue  : AttributeValue
   ): void
   {
     this.attributeValues.set(

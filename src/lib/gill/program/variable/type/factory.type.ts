@@ -1,13 +1,13 @@
-import TypedArrayConstructor        from "lib/gill/typed-array/constructor.type";
-import VariableTypeFactory from "lib/gill/program/variable/type.type";
+import TypedArrayConstructor  from "lib/gill/typed-array/constructor.type";
+import VariableType           from "lib/gill/program/variable/type.type";
 
-interface VariableTypeFactoryFactory
+interface VariableTypeFactory
 {
   construct(
     dataType              : GLenum,
     typedArrayConstructor : TypedArrayConstructor,
     unitSize              : GLint
-  ): VariableTypeFactory;
+  ): VariableType;
 }
 
-export default VariableTypeFactoryFactory;
+export default VariableTypeFactory;

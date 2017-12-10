@@ -1,4 +1,4 @@
-interface GillProgramWebglService
+interface ProgramWebglService
 {
   createWebglProgram(
     webglRenderingContext : WebGLRenderingContext,
@@ -17,4 +17,4 @@ interface GillProgramWebglService
   ): Array<WebGLActiveInfo>;
 }
 
-export default GillProgramWebglService;
+export default ProgramWebglService;

@@ -2,7 +2,7 @@ import GillProgramMap     from "lib/gill/program/source-program-map.type";
 import GillProgramSource  from "lib/gill/program/source.type";
 import GillProgram        from "lib/gill/program.type";
 
-class StandardGillSourceProgramMap implements GillProgramMap
+class StandardGillProgramMap implements GillProgramMap
 {
   private programs  : Map<GillProgramSource, GillProgram>;
 
@@ -41,5 +41,5 @@ class StandardGillSourceProgramMap implements GillProgramMap
   }
 }
 
-export default StandardGillSourceProgramMap;
+export default StandardGillProgramMap;
 

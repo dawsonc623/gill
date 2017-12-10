@@ -1,21 +1,21 @@
-import GillAttributeValue from "lib/gill/model/attribute-value.type";
+import AttributeValue from "lib/gill/model/attribute-value.type";
 
 interface GillVertex
 {
   eachAttribute(
     action  : (
       attributeName   : string,
-      attributeValue  : GillAttributeValue
+      attributeValue  : AttributeValue
     ) => void
   ): void;
 
   getAttribute(
     name  : string
-  ): GillAttributeValue;
+  ): AttributeValue;
 
   setAttribute(
     name  : string,
-    value : GillAttributeValue
+    value : AttributeValue
   ): this;
 }
 

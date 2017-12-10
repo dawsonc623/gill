@@ -1,8 +1,8 @@
-import WebglBufferRenderingContextMapFactory  from "lib/gill/webgl/buffer-rendering-context-map.type";
+import WebglBufferRenderingContextMap  from "lib/gill/webgl/buffer-rendering-context-map.type";
 
-interface WebglBufferRenderingContextMapFactoryFactory
+interface WebglBufferRenderingContextMapFactory
 {
-  construct(): WebglBufferRenderingContextMapFactory;
+  construct(): WebglBufferRenderingContextMap;
 }
 
-export default WebglBufferRenderingContextMapFactoryFactory;
+export default WebglBufferRenderingContextMapFactory;

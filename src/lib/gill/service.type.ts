@@ -1,4 +1,4 @@
-import GillModel          from "lib/gill/model.type";
+import Model              from "lib/gill/model.type";
 import GillNumber         from "lib/gill/model/number.type";
 import GillProgramSource  from "lib/gill/program/source.type";
 import GillVector2        from "lib/gill/model/vector2.type";
@@ -11,7 +11,7 @@ interface GillService
     canvas  : HTMLCanvasElement
   ): void;
 
-  createModel(): GillModel;
+  createModel(): Model;
 
   createNumber(
     value : number
@@ -31,7 +31,7 @@ interface GillService
   createVertex(): GillVertex;
 
   drawModel(
-    model             : GillModel,
+    model             : Model,
     canvas            : HTMLCanvasElement,
     gillProgramSource : GillProgramSource
   ): void;

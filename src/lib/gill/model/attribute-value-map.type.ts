@@ -1,11 +1,11 @@
-import GillAttributeValue from "lib/gill/model/attribute-value.type";
+import AttributeValue from "lib/gill/model/attribute-value.type";
 
 interface GillAttributeValueMap
 {
   eachValue(
     action  : (
       attributeName   : string,
-      attributeValue  : GillAttributeValue
+      attributeValue  : AttributeValue
     ) => void
   ): void;
 
@@ -15,11 +15,11 @@ interface GillAttributeValueMap
 
   getValue(
     attributeName : string,
-  ): GillAttributeValue;
+  ): AttributeValue;
 
   setValue(
     attributeName : string,
-    attributeValue : GillAttributeValue
+    attributeValue : AttributeValue
   ): void;
 }
 

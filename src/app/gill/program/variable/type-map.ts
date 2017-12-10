@@ -1,3 +1,5 @@
+import VariableTypeMap                  from "lib/gill/program/variable/type-map.type";
+
 import gillWebglVariableTypeMapFactory  from "app/gill/program/variable/type-map/factory";
 import gillWebglVariableTypeFactory     from "app/gill/program/variable/type/factory";
 

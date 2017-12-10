@@ -3,7 +3,7 @@ import GillBuffer                     from "lib/gill/buffer.type";
 import GillBufferCache                from "lib/gill/buffer-cache.type";
 import GillBufferFactory              from "lib/gill/buffer/factory.type";
 import GillBufferService              from "lib/gill/buffer/service.type";
-import GillModel                      from "lib/gill/model.type";
+import Model                          from "lib/gill/model.type";
 
 class StandardGillBufferService implements GillBufferService
 {
@@ -16,7 +16,7 @@ class StandardGillBufferService implements GillBufferService
   }
 
   getModelBuffer(
-    gillModel             : GillModel,
+    gillModel             : Model,
     webglRenderingContext : WebGLRenderingContext
   ): GillBuffer
   {

@@ -1,18 +1,18 @@
-import GillProgram                          from "lib/gill/program.type";
-import GillProgramFactory                   from "lib/gill/program/factory.type";
-import GillProgramWebglAttributeCollection  from "lib/gill/program/attribute/collection.type";
-import TextureCollection                    from "lib/gill/program/texture/collection.type";
-import GillProgramWebglUniformCollection    from "lib/gill/program/uniform/collection.type";
-import StandardGillProgram                  from "lib/gill/program.class";
+import AttributeCollection  from "lib/gill/program/attribute/collection.type";
+import GillProgram          from "lib/gill/program.type";
+import GillProgramFactory   from "lib/gill/program/factory.type";
+import TextureCollection    from "lib/gill/program/texture/collection.type";
+import UniformCollection    from "lib/gill/program/uniform/collection.type";
+import StandardGillProgram  from "lib/gill/program.class";
 
 class StandardGillProgramFactory implements GillProgramFactory
 {
   construct(
     webglRenderingContext : WebGLRenderingContext,
     webglProgram          : WebGLProgram,
-    attributes            : GillProgramWebglAttributeCollection,
+    attributes            : AttributeCollection,
     textures              : TextureCollection,
-    uniforms              : GillProgramWebglUniformCollection
+    uniforms              : UniformCollection
   ): GillProgram
   {
     return  new StandardGillProgram(

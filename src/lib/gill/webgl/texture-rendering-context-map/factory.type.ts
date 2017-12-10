@@ -1,8 +1,8 @@
-import WebglTextureRenderingContextMapFactory  from "lib/gill/webgl/texture-rendering-context-map.type";
+import WebglTextureRenderingContextMap  from "lib/gill/webgl/texture-rendering-context-map.type";
 
-interface WebglTextureRenderingContextMapFactoryFactory
+interface WebglTextureRenderingContextMapFactory
 {
-  construct(): WebglTextureRenderingContextMapFactory;
+  construct(): WebglTextureRenderingContextMap;
 }
 
-export default WebglTextureRenderingContextMapFactoryFactory;
+export default WebglTextureRenderingContextMapFactory;
