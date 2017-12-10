@@ -8,6 +8,7 @@ import GillNumber                   from "lib/gill/model/number.type";
 import GillNumberFactory            from "lib/gill/model/number/factory.type";
 import GillProgramSource            from "lib/gill/program/source.type";
 import GillProgramSourceFactory     from "lib/gill/program/source/factory.type";
+import Renderable                   from "lib/gill/renderer/renderable.type";
 import GillRendererService          from "lib/gill/renderer/service.type";
 import GillService                  from "lib/gill/service.type";
 import TextureDataRepository        from "lib/gill/model/texture-data/repository.type";
@@ -106,8 +107,19 @@ class StandardGillService implements GillService
             );
   }
 
-  drawModel(
-    model       : Model,
+  getProgram(
+    vertexShaderSource    : string,
+    fragmentShaderSource  : string
+  ): GillProgramSource
+  {
+    return  this.gillProgramSourceFactory.construct(
+              vertexShaderSource,
+              fragmentShaderSource
+            );
+  }
+
+  render(
+    renderable  : Renderable,
     canvas      : HTMLCanvasElement,
     gillProgram : GillProgramSource
   ): void
@@ -122,19 +134,8 @@ class StandardGillService implements GillService
                             gillProgram
                           );
 
-    gillRenderer.drawModel(
-      model
-    );
-  }
-
-  getProgram(
-    vertexShaderSource    : string,
-    fragmentShaderSource  : string
-  ): GillProgramSource
-  {
-    return  this.gillProgramSourceFactory.construct(
-              vertexShaderSource,
-              fragmentShaderSource
+    gillRenderer.render(
+      renderable
             );
   }
 }

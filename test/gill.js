@@ -2265,8 +2265,8 @@ var StandardGillRenderer = function () {
     }
 
     _createClass(StandardGillRenderer, [{
-        key: "drawModel",
-        value: function drawModel(model) {
+        key: "render",
+        value: function render(renderable) {
             var _this3 = this;
 
             this.webglRenderingContext.useProgram(this.webglProgram);
@@ -2274,8 +2274,8 @@ var StandardGillRenderer = function () {
             this.gillProgram.forEachAttribute(function (attribute) {
                 var attributeName = attribute.getName(),
                     attributeType = attribute.getType();
-                _this3.webglRenderingContext.bindBuffer(_this3.webglRenderingContext.ARRAY_BUFFER, _this3.gillModelBufferService.getModelAttributeBuffer(model, attributeName, _this3.webglRenderingContext));
-                var attributeData = model.getAttributeData(attributeName);
+                _this3.webglRenderingContext.bindBuffer(_this3.webglRenderingContext.ARRAY_BUFFER, _this3.gillModelBufferService.getModelAttributeBuffer(renderable, attributeName, _this3.webglRenderingContext));
+                var attributeData = renderable.getAttributeData(attributeName);
                 if (attributeData.needsBuffered()) {
                     var typedArrayConstructor = attributeType.getTypedArrayConstructor();
                     _this3.webglRenderingContext.bufferData(_this3.webglRenderingContext.ARRAY_BUFFER, typedArrayConstructor.from(attributeData.getData()), attribute.getUsage());
@@ -2291,10 +2291,10 @@ var StandardGillRenderer = function () {
                     type = texture.getType(),
                     unit = "TEXTURE" + currentTexture;
                 var bindTarget = texture.getBindTarget(),
-                    data = model.getTextureData(name),
+                    data = renderable.getTextureData(name),
                     format = data.getFormat();
                 _this3.webglRenderingContext.activeTexture(_this3.webglRenderingContext[unit]);
-                _this3.webglRenderingContext.bindTexture(bindTarget, _this3.modelTextureRepository.getTexture(model, name, _this3.webglRenderingContext));
+                _this3.webglRenderingContext.bindTexture(bindTarget, _this3.modelTextureRepository.getTexture(renderable, name, _this3.webglRenderingContext));
                 if (data.needsBuffered()) {
                     _this3.webglRenderingContext.texImage2D(texture.getImageTarget(), 0, format, format, type.getDataType(), data.getPixels());
                     data.setNeedsBuffered(false);
@@ -2308,10 +2308,10 @@ var StandardGillRenderer = function () {
                 var size = uniformType.getUnitSize(),
                     type = uniformType.getDataType() === _this3.webglRenderingContext.FLOAT ? "f" : "i";
                 var uniformFunction = "uniform" + size + type + "v";
-                _this3.webglRenderingContext[uniformFunction](uniform.getLocation(), model.getUniformData(uniform.getName()));
+                _this3.webglRenderingContext[uniformFunction](uniform.getLocation(), renderable.getUniformData(uniform.getName()));
             });
-            var modelIndices = model.getIndexData();
-            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, this.gillModelBufferService.getModelIndexBuffer(model, this.webglRenderingContext));
+            var modelIndices = renderable.getIndexData();
+            this.webglRenderingContext.bindBuffer(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, this.gillModelBufferService.getModelIndexBuffer(renderable, this.webglRenderingContext));
             if (modelIndices.needsBuffered()) {
                 this.webglRenderingContext.bufferData(this.webglRenderingContext.ELEMENT_ARRAY_BUFFER, Uint16Array.from(modelIndices.getData()), this.webglRenderingContext.STATIC_DRAW);
                 modelIndices.setNeedsBuffered(false);
@@ -2435,16 +2435,16 @@ var StandardGillService = function () {
             return this.gillVertexFactory.construct(this.gillAttributeValueMapFactory.construct());
         }
     }, {
-        key: "drawModel",
-        value: function drawModel(model, canvas, gillProgram) {
-            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
-            var gillRenderer = this.gillRendererService.getRenderer(webglRenderingContext, this.gillModelBufferService, gillProgram);
-            gillRenderer.drawModel(model);
-        }
-    }, {
         key: "getProgram",
         value: function getProgram(vertexShaderSource, fragmentShaderSource) {
             return this.gillProgramSourceFactory.construct(vertexShaderSource, fragmentShaderSource);
+        }
+    }, {
+        key: "render",
+        value: function render(renderable, canvas, gillProgram) {
+            var webglRenderingContext = this.gillWebglService.getWebglContext(canvas);
+            var gillRenderer = this.gillRendererService.getRenderer(webglRenderingContext, this.gillModelBufferService, gillProgram);
+            gillRenderer.render(renderable);
         }
     }]);
 

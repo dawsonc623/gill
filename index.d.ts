@@ -216,8 +216,8 @@ export { GillProgram };
 
 interface GillRenderer
 {
-  drawModel(
-    model : Model
+  render(
+    renderable : Renderable
   ): void;
 }
 
@@ -249,16 +249,16 @@ interface GillService
 
   createVertex(): GillVertex;
 
-  drawModel(
-    model             : Model,
-    canvas            : HTMLCanvasElement,
-    gillProgramSource : GillProgramSource
-  ): void;
-
   getProgram(
     vertexShaderSource    : string,
     fragmentShaderSource  : string
   ): GillProgramSource;
+
+  render(
+    model             : Renderable,
+    canvas            : HTMLCanvasElement,
+    gillProgramSource : GillProgramSource
+  ): void;
 }
 
 export { GillService };
@@ -274,6 +274,14 @@ interface GillContextModelsMapFactory
 }
 
 export { GillContextModelsMapFactory };
+
+
+interface GillModelBufferMapFactory
+{
+  construct(): GillModelBufferMap;
+}
+
+export { GillModelBufferMapFactory };
 
 
 interface AttributeData
@@ -473,14 +481,6 @@ interface GillVertex
 export { GillVertex };
 
 
-interface GillModelBufferMapFactory
-{
-  construct(): GillModelBufferMap;
-}
-
-export { GillModelBufferMapFactory };
-
-
 interface GillModelBufferServiceFactory
 {
   construct(
@@ -489,6 +489,47 @@ interface GillModelBufferServiceFactory
 }
 
 export { GillModelBufferServiceFactory };
+
+
+interface GillAttributeBufferMapFactory
+{
+  construct(): GillAttributeBufferMap;
+}
+
+export { GillAttributeBufferMapFactory };
+
+
+interface GillBufferCacheFactory
+{
+  construct(
+    gillContextModels         : GillContextModelsMap,
+    gillModelBufferMapFactory : GillModelBufferMapFactory
+  ): GillBufferCache;
+}
+
+export { GillBufferCacheFactory };
+
+
+interface GillBufferFactory
+{
+  construct(
+    gillAttributeBuffers  : GillAttributeBufferMap,
+    webglIndexBuffer      : WebGLBuffer
+  ): GillBuffer;
+}
+
+export { GillBufferFactory };
+
+
+interface GillBufferService
+{
+  getModelBuffer(
+    gillModel             : Model,
+    webglRenderingContext : WebGLRenderingContext
+  ): GillBuffer;
+}
+
+export { GillBufferService };
 
 
 interface ModelTextureRepositoryFactory
@@ -646,6 +687,26 @@ interface GillRendererFactory
 }
 
 export { GillRendererFactory };
+
+
+interface Renderable
+{
+  getAttributeData(
+    attributeName : string
+  ): AttributeData;
+
+  getIndexData(): IndexData;
+
+  getTextureData(
+    name  : string
+  ): TextureData;
+
+  getUniformData(
+    uniformName : string
+  ): Array<number>;
+}
+
+export { Renderable };
 
 
 interface GillRendererService
@@ -833,45 +894,30 @@ interface WebglTextureRenderingContextMap
 export { WebglTextureRenderingContextMap };
 
 
-interface GillBufferFactory
+interface IndexDataFactory
+{
+  construct(): IndexData;
+}
+
+export { IndexDataFactory };
+
+
+interface GillNumberFactory
 {
   construct(
-    gillAttributeBuffers  : GillAttributeBufferMap,
-    webglIndexBuffer      : WebGLBuffer
-  ): GillBuffer;
+    value : number
+  ): GillNumber;
 }
 
-export { GillBufferFactory };
+export { GillNumberFactory };
 
 
-interface GillBufferService
+interface GillAttributeValueMapFactory
 {
-  getModelBuffer(
-    gillModel             : Model,
-    webglRenderingContext : WebGLRenderingContext
-  ): GillBuffer;
+  construct(): GillAttributeValueMap;
 }
 
-export { GillBufferService };
-
-
-interface GillBufferCacheFactory
-{
-  construct(
-    gillContextModels         : GillContextModelsMap,
-    gillModelBufferMapFactory : GillModelBufferMapFactory
-  ): GillBufferCache;
-}
-
-export { GillBufferCacheFactory };
-
-
-interface GillAttributeBufferMapFactory
-{
-  construct(): GillAttributeBufferMap;
-}
-
-export { GillAttributeBufferMapFactory };
+export { GillAttributeValueMapFactory };
 
 
 interface GillModelAttributeDataCache
@@ -928,22 +974,6 @@ interface GillModelAttributeDataRepository
 export { GillModelAttributeDataRepository };
 
 
-interface GillAttributeValueMapFactory
-{
-  construct(): GillAttributeValueMap;
-}
-
-export { GillAttributeValueMapFactory };
-
-
-interface IndexDataFactory
-{
-  construct(): IndexData;
-}
-
-export { IndexDataFactory };
-
-
 interface TextureDataFactory
 {
   construct(
@@ -972,33 +1002,12 @@ interface TextureDataRepository
 export { TextureDataRepository };
 
 
-interface GillNumberFactory
-{
-  construct(
-    value : number
-  ): GillNumber;
-}
-
-export { GillNumberFactory };
-
-
 interface GillUniformValueMapFactory
 {
   construct(): GillUniformValueMap;
 }
 
 export { GillUniformValueMapFactory };
-
-
-interface GillVector2Factory
-{
-  construct(
-    v1  : number,
-    v2  : number
-  ): GillVector2;
-}
-
-export { GillVector2Factory };
 
 
 interface GillVector3Factory
@@ -1021,6 +1030,29 @@ interface GillVertexFactory
 }
 
 export { GillVertexFactory };
+
+
+interface GillVector2Factory
+{
+  construct(
+    v1  : number,
+    v2  : number
+  ): GillVector2;
+}
+
+export { GillVector2Factory };
+
+
+interface GillBufferServiceFactory
+{
+  construct(
+    gillAttributeBufferMapFactory : GillAttributeBufferMapFactory,
+    gillBufferCache               : GillBufferCache,
+    gillBufferFactory             : GillBufferFactory
+  ): GillBufferService;
+}
+
+export { GillBufferServiceFactory };
 
 
 interface AttributeCollection
@@ -1061,14 +1093,6 @@ interface GillProgramCacheFactory
 }
 
 export { GillProgramCacheFactory };
-
-
-interface GillContextSourceMapFactory
-{
-  construct(): GillContextSourceMap;
-}
-
-export { GillContextSourceMapFactory };
 
 
 interface GillProgramServiceFactory
@@ -1139,6 +1163,34 @@ interface TextureFactory
 export { TextureFactory };
 
 
+interface UniformCollection
+{
+  addUniform(
+    uniform : Uniform
+  ): void;
+
+  eachUniform(
+    action  : (
+      uniform : Uniform
+    ) => void
+  ): void;
+}
+
+export { UniformCollection };
+
+
+interface UniformFactory
+{
+  construct(
+    name      : string,
+    type      : VariableType,
+    location  : WebGLUniformLocation
+  ): Uniform;
+}
+
+export { UniformFactory };
+
+
 interface VariableTypeMap
 {
   eachWebglVariableType(
@@ -1175,34 +1227,6 @@ interface VariableType
 }
 
 export { VariableType };
-
-
-interface UniformCollection
-{
-  addUniform(
-    uniform : Uniform
-  ): void;
-
-  eachUniform(
-    action  : (
-      uniform : Uniform
-    ) => void
-  ): void;
-}
-
-export { UniformCollection };
-
-
-interface UniformFactory
-{
-  construct(
-    name      : string,
-    type      : VariableType,
-    location  : WebGLUniformLocation
-  ): Uniform;
-}
-
-export { UniformFactory };
 
 interface ProgramWebglService
 {
@@ -1255,6 +1279,14 @@ interface WebglBufferRenderingContextMapFactory
 
 export { WebglBufferRenderingContextMapFactory };
 
+
+interface WebglProgramRenderingContextMapFactory
+{
+  construct(): WebglProgramRenderingContextMap;
+}
+
+export { WebglProgramRenderingContextMapFactory };
+
 interface WebglProgramFactory
 {
   construct(
@@ -1265,6 +1297,14 @@ interface WebglProgramFactory
 }
 
 export { WebglProgramFactory };
+
+
+interface WebglRenderingContextRepositoryFactory
+{
+  construct(): WebglRenderingContextRepository;
+}
+
+export { WebglRenderingContextRepositoryFactory };
 
 
 interface GillWebglServiceFactory
@@ -1282,12 +1322,12 @@ interface GillWebglServiceFactory
 export { GillWebglServiceFactory };
 
 
-interface WebglRenderingContextRepositoryFactory
+interface GillContextSourceMapFactory
 {
-  construct(): WebglRenderingContextRepository;
+  construct(): GillContextSourceMap;
 }
 
-export { WebglRenderingContextRepositoryFactory };
+export { GillContextSourceMapFactory };
 
 interface WebglShaderFactory
 {
@@ -1301,40 +1341,12 @@ interface WebglShaderFactory
 export { WebglShaderFactory };
 
 
-interface WebglProgramRenderingContextMapFactory
-{
-  construct(): WebglProgramRenderingContextMap;
-}
-
-export { WebglProgramRenderingContextMapFactory };
-
-
 interface WebglTextureRenderingContextMapFactory
 {
   construct(): WebglTextureRenderingContextMap;
 }
 
 export { WebglTextureRenderingContextMapFactory };
-
-
-interface GillBufferServiceFactory
-{
-  construct(
-    gillAttributeBufferMapFactory : GillAttributeBufferMapFactory,
-    gillBufferCache               : GillBufferCache,
-    gillBufferFactory             : GillBufferFactory
-  ): GillBufferService;
-}
-
-export { GillBufferServiceFactory };
-
-
-interface GillModelAttributeDataCacheFactory
-{
-  construct(): GillModelAttributeDataCache;
-}
-
-export { GillModelAttributeDataCacheFactory };
 
 
 interface GillModelAttributeDataRepositoryFactory
@@ -1346,6 +1358,14 @@ interface GillModelAttributeDataRepositoryFactory
 }
 
 export { GillModelAttributeDataRepositoryFactory };
+
+
+interface GillModelAttributeDataCacheFactory
+{
+  construct(): GillModelAttributeDataCache;
+}
+
+export { GillModelAttributeDataCacheFactory };
 
 
 interface TextureDataRepositoryFactory
@@ -1374,18 +1394,6 @@ interface TextureCollectionFactory
 export { TextureCollectionFactory };
 
 
-interface VariableTypeFactory
-{
-  construct(
-    dataType              : GLenum,
-    typedArrayConstructor : TypedArrayConstructor,
-    unitSize              : GLint
-  ): VariableType;
-}
-
-export { VariableTypeFactory };
-
-
 interface UniformCollectionFactory
 {
   construct(): UniformCollection;
@@ -1400,6 +1408,18 @@ interface VariableTypeMapFactory
 }
 
 export { VariableTypeMapFactory };
+
+
+interface VariableTypeFactory
+{
+  construct(
+    dataType              : GLenum,
+    typedArrayConstructor : TypedArrayConstructor,
+    unitSize              : GLint
+  ): VariableType;
+}
+
+export { VariableTypeFactory };
 
 declare let gillService : GillService;
 

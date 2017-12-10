@@ -36,8 +36,8 @@ class StandardGillRenderer implements GillRenderer
     );
   }
 
-  drawModel(
-    model : Model
+  render(
+    renderable : Model
   ): void
   {
     this.webglRenderingContext.useProgram(
@@ -53,13 +53,13 @@ class StandardGillRenderer implements GillRenderer
       this.webglRenderingContext.bindBuffer(
         this.webglRenderingContext.ARRAY_BUFFER,
         this.gillModelBufferService.getModelAttributeBuffer(
-          model,
+          renderable,
           attributeName,
           this.webglRenderingContext
         )
       );
 
-      const attributeData = model.getAttributeData(
+      const attributeData = renderable.getAttributeData(
                               attributeName
                             );
 
@@ -106,7 +106,7 @@ class StandardGillRenderer implements GillRenderer
             unit  = `TEXTURE${currentTexture}`;
 
       const bindTarget  = texture.getBindTarget(),
-            data        = model.getTextureData(
+            data        = renderable.getTextureData(
                             name
                           ),
             format      = data.getFormat();
@@ -118,7 +118,7 @@ class StandardGillRenderer implements GillRenderer
       this.webglRenderingContext.bindTexture(
         bindTarget,
         this.modelTextureRepository.getTexture(
-          model,
+          renderable,
           name,
           this.webglRenderingContext
         )
@@ -161,18 +161,18 @@ class StandardGillRenderer implements GillRenderer
 
       (<any>this.webglRenderingContext)[uniformFunction](
         uniform.getLocation(),
-        model.getUniformData(
+        renderable.getUniformData(
           uniform.getName()
         )
       );
     });
 
-    const modelIndices  = model.getIndexData();
+    const modelIndices  = renderable.getIndexData();
 
     this.webglRenderingContext.bindBuffer(
       this.webglRenderingContext.ELEMENT_ARRAY_BUFFER,
       this.gillModelBufferService.getModelIndexBuffer(
-        model,
+        renderable,
         this.webglRenderingContext
       )
     );
