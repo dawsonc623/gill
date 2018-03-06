@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pokemon Violet Version - Gill Edition</title>
+</head>
+<body>
+  <canvas
+    height  = "576"
+    id      = "my_canvas"
+    style   = "background-color: black;"
+    width   = "640"
+  ></canvas>
+
+  <script src="/gill.js"></script>
+
+  <script src="/pokemon-violet-version/utility.js"></script>
+  <script src="/pokemon-violet-version/shader-sources.js"></script>
+  <script src="/pokemon-violet-version/data.js"></script>
+
+  <script>
+    const texture = new Image();
+    texture.onload = doIt;
+    texture.src   = "/pokemon-violet-version/interior.png";
+
+    function doIt()
+    {
+      const gillProgram = gill.getProgram(
+                            vertexShaderSource,
+                            fragmentShaderSource
+                          );
+
+      upstairs  = [
+                          gill.createModel(),
+                          gill.createModel()
+                        ];
+
+      upstairs[0].setUniform(
+        "uLayer",
+        gill.createNumber(
+          0
+        )
+      );
+
+      upstairs[0].setTexture(
+        "uTexture",
+        texture
+      );
+
+      upstairs[1].setUniform(
+        "uLayer",
+        gill.createNumber(
+          -0.9
+        )
+      );
+
+      upstairs[1].setTexture(
+        "uTexture",
+        texture
+      );
+
+      // Upper wall
+
+      for (let x = 0; x < 512; x += 64)
+      {
+        addTile(
+          upstairs[0],
+          [
+            {
+              "position"  : [
+                toX(x),
+                toY(0)
+              ],
+              "textureCoordinate" : [
+                tex(192),
+                tex(  0)
+              ]
+            },
+            {
+              "position"  : [
+                toX(x + 64),
+                toY(     0)
+              ],
+              "textureCoordinate" : [
+                tex(255),
+                tex(  0)
+              ]
+            },
+            {
+              "position"  : [
+                toX(x + 64),
+                toY(    64)
+              ],
+              "textureCoordinate" : [
+                tex(255),
+                tex( 64)
+              ]
+            },
+            {
+              "position"  : [
+                toX( x),
+                toY(64)
+              ],
+              "textureCoordinate" : [
+                tex(192),
+                tex( 64)
+              ]
+            }
+          ]
+        );
+      }
+
+      // The floor
+
+      for (let y = 64; y < 512; y += 64)
+      {
+        for (let x = 0; x < 512; x += 64)
+        {
+          addTile(
+            upstairs[0],
+            [
+              {
+                "position": [
+                  toX(x),
+                  toY(y)
+                ],
+                "textureCoordinate": [
+                  tex(128),
+                  tex(  0)
+                ]
+              },
+              {
+                "position": [
+                  toX(x + 64),
+                  toY(     y)
+                ],
+                "textureCoordinate": [
+                  tex(192),
+                  tex(  0)
+                ]
+              },
+              {
+                "position": [
+                  toX(x + 64),
+                  toY(y + 64)
+                ],
+                "textureCoordinate": [
+                  tex(192),
+                  tex( 64)
+                ]
+              },
+              {
+                "position": [
+                  toX(     x),
+                  toY(y + 64)
+                ],
+                "textureCoordinate": [
+                  tex(128),
+                  tex( 64)
+                ]
+              }
+            ]
+          );
+        }
+      }
+
+      // Computer bottom
+
+      const computerBottomData  = [
+        {
+          "position"  : [
+            toX( 0),
+            toY(64)
+          ],
+          "textureCoordinate" : [
+            tex(  0),
+            tex(128)
+          ]
+        },
+        {
+          "position"  : [
+            toX(64),
+            toY(64)
+          ],
+          "textureCoordinate" : [
+            tex( 64),
+            tex(128)
+          ]
+        },
+        {
+          "position"  : [
+            toX( 64),
+            toY(128)
+          ],
+          "textureCoordinate" : [
+            tex( 64),
+            tex(192)
+          ]
+        },
+        {
+          "position"  : [
+            toX(  0),
+            toY(128)
+          ],
+          "textureCoordinate" : [
+            tex(  0),
+            tex(192)
+          ]
+        }
+      ];
+
+      setTile(
+        upstairs[0],
+        48,
+        computerBottomData
+      );
+
+      // Computer Top
+
+      const computerTopData = [
+        {
+          "position"  : [
+            toX(0),
+            toY(0)
+          ],
+          "textureCoordinate" : [
+            tex( 0),
+            tex(64)
+          ]
+        },
+        {
+          "position"  : [
+            toX(64),
+            toY( 0)
+          ],
+          "textureCoordinate" : [
+            tex(64),
+            tex(64)
+          ]
+        },
+        {
+          "position"  : [
+            toX(64),
+            toY(64)
+          ],
+          "textureCoordinate" : [
+            tex( 64),
+            tex(128)
+          ]
+        },
+        {
+          "position"  : [
+            toX( 0),
+            toY(64)
+          ],
+          "textureCoordinate" : [
+            tex(  0),
+            tex(128)
+          ]
+        }
+      ];
+
+      addTile(
+        upstairs[1],
+        computerTopData
+      );
+
+      // Get the canvas
+
+      const canvas = document.getElementById("my_canvas");
+
+      // Draw it
+
+      gill.clearCanvas(
+        canvas
+      );
+
+      gill.render(
+        upstairs[0],
+        canvas,
+        gillProgram
+      );
+
+      // setTimeout(function(){
+      gill.render(
+        upstairs[1],
+        canvas,
+        gillProgram
+      );
+      // }, 0);
+    }
+  </script>
+</body>
+</html>
